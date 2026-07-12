@@ -261,6 +261,7 @@
     <nav class="tabs" role="tablist">
       <button class="tab" role="tab" aria-selected="true" data-view="dash">Status</button>
       <button class="tab" role="tab" aria-selected="false" data-view="drill">Drill</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="exam">Mock Exam</button>
       <button class="tab" role="tab" aria-selected="false" data-view="def">Deficiency Log</button>
       <button class="tab" role="tab" aria-selected="false" data-view="audio">Audio Lessons</button>
       <button class="tab" role="tab" aria-selected="false" data-view="cpe">CPE Ledger</button>
@@ -322,6 +323,70 @@
         </div>
       </div>
       <div id="drill-cards"></div>
+    </section>
+
+    <!-- ============ MOCK EXAM ============ -->
+    <section class="view" id="v-exam">
+      <div class="panel" id="exam-setup">
+        <div class="panel-head">
+          <h2>Mock exam</h2>
+          <span class="ref">Randomized &middot; proportional across domains &middot; timed</span>
+        </div>
+        <p class="lede">Pulls a fresh random set every time — proportional to each domain's share of the full bank, so it mirrors the real exam's spread rather than whatever you last drilled.</p>
+        <div class="split">
+          <div>
+            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Question count</label>
+            <select id="exam-count">
+              <option value="20">20 questions</option>
+              <option value="40" selected>40 questions</option>
+              <option value="60">60 questions</option>
+              <option value="all">All available</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Time limit</label>
+            <select id="exam-time">
+              <option value="0">No timer — untimed</option>
+              <option value="30">30 minutes</option>
+              <option value="60" selected>60 minutes</option>
+              <option value="90">90 minutes</option>
+            </select>
+          </div>
+        </div>
+        <div class="btnrow" style="margin-top:18px">
+          <button class="btn" id="exam-start">Start mock exam</button>
+        </div>
+      </div>
+
+      <div class="panel" id="exam-active" style="display:none">
+        <div class="panel-head">
+          <h2 id="exam-live-title">Exam in progress</h2>
+          <span class="ref mono" id="exam-timer">—</span>
+        </div>
+        <div class="gauge" style="margin-bottom:10px"><i id="exam-progress-fill"></i><span id="exam-progress-label"></span></div>
+        <div class="btnrow">
+          <button class="btn ghost sm" id="exam-finish">Finish exam now</button>
+        </div>
+      </div>
+      <div id="exam-cards"></div>
+
+      <div class="panel" id="exam-summary" style="display:none">
+        <div class="panel-head"><h2>Result</h2><span class="ref" id="exam-date"></span></div>
+        <div class="facts" id="exam-facts"></div>
+        <div style="margin-top:20px" id="exam-domain-breakdown"></div>
+        <div class="btnrow" style="margin-top:18px">
+          <button class="btn" id="exam-retake">New mock exam</button>
+          <button class="btn ghost" id="exam-review-misses">Review misses in Deficiency Log</button>
+        </div>
+      </div>
+
+      <div class="panel" id="exam-history-panel" style="display:none">
+        <div class="panel-head"><h2>Past attempts</h2><span class="ref">Most recent first</span></div>
+        <table>
+          <thead><tr><th>Date</th><th style="text-align:right">Score</th><th style="text-align:right">Questions</th><th>Time limit</th></tr></thead>
+          <tbody id="exam-history-body"></tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ============ DEFICIENCY LOG ============ -->
@@ -743,10 +808,240 @@
      o:["Prevail — ambiguities are construed against the drafter",
         "Lose — a patent ambiguity imposes a duty to inquire before award",
         "Recover half the disputed amount","Be entitled to reformation"],
-     a:1, e:"Contra proferentem (construe against the drafter) applies to LATENT ambiguities. A PATENT ambiguity triggers a duty to inquire before submitting. Sit on an obvious ambiguity to gain advantage and you forfeit the argument."}
+     a:1, e:"Contra proferentem (construe against the drafter) applies to LATENT ambiguities. A PATENT ambiguity triggers a duty to inquire before submitting. Sit on an obvious ambiguity to gain advantage and you forfeit the argument."},
+
+    // ---------- PRICING & COST ANALYSIS (deep set) ----------
+    {d:"AWD", q:"An FPIF contract has: Target Cost $1,000,000, Target Profit $80,000, Ceiling Price $1,200,000, share ratio 80/20 (buyer/seller). What is the Point of Total Assumption?",
+     o:["$1,000,000","$1,150,000","$1,250,000","$1,080,000"],
+     a:1, e:"PTA = Target Cost + (Ceiling Price − Target Price) / Buyer's share. Target Price = Target Cost + Target Profit = $1,080,000. PTA = $1,000,000 + ($1,200,000 − $1,080,000) / 0.80 = $1,000,000 + $150,000 = $1,150,000. Above this actual cost, the contractor absorbs 100% of further overrun — the ceiling price caps what the buyer ever pays."},
+
+    {d:"AWD", q:"Under a CPIF contract with target cost $500,000, target fee $50,000, share ratio 70/30 (buyer/seller), the contractor completes the work for an actual cost of $460,000 (a $40,000 underrun). What is the contractor's fee?",
+     o:["$50,000","$62,000","$38,000","$40,000"],
+     a:1, e:"Underrun of $40,000 is shared 70/30 — contractor keeps 30%, i.e. $12,000 added to target fee. Fee = $50,000 + $12,000 = $62,000. The share ratio rewards efficiency below target cost exactly the way it penalizes overruns above it — same mechanism, opposite direction."},
+
+    {d:"AWD", q:"A buyer wants price analysis alone to suffice, without opening cost analysis. Which condition makes that most defensible?",
+     o:["The contractor is a small business","Adequate price competition exists",
+        "The requirement is sole-source","The contract is cost-reimbursement"],
+     a:1, e:"Adequate price competition is the textbook condition under which price analysis (evaluating the total price) is sufficient without needing cost analysis (opening individual cost elements). Sole-source competition is precisely the situation that usually FORCES cost analysis, since there's no market check on the price."},
+
+    {d:"AWD", q:"Certified cost or pricing data was submitted and later found to be inaccurate, incomplete, or noncurrent as of the date of agreement, resulting in an inflated price. This exposes the contractor to:",
+     o:["Termination for default automatically","A price reduction for defective pricing",
+        "Suspension from future contracts automatically","No consequence if unintentional"],
+     a:1, e:"Defective pricing gives the Government the right to a price adjustment (reduction) equal to the amount the price was overstated because of the bad data. It doesn't require intent — even an honest but inaccurate submission triggers exposure, which is exactly why certification is taken so seriously."},
+
+    {d:"AWD", q:"A CPAF (cost-plus-award-fee) contract's award fee determination is best described as:",
+     o:["Fully disputable under the Contract Disputes Act",
+        "A subjective buyer determination against stated criteria, generally not disputable",
+        "Fixed regardless of performance","Determined by a third-party arbitrator"],
+     a:1, e:"Award fee under CPAF is the buyer's unilateral, subjective judgment measured against criteria in an award-fee plan. Courts and boards have consistently held these determinations are generally not subject to the disputes process — a sharp contrast to a CPIF fee, which is formula-driven and fully calculable."},
+
+    {d:"AWD", q:"Which contract type is most appropriate when the scope of effort cannot reasonably be estimated in advance, such as emergency repair work of unknown extent?",
+     o:["Firm-Fixed-Price","Time-and-Materials with a ceiling",
+        "Cost-Plus-Fixed-Fee","Fixed-Price-Incentive"],
+     a:1, e:"T&M is specifically reserved for situations where you genuinely cannot estimate the extent or duration of the work at the time of contracting. It requires a ceiling price and a determination that no other contract type is suitable, precisely because it otherwise removes efficiency incentives."},
+
+    {d:"AWD", q:"An IGCE built by directly copying a vendor's preliminary budgetary quote is problematic chiefly because:",
+     o:["It's too detailed","It is no longer independent, undermining its use as a price reasonableness benchmark",
+        "It must be classified","It cannot be updated later"],
+     a:1, e:"The entire value of an Independent Government Cost Estimate is that it was built without vendor input, so it functions as an unbiased benchmark for judging whether an offered price is reasonable. An estimate anchored to one vendor's number is circular — it will always validate that vendor's price."},
+
+    {d:"MGT", q:"A cost is directly traceable to Contract A, but the same TYPE of cost is pooled and allocated across multiple contracts including Contract B. Under Cost Accounting Standards, this is:",
+     o:["A violation requiring immediate correction",
+        "Permissible, provided the treatment is applied consistently in like circumstances",
+        "Only allowed for commercial contracts","Grounds for a fraud investigation"],
+     a:1, e:"CAS does not require uniform direct/indirect treatment of a cost TYPE across all contracts — it requires CONSISTENCY: like costs, in like circumstances, treated alike. A cost can legitimately be direct on one contract and indirect on another if the circumstances genuinely differ (e.g., a dedicated PM vs. a shared PM pool)."},
+
+    {d:"MGT", q:"A contractor's proposal includes $15,000 for a holiday party for contract staff. Under FAR cost principles, this cost is:",
+     o:["Allowable as a morale-building direct cost","Unallowable — entertainment costs are expressly unallowable",
+        "Allowable up to 2% of contract value","Allowable only on cost-reimbursement contracts"],
+     a:1, e:"Entertainment costs are expressly unallowable regardless of contract type or business justification, alongside alcohol, lobbying, fines/penalties, bad debts, and most advertising. 'Morale' framing doesn't rescue it — the FAR exclusion is categorical."},
+
+    {d:"MGT", q:"EVM: BAC (Budget at Completion) = $500,000. CPI = 0.80. What is the Estimate at Completion (EAC), assuming current cost performance continues?",
+     o:["$400,000","$500,000","$625,000","$580,000"],
+     a:2, e:"EAC = BAC / CPI = $500,000 / 0.80 = $625,000. A CPI below 1.0 means you're spending more than planned per unit of value earned — projecting that trend forward, the job will cost more than originally budgeted. This is the standard 'if nothing changes' EAC formula."},
+
+    {d:"MGT", q:"Two risks are identified: Risk A (30% probability, low impact) and Risk B (5% probability, severe impact). The most appropriate treatment pairing is:",
+     o:["Both mitigated the same way","Risk A mitigated or accepted; Risk B transferred (insurance/contract type)",
+        "Both transferred via insurance","Both avoided by canceling the project"],
+     a:1, e:"Match response to profile. Lower-impact risks, even if likelier, are handled through mitigation or acceptance — the cost of transfer isn't justified. High-impact, low-probability risk is the classic insurance/transfer profile, since the rare event would otherwise be catastrophic if unaddressed."},
+
+    {d:"MGT", q:"A contract manager notices a subcontractor's on-time delivery rate has dropped from 98% to 81% over two months, well before any milestone is actually missed. The best-practice response is:",
+     o:["Wait until a milestone is actually missed before acting",
+        "Proactively engage the subcontractor now to understand root cause and adjust the plan",
+        "Terminate the subcontract immediately","Escalate directly to the Government without contacting the sub first"],
+     a:1, e:"Leading indicators exist precisely so you act before the lagging indicator (a missed milestone) materializes. Waiting for the miss converts a manageable risk into a live problem. This is risk management and supply chain competency working together."},
+
+    {d:"MGT", q:"Which of the following costs is allowable under a cost-reimbursement contract, assuming it is otherwise reasonable and allocable?",
+     o:["Costs of defending against a Government claim on which the contractor lost",
+        "Reasonable travel costs for contract-related work",
+        "Contributions to a political campaign","Interest on borrowed working capital"],
+     a:1, e:"Reasonable, allocable travel is a routine allowable direct or indirect cost. The other three are all in the expressly-unallowable category: costs of an unsuccessful defense against a Government claim, political contributions, and interest on borrowings are all specifically excluded by the FAR cost principles."},
+
+    {d:"FED", q:"A construction project uses steel manufactured domestically but with 60% of raw material cost sourced from an unspecified foreign origin, purchase value $2M. No TAA-designated country is involved. This falls under:",
+     o:["Buy American Act — construction materials provision, not the standard end-product test",
+        "Trade Agreements Act automatically","Berry Amendment","Small Business Act"],
+     a:0, e:"Construction materials have a separate BAA framework from supplies/end products — a domestic construction material test focused on where the material was manufactured and mined/produced/manufactured components, applied via the Construction clause rather than the standard Buy American end-product clause. Recognizing that BAA has distinct supply vs. construction tracks is a frequently-missed nuance."},
+
+    {d:"FED", q:"Which statute specifically restricts DoD acquisition of specialty metals and certain textile/clothing items to domestic sources, separate from and generally stricter than the BAA?",
+     o:["Berry Amendment","Trade Agreements Act","Anti-Deficiency Act","Service Contract Act"],
+     a:0, e:"The Berry Amendment is a DoD-specific, generally more restrictive domestic-source requirement (clothing, textiles, specialty metals, food) with narrower exceptions than the BAA. It is not waived by TAA the way BAA is — a critical distinction if the question involves DoD rather than a civilian agency."},
+
+    {d:"FED", q:"A contracting officer wants to award without full and open competition, citing an unusual and compelling urgency. Under CICA, this justification:",
+     o:["Requires no written documentation","Requires a written Justification & Approval (J&A), limiting competition to the minimum necessary to meet the urgent need",
+        "Is prohibited entirely","Applies only to construction contracts"],
+     a:1, e:"Unusual and compelling urgency is one of CICA's recognized exceptions to full and open competition, but it still requires a documented J&A, and — this is the tested nuance — the agency must still seek offers from as many potential sources as practicable given the urgency, rather than defaulting to sole-source."},
+
+    {d:"FED", q:"The False Claims Act creates liability for a contractor that:",
+     o:["Simply makes a good-faith billing error, corrected promptly",
+        "Knowingly submits a false or fraudulent claim for payment to the Government",
+        "Loses a bid protest","Fails to meet a delivery schedule"],
+     a:1, e:"The FCA requires knowing submission of a false claim — mere negligence or a promptly-corrected honest error doesn't meet the scienter requirement. It carries treble damages and per-claim penalties, and includes a qui tam provision allowing private whistleblowers to sue on the Government's behalf and share in recovery."},
+
+    {d:"FED", q:"An 8(a) sole-source award to a certified small disadvantaged business is generally permitted up to:",
+     o:["Any dollar amount with no ceiling","A statutory dollar threshold, above which competition among eligible 8(a) firms is generally required",
+        "Only for construction contracts","Only if no other 8(a) firm exists"],
+     a:1, e:"8(a) sole-source authority has statutory dollar thresholds; above them, awards are generally competed among eligible 8(a) participants rather than sole-sourced. The exact threshold changes periodically, but the structural point — thresholds exist and drive competed vs. sole-source — is what's tested."},
+
+    {d:"FED", q:"The Service Contract Act (McNamara-O'Hara) primarily requires:",
+     o:["Domestic manufacture of services (a category error — services aren't manufactured)",
+        "Payment of locality-based prevailing wages and fringe benefits to service employees on covered contracts",
+        "Union membership for all service employees","A minimum profit margin for service contractors"],
+     a:1, e:"SCA requires contractors on covered service contracts to pay employees no less than the prevailing wage and fringe benefits for that labor category and locality, as determined by the Department of Labor. It parallels the Davis-Bacon Act's role for construction labor."},
+
+    {d:"GP", q:"A contract manager is asked by leadership to backdate a document to make a late submission appear timely. The correct response, per the CMBOK ethics framework, is to:",
+     o:["Comply since it's a minor administrative fix","Decline, and raise the request through the appropriate internal channel",
+        "Comply but keep a personal copy of the original as insurance","Resign immediately without raising it"],
+     a:1, e:"Backdating a document is falsification, not a minor fix, regardless of leadership pressure. The correct sequence is still: decline, escalate internally through the proper channel, document it. Quiet personal insurance-gathering without escalation doesn't stop the falsification from happening."},
+
+    {d:"GP", q:"Under agency theory, a principal who, with full knowledge of the facts, accepts the benefit of an agent's unauthorized act has effectively:",
+     o:["Committed fraud","Ratified the act, making it binding retroactively",
+        "Voided the underlying contract","Created a new offer requiring fresh acceptance"],
+     a:1, e:"Ratification: knowing acceptance of an unauthorized act's benefit binds the principal as if the authority had existed from the start. This is distinct from apparent authority — ratification happens AFTER the act, based on the principal's subsequent conduct, not the third party's belief at the time."},
+
+    {d:"GP", q:"A commercial (non-federal) contract states 'this agreement may only be modified by a writing signed by both parties,' yet the parties later orally agree to change the delivery date and both perform accordingly. Under most state contract law, this oral modification is:",
+     o:["Automatically void — the no-oral-modification clause is absolute",
+        "Potentially enforceable — many jurisdictions allow conduct/performance to waive a no-oral-modification clause",
+        "Only enforceable if notarized","Only enforceable in writing after the fact"],
+     a:1, e:"Most jurisdictions (and the UCC for goods) hold that a no-oral-modification clause can itself be waived by conduct — if both parties actually performed under the oral change, courts are often reluctant to let one side later hide behind the clause. This differs sharply from federal contracts, where only the CO can modify regardless of conduct."},
+
+    {d:"GP", q:"Which best distinguishes a unilateral contract from a bilateral contract?",
+     o:["Unilateral contracts are always illegal",
+        "A unilateral contract is accepted through performance of the requested act, not a return promise",
+        "Bilateral contracts require no consideration","Unilateral contracts cannot involve money"],
+     a:1, e:"In a unilateral contract, the offeror seeks an ACT, not a promise — acceptance happens when the act is performed (a reward offer is the classic example). A bilateral contract is the ordinary case: a promise exchanged for a promise. Most commercial and government contracts are bilateral."},
+
+    {d:"PRE", q:"A solicitation states evaluation will be conducted using 'lowest price technically acceptable.' During evaluation, the team wants to consider one offeror's superior technical approach as a positive discriminator to justify paying a modestly higher price. This is:",
+     o:["Permissible if documented well","Not permissible — LPTA does not allow tradeoffs between price and technical merit above the acceptable/unacceptable threshold",
+        "Permissible only for the awardee","Required under LPTA"],
+     a:1, e:"LPTA is binary on technical: acceptable or unacceptable. Once technically acceptable, price alone decides — there is no tradeoff for 'better than acceptable.' Introducing a technical discriminator under an LPTA solicitation is a basis for a successful protest, since it deviates from the stated evaluation scheme."},
+
+    {d:"PRE", q:"A Request for Information (RFI) issued during market research:",
+     o:["Obligates the Government to eventually issue a solicitation","Is generally not a solicitation and creates no obligation to award or even compete",
+        "Is a binding offer from industry","Automatically becomes the statement of work"],
+     a:1, e:"An RFI is a market research tool — it gathers information (capability, rough pricing, industry structure) without creating any procurement obligation. Responding vendors are not submitting offers, and the Government isn't committing to anything by issuing one."},
+
+    {d:"PRE", q:"Bundling multiple smaller requirements into one large contract vehicle primarily raises concern because:",
+     o:["It always violates CICA","It may exceed small businesses' capacity to compete, reducing the competitive base",
+        "It automatically requires sole source","It shortens the acquisition timeline unfairly"],
+     a:1, e:"Contract bundling consolidates requirements that small businesses could individually compete for into a package only larger firms can perform — undermining small business participation goals. Agencies generally must justify bundling and consider its impact on small business competition before proceeding."},
+
+    {d:"PRE", q:"A statement of work requires the contractor to 'use industry best practices' with no further definition. This is primarily a problem because:",
+     o:["It's too restrictive on the contractor","It's vague and unenforceable, inviting disputes over what was actually required",
+        "It automatically favors incumbents","It violates the FAR outright"],
+     a:1, e:"Vague performance language like 'best practices' without objective, measurable criteria creates exactly the kind of ambiguity that produces disputes later — neither party can point to a clear standard the work was measured against. Requirements should be specific enough to be objectively verifiable."},
+
+    {d:"POST", q:"A contract includes a liquidated damages clause specifying $500/day for late delivery. At the time of contracting, this figure was a reasonable pre-estimate of likely damages, not a penalty. If delivery is 10 days late, the buyer:",
+     o:["Must prove actual damages before collecting anything","May generally collect the stipulated $5,000 without separately proving actual damages",
+        "Cannot collect anything since damages must always be proven","May collect only if the contractor was at fault beyond a reasonable doubt"],
+     a:1, e:"A valid liquidated damages clause — one that was a reasonable pre-estimate at formation, not a punitive penalty — is enforceable without separately proving actual damages at the time of breach. Courts will strike down a clause that functions as a penalty rather than a genuine damages estimate."},
+
+    {d:"POST", q:"A Value Engineering Change Proposal (VECP) submitted by the contractor that reduces cost without degrading required performance typically results in:",
+     o:["No benefit to the contractor","A negotiated sharing of the resulting savings between contractor and Government",
+        "Automatic contract termination","Mandatory rejection unless Government-initiated"],
+     a:1, e:"VECPs incentivize contractor-driven cost reduction by sharing the savings — the contractor benefits financially from proposing a smarter, cheaper way to meet the same requirement, and the Government benefits from the net savings. It's one of the few mechanisms explicitly designed to reward contractor cost-cutting initiative."},
+
+    {d:"POST", q:"A contractor discovers, mid-performance, that Government-furnished equipment (GFE) is defective, causing delay. The contractor continues working around it without notifying the CO. Later, the contractor claims an equitable adjustment for the delay. The claim is:",
+     o:["Certain to succeed since GFE defects are automatically compensable","Weakened by the failure to give prompt notice, which is generally a precondition to recovery",
+        "Irrelevant — notice is never required for GFE issues","Automatically converted to a termination for convenience"],
+     a:1, e:"As with differing site conditions, prompt notice to the CO is generally a precondition for recovery on GFE-caused delay. Silently working around a known problem and raising it only after the fact undermines the claim — the Government loses the chance to mitigate, replace the GFE, or adjust the schedule in real time."},
+
+    {d:"POST", q:"Novation of a Government contract — transferring it to a successor entity after a merger or acquisition — requires:",
+     o:["Nothing; contracts transfer automatically upon business sale","Government consent via a novation agreement",
+        "A new competitive solicitation","Termination and immediate re-award"],
+     a:1, e:"Government contracts are not freely assignable — a change in the contracting entity (merger, acquisition, asset sale) requires the Government's consent through a formal novation agreement. Without it, the original contractor generally remains legally responsible for performance even after the underlying business changes hands."},
+
+    {d:"POST", q:"Under the Prompt Payment Act, a properly submitted, undisputed invoice on a standard contract is generally due:",
+     o:["Within 30 days of receipt of a proper invoice (absent a different negotiated term)","Within 24 hours","Within 1 year","Only after final contract closeout"],
+     a:0, e:"The Prompt Payment Act's default standard is 30 days from receipt of a proper invoice (or acceptance, if later), with interest penalties accruing on late payments. Contracts can negotiate different terms, but 30 days is the baseline most candidates should know."},
+
+    {d:"LDR", q:"A contract manager disagrees with a decision made by senior leadership after a full and fair hearing of her concerns. The CMBOK's expectation in that situation is best described as:",
+     o:["Continue to openly resist the decision to leadership and staff",
+        "Disagree and commit — voice the concern once, then support the decision professionally once made",
+        "Quietly undermine implementation","Escalate to the board immediately"],
+     a:1, e:"'Disagree and commit' is the standard leadership expectation once a decision has been made after genuine input was heard: state your view clearly when it matters, then support the decided course professionally. Continued resistance or quiet sabotage after a fair hearing undermines organizational functioning without changing the outcome."},
+
+    {d:"LDR", q:"A junior contract specialist makes a defensible but ultimately incorrect judgment call that costs the team time. The leadership response most consistent with CMBOK's developmental approach is to:",
+     o:["Publicly reprimand to deter future errors","Use it as a coaching moment — analyze the reasoning, correct the gap, preserve the specialist's willingness to make judgment calls",
+        "Remove all future decision-making authority from that person","Ignore it entirely to avoid discouragement"],
+     a:1, e:"CMBOK leadership content favors developmental coaching over punitive responses to good-faith, defensible errors — public reprimand or authority-stripping teaches people to avoid decisions altogether, which is worse for the organization long-term than an occasional correctable mistake."},
+
+    {d:"LDR", q:"Which of the following is the strongest example of leading through influence rather than positional authority?",
+     o:["Directing a subordinate to complete a task by end of day","Persuading a peer in another department to prioritize a request by clearly connecting it to their own objectives",
+        "Escalating to a shared manager to force compliance","Issuing a formal written directive"],
+     a:1, e:"Influence without authority works by connecting the request to the OTHER person's actual goals and incentives — not by directive (that's positional authority) and not by escalation (that's borrowing someone else's authority). Genuine influence changes what the other party wants to do."},
+
+    {d:"MGT", q:"A make-or-buy analysis shows outsourcing a subsystem saves 8% on unit cost, but the subsystem represents the company's core technical differentiator versus competitors. The most defensible decision is:",
+     o:["Outsource — 8% savings is decisive","Keep in-house — protecting the core competency outweighs a modest cost saving",
+        "Split the work evenly regardless of strategic fit","Default to whichever option is faster to implement"],
+     a:1, e:"Make-or-buy is a strategic decision, not purely a cost decision. Outsourcing a genuine core competency for a modest savings risks the company's long-term competitive position and IP control — the CMBOK explicitly frames this as the archetypal make-or-buy error."},
+
+    {d:"MGT", q:"A project's schedule performance index (SPI) is 1.15 and cost performance index (CPI) is 0.85. This combination most likely indicates:",
+     o:["The project is behind schedule and under budget","The project is ahead of schedule but spending more than planned to get there",
+        "The project is perfectly on track","Data entry error — this combination is impossible"],
+     a:1, e:"SPI > 1.0 means ahead of schedule (earning value faster than planned). CPI < 1.0 means over budget (spending more than the value earned). Together: the team is likely accelerating the schedule by spending more — overtime, expedited materials — a classic and realistic tradeoff, not an error."},
+
+    {d:"MGT", q:"Which is the best example of a leading (rather than lagging) performance indicator in contract management?",
+     o:["Final customer satisfaction score at contract closeout","Rate of subcontractor on-time delivery trending downward mid-performance",
+        "Total contract value at award","Number of protests filed after award decisions over the past year"],
+     a:1, e:"A leading indicator signals a coming problem before it fully materializes — a declining delivery trend mid-performance is exactly that. The other options are all lagging: they measure something only after it has already happened."},
+
+    {d:"AWD", q:"During discussions in a negotiated procurement, the Government may not:",
+     o:["Point out weaknesses in a proposal to allow correction","Favor one offeror by revealing another's technical approach or pricing",
+        "Request a final proposal revision","Discuss past performance concerns"],
+     a:1, e:"Discussions must be conducted fairly across all offerors in the competitive range, and revealing one offeror's technical solution, pricing, or trade secrets to a competitor is prohibited and taints the competition. Pointing out an offeror's own weaknesses to allow correction, by contrast, is a normal and expected part of discussions."},
+
+    {d:"AWD", q:"A protest is sustained because the agency's technical evaluation was inconsistent with the stated evaluation criteria. The most likely underlying cause, based on common protest patterns, is:",
+     o:["The awardee's price was too low","The evaluation record failed to tie findings back to the criteria actually stated in the solicitation",
+        "The protester was a large business","Too many offerors submitted proposals"],
+     a:1, e:"The single most common sustained-protest pattern is a disconnect between the stated evaluation criteria and what the record shows was actually evaluated — either different criteria were applied, or the documentation doesn't support that the stated criteria drove the decision. This reinforces why the documentation discipline in source selection matters so much."},
+
+    {d:"FED", q:"Under the Anti-Deficiency Act, a federal employee who obligates the Government to spend funds in excess of an available appropriation:",
+     o:["Faces no personal consequence if the intent was good","May be subject to administrative and even criminal penalties, regardless of intent to benefit the mission",
+        "Is protected as long as a supervisor approved it verbally","Is only liable if the amount exceeds $1 million"],
+     a:1, e:"The ADA is a strict-liability-style statute in practice — obligating funds beyond what's appropriated or authorized is a violation regardless of good intentions, and can carry administrative discipline or criminal penalties. This is exactly why it's one of the few statutes that survives even in the FAR-exempt world of Other Transactions."},
+
+    {d:"FED", q:"ITAR (International Traffic in Arms Regulations) controls exports of:",
+     o:["All commercial goods without exception","Defense articles, defense services, and related technical data on the U.S. Munitions List",
+        "Only finished weapons systems, not components or technical data","Agricultural products"],
+     a:1, e:"ITAR covers defense articles, services, and technical data on the U.S. Munitions List — including technical data and even certain oral/visual disclosures to foreign persons ('deemed exports'). It applies regardless of contract type, including OTAs, which is why export control survives even outside the FAR ecosystem."},
+
+    {d:"FED", q:"A contractor knowingly pays a kickback to a subcontractor's employee to secure favorable subcontract terms on a federal prime contract. This most directly violates:",
+     o:["The Anti-Kickback Act","The Buy American Act","The Service Contract Act","The Contract Disputes Act"],
+     a:0, e:"The Anti-Kickback Act specifically prohibits providing, soliciting, or accepting kickbacks intended to improperly influence subcontract awards or terms on federal prime contracts — separate from bribery of government officials, which falls under different anti-bribery statutes."},
+
+    {d:"GP", q:"Promissory estoppel may allow enforcement of a promise even without formal consideration when:",
+     o:["The promise was made in writing only","The promisee reasonably and detrimentally relied on the promise, and injustice can only be avoided by enforcement",
+        "The promisor is a large company","The promise involved a sum over $10,000"],
+     a:1, e:"Promissory estoppel is an equitable substitute for consideration: reasonable, detrimental reliance on a clear promise, where enforcing the promise is the only way to avoid injustice. It shows up in bid-related disputes — e.g., a sub's bid relied on by a prime in submitting its own bid."},
+
+    {d:"GP", q:"A liquidated damages clause will most likely be struck down by a court as an unenforceable penalty when:",
+     o:["It was negotiated by sophisticated parties","The stipulated amount bears no reasonable relationship to anticipated actual damages at the time of contracting",
+        "It specifies a daily rate rather than a lump sum","Both parties are corporations"],
+     a:1, e:"Courts test liquidated damages clauses at the time of FORMATION, not with hindsight: was the amount a reasonable pre-estimate of likely harm when the contract was signed? A wildly disproportionate figure — designed to punish rather than compensate — gets struck down as an unenforceable penalty regardless of how sophisticated the parties were."}
   ];
 
   Q.forEach(function(q,i){ q.id = "Q" + String(i+1).padStart(3,"0"); });
+
 
   /* ============================================================
      STATE
@@ -1039,7 +1334,214 @@
 
   function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
 
-  function renderAll(){ renderMast(); renderDash(); renderFilters(); renderDrill(); renderDef(); renderCpe(); renderAudio(); }
+  function renderAll(){ renderMast(); renderDash(); renderFilters(); renderDrill(); renderDef(); renderCpe(); renderAudio(); renderExamHistory(); }
+
+  /* ============================================================
+     MOCK EXAM
+     ============================================================ */
+  var K_EXAM_HIST = "cpcm:exam-history";
+  state.examHistory = state.examHistory || [];
+  var exam = { active:false, ids:[], answers:{}, timeLimit:0, secondsLeft:0, timerHandle:null, startedAt:null };
+
+  async function loadExamHistory(){
+    try{ var r = await store.get(K_EXAM_HIST); if(r) state.examHistory = JSON.parse(r); }catch(e){}
+  }
+  async function saveExamHistory(){
+    try{ await store.set(K_EXAM_HIST, JSON.stringify(state.examHistory)); }catch(e){}
+  }
+
+  function proportionalSample(n){
+    var byDomain = {};
+    DOMAINS.forEach(function(d){ byDomain[d.code] = Q.filter(function(q){ return q.d===d.code; }).slice(); });
+    Object.keys(byDomain).forEach(function(k){
+      var arr = byDomain[k];
+      for(var i=arr.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=arr[i];arr[i]=arr[j];arr[j]=t; }
+    });
+    if(n === "all" || n >= Q.length) return Q.map(function(q){return q.id;}).sort(function(){return Math.random()-0.5;});
+    var total = Q.length;
+    var picked = [];
+    DOMAINS.forEach(function(d){
+      var share = Math.max(1, Math.round(byDomain[d.code].length / total * n));
+      picked = picked.concat(byDomain[d.code].slice(0, share).map(function(q){return q.id;}));
+    });
+    // trim or pad to exact n
+    if(picked.length > n) picked = picked.slice(0, n);
+    if(picked.length < n){
+      var remaining = Q.filter(function(q){ return picked.indexOf(q.id) === -1; }).map(function(q){return q.id;});
+      for(var i=remaining.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=remaining[i];remaining[i]=remaining[j];remaining[j]=t; }
+      picked = picked.concat(remaining.slice(0, n-picked.length));
+    }
+    // shuffle final order
+    for(var i=picked.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=picked[i];picked[i]=picked[j];picked[j]=t; }
+    return picked;
+  }
+
+  function startExam(){
+    var n = document.getElementById("exam-count").value;
+    var mins = parseInt(document.getElementById("exam-time").value, 10);
+    exam.ids = proportionalSample(n === "all" ? "all" : parseInt(n,10));
+    exam.answers = {};
+    exam.active = true;
+    exam.timeLimit = mins;
+    exam.secondsLeft = mins * 60;
+    exam.startedAt = Date.now();
+
+    document.getElementById("exam-setup").style.display = "none";
+    document.getElementById("exam-summary").style.display = "none";
+    document.getElementById("exam-history-panel").style.display = "none";
+    document.getElementById("exam-active").style.display = "block";
+    document.getElementById("exam-live-title").textContent = exam.ids.length + " questions";
+
+    renderExamCards();
+    updateExamProgress();
+
+    if(exam.timerHandle) clearInterval(exam.timerHandle);
+    if(mins > 0){
+      document.getElementById("exam-timer").textContent = fmtTime(exam.secondsLeft);
+      exam.timerHandle = setInterval(function(){
+        exam.secondsLeft--;
+        document.getElementById("exam-timer").textContent = fmtTime(exam.secondsLeft);
+        if(exam.secondsLeft <= 0){ clearInterval(exam.timerHandle); finishExam(true); }
+      }, 1000);
+    } else {
+      document.getElementById("exam-timer").textContent = "Untimed";
+    }
+    document.getElementById("v-exam").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  function fmtTime(s){
+    if(s < 0) s = 0;
+    var m = Math.floor(s/60), sec = s%60;
+    return m + ":" + (sec<10?"0":"") + sec;
+  }
+
+  function renderExamCards(){
+    var box = document.getElementById("exam-cards");
+    box.innerHTML = "";
+    exam.ids.forEach(function(id, idx){
+      var q = Q.filter(function(qq){ return qq.id===id; })[0];
+      if(!q) return;
+      var picked = exam.answers[id];
+      var dom = DOMAINS.filter(function(d){return d.code===q.d;})[0];
+      var wrap = document.createElement("article");
+      wrap.className = "clause";
+      wrap.innerHTML =
+        '<div class="clause-hd"><span class="clause-ref">Q' + (idx+1) + ' of ' + exam.ids.length + ' &middot; ' + q.d + ' <em>' + dom.name + '</em></span></div>' +
+        '<div class="clause-body"><p class="qtext">' + q.q + '</p></div>';
+      var body = wrap.querySelector(".clause-body");
+      q.o.forEach(function(text, oi){
+        var b = document.createElement("button");
+        b.className = "opt" + (picked===oi ? " hit" : "");
+        b.innerHTML = '<span class="k">' + "ABCD"[oi] + '</span><span>' + text + '</span>';
+        b.onclick = function(){
+          exam.answers[id] = oi;
+          renderExamCards();
+          updateExamProgress();
+        };
+        body.appendChild(b);
+      });
+      box.appendChild(wrap);
+    });
+  }
+
+  function updateExamProgress(){
+    var answered = Object.keys(exam.answers).length;
+    var pct = Math.round(answered / exam.ids.length * 100);
+    document.getElementById("exam-progress-fill").style.width = pct + "%";
+    document.getElementById("exam-progress-label").textContent = answered + " / " + exam.ids.length + " answered";
+  }
+
+  function finishExam(autoSubmit){
+    if(exam.timerHandle) clearInterval(exam.timerHandle);
+    exam.active = false;
+    document.getElementById("exam-active").style.display = "none";
+    document.getElementById("exam-cards").innerHTML = "";
+
+    var correct = 0;
+    var domainTally = {};
+    DOMAINS.forEach(function(d){ domainTally[d.code] = {right:0, total:0}; });
+    exam.ids.forEach(function(id){
+      var q = Q.filter(function(qq){ return qq.id===id; })[0];
+      if(!q) return;
+      var picked = exam.answers[id];
+      var isCorrect = picked === q.a;
+      if(isCorrect) correct++;
+      domainTally[q.d].total++;
+      if(isCorrect) domainTally[q.d].right++;
+      // feed into main results/deficiency tracking too
+      if(picked !== undefined){
+        state.results[q.id] = { picked:picked, correct:isCorrect, t: Date.now() };
+      }
+    });
+    saveResults();
+
+    var pct = Math.round(correct / exam.ids.length * 100);
+    var record = {
+      date: new Date().toISOString(),
+      total: exam.ids.length,
+      correct: correct,
+      pct: pct,
+      timeLimit: exam.timeLimit,
+      auto: !!autoSubmit
+    };
+    state.examHistory.unshift(record);
+    state.examHistory = state.examHistory.slice(0, 20);
+    saveExamHistory();
+
+    document.getElementById("exam-summary").style.display = "block";
+    document.getElementById("exam-history-panel").style.display = "block";
+    document.getElementById("exam-date").textContent = new Date(record.date).toLocaleString() + (autoSubmit ? " — time expired" : "");
+    document.getElementById("exam-facts").innerHTML =
+      '<div class="fact"><div class="v">' + correct + ' / ' + exam.ids.length + '</div><div class="l">Correct</div></div>' +
+      '<div class="fact"><div class="v">' + pct + '%</div><div class="l">Score</div></div>' +
+      '<div class="fact"><div class="v">' + (exam.timeLimit || "—") + '</div><div class="l">Minute limit</div></div>';
+
+    var bd = document.getElementById("exam-domain-breakdown");
+    bd.innerHTML = '<div class="panel-head" style="border-bottom:2px solid var(--rule-hard);padding-bottom:9px;margin-bottom:10px"><h2 style="font-size:15px">By domain</h2></div>';
+    DOMAINS.forEach(function(d){
+      var t = domainTally[d.code];
+      if(t.total === 0) return;
+      var p = Math.round(t.right/t.total*100);
+      var cls = p>=80?"good":(p<60?"bad":"");
+      var row = document.createElement("div");
+      row.className = "drow";
+      row.innerHTML = '<div class="dcode">' + d.code + '</div><div class="dname">' + d.name + '</div>' +
+        '<div class="bar ' + cls + '"><i style="width:' + p + '%"></i></div>' +
+        '<div class="dpct">' + p + '%<br><span style="font-size:10px">' + t.right + '/' + t.total + '</span></div>';
+      bd.appendChild(row);
+    });
+
+    renderExamHistory();
+    renderAll();
+    document.getElementById("exam-summary").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  function renderExamHistory(){
+    var body = document.getElementById("exam-history-body");
+    if(!body) return;
+    body.innerHTML = "";
+    if(state.examHistory.length === 0){
+      document.getElementById("exam-history-panel").style.display = "none";
+      return;
+    }
+    document.getElementById("exam-history-panel").style.display = "block";
+    state.examHistory.forEach(function(r){
+      var tr = document.createElement("tr");
+      tr.innerHTML = '<td>' + new Date(r.date).toLocaleDateString() + '</td>' +
+        '<td class="num">' + r.pct + '%</td>' +
+        '<td class="num">' + r.correct + '/' + r.total + '</td>' +
+        '<td>' + (r.timeLimit ? r.timeLimit + ' min' + (r.auto?' (expired)':'') : 'Untimed') + '</td>';
+      body.appendChild(tr);
+    });
+  }
+
+  document.getElementById("exam-start").onclick = startExam;
+  document.getElementById("exam-finish").onclick = function(){ finishExam(false); };
+  document.getElementById("exam-retake").onclick = function(){
+    document.getElementById("exam-setup").style.display = "block";
+    document.getElementById("exam-summary").style.display = "none";
+  };
+  document.getElementById("exam-review-misses").onclick = function(){ show("def"); };
 
   /* ============================================================
      AUDIO LESSONS
@@ -1266,9 +1768,11 @@
      ============================================================ */
   load().then(function(){
     loadAudioProgress().then(function(){
-      renderSteps();
-      renderAll();
-      if(store.kind === "memory") setStatus("in-memory only — progress will not persist");
+      loadExamHistory().then(function(){
+        renderSteps();
+        renderAll();
+        if(store.kind === "memory") setStatus("in-memory only — progress will not persist");
+      });
     });
   });
 

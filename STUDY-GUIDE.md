@@ -563,6 +563,98 @@ A **small business prime is exempt** — it's the objective, not the vehicle for
 
 ---
 
+# Deep Dive: Pricing & Cost Analysis
+
+*This is the section that trips up experienced candidates hardest — it's the one part of the exam that feels theoretical even after years of doing the job for real. Worked examples below, not just definitions.*
+
+## The core distinction, restated precisely
+
+**Price analysis** examines the *total* price as a package — you're asking "is this a fair number," using comparisons: other offers, catalog prices, historical prices, an independent estimate. You never open the contractor's books.
+
+**Cost analysis** opens the books — labor hours and rates, material costs, indirect rates, profit — and evaluates each *element*.
+
+The rule that decides which one you need: **adequate price competition normally makes price analysis sufficient on its own.** You don't need to see inside the cost structure if the market has already tested the price through genuine competition. Cost analysis becomes necessary when there *isn't* a reliable market check — sole source, limited competition, or a highly customized requirement.
+
+## Worked example: Fixed-Price-Incentive, Point of Total Assumption
+
+FPIF contracts have a ceiling — past a certain actual cost, the contractor eats 100% of the overrun. That crossover point is the **Point of Total Assumption (PTA)**.
+
+```
+PTA = Target Cost + (Ceiling Price − Target Price) / Buyer's Share Ratio
+```
+
+**Example.** Target Cost = $1,000,000. Target Profit = $80,000. Ceiling Price = $1,200,000. Share ratio = 80/20 (buyer/seller).
+
+- Target Price = Target Cost + Target Profit = $1,080,000
+- PTA = $1,000,000 + ($1,200,000 − $1,080,000) / 0.80
+- PTA = $1,000,000 + $150,000 = **$1,150,000**
+
+**What this means in practice:** if actual cost stays under $1,150,000, the buyer and seller are still sharing overrun/underrun at 80/20. The moment actual cost crosses $1,150,000, every additional dollar comes entirely out of the contractor's pocket, because the ceiling price ($1,200,000) is a hard cap on what the buyer will ever pay. A contract manager watching cost performance approach the PTA should treat it as a genuine early-warning signal — past that line, the contractor's incentive structure changes completely.
+
+## Worked example: CPIF share ratio, both directions
+
+Target Cost = $500,000. Target Fee = $50,000. Share ratio = 70/30 (buyer/seller). Minimum fee = $20,000, maximum fee = $80,000 (CPIF always has both).
+
+**If the contractor underruns** — actual cost comes in at $460,000 (a $40,000 underrun):
+- Contractor's share of the underrun = 30% × $40,000 = $12,000
+- Final fee = $50,000 + $12,000 = **$62,000**
+
+**If the contractor overruns** — actual cost comes in at $560,000 (a $60,000 overrun):
+- Contractor's share of the overrun = 30% × $60,000 = $18,000 (subtracted)
+- Final fee = $50,000 − $18,000 = **$32,000**
+
+Same mechanism, opposite direction — that symmetry is exactly the incentive. Note the fee floor and ceiling: no matter how badly cost runs, the fee can't go below the stated minimum (though it can go to zero or even negative under some clause variants — check the specific contract), and no matter how well the contractor performs, fee can't exceed the maximum.
+
+## Cost allowability — worked through the four-part test
+
+A cost has to pass **all four** to be chargeable to a government contract:
+
+1. **Reasonable** — what a prudent business would spend in a competitive environment
+2. **Allocable** — it genuinely benefits this specific contract (or a base it's properly allocated across)
+3. **Compliant** — with CAS, GAAP, and the specific contract's terms
+4. **Not expressly unallowable**
+
+**Worked example.** A contractor proposes $15,000 for a year-end party for the program team, framed as a morale/retention cost. Walk the test: Is it reasonable? Maybe, in isolation. Is it allocable? Arguably, if it benefits contract performance through retention. Does it comply with CAS/GAAP? No obstacle there specifically. **But it fails test 4** — entertainment costs are *expressly* unallowable under FAR cost principles, full stop, regardless of how the other three tests come out. One failed prong kills the whole cost. This is why the "expressly unallowable" list is worth memorizing outright rather than reasoning through the first three tests every time: **lobbying, entertainment, alcohol, fines and penalties, bad debts, most advertising, contributions/donations, and interest on borrowings.**
+
+## Direct vs. indirect — the consistency trap
+
+The same *type* of cost can legitimately be direct on one contract and indirect on another. A dedicated project manager assigned solely to Contract A is a direct cost there. A shared program manager overseeing Contracts A, B, and C simultaneously is indirect, pooled into overhead and allocated across all three.
+
+**What Cost Accounting Standards actually require isn't a fixed direct/indirect label — it's consistency.** Once a contractor decides how to treat a given cost in given circumstances, they have to treat *like* costs the *same way* in *like* circumstances, contract to contract. A CAS violation isn't "you called something indirect" — it's "you treated the same circumstance two different ways without justification."
+
+## Earned Value Management — the full worked example
+
+Three raw numbers, one project, one snapshot in time:
+
+- **PV** (Planned Value) = $90,000 — what you expected to have earned by today
+- **EV** (Earned Value) = $80,000 — what you've actually earned
+- **AC** (Actual Cost) = $100,000 — what you've actually spent
+
+```
+CV  = EV − AC   = 80,000 − 100,000 = −$20,000   (over budget)
+SV  = EV − PV   = 80,000 − 90,000  = −$10,000   (behind schedule)
+CPI = EV / AC   = 80,000 / 100,000 = 0.80        (spending $1.25 to earn $1.00)
+SPI = EV / PV   = 80,000 / 90,000  = 0.89        (earning value ~11% slower than planned)
+```
+
+**Projecting forward** — if this performance rate continues for the rest of the project:
+
+```
+EAC = BAC / CPI
+```
+
+If the total Budget at Completion (BAC) is $500,000: EAC = $500,000 / 0.80 = **$625,000** — the project is now projected to cost $125,000 more than originally budgeted, assuming nothing changes.
+
+**The mnemonic, one more time because it's worth repeating until automatic:** every variance is *earned value minus something*, every index is *earned value over something*. Negative variance, sub-1.0 index — always bad. There's no version of this math where you need to remember which number "goes first"; EV is always the anchor.
+
+## Certified cost or pricing data — what certification actually creates
+
+The "Truthful Cost or Pricing Data" statute (the old TINA) requires certification above a dollar threshold — **unless** one of these applies: adequate price competition, prices set by law/regulation, commercial products/services, or an agency waiver.
+
+**Why the exception matters more than it looks like it should:** certification is what creates **defective pricing** exposure. If the contractor certified the data was accurate, complete, and current as of the date of agreement, and it later turns out that wasn't true, the Government can claw back the amount the price was inflated by — regardless of whether the inaccuracy was intentional. No certification requirement means no defective pricing exposure, full stop. So when a question gives you facts suggesting one of the four exceptions applies, it isn't a technicality to skip past — it's telling you the entire downstream risk picture changes.
+
+
+
 # The night before
 
 Ten things worth reading one last time:
