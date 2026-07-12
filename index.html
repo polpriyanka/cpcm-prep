@@ -262,6 +262,7 @@
       <button class="tab" role="tab" aria-selected="true" data-view="dash">Status</button>
       <button class="tab" role="tab" aria-selected="false" data-view="drill">Drill</button>
       <button class="tab" role="tab" aria-selected="false" data-view="def">Deficiency Log</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="audio">Audio Lessons</button>
       <button class="tab" role="tab" aria-selected="false" data-view="cpe">CPE Ledger</button>
       <button class="tab" role="tab" aria-selected="false" data-view="ref">Exam Facts</button>
     </nav>
@@ -333,6 +334,35 @@
         <p class="lede">A deficiency clears when you answer it correctly. Miss it again and it stays open.</p>
       </div>
       <div id="def-cards"></div>
+    </section>
+
+    <!-- ============ AUDIO LESSONS ============ -->
+    <section class="view" id="v-audio">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Audio lessons</h2>
+          <span class="ref">Spoken narration &middot; built-in voice</span>
+        </div>
+        <p class="lede">Read aloud using your device's own text-to-speech — works on phone or laptop, no download, no app. Pick a lesson, hit play, listen while you drive or do dishes. Pace is adjustable.</p>
+        <div id="audio-unsupported" style="display:none" class="empty">
+          <div class="big">Speech isn't available in this browser.</div>
+          <p>Try Safari or Chrome on desktop or iOS — both support built-in text-to-speech.</p>
+        </div>
+        <div id="audio-controls" class="btnrow" style="margin-bottom:16px">
+          <button class="btn" id="a-play">▶ Play</button>
+          <button class="btn ghost" id="a-pause">Pause</button>
+          <button class="btn ghost" id="a-stop">Stop</button>
+          <select id="a-rate" style="width:auto">
+            <option value="0.8">0.8× — slower</option>
+            <option value="1" selected>1.0× — normal</option>
+            <option value="1.15">1.15×</option>
+            <option value="1.3">1.3× — faster</option>
+          </select>
+          <select id="a-voice" style="width:auto;max-width:220px"></select>
+        </div>
+        <div class="gauge" style="margin-bottom:6px"><i id="a-fill" style="width:0%"></i><span id="a-status">Nothing playing</span></div>
+      </div>
+      <div id="audio-list"></div>
     </section>
 
     <!-- ============ CPE LEDGER ============ -->
@@ -418,6 +448,7 @@
   </div>
 </div>
 
+<script src="audio-lessons.js"></script>
 <script>
 (function(){
   "use strict";
@@ -1008,7 +1039,143 @@
 
   function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
 
-  function renderAll(){ renderMast(); renderDash(); renderFilters(); renderDrill(); renderDef(); renderCpe(); }
+  function renderAll(){ renderMast(); renderDash(); renderFilters(); renderDrill(); renderDef(); renderCpe(); renderAudio(); }
+
+  /* ============================================================
+     AUDIO LESSONS
+     ============================================================ */
+  var LESSONS = window.AUDIO_LESSONS || [];
+  var speech = {
+    supported: "speechSynthesis" in window,
+    current: null,     // lesson id currently loaded
+    utter: null,
+    playing: false,
+    voices: []
+  };
+  var K_AUDIO = "cpcm:audio-progress";
+  state.audioDone = state.audioDone || {};
+
+  async function loadAudioProgress(){
+    try{ var r = await store.get(K_AUDIO); if(r) state.audioDone = JSON.parse(r); }
+    catch(e){ /* none yet */ }
+  }
+  async function saveAudioProgress(){
+    try{ await store.set(K_AUDIO, JSON.stringify(state.audioDone)); }catch(e){}
+  }
+
+  function populateVoices(){
+    if(!speech.supported) return;
+    speech.voices = window.speechSynthesis.getVoices().filter(function(v){ return v.lang.indexOf("en") === 0; });
+    var sel = document.getElementById("a-voice");
+    if(!sel) return;
+    var current = sel.value;
+    sel.innerHTML = "";
+    speech.voices.forEach(function(v, i){
+      var o = document.createElement("option");
+      o.value = i;
+      o.textContent = v.name + (v.default ? " (default)" : "");
+      sel.appendChild(o);
+    });
+    if(current) sel.value = current;
+  }
+  if(speech.supported){
+    window.speechSynthesis.onvoiceschanged = populateVoices;
+  }
+
+  function renderAudio(){
+    if(!speech.supported){
+      document.getElementById("audio-unsupported").style.display = "block";
+      document.getElementById("audio-controls").style.display = "none";
+      return;
+    }
+    populateVoices();
+    var box = document.getElementById("audio-list");
+    box.innerHTML = "";
+    LESSONS.forEach(function(l){
+      var done = !!state.audioDone[l.id];
+      var isCurrent = speech.current === l.id;
+      var card = document.createElement("article");
+      card.className = "clause" + (done ? " correct" : "") + (isCurrent ? " wrong" : ""); // reuse accent colors; wrong-color = "in progress" accent
+      if(isCurrent) card.style.borderLeftColor = "var(--blue)";
+      card.innerHTML =
+        '<div class="clause-hd"><span class="clause-ref">' + l.title + ' <em>~' + l.minutes + ' min</em></span>' +
+        (done ? '<span class="verdict ok">Listened</span>' : (isCurrent ? '<span class="verdict" style="color:var(--blue);border-color:var(--blue)">Playing</span>' : '')) +
+        '</div><div class="clause-body">' +
+        '<p class="qtext" style="font-size:13.5px;color:var(--muted)">' + l.script.slice(0,140).replace(/\s+/g," ") + '&hellip;</p>' +
+        '<div class="btnrow"><button class="btn sm play-lesson" data-id="' + l.id + '">' + (isCurrent && speech.playing ? "▶ Playing" : "▶ Play this lesson") + '</button>' +
+        '<button class="btn ghost sm mark-lesson" data-id="' + l.id + '">' + (done ? "Mark unheard" : "Mark as listened") + '</button></div>' +
+        '</div>';
+      box.appendChild(card);
+    });
+    box.querySelectorAll(".play-lesson").forEach(function(b){
+      b.onclick = function(){ playLesson(b.dataset.id); };
+    });
+    box.querySelectorAll(".mark-lesson").forEach(function(b){
+      b.onclick = function(){
+        var id = b.dataset.id;
+        if(state.audioDone[id]) delete state.audioDone[id]; else state.audioDone[id] = true;
+        saveAudioProgress(); renderAudio(); renderMast();
+      };
+    });
+  }
+
+  function playLesson(id){
+    if(!speech.supported) return;
+    var lesson = LESSONS.filter(function(l){ return l.id===id; })[0];
+    if(!lesson) return;
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(lesson.script);
+    var rate = parseFloat(document.getElementById("a-rate").value) || 1;
+    u.rate = rate;
+    var vIdx = document.getElementById("a-voice").value;
+    if(speech.voices[vIdx]) u.voice = speech.voices[vIdx];
+    u.onend = function(){
+      speech.playing = false;
+      state.audioDone[id] = true;
+      saveAudioProgress();
+      document.getElementById("a-status").textContent = lesson.title + " — finished";
+      document.getElementById("a-fill").style.width = "100%";
+      renderAudio(); renderMast();
+    };
+    u.onerror = function(){ speech.playing = false; document.getElementById("a-status").textContent = "Stopped"; };
+    u.onboundary = function(e){
+      if(e.charIndex){
+        var pct = Math.min(100, Math.round(e.charIndex / lesson.script.length * 100));
+        document.getElementById("a-fill").style.width = pct + "%";
+      }
+    };
+    speech.utter = u;
+    speech.current = id;
+    speech.playing = true;
+    document.getElementById("a-status").textContent = "Playing: " + lesson.title;
+    window.speechSynthesis.speak(u);
+    renderAudio();
+  }
+
+  document.getElementById("a-play").onclick = function(){
+    if(!speech.supported) return;
+    if(window.speechSynthesis.paused){ window.speechSynthesis.resume(); speech.playing = true; renderAudio(); return; }
+    if(speech.current){ playLesson(speech.current); }
+    else if(LESSONS.length){ playLesson(LESSONS[0].id); }
+  };
+  document.getElementById("a-pause").onclick = function(){
+    if(!speech.supported) return;
+    window.speechSynthesis.pause();
+    speech.playing = false;
+    renderAudio();
+  };
+  document.getElementById("a-stop").onclick = function(){
+    if(!speech.supported) return;
+    window.speechSynthesis.cancel();
+    speech.playing = false;
+    speech.current = null;
+    document.getElementById("a-status").textContent = "Nothing playing";
+    document.getElementById("a-fill").style.width = "0%";
+    renderAudio();
+  };
+  document.getElementById("a-rate").onchange = function(){
+    if(speech.playing && speech.current){ playLesson(speech.current); } // restart at new rate; Web Speech can't rate-change mid-utterance
+  };
 
   /* ============================================================
      ACTIONS
@@ -1098,9 +1265,11 @@
      BOOT
      ============================================================ */
   load().then(function(){
-    renderSteps();
-    renderAll();
-    if(store.kind === "memory") setStatus("in-memory only — progress will not persist");
+    loadAudioProgress().then(function(){
+      renderSteps();
+      renderAll();
+      if(store.kind === "memory") setStatus("in-memory only — progress will not persist");
+    });
   });
 
 })();
