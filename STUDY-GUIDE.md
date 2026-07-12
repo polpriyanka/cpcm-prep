@@ -1,0 +1,583 @@
+# CPCM Study Guide
+
+**Built for:** NCMA Certified Professional Contracts Manager exam
+**Source of truth:** CMBOK 7th Edition — this guide is scaffolding, not a substitute
+**Scope:** Both government and commercial contracting. The CPCM tests both. That is what separates it from the CFCM.
+
+---
+
+## How to use this
+
+Read a competency. Close the guide. Explain it out loud to no one. Then drill the questions in the study hub for that domain. Whatever you miss, come back here and read that section again — not the whole thing.
+
+The sections marked **⚠ Trap** are where candidates with real-world experience lose points. Experience teaches you what your organization does. The exam tests what the CMBOK says. When those diverge, the CMBOK wins.
+
+---
+
+# 1. Guiding Principles
+
+*The foundation. Everything else is applied on top of this.*
+
+## What a contract is
+
+Five elements, all required:
+
+| Element | The test |
+|---|---|
+| **Offer** | A manifestation of willingness to be bound, definite enough to be accepted |
+| **Acceptance** | Unqualified assent to the offer's terms |
+| **Consideration** | Something of value moving *both* ways — a bargained-for exchange |
+| **Capacity** | Legal ability of both parties to contract |
+| **Legality** | Lawful purpose |
+
+A counteroffer is a rejection. It kills the original offer. An acceptance that adds or changes terms is a counteroffer (common law "mirror image" rule) — though the UCC relaxes this for merchants dealing in goods.
+
+## Authority — the single most tested concept
+
+| Type | Definition | Binds the principal? |
+|---|---|---|
+| **Actual (express)** | Explicitly granted — the warrant, the delegation letter | Yes |
+| **Actual (implied)** | Reasonably necessary to carry out express authority | Yes |
+| **Apparent** | A third party reasonably believes authority exists, based on the *principal's* conduct | Yes in commercial law — **generally NOT against the US Government** |
+| **Ratification** | Principal, with knowledge, adopts an unauthorized act | Yes, retroactively |
+
+**⚠ Trap.** In federal contracting, only the **contracting officer** can bind the Government, and only within the warrant. A COR, a program manager, a general — none of them can change the contract, no matter how it looks. A contractor who takes direction from a COR and performs is not protected by apparent authority; the doctrine simply does not run against the sovereign. What the contractor *does* have is a **constructive change** argument, which is a different and weaker path.
+
+The commercial-side mirror image: apparent authority *does* bind a private principal. So the same fact pattern flips depending on who the buyer is. Read the question for the sector.
+
+## Contract interpretation
+
+Order of operations when terms conflict:
+
+1. **The four corners.** If the writing is clear and complete, that's the deal.
+2. **Parol evidence rule.** Prior or contemporaneous agreements cannot be introduced to *contradict* a fully integrated writing. But it does *not* bar: subsequent modifications, evidence explaining an ambiguity, or evidence of fraud.
+3. **Order of precedence clause.** Most contracts specify which document controls (typically: schedule → representations → clauses → specs → attachments).
+4. **Contra proferentem.** Ambiguity construed against the drafter — **only for latent ambiguities.**
+
+**⚠ Trap.** A **patent** ambiguity (obvious on the face of the solicitation) creates a **duty to inquire before award**. An offeror who spots an obvious contradiction, says nothing, bids its favorable reading, and later claims it — loses. Latent vs. patent is the whole question.
+
+## Ethics
+
+The CMBOK framework, in order:
+
+1. Recognize the issue
+2. Raise it **internally**, through the appropriate channel
+3. **Document** what you raised and when
+4. Escalate if the channel fails
+5. External reporting only after internal channels are exhausted or corrupt
+
+**⚠ Trap.** The exam's ethics questions almost never have "go to the press" or "report to the IG immediately" as the right first answer, and almost never have "say nothing" either. The right answer is nearly always the documented internal escalation. Resignation is a non-answer — it removes you without fixing the problem.
+
+**Organizational Conflict of Interest (OCI)** — three flavors, and you should be able to name them:
+- **Impaired objectivity** — the contractor would be evaluating its own work or a competitor's
+- **Unequal access to information** — the contractor has nonpublic info others don't
+- **Biased ground rules** — the contractor helped write the requirement it now bids on
+
+Mitigation: firewall, exclusion from the competition, divestiture, or waiver by the agency head.
+
+## Standards vs. regulations
+
+- **CMS (Contract Management Standard)** — ANSI-approved, sector-neutral, describes *what contract managers do*. A standard of practice.
+- **FAR** — a regulation with the force of law, federal acquisition only.
+
+Do not conflate them. A question describing "the standard" is not describing the FAR.
+
+---
+
+# 2. Pre-Award
+
+*Everything before the solicitation goes out, plus the solicitation itself.*
+
+## Requirements development
+
+The document you choose signals where the risk sits.
+
+| Document | States | Risk sits with |
+|---|---|---|
+| **Design specification** | Exactly *how* to build it | **Buyer** — if it's built to spec and fails, that's on you |
+| **Performance work statement (PWS)** | The *outcome* required; contractor picks the method | **Seller** |
+| **Statement of objectives (SOO)** | Only high-level objectives; the *offeror writes the PWS* | **Seller** — and you get to evaluate their approach |
+| **Statement of work (SOW)** | Tasks to be performed — a hybrid, often over-specified | Mixed |
+
+**⚠ Trap.** Detailed design specs carry an **implied warranty of specification adequacy** (the *Spearin* doctrine): if the buyer dictates the method, the buyer warrants the method will work. Contractors who follow a defective government design are entitled to an equitable adjustment. This is why performance-based acquisition is preferred — it moves both the method and the risk.
+
+## Market research
+
+**Purpose:** determine what the market can actually supply, whether commercial or non-developmental items meet the need, and shape the acquisition strategy.
+
+It is *not* primarily for building the cost estimate, and it is *not* for justifying a decision already made. Market research done to paper a predetermined sole source is the failure mode.
+
+Outputs it should drive: commercial vs. developmental, competition approach, contract type, small-business set-aside decision, and the realistic delivery schedule.
+
+## Acquisition planning
+
+The acquisition plan's job is **integration** — pulling requirement, budget, schedule, contract type, competition strategy, and risk into one coherent story. Treating it as a compliance form is the thing the CMBOK explicitly warns against.
+
+**IGCE (Independent Government Cost Estimate)** — built independently of any offeror's input. It's the benchmark against which offered prices are judged reasonable. If your IGCE was built from a vendor's quote, it isn't independent and it isn't a benchmark.
+
+## Contract types — the risk spectrum
+
+Memorize this as a line. Cost risk moves from the seller (left) to the buyer (right).
+
+```
+FFP → FPEPA → FPI(F) → FPI(S) → CPIF → CPAF → CPFF → T&M / LH → Cost / Cost-Sharing
+◄──────── seller bears cost risk        buyer bears cost risk ────────►
+```
+
+| Type | Use when | Key mechanic |
+|---|---|---|
+| **FFP** | Requirement well-defined, risk low | Price fixed. Contractor absorbs overruns entirely. |
+| **FPEPA** | Long duration, volatile material/labor costs | Price adjusts on a defined index |
+| **FPIF** | Some uncertainty, but you can set a target | Target cost, target profit, **ceiling price**, share ratio. Above the **point of total assumption (PTA)**, contractor bears 100% of further cost. |
+| **CPIF** | High uncertainty, cost control is the priority | Target cost/fee, **min and max fee**, share ratio |
+| **CPAF** | Uncertainty + subjective performance matters | Base fee + award fee determined by buyer against criteria. **Award fee determinations are generally not disputable.** |
+| **CPFF** | Research; outcome genuinely unknown | Fee is *fixed in dollars*, does not vary with cost |
+| **T&M / LH** | You cannot estimate the extent of work | **Least preferred** — no incentive for efficiency. Requires a ceiling and a determination that no other type suits. |
+
+**⚠ Trap — CPFF fee.** The fee is a fixed *dollar amount*, not a fixed *percentage*. If the cost doubles, the fee does not. That's the entire point.
+
+**⚠ Trap — the share ratio direction.** An 80/20 share ratio means the buyer takes 80% of the overrun *and* 80% of the underrun. The contractor's 20% is its incentive. Read the question carefully for which number is whose.
+
+**PTA formula** (FPIF), worth knowing cold:
+
+```
+PTA = Target Cost + (Ceiling Price − Target Price) / Buyer's share ratio
+```
+
+## Indefinite delivery vehicles
+
+| Vehicle | Buyer's obligation | Seller's obligation |
+|---|---|---|
+| **IDIQ** | Order at least the **guaranteed minimum** | Furnish up to the maximum |
+| **Requirements** | Buy **all actual requirements** from this seller | Fill all orders |
+| **Definite quantity** | Take a definite quantity | Deliver it |
+
+**⚠ Trap.** An IDIQ *without* a guaranteed minimum is an **illusory promise** and unenforceable — the minimum is the consideration. A requirements contract has no minimum but is enforceable because the buyer's exclusivity commitment *is* the consideration. These two are constantly swapped in answer choices.
+
+## Competition and the best-value continuum
+
+```
+LPTA ◄────────────────────────────────► Tradeoff
+Well-defined                          Ill-defined
+Low risk                              High performance risk
+Commodity-like                        Technical merit adds real value
+Price is decisive                     Willing to pay more for better
+```
+
+Anything in between is a hybrid. The exam wants you to match the situation to the point on the continuum.
+
+---
+
+# 3. Award
+
+*Evaluation, negotiation, and the decision itself.*
+
+## Source selection sequence
+
+1. Issue the solicitation with **stated evaluation factors and their relative importance**
+2. Receive proposals
+3. Evaluate **against the stated criteria only**
+4. Establish the **competitive range** — those with a reasonable chance of award
+5. Conduct **discussions** with everyone in the range (not just some)
+6. Request **final proposal revisions**
+7. Make the best-value tradeoff decision, **documented**
+8. Award, notify, **debrief**
+
+**⚠ Trap — the documentation defect.** The most common scenario question: the team assigns adjectival ratings and point scores, excludes an offeror, and the record contains no narrative. This loses a protest. Scores are a *shorthand for* the analysis, not a *substitute for* it. The record must document strengths, weaknesses, deficiencies, and risks in qualitative terms, and must show the decision followed from the stated criteria.
+
+**⚠ Trap — changing the weights.** Evaluation factors and their weights must be applied **as stated in the solicitation**. You cannot reweight after seeing the proposals, no matter how sensible the reweighting is.
+
+## Price analysis vs. cost analysis
+
+| | Price analysis | Cost analysis |
+|---|---|---|
+| **Looks at** | The total price, as a whole | Individual cost elements and profit/fee |
+| **Techniques** | Comparison to other offers, catalog/market prices, prior purchases, parametric estimates, IGCE comparison | Reviewing labor hours, rates, material, indirect rates, fee |
+| **When** | Adequate price competition exists; commercial items | No adequate competition; certified data required |
+
+**Rule:** adequate price competition normally means **price analysis alone is sufficient**. Cost analysis is what you do when the market isn't doing the work for you.
+
+## Certified cost or pricing data (Truthful Cost or Pricing Data / former TINA)
+
+Required above the threshold — **unless** one of these applies:
+
+- **Adequate price competition**
+- Prices set by **law or regulation**
+- **Commercial products or services**
+- A **waiver** by the head of the contracting activity
+
+**⚠ Trap.** Certification is what creates **defective pricing** exposure — the Government's right to a price reduction if the data was inaccurate, incomplete, or noncurrent as of the date of agreement. No certification, no defective pricing claim. So the exception isn't a technicality; it changes the entire risk posture.
+
+## Negotiation
+
+The CMBOK's position, stated plainly: **preparation is the predictor.** Not aggression, not seniority, not charisma.
+
+What preparation means concretely:
+- Your **objectives** — minimum, target, and maximum on each issue
+- Your **BATNA** — what you do if there's no deal. This, not bluster, is what gives you the ability to walk.
+- Their **interests**, not just their positions. Positions are what they say they want. Interests are why. The gap between the two is where the deal is.
+- The **issues ranked** — what you'll trade and what you won't
+
+**Distributive vs. integrative.** Distributive = fixed pie, claim value. Integrative = expand the pie, create value through trades across differently-valued issues. Most real contract negotiations are integrative and get played, badly, as distributive.
+
+## Mistakes in offers
+
+| When discovered | Type | Result |
+|---|---|---|
+| Before award | Clerical error, apparent on the face | Buyer must seek verification; correction or withdrawal permitted |
+| Before award | Mistake in judgment | No relief — that's a business risk |
+| After award | Mutual mistake | Reformation may be available |
+| After award | Unilateral mistake the buyer *knew or should have known* about | Relief may be available |
+
+**⚠ Trap.** Holding an offeror to an obvious decimal-point error is *not* the right answer. When a mistake is apparent, the buyer has an affirmative duty to seek verification. An award made on an offer the buyer knew was mistaken is vulnerable.
+
+---
+
+# 4. Post-Award
+
+*The longest phase and the one where money is actually won and lost.*
+
+## What administration is for
+
+Ensuring **both parties** perform as agreed, and actively managing change, risk, and the relationship. Not policing. The adversarial framing is the failure mode the CMBOK is explicitly arguing against.
+
+## Changes
+
+| Type | How it arises | Contractor's move |
+|---|---|---|
+| **Bilateral modification** | Both parties sign | Negotiate the adjustment *before* signing |
+| **Unilateral change order** | Buyer directs a change within the Changes clause scope | **Perform**, then seek an equitable adjustment |
+| **Constructive change** | Someone without authority directs work outside scope, and the contractor performs | Notify the CO **in writing, before performing** |
+| **Cardinal change** | A change so fundamental it's outside the scope of the contract entirely | Contractor may **refuse** — it's a breach, not a change |
+
+**⚠ Trap — the COR scenario.** A COR tells the contractor to add a feature. The contractor does. This is a **constructive change**, not a bilateral mod, and not an unauthorized commitment by the contractor. The contractor may pursue an equitable adjustment — but the *correct* behavior was to stop and notify the CO in writing first. Both facts are usually being tested at once.
+
+## Equitable adjustment
+
+Compensates for:
+- ✅ Increased **cost** attributable to the change
+- ✅ **Schedule** impact
+- ✅ **Reasonable profit on the changed work**
+
+Does not compensate for:
+- ❌ Anticipated profit on work never performed
+- ❌ Punitive amounts
+- ❌ Costs unrelated to the change
+
+## Excusable delay, and who pays
+
+| Situation | Time relief | Money relief |
+|---|---|---|
+| **Excusable** (unforeseeable, beyond contractor's control and without its fault — fire, flood, strike, epidemic) | Yes | No |
+| **Compensable** (delay caused by the *buyer* — late GFE, defective specs, suspension of work) | Yes | **Yes** |
+| **Concurrent** (both parties caused it) | Usually yes | Usually no |
+| **Non-excusable** | No | No — and exposure to default |
+
+**⚠ Trap.** Excusable and compensable are not the same thing. An excusable delay gets you time, not money. Only a *buyer-caused* delay gets you both. This distinction is a reliable question.
+
+## Differing site conditions
+
+- **Type I** — conditions materially differ from what the contract *indicated*
+- **Type II** — unusual conditions, differing from what's *ordinarily encountered*
+
+**⚠ Trap.** The right first move is **prompt written notice to the CO, before disturbing the condition.** Not stopping work. Not filing a claim. Not calling the COR. Disturb the evidence or skip the notice and you forfeit an otherwise valid entitlement — this is the single most common way contractors throw away money they were owed.
+
+## Termination
+
+| | For Convenience (T4C) | For Default (T4D) |
+|---|---|---|
+| **Basis** | Buyer's discretion; no fault | Contractor's failure to perform |
+| **Precursor** | None required | **Cure notice** (typically 10 days) or **show cause** |
+| **Contractor recovers** | Costs incurred + settlement expenses + **profit on work performed** | Nothing; may owe **reprocurement (excess) costs** |
+| **Anticipatory profit** | **No** | No |
+| **If wrongly issued** | — | Converted to a **T4C** |
+
+**⚠ Trap.** A T4D that the contractor successfully challenges doesn't become a windfall — it becomes a **T4C**. The contractor gets T4C recovery, not damages for breach.
+
+## Disputes — the Contract Disputes Act path
+
+```
+Dispute arises
+      ↓
+Contractor submits a CLAIM to the Contracting Officer
+      ↓  (certified if over $100,000)
+CO issues a FINAL DECISION  ── or fails to, = "deemed denial"
+      ↓
+Appeal — contractor's choice:
+      ├── Board of Contract Appeals (ASBCA / CBCA) — 90 days
+      └── US Court of Federal Claims — 12 months
+```
+
+**⚠ Trap.** The CO's final decision is a **mandatory gateway**. You cannot skip it. And the appeal does **not** go to federal district court — that answer appears constantly and is always wrong.
+
+**Certification** (over the threshold) requires the contractor to state the claim is made in good faith, the data is accurate and complete, and the amount accurately reflects what's believed owed. A defective certification can be corrected; a *fraudulent* one cannot, and carries criminal exposure.
+
+## Claims vs. REAs
+
+An **REA** is a request — negotiable, no interest, no CDA machinery. A **claim** is a demand as a matter of right — triggers the CO's final decision obligation, accrues **interest from the date of receipt**, and opens the appeal path. Contractors often convert an REA to a claim when negotiation stalls. Know that a routine invoice is *not* a claim unless it's in dispute.
+
+## Closeout
+
+The steps: final delivery accepted → final invoice → **final indirect cost rates settled** → subcontracts settled → property disposed → patents/royalties reported → releases executed → file closed.
+
+**⚠ Trap.** The near-universal cause of closeout delay is **unsettled final indirect cost rates** (which require an audit) and **open subcontract settlements**. Not bankruptcy, not lost files. Contracts sit open for years waiting on rate settlement.
+
+## Privity
+
+The Government contracts with the **prime**. There is **no privity** with the subcontractor. Consequences:
+- A sub's failure is the **prime's** failure, fully, as against the buyer
+- A sub generally cannot sue the Government directly
+- The prime's protection is **flow-down clauses** and back-to-back terms in the subcontract
+
+---
+
+# 5. Leadership
+
+*Tested lightly on facts, heavily on judgment.*
+
+## The model
+
+Vision → communication → influence → ethical decision-making → developing others.
+
+**Order matters.** Establish and communicate a credible vision *before* restructuring, reassigning, or raising targets. Structural moves made without a narrative read as punishment and destroy trust.
+
+## Influence without authority
+
+Contract managers routinely need cooperation from people who don't report to them — program, finance, legal, engineering. The currency is **credibility**, and credibility is built on **consistency**.
+
+**⚠ Trap.** The thing that destroys influence fastest is not an unpopular decision. It's **inconsistency** — giving different answers to different stakeholders on the same question. Saying "no" to an unlawful request, clearly explained, actually *builds* credibility. Saying "yes" to one person and "no" to another on identical facts ends it.
+
+## Emotional intelligence — the operational payoff
+
+Not a soft ornament. Where it cashes out:
+- Reading the **interests behind stated positions** in negotiation
+- De-escalating disputes before they become claims
+- Sensing stakeholder resistance early enough to address it
+
+## SMART goals
+
+| | |
+|---|---|
+| **S**pecific | Names the actual outcome |
+| **M**easurable | Objectively determinable |
+| **A**chievable | Realistic given resources |
+| **R**elevant | Tied to the organizational objective |
+| **T**ime-bound | Has a deadline |
+
+**Why they improve accountability:** measurability + a deadline make it objectively determinable whether the goal was met, without argument. That's the mechanism. Ambition is *not* part of SMART — "achievable" cuts the other way.
+
+**Why regular review matters:** goals set once and never revisited drift from a changing environment. Review is what keeps them relevant, and what surfaces the need to adjust before failure rather than after.
+
+---
+
+# 6. Management
+
+*Business, project, and financial management applied to contracts.*
+
+## Earned Value Management
+
+Three inputs. Learn the modern names and the legacy names, because both appear.
+
+| Modern | Legacy | Meaning |
+|---|---|---|
+| **PV** | BCWS | Planned Value — what you *planned* to have earned by now |
+| **EV** | BCWP | Earned Value — what you've *actually* earned |
+| **AC** | ACWP | Actual Cost — what you've *actually spent* |
+
+```
+Cost Variance      CV = EV − AC        negative = over budget
+Schedule Variance  SV = EV − PV        negative = behind schedule
+Cost Perf. Index   CPI = EV / AC       < 1.0 = over budget
+Sched Perf. Index  SPI = EV / PV       < 1.0 = behind schedule
+Est. at Completion EAC = BAC / CPI     (assuming current performance continues)
+```
+
+**The mnemonic that saves you:** every variance is **EV minus something**. Every index is **EV over something**. Negative variance and sub-1.0 index are always bad.
+
+*Worked example.* EV = $80K, AC = $100K, PV = $90K.
+CV = 80 − 100 = **−$20K** (over budget). SV = 80 − 90 = **−$10K** (behind schedule). CPI = 0.80. SPI = 0.89. You are spending $1.25 to earn $1.00 of value, and you're late.
+
+## Cost allowability
+
+Four tests, **all** must be met:
+
+1. **Reasonable** — what a prudent person would incur in a competitive business
+2. **Allocable** — benefits the contract, is assignable to it
+3. **Compliant** — with CAS, GAAP, and the contract terms
+4. **Not expressly unallowable**
+
+Memorize the **expressly unallowable** list:
+- **Lobbying**
+- **Entertainment**
+- **Alcohol**
+- **Fines and penalties**
+- **Bad debts**
+- **Contributions and donations**
+- **Advertising** (except recruitment and certain required notices)
+- Interest on borrowings
+- Costs of defending against Government claims where the contractor loses
+
+## Direct vs. indirect
+
+**Direct** = traceable to a single final cost objective.
+**Indirect** = not traceable to one; pooled and allocated over a base (fringe, overhead, G&A).
+
+**⚠ Trap.** The *same type* of cost can be direct on one contract and indirect on another. What CAS enforces is **consistency** — you must treat like costs alike, in like circumstances. The question "is a project manager's salary direct or indirect?" has no universal answer, and an answer choice that asserts one is wrong.
+
+## Risk management
+
+| Response | When |
+|---|---|
+| **Avoid** | Change the plan so the risk cannot occur. Often too costly. |
+| **Mitigate** | High probability — reduce likelihood or impact |
+| **Transfer** | **High impact, low probability** — insurance, indemnity, warranty, or a contract type that reallocates it |
+| **Accept** | Low probability, low impact |
+
+**⚠ Trap.** High-impact / low-probability is the **transfer** profile, not the avoid profile. Insurance exists for exactly this quadrant. Reaching for avoidance on a low-probability risk is over-engineering.
+
+**Contract type as a risk instrument.** Choosing FFP is a risk *transfer* to the seller. Choosing cost-reimbursement is a risk *retention* by the buyer. The contract type decision *is* a risk decision — that framing is what the exam wants.
+
+## Make-or-buy
+
+Driven by: **core competency**, capacity, risk, IP position, long-term supply security — **and** cost. Not cost alone.
+
+**⚠ Trap.** Outsourcing a core competency to capture a short-term cost saving is the archetypal error. The answer that says "lowest immediate cost" is essentially never right.
+
+## Supply chain
+
+The correct instinct when a disruption threatens a milestone: **notify the buyer promptly and evaluate options jointly.**
+
+**⚠ Trap.** Silent absorption — "we'll fix it before anyone notices" — is the common and damaging instinct. By the time it surfaces, the buyer has lost the chance to help and has reason to doubt everything else you report. Prompt notice preserves options, preserves entitlement, and preserves credibility.
+
+---
+
+# 7. Learn
+
+*The competency people skip. It's short — don't skip it.*
+
+## What it covers
+
+Continuous improvement of the contract management function itself: lessons learned, performance measurement, knowledge management, and professional development.
+
+## Lessons learned
+
+Collected **throughout** the lifecycle, not just at closeout. The closeout-only approach fails because the people who know what happened have already moved on and the details are gone. Capture at phase transitions.
+
+A lessons-learned process that has no mechanism for **feeding back into future acquisition planning** is theater. The test of the process is whether the next acquisition plan is different because of it.
+
+## Performance measurement
+
+Measure the **contract management function**, not just the contract: cycle time, protest rate, change order volume and cause, closeout backlog, supplier performance trends.
+
+## Professional development
+
+Certification, CPE, mentoring, publishing, instructing. The CMBOK treats contribution to the profession as part of the competency — which is why publishing and teaching earn CPE.
+
+---
+
+# Cross-cutting: Federal Statutes
+
+*Not one of the seven competencies, but woven through Pre-Award, Award, and Guiding Principles — and disproportionately represented in questions.*
+
+## Buy American Act — run it in this order
+
+```
+STEP 1 — Is the acquisition above the MICRO-PURCHASE threshold ($10,000)?
+         NO  → BAA does not apply. Stop. Answer: N/A.
+         YES → continue
+
+STEP 2 — Is a TAA-DESIGNATED country involved, above the TAA threshold?
+         YES → TAA SUPERSEDES BAA. Stop. Answer: N/A.
+         NO  → continue
+
+STEP 3 — The two-part domestic end product test:
+         (a) Manufactured in the United States?  AND
+         (b) Domestic component cost exceeds the applicable % of total component cost?
+         BOTH → Domestic end product
+         EITHER FAILS → Not a domestic end product
+```
+
+**⚠ The trap you already hit once.** US-manufactured laptops with 75% of component cost from **Japan**. The instinct is "fails the component test → not a domestic end product." **Wrong.** Japan is a **WTO GPA signatory** and therefore **TAA-designated**. TAA supersedes the BAA entirely. The answer is **N/A** — the BAA test never runs.
+
+Contrast: the same fact pattern with **Honduras** (not designated) or **China** (not designated). There, BAA stays in play and the domestic end product test actually executes.
+
+**The rule to burn in:** *Threshold first. Designation second. The two-part test only if you get past both.*
+
+**Micro-purchase threshold is the BAA trigger — not the SAT.** Below $10,000, no BAA. Between $10,000 and the SAT, BAA applies.
+
+**COTS exemption:** commercially available off-the-shelf items are generally exempt from the **component cost test** (prong b), but still must be US-manufactured.
+
+## Trade Agreements Act
+
+**Function: it WAIVES the BAA** for designated-country products above the TAA threshold. It **opens** the market; it doesn't close it.
+
+| Designated | Not designated |
+|---|---|
+| WTO GPA signatories (Japan, EU states, UK, Canada, South Korea…) | **China** |
+| Free Trade Agreement partners | **Russia** |
+| Least-developed countries | **India** |
+| Caribbean Basin countries | **Honduras** |
+
+**⚠ Trap.** "TAA prohibits foreign end products" is always wrong. It's a waiver statute.
+
+## Other Transaction Agreements
+
+**Three types — and only three:**
+
+1. **Research OT**
+2. **Prototype OT**
+3. **Production OT** — generally must follow a **successfully completed Prototype OT**
+
+There is **no "Sustainment OT."** That answer choice is bait.
+
+**Not new.** OT authority dates to **1958** (NASA). The "innovative new mechanism" framing is a distractor.
+
+**What OTs escape — and what still binds:**
+
+| Escapes (the FAR ecosystem) | Still applies (universal law) |
+|---|---|
+| FAR and agency FAR supplements | **Anti-Deficiency Act** |
+| CICA (competition statute) | **Export controls (ITAR / EAR)** |
+| Cost Accounting Standards | **Anti-bribery / anti-kickback statutes** |
+| Bayh-Dole | **Agency guidelines on OTAs** |
+| Standard FAR clauses | Fiscal law generally |
+
+**The mental model:** *an OT exits the regulation, not the law.*
+
+**⚠ Trap — the duplication scenario.** An agency proposes an R&D OT for technology another agency is already prototyping. The disqualifier is **duplication of effort** — not "no planned competition." OTs expect competition to the maximum extent practicable, but absence of a formal competition is not fatal the way duplication is. And OTs are expressly *available* for R&D, so "OTs may not be used for R&D" is always wrong.
+
+## Procurement Integrity Act
+
+Prohibits **obtaining or disclosing** contractor bid/proposal information or source selection information before award. Also imposes post-employment restrictions on certain officials.
+
+**⚠ Trap.** It does **not** prohibit legitimate industry engagement — industry days, one-on-ones, draft RFP comment periods. The widespread belief that PIA forbids talking to industry is both wrong and expensive. The statute targets the *information*, not the *contact*.
+
+## Small business
+
+**Subcontracting plan required when all three:**
+1. The prime is **other than small**
+2. The value exceeds the threshold
+3. **Subcontracting opportunities exist**
+
+A **small business prime is exempt** — it's the objective, not the vehicle for achieving it.
+
+---
+
+# The night before
+
+Ten things worth reading one last time:
+
+1. **Apparent authority does not bind the Government.** Only the CO, only within the warrant.
+2. **Patent ambiguity = duty to inquire.** Latent ambiguity = construed against the drafter.
+3. **CPFF fee is a fixed dollar amount**, not a percentage.
+4. **IDIQ needs a guaranteed minimum**; a requirements contract doesn't.
+5. **Excusable ≠ compensable.** Excusable gets time. Buyer-caused gets time *and* money.
+6. **Constructive change**: notify the CO in writing *before* performing.
+7. **CDA path**: claim → CO's final decision → Board *or* Court of Federal Claims. **Never district court.**
+8. **T4D wrongly issued converts to T4C**, not to breach damages.
+9. **BAA order**: micro-purchase threshold → TAA designation → two-part test. Japan means N/A.
+10. **OT exits the regulation, not the law.** Anti-Deficiency Act still binds.
+
+---
+
+*This guide covers the competency framework and the statutory material. It does not replace the CMBOK 7th Edition, which is the exam's declared source. Where this guide and the CMBOK differ, the CMBOK is right.*

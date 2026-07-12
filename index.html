@@ -1,0 +1,1107 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#E4E6E1;
+    --surface:#FBFBF9;
+    --surface-2:#F1F2EE;
+    --ink:#18222E;
+    --muted:#6C7683;
+    --rule:#C7CAC2;
+    --rule-hard:#18222E;
+    --blue:#2A4C7D;
+    --blue-soft:#E2E9F2;
+    --stamp:#A6332E;
+    --stamp-soft:#F6E5E3;
+    --pass:#2C6650;
+    --pass-soft:#E1EDE7;
+    --amber:#9C6B12;
+    --amber-soft:#F5EBD8;
+  }
+  *{box-sizing:border-box}
+  #hub{
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  #hub button{font-family:inherit}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+  /* ---------- masthead : styled as a form header ---------- */
+  .masthead{
+    background:var(--ink);color:#EFF1EE;
+    padding:22px 26px 0;
+  }
+  .mh-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+  .mh-eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:#8FA0B4;margin-bottom:6px;
+  }
+  .mh-title{
+    font-family:"IBM Plex Serif",Georgia,serif;font-weight:700;
+    font-size:30px;letter-spacing:-.01em;line-height:1.1;margin:0;
+  }
+  .mh-stats{display:flex;gap:26px;flex-wrap:wrap}
+  .mh-stat{text-align:right}
+  .mh-stat .v{font-family:"IBM Plex Mono",monospace;font-size:21px;font-weight:600;line-height:1}
+  .mh-stat .l{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#8FA0B4;margin-top:5px}
+
+  /* ---------- tabs ---------- */
+  .tabs{display:flex;gap:0;margin-top:20px;flex-wrap:wrap}
+  .tab{
+    background:transparent;border:none;border-bottom:3px solid transparent;
+    color:#8FA0B4;padding:11px 16px;cursor:pointer;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+    transition:color .15s,border-color .15s;
+  }
+  .tab:hover{color:#DCE3EA}
+  .tab[aria-selected="true"]{color:#fff;border-bottom-color:#fff}
+  .tab:focus-visible{outline:2px solid #7FA8DC;outline-offset:-2px}
+
+  /* ---------- shell ---------- */
+  .shell{padding:26px;max-width:1080px;margin:0 auto}
+  .view{display:none}
+  .view.on{display:block}
+
+  .panel{
+    background:var(--surface);border:1px solid var(--rule);
+    padding:22px;margin-bottom:18px;
+  }
+  .panel-head{
+    display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+    border-bottom:2px solid var(--rule-hard);padding-bottom:9px;margin-bottom:18px;flex-wrap:wrap;
+  }
+  .panel-head h2{
+    font-family:"IBM Plex Serif",Georgia,serif;font-size:19px;margin:0;font-weight:700;letter-spacing:-.01em;
+  }
+  .ref{
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .lede{color:var(--muted);font-size:14px;margin:0 0 16px}
+
+  /* ---------- domain progress rows ---------- */
+  .drow{
+    display:grid;grid-template-columns:44px 1fr 96px 62px;gap:12px;align-items:center;
+    padding:11px 0;border-bottom:1px solid var(--rule);
+  }
+  .drow:last-child{border-bottom:none}
+  .dcode{
+    font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.06em;
+    color:#fff;background:var(--ink);padding:4px 0;text-align:center;
+  }
+  .dname{font-size:14px;font-weight:500}
+  .dname small{display:block;color:var(--muted);font-weight:400;font-size:11.5px}
+  .bar{height:7px;background:var(--surface-2);border:1px solid var(--rule);position:relative}
+  .bar i{position:absolute;inset:0 auto 0 0;background:var(--blue);display:block}
+  .bar.good i{background:var(--pass)}
+  .bar.bad i{background:var(--stamp)}
+  .dpct{font-family:"IBM Plex Mono",monospace;font-size:12px;text-align:right;color:var(--muted)}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    background:var(--ink);color:#fff;border:none;padding:10px 18px;cursor:pointer;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+  }
+  .btn:hover{background:var(--blue)}
+  .btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule-hard)}
+  .btn.ghost:hover{background:var(--ink);color:#fff}
+  .btn.sm{padding:7px 13px;font-size:10px}
+  .btn:disabled{opacity:.35;cursor:not-allowed}
+  .btnrow{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+
+  /* ---------- filters ---------- */
+  .filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+  .chip{
+    background:var(--surface-2);border:1px solid var(--rule);color:var(--muted);
+    padding:6px 11px;cursor:pointer;
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+
+  /* ---------- SIGNATURE: the clause-block question card ---------- */
+  .clause{
+    background:var(--surface);border:1px solid var(--rule);
+    border-left:4px solid var(--ink);
+    margin-bottom:16px;position:relative;
+  }
+  .clause.correct{border-left-color:var(--pass)}
+  .clause.wrong{border-left-color:var(--stamp)}
+  .clause-hd{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding:9px 18px;border-bottom:1px solid var(--rule);background:var(--surface-2);flex-wrap:wrap;
+  }
+  .clause-ref{
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--ink);font-weight:600;
+  }
+  .clause-ref em{color:var(--muted);font-style:normal;font-weight:400}
+  .clause-body{padding:18px}
+  .qtext{font-size:15px;margin:0 0 15px;line-height:1.55}
+  .opt{
+    display:flex;gap:11px;align-items:flex-start;
+    border:1px solid var(--rule);background:var(--surface);
+    padding:11px 13px;margin-bottom:7px;cursor:pointer;
+    font-size:14px;text-align:left;width:100%;color:var(--ink);
+    transition:border-color .12s,background .12s;
+  }
+  .opt:hover:not(.locked){border-color:var(--ink);background:var(--surface-2)}
+  .opt.locked{cursor:default}
+  .opt .k{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;
+    color:var(--muted);flex:0 0 auto;padding-top:2px;
+  }
+  .opt.hit{border-color:var(--pass);background:var(--pass-soft)}
+  .opt.hit .k{color:var(--pass)}
+  .opt.miss{border-color:var(--stamp);background:var(--stamp-soft)}
+  .opt.miss .k{color:var(--stamp)}
+  .opt.reveal{border-color:var(--pass);border-style:dashed;background:var(--pass-soft)}
+
+  .exp{
+    display:none;margin-top:14px;padding:14px 16px;
+    background:var(--blue-soft);border-left:3px solid var(--blue);font-size:13.5px;line-height:1.6;
+  }
+  .exp.show{display:block}
+  .exp b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--blue);margin-bottom:6px;font-weight:600}
+
+  .verdict{
+    font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+    font-weight:600;padding:3px 8px;border:1px solid currentColor;
+  }
+  .verdict.ok{color:var(--pass)}
+  .verdict.no{color:var(--stamp)}
+
+  /* ---------- CPE ledger ---------- */
+  .gauge{
+    height:34px;background:var(--surface-2);border:1px solid var(--rule-hard);position:relative;margin:6px 0 8px;
+    display:flex;align-items:center;
+  }
+  .gauge i{position:absolute;inset:0 auto 0 0;background:var(--blue);display:block}
+  .gauge span{position:relative;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;padding-left:11px;color:#fff;mix-blend-mode:normal}
+  .gauge-meta{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{
+    text-align:left;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);font-weight:500;
+    padding:7px 9px;border-bottom:2px solid var(--rule-hard);
+  }
+  td{padding:9px;border-bottom:1px solid var(--rule);vertical-align:top}
+  td.num{font-family:"IBM Plex Mono",monospace;text-align:right;white-space:nowrap}
+  .del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;line-height:1;padding:2px 5px}
+  .del:hover{color:var(--stamp)}
+
+  .addrow{display:grid;grid-template-columns:1fr 130px 76px auto;gap:8px;margin-top:15px}
+  input,select{
+    font-family:"IBM Plex Sans",sans-serif;font-size:13.5px;
+    border:1px solid var(--rule);background:var(--surface);padding:9px 10px;color:var(--ink);width:100%;
+  }
+  input:focus,select:focus{outline:2px solid var(--blue);outline-offset:-1px;border-color:var(--blue)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .note{
+    font-size:13px;color:var(--muted);line-height:1.6;
+    border-left:2px solid var(--rule);padding-left:13px;margin:0;
+  }
+  .qualifies{list-style:none;padding:0;margin:0;font-size:13.5px}
+  .qualifies li{padding:6px 0 6px 22px;position:relative;border-bottom:1px solid var(--rule)}
+  .qualifies li:last-child{border-bottom:none}
+  .qualifies li:before{
+    content:"+";position:absolute;left:0;top:6px;
+    font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--pass);
+  }
+  .qualifies.no li:before{content:"\2212";color:var(--stamp)}
+
+  .empty{
+    text-align:center;padding:44px 20px;color:var(--muted);
+    border:1px dashed var(--rule);background:var(--surface-2);
+  }
+  .empty p{margin:0 0 14px;font-size:14px}
+  .empty .big{
+    font-family:"IBM Plex Serif",Georgia,serif;font-size:19px;color:var(--ink);font-weight:600;margin-bottom:7px;
+  }
+
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule)}
+  .fact{background:var(--surface);padding:13px 15px}
+  .fact .v{font-family:"IBM Plex Mono",monospace;font-size:16px;font-weight:600}
+  .fact .l{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+  .status{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+
+  @media (max-width:720px){
+    .split,.addrow{grid-template-columns:1fr}
+    .drow{grid-template-columns:40px 1fr 54px;grid-template-areas:"c n p" "b b b";row-gap:7px}
+    .dcode{grid-area:c}.dname{grid-area:n}.dpct{grid-area:p}.bar{grid-area:b}
+    .shell{padding:16px}
+    .mh-title{font-size:23px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div id="hub">
+  <header class="masthead">
+    <div class="mh-top">
+      <div>
+        <div class="mh-eyebrow">NCMA &middot; Certified Professional Contracts Manager</div>
+        <h1 class="mh-title">CPCM Readiness File</h1>
+      </div>
+      <div class="mh-stats">
+        <div class="mh-stat"><div class="v" id="mh-cpe">81</div><div class="l">CPE of 120</div></div>
+        <div class="mh-stat"><div class="v" id="mh-acc">&mdash;</div><div class="l">Accuracy</div></div>
+        <div class="mh-stat"><div class="v" id="mh-def">0</div><div class="l">Open deficiencies</div></div>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-view="dash">Status</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="drill">Drill</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="def">Deficiency Log</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="cpe">CPE Ledger</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="ref">Exam Facts</button>
+    </nav>
+  </header>
+
+  <div class="shell">
+
+    <!-- ============ STATUS ============ -->
+    <section class="view on" id="v-dash">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Coverage by competency</h2>
+          <span class="ref">Bar = accuracy &middot; Right column = attempted</span>
+        </div>
+        <p class="lede">Green once you're above 80% on a domain. Red below 60% — that's where the next session goes.</p>
+        <div id="domain-rows"></div>
+      </div>
+
+      <div class="split">
+        <div class="panel">
+          <div class="panel-head"><h2>Next action</h2><span class="ref">Auto</span></div>
+          <p class="lede" id="next-action">Start anywhere — nothing attempted yet.</p>
+          <div class="btnrow">
+            <button class="btn" id="go-weak">Drill weakest domain</button>
+            <button class="btn ghost" id="go-def">Clear deficiencies</button>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h2>CPE runway</h2><span class="ref">120 required to apply</span></div>
+          <div class="gauge"><i id="g-fill"></i><span id="g-label">81 / 120</span></div>
+          <div class="gauge-meta"><span id="g-left">39 hours remaining</span><span>68%</span></div>
+          <p class="note" style="margin-top:14px">All 120 must be banked <em>before</em> you submit the application. Once approved, you get one year and three attempts.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>Reset</h2><span class="ref">Destructive</span></div>
+        <div class="btnrow">
+          <button class="btn ghost sm" id="reset-q">Clear question history</button>
+          <button class="btn ghost sm" id="reset-cpe">Clear CPE ledger</button>
+          <span class="status" id="save-status"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DRILL ============ -->
+    <section class="view" id="v-drill">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Question bank</h2>
+          <span class="ref" id="drill-count">&mdash;</span>
+        </div>
+        <div class="filters" id="filters"></div>
+        <div class="btnrow" style="margin-bottom:6px">
+          <button class="btn sm" id="shuffle">Shuffle &amp; restart</button>
+          <button class="btn ghost sm" id="unseen">Unattempted only</button>
+        </div>
+      </div>
+      <div id="drill-cards"></div>
+    </section>
+
+    <!-- ============ DEFICIENCY LOG ============ -->
+    <section class="view" id="v-def">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Deficiency log</h2>
+          <span class="ref">Every question you've missed</span>
+        </div>
+        <p class="lede">A deficiency clears when you answer it correctly. Miss it again and it stays open.</p>
+      </div>
+      <div id="def-cards"></div>
+    </section>
+
+    <!-- ============ CPE LEDGER ============ -->
+    <section class="view" id="v-cpe">
+      <div class="panel">
+        <div class="panel-head"><h2>CPE ledger</h2><span class="ref">120 hours &middot; last 10 years count</span></div>
+        <div class="gauge"><i id="g2-fill"></i><span id="g2-label"></span></div>
+        <div class="gauge-meta"><span id="g2-left"></span><span id="g2-pct"></span></div>
+
+        <table style="margin-top:20px">
+          <thead><tr><th>Activity</th><th>Category</th><th style="text-align:right">Hours</th><th style="width:34px"></th></tr></thead>
+          <tbody id="cpe-body"></tbody>
+        </table>
+
+        <div class="addrow">
+          <input id="cpe-name" placeholder="Activity — e.g. NCMA World Congress session">
+          <select id="cpe-cat">
+            <option>Course / webinar</option>
+            <option>Conference</option>
+            <option>Publishing</option>
+            <option>Instructing</option>
+            <option>Mentoring</option>
+            <option>College credit</option>
+            <option>Baseline (pre-logged)</option>
+          </select>
+          <input id="cpe-hrs" type="number" min="0" step="0.5" placeholder="Hrs">
+          <button class="btn" id="cpe-add">Add</button>
+        </div>
+        <p class="note" style="margin-top:14px">Your 81 hours are seeded as a single baseline row. Replace it with itemized entries as you dig up the certificates — NCMA audits a percentage of applications, and reconstructing documentation later is painful.</p>
+      </div>
+
+      <div class="split">
+        <div class="panel">
+          <div class="panel-head"><h2>Counts as CPE</h2><span class="ref">Fastest 39</span></div>
+          <ul class="qualifies">
+            <li><b>Publishing</b> an article on contract management — this is the dual-purpose route you flagged</li>
+            <li><b>Instructing</b> or formally teaching contract management topics</li>
+            <li><b>Writing exam questions</b> for NCMA</li>
+            <li><b>Formal mentoring</b> in a structured program</li>
+            <li>Courses, webinars, seminars, workshops</li>
+            <li>Structured portions of staff meetings</li>
+            <li>College credit outside your degree requirement</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h2>Does not count</h2><span class="ref">Don't waste the effort</span></div>
+          <ul class="qualifies no">
+            <li>Informal on-the-job training</li>
+            <li>Basic courses in areas where you're already expert</li>
+            <li>Sales-oriented product demonstrations</li>
+            <li>Programs aimed at the general public</li>
+            <li>Committee membership in a professional org</li>
+            <li>The same learning event counted twice for one certification</li>
+          </ul>
+          <p class="note" style="margin-top:14px">Conversion: 1 CEU or CPU = 10 CPE. 1 CLE, CLP, or PDU = 1 CPE.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXAM FACTS ============ -->
+    <section class="view" id="v-ref">
+      <div class="panel">
+        <div class="panel-head"><h2>The numbers</h2><span class="ref">Verify on ncmahq.org before you commit</span></div>
+        <div class="facts">
+          <div class="fact"><div class="v">120</div><div class="l">CPE hours to apply</div></div>
+          <div class="fact"><div class="v">5 yrs</div><div class="l">Experience required</div></div>
+          <div class="fact"><div class="v">$225</div><div class="l">Application (member)</div></div>
+          <div class="fact"><div class="v">$135</div><div class="l">Exam fee (US/CA)</div></div>
+          <div class="fact"><div class="v">1 yr / 3</div><div class="l">Eligibility / attempts</div></div>
+          <div class="fact"><div class="v">Kryterion</div><div class="l">Test provider</div></div>
+          <div class="fact"><div class="v">15 days</div><div class="l">Application review</div></div>
+          <div class="fact"><div class="v">CMBOK 7</div><div class="l">Sole source material</div></div>
+        </div>
+        <p class="note" style="margin-top:18px">The exam may be taken at a Kryterion center or online. Recertification runs on a five-year cycle and now requires 100 CPE for cycles ending 2026 onward — worth knowing before you're standing on the other side of it.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>Sequence to certification</h2><span class="ref">Where you are: step 1</span></div>
+        <div id="steps"></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============================================================
+     QUESTION BANK
+     ============================================================ */
+  var DOMAINS = [
+    {code:"GP",  name:"Guiding Principles", sub:"Skills, roles, standards, ethics"},
+    {code:"PRE", name:"Pre-Award",          sub:"Planning, market research, solicitation"},
+    {code:"AWD", name:"Award",              sub:"Pricing, negotiation, source selection"},
+    {code:"POST",name:"Post-Award",         sub:"Administration, changes, claims, closeout"},
+    {code:"LDR", name:"Leadership",         sub:"Vision, influence, ethical judgment"},
+    {code:"MGT", name:"Management",         sub:"Business, project, financial management"},
+    {code:"FED", name:"Federal Statutes",   sub:"BAA, TAA, OTA, socioeconomic"}
+  ];
+
+  var Q = [
+    // ---------- GUIDING PRINCIPLES ----------
+    {d:"GP", q:"Under the CMBOK, what most accurately distinguishes a contract manager's role from a purchasing agent's?",
+     o:["The contract manager has warrant authority; the purchasing agent does not",
+        "The contract manager manages the full lifecycle and the business relationship, not just the transaction",
+        "The contract manager works only on the buy side",
+        "The contract manager is always a licensed attorney"],
+     a:1, e:"CMBOK frames contract management as lifecycle stewardship — pre-award through closeout — including relationship and risk management. Warrant authority is a federal-specific artifact, not the defining distinction, and CMBOK deliberately covers both buy and sell side."},
+
+    {d:"GP", q:"Which of the following is required for a legally enforceable contract?",
+     o:["Written form in all cases","Consideration flowing both ways","Notarization","Registration with a public body"],
+     a:1, e:"Offer, acceptance, consideration, capacity, and legality are the elements. Consideration must be mutual — each side gives something of value. Writing is required only for certain categories (Statute of Frauds); notarization and registration are not general requirements."},
+
+    {d:"GP", q:"A contract manager discovers her employer's proposal contains a materially misleading past-performance claim. The CMBOK's ethical framework directs her first to:",
+     o:["Report externally to the customer immediately",
+        "Resign to avoid complicity",
+        "Raise it internally through the appropriate channel and document it",
+        "Say nothing — proposal content is the capture team's responsibility"],
+     a:2, e:"Professional ethics obligate escalation through legitimate internal channels first, with documentation. External reporting is a later resort if internal channels fail. Silence is complicity; resignation abandons the duty without resolving the misstatement."},
+
+    {d:"GP", q:"Apparent authority exists when:",
+     o:["An agent has been expressly granted authority in writing",
+        "A reasonable third party would believe the agent has authority based on the principal's conduct",
+        "The agent believes in good faith they have authority",
+        "The contract has been fully performed"],
+     a:1, e:"Apparent authority turns on the PRINCIPAL's conduct creating a reasonable belief in the third party — not the agent's own belief. In federal contracting, apparent authority is generally NOT binding on the Government; only actual authority (the warrant) binds it. That asymmetry is heavily tested."},
+
+    {d:"GP", q:"Which best describes the Contract Management Standard (CMS)?",
+     o:["A federal regulation carrying force of law",
+        "An ANSI-approved standard describing what contract managers do, independent of sector",
+        "An NCMA membership requirement",
+        "A pricing methodology"],
+     a:1, e:"The CMS is an ANSI-approved, sector-neutral standard of practice. It describes the discipline; the FAR regulates federal procurement. Confusing the two — standard vs. regulation — is a common trap."},
+
+    // ---------- PRE-AWARD ----------
+    {d:"PRE", q:"The primary purpose of market research is to:",
+     o:["Establish the independent government cost estimate",
+        "Determine whether commercial items can meet the need and shape the acquisition strategy",
+        "Justify a sole-source award",
+        "Set the evaluation weights"],
+     a:1, e:"Market research determines what the market can supply, whether commercial or non-developmental items satisfy the requirement, and informs the acquisition strategy. It may INFORM an IGCE or a sole-source justification, but neither is its purpose."},
+
+    {d:"PRE", q:"Which contract type places the greatest cost risk on the seller?",
+     o:["Cost-Plus-Fixed-Fee","Firm-Fixed-Price","Time-and-Materials","Cost-Plus-Incentive-Fee"],
+     a:1, e:"FFP: seller bears all cost risk; price is fixed regardless of actual cost. Cost-reimbursement types shift cost risk to the buyer. T&M sits between — the buyer bears the risk on hours, seller on rates. Memorize the risk spectrum as a line: FFP → FPI → CPIF → CPAF → CPFF → T&M/LH."},
+
+    {d:"PRE", q:"An IDIQ contract must include which of the following to be enforceable?",
+     o:["A firm delivery schedule for all work",
+        "A guaranteed minimum quantity the buyer is obligated to order",
+        "A ceiling price on each task order",
+        "A named contracting officer's representative"],
+     a:1, e:"The guaranteed minimum is the consideration that makes an IDIQ binding. Without it, there's an illusory promise. Contrast with a REQUIREMENTS contract, which obligates the buyer to purchase all actual needs from that seller but guarantees no specific minimum."},
+
+    {d:"PRE", q:"A requirement is described by function and outcome, with the contractor free to determine method. This is a:",
+     o:["Design specification","Performance work statement","Statement of objectives","Purchase description"],
+     a:1, e:"A PWS states WHAT outcome is required and lets the contractor decide HOW — and it shifts performance risk to the contractor. A Statement of Objectives goes further still: it states only high-level objectives and asks the offeror to write the PWS. A design spec dictates the how, and keeps the risk with the buyer."},
+
+    {d:"PRE", q:"An acquisition plan's most important function is to:",
+     o:["Satisfy a documentation requirement",
+        "Integrate the efforts of all personnel responsible for the acquisition into a coherent strategy",
+        "Establish the source selection evaluation board",
+        "Fix the budget"],
+     a:1, e:"The acquisition plan is a strategy-integration document — it aligns requirements, budget, schedule, contract type, competition approach, and risk into one coherent plan. Treating it as a compliance artifact is exactly the failure mode CMBOK warns about."},
+
+    {d:"PRE", q:"Best value continuum: which approach is most appropriate when requirements are clearly defined and risk of unsuccessful performance is minimal?",
+     o:["Tradeoff process","Lowest Price Technically Acceptable","Sole source","Cost-reimbursement with award fee"],
+     a:1, e:"LPTA fits well-defined, low-risk, commodity-like requirements where technical differentiation adds no value. Tradeoff is appropriate when it may be worth paying more for superior technical merit or lower performance risk."},
+
+    // ---------- AWARD ----------
+    {d:"AWD", q:"During source selection, the evaluation team scores Offeror C low and excludes it from the competitive range, relying on point scores without narrative rationale. The core defect is:",
+     o:["Point scores may not be used at all",
+        "The evaluation record lacks the qualitative documentation needed to make the decision defensible on protest",
+        "Offerors must always be given a chance to revise",
+        "The competitive range must include at least three offerors"],
+     a:1, e:"Scores are a shorthand, not a rationale. CMBOK requires the record to document strengths, weaknesses, deficiencies, and risks with qualitative analysis. A protest tests whether the decision is documented, consistent with the stated criteria, and rationally supported — bare numbers fail that test."},
+
+    {d:"AWD", q:"Price analysis (as opposed to cost analysis) is characterized by:",
+     o:["Examining the offeror's individual cost elements and profit",
+        "Evaluating the proposed price as a whole without examining its component costs",
+        "Auditing indirect rates",
+        "Applying a should-cost model"],
+     a:1, e:"Price analysis looks at the total price — comparison to other offers, catalog prices, market prices, prior purchases, parametric estimates. Cost analysis opens the box: examines each element and profit/fee. Adequate price competition normally means price analysis alone suffices."},
+
+    {d:"AWD", q:"An offeror submits a proposal with an obvious clerical error — a decimal misplacement making the price 10x too low. Before award, this is typically handled as:",
+     o:["A mistake that may be corrected or the offer withdrawn",
+        "A binding offer the offeror must honor",
+        "Grounds for automatic disqualification",
+        "A material misrepresentation"],
+     a:0, e:"A mistake apparent on the face of the offer, discovered before award, is addressable — the buyer must seek verification, and depending on the evidence, correction or withdrawal is permitted. Holding an offeror to an obvious clerical error is not a defensible outcome."},
+
+    {d:"AWD", q:"In a Cost-Plus-Incentive-Fee contract, the share ratio determines:",
+     o:["How cost overruns and underruns are split between buyer and seller",
+        "The maximum fee payable","The award fee pool allocation","The ceiling price"],
+     a:0, e:"The share ratio (e.g., 80/20) allocates the difference between target cost and actual cost. CPIF also has a minimum and maximum fee, so incentive is bounded. Contrast CPAF: fee is determined subjectively by the buyer against criteria, and is generally not disputable."},
+
+    {d:"AWD", q:"The single most important predictor of negotiation success under the CMBOK is:",
+     o:["Aggressive opening position","Preparation — objectives, BATNA, and the other side's interests",
+        "Willingness to walk away at any moment","Seniority of the negotiator"],
+     a:1, e:"CMBOK is unambiguous: preparation. Knowing your objectives, your walkaway/BATNA, your minimum and target positions, and — critically — the other party's interests and constraints. Aggression without preparation destroys value and relationships."},
+
+    {d:"AWD", q:"Which is the correct order of the source selection process?",
+     o:["Solicitation → evaluation → competitive range → discussions → final proposal revisions → award",
+        "Solicitation → discussions → evaluation → award",
+        "Evaluation → solicitation → award → debriefing",
+        "Competitive range → solicitation → evaluation → award"],
+     a:0, e:"Issue the solicitation, evaluate initial proposals against stated criteria, establish the competitive range, conduct discussions with those in range, request final proposal revisions, then make the best-value decision and award. Debriefings follow award."},
+
+    // ---------- POST-AWARD ----------
+    {d:"POST", q:"A contracting officer's representative (COR) directs the contractor to add a feature not in the SOW. The contractor performs. This is best characterized as:",
+     o:["A bilateral modification","A constructive change","An unauthorized commitment by the contractor","A novation"],
+     a:1, e:"A constructive change: work outside the contract scope was effectively directed by someone with apparent (not actual) authority, and the contractor performed. The contractor may seek an equitable adjustment. The COR lacks authority to change the contract — only the CO does. A prudent contractor notifies the CO in writing BEFORE performing."},
+
+    {d:"POST", q:"An equitable adjustment compensates the contractor for:",
+     o:["Lost profits on unperformed work","The increased cost and time attributable to a change, plus reasonable profit on the changed work",
+        "Punitive damages","All costs incurred regardless of cause"],
+     a:1, e:"An REA makes the contractor whole for the change: added cost, schedule impact, and reasonable profit on the added work. It is not a windfall, not punitive, and not a recovery of anticipated profits on work never performed."},
+
+    {d:"POST", q:"Termination for convenience differs from termination for default primarily in that:",
+     o:["T4C requires contractor fault; T4D does not",
+        "T4C entitles the contractor to recover incurred costs, settlement expenses, and profit on work performed",
+        "T4D is only available in commercial contracts",
+        "T4C requires a cure notice first"],
+     a:1, e:"T4C is a no-fault termination for the buyer's convenience; the contractor recovers costs incurred, settlement expense, and profit on work performed — but not anticipatory profit. T4D is fault-based, follows cure/show-cause notices, and can expose the contractor to reprocurement costs. A T4D wrongly issued is typically converted to a T4C."},
+
+    {d:"POST", q:"Under the Contract Disputes Act, a claim over the certification threshold must be:",
+     o:["Filed in federal district court first",
+        "Certified by the contractor and submitted to the contracting officer for a final decision",
+        "Submitted to the agency's inspector general",
+        "Resolved by binding arbitration"],
+     a:1, e:"The CO's final decision is the mandatory gateway. Certification applies above the threshold ($100,000). Only after the final decision (or a deemed denial) can the contractor appeal to a Board of Contract Appeals or the Court of Federal Claims — not district court."},
+
+    {d:"POST", q:"The most common root cause of contract closeout delay is:",
+     o:["Contractor bankruptcy","Unsettled indirect cost rates and outstanding subcontract settlements",
+        "Loss of the contract file","Government shutdown"],
+     a:1, e:"Closeout stalls on final indirect rate settlement (which needs an audit), unsettled subcontracts, unresolved property disposition, and open claims. Building final-rate settlement into the schedule early is the practical fix."},
+
+    {d:"POST", q:"A contractor encounters a differing site condition materially different from what the contract indicated. The correct first step is:",
+     o:["Stop work immediately and file a claim",
+        "Provide prompt written notice to the contracting officer before disturbing the condition",
+        "Proceed and absorb the cost",
+        "Notify the COR verbally"],
+     a:1, e:"Prompt WRITTEN notice to the CO, before the condition is disturbed, preserves the right to an equitable adjustment. Failing to give notice — or disturbing the evidence — is the most common way contractors forfeit an otherwise valid entitlement."},
+
+    {d:"POST", q:"Contract administration's central objective is to:",
+     o:["Police the contractor","Ensure both parties perform as agreed and manage change and risk through the performance period",
+        "Minimize payments","Generate documentation for audit"],
+     a:1, e:"Administration is bilateral performance assurance and active management of change, risk, and the relationship. The adversarial framing ('police the contractor') is precisely what CMBOK argues destroys value."},
+
+    // ---------- LEADERSHIP ----------
+    {d:"LDR", q:"A contract manager inherits a team demoralized by a lost recompete. The CMBOK leadership model suggests the first priority is:",
+     o:["Restructure roles to signal change","Establish a clear, credible vision and communicate it consistently",
+        "Increase individual performance targets","Bring in outside talent"],
+     a:1, e:"Vision and consistent communication precede structural moves. People need to know where they're going and believe it's achievable before reorganization means anything. Restructuring first, absent a narrative, reads as punishment."},
+
+    {d:"LDR", q:"Which behavior most undermines a contract manager's influence with stakeholders who don't report to her?",
+     o:["Saying no to an unlawful request",
+        "Inconsistency — giving different answers to different stakeholders on the same issue",
+        "Requesting documentation","Escalating a disagreement"],
+     a:1, e:"Influence without authority is built on credibility, and credibility is built on consistency. Inconsistency destroys it faster than any single unpopular decision. Saying no to an unlawful request, properly explained, actually builds credibility."},
+
+    {d:"LDR", q:"Emotional intelligence in the CMBOK's leadership competency most directly supports:",
+     o:["Cost estimating accuracy","Reading the interests behind stated positions in negotiation and dispute resolution",
+        "Regulatory compliance","Schedule adherence"],
+     a:1, e:"EI's operational payoff in contract management is in the human-facing work: negotiation, dispute resolution, stakeholder alignment. Positions are what people say they want; interests are why. Reading the gap is the skill."},
+
+    {d:"LDR", q:"Setting SMART goals improves accountability primarily because:",
+     o:["Goals become more ambitious",
+        "Measurable, time-bound criteria make it objectively determinable whether the goal was met",
+        "They shorten the planning cycle","They reduce the need for supervision"],
+     a:1, e:"The accountability mechanism is measurability plus a deadline — that's what converts a goal from an aspiration into something that can be assessed without argument. Ambition is not part of SMART."},
+
+    // ---------- MANAGEMENT ----------
+    {d:"MGT", q:"Earned Value Management: a project has BCWP (EV) = $80K, ACWP (AC) = $100K, BCWS (PV) = $90K. The cost variance is:",
+     o:["+$10K (favorable)","−$20K (unfavorable)","−$10K (unfavorable)","+$20K (favorable)"],
+     a:1, e:"CV = EV − AC = 80 − 100 = −$20K. Negative is unfavorable: you spent $100K to earn $80K of value. Schedule variance SV = EV − PV = 80 − 90 = −$10K, also behind. Remember: variances are always EARNED minus the other thing, and negative is always bad."},
+
+    {d:"MGT", q:"A risk with high impact but low probability is best handled by:",
+     o:["Acceptance in all cases","Transfer — for example via insurance, or a contract type that shifts the risk",
+        "Ignoring it until it materializes","Immediate avoidance regardless of cost"],
+     a:1, e:"High-impact / low-probability is the classic transfer profile — insurance, indemnity, warranty, or a contract type that reallocates the risk. Acceptance suits low/low. Mitigation suits high probability. Avoidance means changing the plan so the risk cannot occur, which is often too costly."},
+
+    {d:"MGT", q:"Which cost is generally UNALLOWABLE on a US Government cost-reimbursement contract?",
+     o:["Direct labor","Reasonable travel","Lobbying costs","Depreciation of equipment used on the contract"],
+     a:2, e:"Lobbying is expressly unallowable. The allowability test is fourfold: reasonable, allocable, compliant with CAS/GAAP, and not expressly unallowable by regulation or contract terms. Also memorize: entertainment, alcohol, fines and penalties, and bad debts are unallowable."},
+
+    {d:"MGT", q:"An indirect cost is best defined as:",
+     o:["Any cost over a dollar threshold",
+        "A cost not directly traceable to a single final cost objective, allocated across a base",
+        "A cost incurred by a subcontractor","A cost disallowed by audit"],
+     a:1, e:"Indirect = not traceable to one cost objective, so it's pooled and allocated over a base (overhead, G&A, fringe). Direct = traceable to a single final cost objective. The same TYPE of cost can be direct on one contract and indirect on another — consistency in treatment is what CAS enforces."},
+
+    {d:"MGT", q:"A supply chain disruption threatens a delivery milestone. The contract manager's most valuable early action is:",
+     o:["Issue a cure notice","Notify the buyer promptly and jointly evaluate options",
+        "Absorb the delay silently and try to recover","Terminate the subcontract"],
+     a:1, e:"Prompt notice preserves options, preserves the relationship, and preserves whatever entitlement may exist. Silent absorption is the most common and most damaging instinct — by the time it surfaces, the buyer has lost the chance to help and has reason to doubt everything else you report."},
+
+    // ---------- FEDERAL STATUTES ----------
+    {d:"FED", q:"A federal agency buys laptops manufactured and assembled in the US, but 75% of component cost originates in Japan. Under the Buy American Act, the correct characterization is:",
+     o:["Domestic end product","Not a domestic end product","BAA does not apply (N/A)","Requires a public interest waiver"],
+     a:2, e:"THE TRAP. Japan is a WTO Government Procurement Agreement signatory and therefore a TAA-designated country. When TAA applies, it SUPERSEDES the BAA entirely — so the answer is N/A, not 'fails the component test.' Compare with a non-designated country (Honduras, China): BAA remains in play and the domestic end product test actually runs."},
+
+    {d:"FED", q:"PPE manufactured in Honduras, purchased at $8,000 (below the micro-purchase threshold). Under the BAA:",
+     o:["Not a domestic end product","BAA does not apply (N/A)","Domestic end product","TAA governs"],
+     a:1, e:"BAA applies ABOVE the micro-purchase threshold ($10,000). At $8,000 you are below it, so BAA does not apply. Note the distinction from the same question at $50,000 — there BAA WOULD apply, Honduras is not TAA-designated, and the answer would be 'not a domestic end product.' Threshold first, then designation, then the two-part test."},
+
+    {d:"FED", q:"The BAA two-part domestic end product test requires:",
+     o:["US manufacture only",
+        "US manufacture AND that the cost of domestic components exceed the applicable threshold percentage of total component cost",
+        "US ownership of the manufacturer","US-origin raw materials only"],
+     a:1, e:"Both prongs: (1) manufactured in the United States, AND (2) the domestic component cost test. Failing either prong defeats domestic end product status. Commercially available off-the-shelf items are generally exempt from the component test."},
+
+    {d:"FED", q:"Which is NOT one of the three types of Other Transaction (OT) authority?",
+     o:["Research OT","Prototype OT","Production OT","Sustainment OT"],
+     a:3, e:"The three are Research, Prototype, and Production. There is no 'Sustainment OT.' A Production OT generally must follow a successfully completed Prototype OT — that's the pathway. Also: OTs are not new; the authority dates to 1958 (NASA)."},
+
+    {d:"FED", q:"An Other Transaction Agreement is exempt from the FAR. Which of the following STILL applies?",
+     o:["Cost Accounting Standards","The Competition in Contracting Act",
+        "The Anti-Deficiency Act","Bayh-Dole"],
+     a:2, e:"OTs escape the FAR ecosystem — no CICA, no CAS, no Bayh-Dole, no agency FAR supplements. But universal statutory law still binds: the Anti-Deficiency Act, export controls (ITAR/EAR), anti-bribery statutes, and the agency's own OT guidelines. The mental model: OT exits the regulation, not the law."},
+
+    {d:"FED", q:"An agency proposes an R&D OT for a self-riding bicycle. The Air Force already has a substantially similar prototype effort underway. The principal problem is:",
+     o:["No planned competition","Duplication of effort with another agency's program",
+        "OTs may not be used for R&D","The agency lacks OT authority"],
+     a:1, e:"Duplication is the disqualifier. Agencies must ensure an OT is not duplicating existing effort. OTs are expressly available for R&D, and while competition to the maximum extent practicable is expected, absence of formal competition is not by itself fatal the way duplication is."},
+
+    {d:"FED", q:"The Trade Agreements Act functions primarily to:",
+     o:["Prohibit foreign end products",
+        "Waive the BAA for products from designated countries, above the TAA threshold",
+        "Impose tariffs on federal purchases","Require domestic sourcing of raw materials"],
+     a:1, e:"TAA WAIVES the BAA for designated-country end products above the TAA threshold — it opens markets, it doesn't close them. Designated countries include WTO GPA signatories, FTA partners, least-developed countries, and Caribbean Basin countries. China, Russia, India, and Honduras are NOT designated."},
+
+    {d:"FED", q:"A small business subcontracting plan is generally required when:",
+     o:["Any contract is awarded to a large business",
+        "A contract to a large business exceeds the threshold and offers subcontracting opportunities",
+        "The prime is a small business","The contract is cost-reimbursement"],
+     a:1, e:"Two conditions: the prime is other-than-small, the value exceeds the threshold, AND subcontracting opportunities exist. Small business primes are exempt — they are the goal, not the vehicle for it."},
+
+    {d:"FED", q:"Under the Truthful Cost or Pricing Data statute (formerly TINA), certified cost or pricing data is generally NOT required when:",
+     o:["The contract exceeds the threshold",
+        "The price is based on adequate price competition or a commercial product/service",
+        "The contract is cost-reimbursement","The contractor is a large business"],
+     a:1, e:"The exceptions: adequate price competition, prices set by law or regulation, commercial products/services, and waivers. If any exception applies, no certification — and no defective pricing exposure. Certification is what creates the Government's right to a price reduction for defective data."},
+
+    {d:"FED", q:"The Procurement Integrity Act prohibits:",
+     o:["All contact between government and industry during a procurement",
+        "Disclosing or obtaining contractor bid or proposal information or source selection information before award",
+        "Hiring former government employees","Attending industry days"],
+     a:1, e:"PIA targets the information: obtaining or disclosing contractor bid/proposal information or source selection information before award. It also imposes post-employment restrictions on certain officials. It does not prohibit legitimate industry engagement — that's a widespread and costly misreading."},
+
+    // ---------- MIXED / SCENARIO ----------
+    {d:"AWD", q:"A firm-fixed-price contract is awarded. Six months in, the contractor's material costs rise 40% due to inflation. Absent an economic price adjustment clause, the contractor:",
+     o:["Is entitled to an equitable adjustment","Bears the cost increase",
+        "May terminate for convenience","May demand a bilateral modification"],
+     a:1, e:"That is precisely what FFP means — the contractor bears cost risk. The remedy the contractor SHOULD have negotiated is a Fixed-Price with Economic Price Adjustment (FPEPA) contract type. There is no entitlement here; a bilateral mod requires the buyer's agreement, which it has no obligation to give."},
+
+    {d:"POST", q:"A subcontractor's defective part causes a prime's delivery failure. As to the Government, the prime is:",
+     o:["Excused, because the fault lies with the subcontractor",
+        "Fully liable — there is no privity between the Government and the subcontractor",
+        "Liable only for the subcontract value","Entitled to a no-cost extension"],
+     a:1, e:"Privity of contract. The Government contracted with the prime; the prime is fully responsible for its supply chain. The prime's recourse is against the sub under the subcontract — which is exactly why flow-down clauses and back-to-back terms matter so much."},
+
+    {d:"MGT", q:"A make-or-buy decision should be driven principally by:",
+     o:["Lowest immediate cost",
+        "Strategic considerations — core competency, capacity, risk, and long-term supply position — alongside cost",
+        "Internal headcount targets","Avoiding subcontract administration"],
+     a:1, e:"Cost is one input. The decisive questions are whether the capability is core, whether you have capacity, what the risk and IP implications are, and what the long-term supply position looks like. Outsourcing a core competency to save 5% is the classic error."},
+
+    {d:"GP", q:"The parol evidence rule generally prevents:",
+     o:["Any oral modification after award",
+        "Introduction of prior or contemporaneous agreements to contradict a fully integrated written contract",
+        "The use of email as evidence","Reliance on trade custom"],
+     a:1, e:"It bars extrinsic evidence of PRIOR or CONTEMPORANEOUS agreements offered to contradict a fully integrated writing. It does not bar evidence of SUBSEQUENT modifications, nor evidence offered to explain an ambiguity, nor evidence of fraud."},
+
+    {d:"PRE", q:"An ambiguity in the solicitation is patent (obvious on its face). An offeror notices it, says nothing, and later claims its interpretation. The offeror will likely:",
+     o:["Prevail — ambiguities are construed against the drafter",
+        "Lose — a patent ambiguity imposes a duty to inquire before award",
+        "Recover half the disputed amount","Be entitled to reformation"],
+     a:1, e:"Contra proferentem (construe against the drafter) applies to LATENT ambiguities. A PATENT ambiguity triggers a duty to inquire before submitting. Sit on an obvious ambiguity to gain advantage and you forfeit the argument."}
+  ];
+
+  Q.forEach(function(q,i){ q.id = "Q" + String(i+1).padStart(3,"0"); });
+
+  /* ============================================================
+     STATE
+     ============================================================ */
+  var state = { results:{}, cpe:[] };
+  var K_RES = "cpcm:results", K_CPE = "cpcm:cpe";
+  var filter = "ALL", onlyUnseen = false, order = null;
+
+  /* Storage adapter.
+     Inside the Claude artifact runtime, window.storage exists.
+     Running from disk or GitHub Pages, fall back to localStorage.
+     If neither is available (private mode, file:// lockdown), run in memory. */
+  var store = (function(){
+    if(typeof window.storage !== "undefined"){
+      return {
+        kind:"artifact",
+        get:function(k){ return window.storage.get(k,false).then(function(r){ return r && r.value ? r.value : null; }); },
+        set:function(k,v){ return window.storage.set(k,v,false); }
+      };
+    }
+    try{
+      window.localStorage.setItem("cpcm:probe","1");
+      window.localStorage.removeItem("cpcm:probe");
+      return {
+        kind:"local",
+        get:function(k){ return Promise.resolve(window.localStorage.getItem(k)); },
+        set:function(k,v){ window.localStorage.setItem(k,v); return Promise.resolve(true); }
+      };
+    }catch(e){
+      var mem = {};
+      return {
+        kind:"memory",
+        get:function(k){ return Promise.resolve(mem[k]||null); },
+        set:function(k,v){ mem[k]=v; return Promise.resolve(true); }
+      };
+    }
+  })();
+
+  function setStatus(t){
+    var el = document.getElementById("save-status");
+    if(!el) return;
+    el.textContent = t;
+    setTimeout(function(){ if(el.textContent===t) el.textContent=""; }, 2200);
+  }
+
+  async function load(){
+    try{ var r = await store.get(K_RES); if(r) state.results = JSON.parse(r); }
+    catch(e){ /* first run, or unreadable — start clean */ }
+    try{ var c = await store.get(K_CPE); if(c) state.cpe = JSON.parse(c); }
+    catch(e){ /* first run */ }
+    seedCpe();
+  }
+  function seedCpe(){
+    if(!state.cpe || state.cpe.length === 0){
+      state.cpe = [{n:"Baseline hours already earned", c:"Baseline (pre-logged)", h:81}];
+    }
+  }
+  async function saveResults(){
+    try{ await store.set(K_RES, JSON.stringify(state.results)); }
+    catch(e){ setStatus("save failed"); }
+  }
+  async function saveCpe(){
+    try{ await store.set(K_CPE, JSON.stringify(state.cpe)); setStatus("saved"); }
+    catch(e){ setStatus("save failed"); }
+  }
+
+  /* ============================================================
+     DERIVED
+     ============================================================ */
+  function domainStats(code){
+    var qs = Q.filter(function(q){ return q.d===code; });
+    var seen=0, right=0;
+    qs.forEach(function(q){
+      var r = state.results[q.id];
+      if(r){ seen++; if(r.correct) right++; }
+    });
+    return {total:qs.length, seen:seen, right:right, pct: seen? Math.round(right/seen*100):0};
+  }
+  function openDeficiencies(){
+    return Q.filter(function(q){
+      var r = state.results[q.id];
+      return r && !r.correct;
+    });
+  }
+  function totalCpe(){
+    return state.cpe.reduce(function(s,e){ return s + (parseFloat(e.h)||0); }, 0);
+  }
+
+  /* ============================================================
+     RENDER
+     ============================================================ */
+  function renderMast(){
+    var seen=0, right=0;
+    Object.keys(state.results).forEach(function(k){ seen++; if(state.results[k].correct) right++; });
+    document.getElementById("mh-acc").textContent = seen ? Math.round(right/seen*100)+"%" : "—";
+    document.getElementById("mh-def").textContent = openDeficiencies().length;
+    document.getElementById("mh-cpe").textContent = totalCpe();
+  }
+
+  function renderDash(){
+    var box = document.getElementById("domain-rows");
+    box.innerHTML = "";
+    var weakest=null, weakScore=999;
+    DOMAINS.forEach(function(d){
+      var s = domainStats(d.code);
+      var cls = s.seen===0 ? "" : (s.pct>=80 ? "good" : (s.pct<60 ? "bad" : ""));
+      var row = document.createElement("div");
+      row.className = "drow";
+      row.innerHTML =
+        '<div class="dcode">'+d.code+'</div>'+
+        '<div class="dname">'+d.name+'<small>'+d.sub+'</small></div>'+
+        '<div class="bar '+cls+'"><i style="width:'+(s.seen? s.pct:0)+'%"></i></div>'+
+        '<div class="dpct">'+(s.seen? s.pct+'%' : '—')+'<br><span style="font-size:10px">'+s.seen+'/'+s.total+'</span></div>';
+      box.appendChild(row);
+      var score = s.seen===0 ? 50 : s.pct;   // untouched domains rank mid — real weakness beats mere absence
+      if(score < weakScore){ weakScore = score; weakest = d; }
+    });
+
+    var na = document.getElementById("next-action");
+    var defs = openDeficiencies().length;
+    if(Object.keys(state.results).length === 0){
+      na.textContent = "Nothing attempted yet. Take a pass through the full bank untimed — the point of the first run is to find the holes, not to score well.";
+    } else if(defs >= 5){
+      na.textContent = "You have " + defs + " open deficiencies. Clearing those beats new questions — a miss you never revisit is a miss you'll repeat on exam day.";
+    } else {
+      na.textContent = "Weakest area: " + weakest.name + " (" + (domainStats(weakest.code).seen ? weakScore + "% accuracy" : "unattempted") + "). Drill it next.";
+    }
+    window.__weakest = weakest.code;
+
+    var t = totalCpe(), pct = Math.min(100, Math.round(t/120*100));
+    document.getElementById("g-fill").style.width = pct + "%";
+    document.getElementById("g-label").textContent = t + " / 120";
+    document.getElementById("g-left").textContent = Math.max(0, 120 - t) + " hours remaining";
+    document.querySelector("#v-dash .gauge-meta span:last-child").textContent = pct + "%";
+  }
+
+  function renderFilters(){
+    var f = document.getElementById("filters");
+    f.innerHTML = "";
+    var all = [{code:"ALL", name:"All"}].concat(DOMAINS);
+    all.forEach(function(d){
+      var b = document.createElement("button");
+      b.className = "chip";
+      b.setAttribute("aria-pressed", filter===d.code ? "true":"false");
+      var n = d.code==="ALL" ? Q.length : Q.filter(function(q){return q.d===d.code;}).length;
+      b.textContent = (d.code==="ALL" ? "All" : d.code) + " · " + n;
+      b.onclick = function(){ filter = d.code; order = null; renderFilters(); renderDrill(); };
+      f.appendChild(b);
+    });
+    document.getElementById("unseen").setAttribute("aria-pressed", onlyUnseen?"true":"false");
+    document.getElementById("unseen").style.background = onlyUnseen ? "var(--ink)" : "transparent";
+    document.getElementById("unseen").style.color = onlyUnseen ? "#fff" : "var(--ink)";
+  }
+
+  function pool(){
+    var p = Q.filter(function(q){ return filter==="ALL" || q.d===filter; });
+    if(onlyUnseen) p = p.filter(function(q){ return !state.results[q.id]; });
+    if(order){
+      var idx = {};
+      p.forEach(function(q){ idx[q.id]=q; });
+      return order.map(function(id){ return idx[id]; }).filter(Boolean);
+    }
+    return p;
+  }
+
+  function card(q, showDomain){
+    var r = state.results[q.id];
+    var dom = DOMAINS.filter(function(d){return d.code===q.d;})[0];
+    var wrap = document.createElement("article");
+    wrap.className = "clause" + (r ? (r.correct ? " correct" : " wrong") : "");
+
+    var hd = document.createElement("div");
+    hd.className = "clause-hd";
+    hd.innerHTML = '<span class="clause-ref">' + q.d + ' &middot; ' + q.id + ' <em>' + dom.name + '</em></span>' +
+      (r ? '<span class="verdict ' + (r.correct?'ok':'no') + '">' + (r.correct?'Cleared':'Deficiency') + '</span>' : '');
+    wrap.appendChild(hd);
+
+    var body = document.createElement("div");
+    body.className = "clause-body";
+    var p = document.createElement("p");
+    p.className = "qtext";
+    p.textContent = q.q;
+    body.appendChild(p);
+
+    q.o.forEach(function(text, oi){
+      var b = document.createElement("button");
+      b.className = "opt";
+      b.innerHTML = '<span class="k">' + "ABCD"[oi] + '</span><span>' + text + '</span>';
+      if(r){
+        b.classList.add("locked");
+        if(oi === r.picked) b.classList.add(r.correct ? "hit" : "miss");
+        else if(oi === q.a && !r.correct) b.classList.add("reveal");
+      } else {
+        b.onclick = function(){ answer(q, oi); };
+      }
+      body.appendChild(b);
+    });
+
+    var exp = document.createElement("div");
+    exp.className = "exp" + (r ? " show" : "");
+    exp.innerHTML = '<b>Why</b>' + q.e;
+    body.appendChild(exp);
+
+    wrap.appendChild(body);
+    return wrap;
+  }
+
+  function renderDrill(){
+    var box = document.getElementById("drill-cards");
+    box.innerHTML = "";
+    var p = pool();
+    document.getElementById("drill-count").textContent = p.length + " question" + (p.length===1?"":"s");
+    if(p.length === 0){
+      box.innerHTML = '<div class="empty"><div class="big">Nothing in this slice.</div><p>You&rsquo;ve attempted everything here. Turn off &ldquo;unattempted only,&rdquo; or shuffle to run them again.</p></div>';
+      return;
+    }
+    p.forEach(function(q){ box.appendChild(card(q)); });
+  }
+
+  function renderDef(){
+    var box = document.getElementById("def-cards");
+    box.innerHTML = "";
+    var defs = openDeficiencies();
+    if(defs.length === 0){
+      var any = Object.keys(state.results).length > 0;
+      box.innerHTML = '<div class="empty"><div class="big">' +
+        (any ? "No open deficiencies." : "Nothing logged yet.") + '</div><p>' +
+        (any ? "Everything you&rsquo;ve missed has been re-answered correctly. Go add new questions to the pile." :
+               "Answer questions in Drill. Anything you miss lands here until you get it right.") +
+        '</p></div>';
+      return;
+    }
+    defs.forEach(function(q){
+      var c = card(q);
+      var retry = document.createElement("div");
+      retry.style.padding = "0 18px 18px";
+      var b = document.createElement("button");
+      b.className = "btn ghost sm";
+      b.textContent = "Retry this question";
+      b.onclick = function(){
+        delete state.results[q.id];
+        saveResults(); renderAll();
+      };
+      retry.appendChild(b);
+      c.appendChild(retry);
+      box.appendChild(c);
+    });
+  }
+
+  function renderCpe(){
+    var t = totalCpe(), pct = Math.min(100, Math.round(t/120*100));
+    document.getElementById("g2-fill").style.width = pct + "%";
+    document.getElementById("g2-label").textContent = t + " / 120 hours";
+    document.getElementById("g2-left").textContent = t >= 120 ? "Requirement met — you can apply" : (120-t) + " hours remaining";
+    document.getElementById("g2-pct").textContent = pct + "%";
+
+    var tb = document.getElementById("cpe-body");
+    tb.innerHTML = "";
+    state.cpe.forEach(function(e, i){
+      var tr = document.createElement("tr");
+      tr.innerHTML = '<td>' + esc(e.n) + '</td><td class="mono" style="font-size:11.5px;color:var(--muted)">' + esc(e.c) + '</td><td class="num">' + e.h + '</td>';
+      var td = document.createElement("td");
+      var del = document.createElement("button");
+      del.className = "del"; del.textContent = "×"; del.title = "Remove";
+      del.onclick = function(){ state.cpe.splice(i,1); saveCpe(); renderAll(); };
+      td.appendChild(del); tr.appendChild(td);
+      tb.appendChild(tr);
+    });
+  }
+
+  function renderSteps(){
+    var steps = [
+      ["Bank 120 CPE hours","39 to go. Publishing and instructing are the highest-leverage remaining routes."],
+      ["Submit the application","$225 member fee. Transcripts, work history, CPE documentation. 15 business days to review."],
+      ["Schedule through Kryterion","$135 in the US/Canada. Onsite or online."],
+      ["Pass the exam","One year of eligibility, three attempts. CMBOK 7th Edition is the source of truth."],
+      ["Recertify every 5 years","100 CPE for cycles ending 2026 onward."]
+    ];
+    var box = document.getElementById("steps");
+    box.innerHTML = "";
+    steps.forEach(function(s, i){
+      var row = document.createElement("div");
+      row.className = "drow";
+      row.style.gridTemplateColumns = "44px 1fr";
+      row.innerHTML = '<div class="dcode" style="background:' + (i===0 ? 'var(--blue)' : 'var(--muted)') + '">' + (i+1) + '</div>' +
+        '<div class="dname">' + s[0] + '<small>' + s[1] + '</small></div>';
+      box.appendChild(row);
+    });
+  }
+
+  function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+
+  function renderAll(){ renderMast(); renderDash(); renderFilters(); renderDrill(); renderDef(); renderCpe(); }
+
+  /* ============================================================
+     ACTIONS
+     ============================================================ */
+  function answer(q, picked){
+    state.results[q.id] = { picked:picked, correct: picked===q.a, t: Date.now() };
+    saveResults();
+    renderMast();
+    renderDash();
+    // re-render just this card in place
+    var cards = document.querySelectorAll("#drill-cards .clause");
+    for(var i=0;i<cards.length;i++){
+      var ref = cards[i].querySelector(".clause-ref");
+      if(ref && ref.textContent.indexOf(q.id) > -1){
+        cards[i].replaceWith(card(q));
+        break;
+      }
+    }
+    renderDef();
+  }
+
+  function shuffle(){
+    var p = Q.filter(function(q){ return filter==="ALL" || q.d===filter; });
+    if(onlyUnseen) p = p.filter(function(q){ return !state.results[q.id]; });
+    var ids = p.map(function(q){return q.id;});
+    for(var i=ids.length-1;i>0;i--){
+      var j = Math.floor(Math.random()*(i+1));
+      var tmp = ids[i]; ids[i]=ids[j]; ids[j]=tmp;
+    }
+    order = ids;
+    renderDrill();
+    document.getElementById("v-drill").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  function show(view){
+    document.querySelectorAll(".view").forEach(function(v){ v.classList.remove("on"); });
+    document.getElementById("v-" + view).classList.add("on");
+    document.querySelectorAll(".tab").forEach(function(t){
+      t.setAttribute("aria-selected", t.dataset.view===view ? "true":"false");
+    });
+  }
+
+  /* ============================================================
+     WIRE UP
+     ============================================================ */
+  document.querySelectorAll(".tab").forEach(function(t){
+    t.onclick = function(){ show(t.dataset.view); };
+  });
+
+  document.getElementById("shuffle").onclick = shuffle;
+  document.getElementById("unseen").onclick = function(){
+    onlyUnseen = !onlyUnseen; order = null; renderFilters(); renderDrill();
+  };
+  document.getElementById("go-weak").onclick = function(){
+    filter = window.__weakest || "ALL"; onlyUnseen = false; order = null;
+    renderFilters(); renderDrill(); show("drill");
+  };
+  document.getElementById("go-def").onclick = function(){ show("def"); };
+
+  document.getElementById("cpe-add").onclick = function(){
+    var n = document.getElementById("cpe-name").value.trim();
+    var c = document.getElementById("cpe-cat").value;
+    var h = parseFloat(document.getElementById("cpe-hrs").value);
+    if(!n || !h || h <= 0){
+      document.getElementById("cpe-name").focus();
+      return;
+    }
+    state.cpe.push({n:n, c:c, h:h});
+    document.getElementById("cpe-name").value = "";
+    document.getElementById("cpe-hrs").value = "";
+    saveCpe(); renderAll();
+  };
+  document.getElementById("cpe-hrs").onkeydown = function(e){
+    if(e.key === "Enter") document.getElementById("cpe-add").click();
+  };
+
+  document.getElementById("reset-q").onclick = function(){
+    state.results = {}; order = null;
+    saveResults(); renderAll(); setStatus("question history cleared");
+  };
+  document.getElementById("reset-cpe").onclick = function(){
+    state.cpe = []; seedCpe();
+    saveCpe(); renderAll();
+  };
+
+  /* ============================================================
+     BOOT
+     ============================================================ */
+  load().then(function(){
+    renderSteps();
+    renderAll();
+    if(store.kind === "memory") setStatus("in-memory only — progress will not persist");
+  });
+
+})();
+</script>
