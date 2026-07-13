@@ -146,9 +146,11 @@ And professional development — certification, continuing education hours, ment
   },
   {
     id: "fed",
-    title: "Federal Statutes",
+    title: "Federal Statutes (Cross-Cutting)",
     minutes: 9,
-    script: `This isn't one of the seven official competencies, but it's woven through Pre-Award, Award, and Guiding Principles, and it shows up disproportionately often on the exam — so it earns its own section.
+    script: `A note before we start: on the actual exam blueprint, there is no standalone Federal Statutes section — this material is tested inside Pre-Award, Award, and Guiding Principles. Treat this lesson as a cross-cutting deep dive, not a separate section to budget study time for.
+
+That said, this content is woven through those three sections and shows up disproportionately often on the exam — so it earns its own lesson.
 
 Start with the Buy American Act, and run through it in a strict order, because doing the steps out of order is exactly how people get it wrong. Step one: is the purchase above the micro-purchase threshold, which is ten thousand dollars? If not, the Buy American Act doesn't apply at all — you're done, the answer is simply not-applicable. Step two, and this is the one that catches people: is a T-A-A designated country involved, above the Trade Agreements Act threshold? If yes, the Trade Agreements Act supersedes the Buy American Act completely — again, not-applicable, and you stop there without ever running the domestic-content test. Only if you get past both of those steps do you run step three, the actual two-part domestic end product test: was it manufactured in the United States, and does the cost of domestic components exceed the required percentage of total component cost? Both parts have to be true for something to count as a domestic end product.
 
