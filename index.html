@@ -362,6 +362,7 @@
               <option value="20">20 questions</option>
               <option value="40" selected>40 questions</option>
               <option value="60">60 questions</option>
+              <option value="180">180 — full length, real exam</option>
               <option value="all">All available</option>
             </select>
           </div>
@@ -398,6 +399,7 @@
         <div class="panel-head"><h2>Result</h2><span class="ref" id="exam-date"></span></div>
         <div class="facts" id="exam-facts"></div>
         <div style="margin-top:20px" id="exam-domain-breakdown"></div>
+        <div style="margin-top:20px" id="exam-pacing"></div>
         <div class="btnrow" style="margin-top:18px">
           <button class="btn" id="exam-retake">New mock exam</button>
           <button class="btn ghost" id="exam-review-misses">Review misses in Deficiency Log</button>
@@ -1709,7 +1711,213 @@
         "Eliminate choices known to be false and make an educated guess from what remains",
         "Skip it permanently and never return",
         "Leave it blank to avoid a wrong-answer penalty"],
-     a:1, e:"NCMA's own guidance recommends elimination-based educated guessing over leaving an answer blank — since all scored questions are equally weighted and there's no indication of a penalty structure that would make guessing worse than skipping, an educated guess after eliminating clearly wrong options is the better strategy."}
+     a:1, e:"NCMA's own guidance recommends elimination-based educated guessing over leaving an answer blank — since all scored questions are equally weighted and there's no indication of a penalty structure that would make guessing worse than skipping, an educated guess after eliminating clearly wrong options is the better strategy."},
+
+    // ---------- MANAGEMENT — full-length expansion ----------
+    {d:"MGT", q:"When comparing two capital investments with different cash-flow timing, net present value is preferred over simple payback period because NPV:",
+     o:["Accounts for the time value of money across the entire life of the investment, not just how fast the outlay is recovered",
+        "Is easier to calculate","Ignores cash flows after the payback point","Always favors the larger investment"],
+     a:0, e:"Payback answers one narrow question — how fast do I get my money back — and ignores everything after that point plus the fact that a dollar next year is worth less than a dollar today. NPV discounts every cash flow over the whole life. Two projects with identical paybacks can have wildly different NPVs; the one-number habit picks wrong."},
+
+    {d:"MGT", q:"A product line has fixed costs of $200,000, a unit price of $50, and variable cost of $30 per unit. The break-even volume is:",
+     o:["4,000 units","6,667 units","10,000 units","2,500 units"],
+     a:2, e:"Break-even = fixed costs ÷ contribution margin per unit. Contribution margin is price minus variable cost: $50 − $30 = $20. $200,000 ÷ $20 = 10,000 units. Below that volume every unit sold still loses money on a full-cost basis; above it, each unit contributes $20 of profit."},
+
+    {d:"MGT", q:"Under accrual accounting, revenue is recognized when:",
+     o:["Cash is received","The contract is signed","The invoice is mailed","It is earned — when the goods or services are delivered — regardless of when cash changes hands"],
+     a:3, e:"Accrual accounting matches economic events to the periods they occur in: revenue when earned, expenses when incurred. Cash accounting records money movement instead. The distinction matters when reading a contractor's financials — accrual-basis profit says nothing about whether they can make payroll this month."},
+
+    {d:"MGT", q:"The primary purpose of depreciation in financial accounting is to:",
+     o:["Reduce taxes to zero","Track an asset's resale value",
+        "Allocate an asset's cost across the periods it produces value, matching expense to use","Build a replacement fund"],
+     a:2, e:"Depreciation is the matching principle applied to long-lived assets: a machine that produces for ten years shouldn't hit expenses entirely in year one. Book depreciation is a cost-allocation convention, not a valuation of what the asset would fetch or a cash reserve — a distinction cost analysts need when reviewing contractor rates."},
+
+    {d:"MGT", q:"A contractor proposes a design change mid-performance. Under disciplined configuration management, the change should be:",
+     o:["Implemented immediately if the engineer approves",
+        "Evaluated by a change control process for cost, schedule, and technical impact before approval and incorporation",
+        "Rejected — configurations are frozen at award","Implemented and documented afterward"],
+     a:1, e:"Configuration management exists so the product being built stays traceable to the requirements being paid for. Every change — even a good one — goes through impact evaluation and formal disposition before incorporation. 'The engineer liked it' is how you get undocumented configurations, failed acceptance testing, and disputes about what was actually required."},
+
+    {d:"MGT", q:"Requirements slowly expand during performance through many small, individually reasonable additions, none formally priced. This phenomenon and its remedy are:",
+     o:["Gold-plating; remedied by termination",
+        "Cardinal change; remedied by protest",
+        "Concurrency; remedied by scheduling",
+        "Scope creep; remedied by routing every addition, however small, through formal change control"],
+     a:3, e:"Scope creep is death by a thousand yeses — each addition too small to fight, the sum unpriced and unscheduled. The remedy is discipline, not heroics: everything goes through change control, gets priced, and gets documented. On the contract side, that's also what protects the contractor's right to be paid for the growth."},
+
+    {d:"MGT", q:"In marketing terms, a seller's capture strategy for a specific opportunity is strongest when built around:",
+     o:["A documented value proposition — the specific benefits this customer values, differentiated from competitors — rather than a list of company capabilities",
+        "The company's full history and org charts","Matching the lowest competitor price","Volume of proposal pages"],
+     a:0, e:"Customers don't buy capabilities; they buy outcomes they value. A capture strategy that leads with 'here's everything we do' makes the customer do the work of figuring out why it matters. The value proposition does that work: these benefits, for this customer, that competitors can't match. Everything else in the proposal hangs off it."},
+
+    {d:"MGT", q:"Demand for a product is highly inelastic. A price increase will most likely:",
+     o:["Reduce quantity demanded sharply","Reduce quantity demanded only slightly, increasing total revenue",
+        "Have no effect on revenue","Increase quantity demanded"],
+     a:1, e:"Elasticity measures how much quantity responds to price. Inelastic demand — necessities, no substitutes, small share of budget — barely moves when price rises, so revenue climbs. This is why sole-source suppliers of must-have items hold pricing power, and why buyers work to create substitutes and competition: to make their own demand elastic."},
+
+    {d:"MGT", q:"A process improvement costs $50,000 and yields $65,000 in first-year savings. The first-year return on investment is:",
+     o:["130%","15%","77%","30%"],
+     a:3, e:"ROI = (gain − cost) ÷ cost = ($65,000 − $50,000) ÷ $50,000 = 30%. The common error is dividing the gross return by the cost (130%) — that's a benefit-cost ratio framing, not ROI, which measures the net return earned on the money put in."},
+
+    {d:"MGT", q:"Two printers meet the requirement. Printer A costs $2,000 with $900/year in consumables; Printer B costs $3,500 with $300/year. Over a five-year life, the life-cycle-cost decision favors:",
+     o:["Printer A — lowest acquisition price","Printer B — $5,000 total versus A's $6,500; acquisition price is only one component of ownership cost",
+        "Printer A — consumables are operating budget, not acquisition","Neither; life-cycle cost applies only to major systems"],
+     a:1, e:"Life-cycle cost totals acquisition, operation, support, and disposal. A: $2,000 + 5×$900 = $6,500. B: $3,500 + 5×$300 = $5,000. The cheapest sticker price loses by $1,500. Buying on acquisition price alone systematically favors products engineered to be cheap up front and expensive to own — which is precisely why LCC analysis exists."},
+
+    // ---------- POST-AWARD — full-length expansion ----------
+    {d:"POST", q:"A contracting officer's representative (COR) designation must be:",
+     o:["Inferred from the COR's role on the program",
+        "Renewed monthly",
+        "In writing, specifying the scope and limits of authority — which never includes changing the contract's terms, price, or schedule",
+        "Approved by the contractor"],
+     a:2, e:"COR authority exists only as written in the designation letter, and no designation can delegate what belongs exclusively to the contracting officer: agreeing to changes in price, terms, or schedule. Contractors who take direction beyond the letter are volunteering — which is why the savvy ones ask to see the designation early."},
+
+    {d:"POST", q:"The practical effect of a warranty clause on acceptance is that it:",
+     o:["Extends the buyer's remedies for covered defects beyond acceptance, which would otherwise be largely final",
+        "Replaces the need for inspection","Delays acceptance until the warranty expires","Converts the contract to cost-reimbursement"],
+     a:0, e:"Acceptance normally closes the book except for latent defects, fraud, or gross mistakes. A warranty reopens it for what the warranty covers, for the period it runs. That's the trade the buyer pays for in price — continued recourse after the finality of acceptance — and why warranty scope and duration are negotiated terms, not boilerplate."},
+
+    {d:"POST", q:"The key difference between progress payments and performance-based payments is that performance-based payments are:",
+     o:["Available only on cost-reimbursement contracts","Made in advance of any work",
+        "Calculated as a percentage of incurred cost","Tied to the accomplishment of defined events or measurable milestones rather than to costs incurred"],
+     a:3, e:"Progress payments finance a contractor based on costs incurred as work proceeds; performance-based payments finance against completed, verifiable events — a design review passed, a first article accepted. PBPs align cash with progress the buyer actually values, which is why they're the preferred financing method where milestones can be defined cleanly."},
+
+    {d:"POST", q:"Under an assignment-of-claims arrangement, a contractor may:",
+     o:["Assign its performance obligations to another contractor",
+        "Assign contract payments to a bank or financing institution, while remaining fully responsible for performance",
+        "Transfer the entire contract without consent","Escape liability for defective work"],
+     a:1, e:"Assignment of claims is a financing tool: payments flow to the lender as collateral for working capital. The work, the responsibility, and the contract itself stay put — moving the whole contract to another entity is novation, a different mechanism requiring the other party's consent. Confusing the two is a classic exam distractor."},
+
+    {d:"POST", q:"A government-caused work stoppage on a construction contract, ordered without a formal stop-work order, is compensated through the:",
+     o:["Default clause","Payments clause","Suspension of Work clause — an equitable adjustment for the delay, though profit on the delay costs is excluded","Value engineering clause"],
+     a:2, e:"Suspension of Work is the construction-contract cousin of the stop-work order, and it also covers constructive suspensions — government-caused stoppages nobody formalized. The adjustment makes the contractor whole on cost and time but, distinctively, excludes profit on the delay period — a detail the exam likes because it differs from a changes-clause adjustment."},
+
+    {d:"POST", q:"The parties negotiate a bilateral modification settling a contractor's delay claim for $80,000, 'in full satisfaction of all claims arising from the delay.' The contractor later seeks more for the same delay. The claim is barred by:",
+     o:["The statute of frauds","Sovereign immunity","Laches","Accord and satisfaction — the settlement agreement replaced and extinguished the original claim"],
+     a:3, e:"An accord is the agreement to accept substituted performance; satisfaction is that performance being rendered. Together they extinguish the underlying claim. This is exactly what a well-drafted settlement modification does — and why release language scope ('all claims arising from...') gets negotiated word by word."},
+
+    {d:"POST", q:"Government inspection and test of supplies during production:",
+     o:["Constitutes acceptance of the inspected items",
+        "Relieves the contractor of responsibility for defects found later",
+        "Guarantees payment for inspected lots",
+        "Does not relieve the contractor of its own obligation to control quality and deliver conforming supplies"],
+     a:3, e:"Government inspection protects the government; it doesn't transfer the quality obligation. The contractor owns conformance until acceptance — and after it, for latent defects. 'Your inspector watched us build it' has never been a defense to a rejection, which is why the inspection clauses say so explicitly."},
+
+    {d:"POST", q:"Certain prime contract clauses must be included in subcontracts. This flowdown requirement exists primarily because:",
+     o:["Subcontractors are not in privity with the buyer — flowdown is the only mechanism that extends required obligations (labor standards, ethics, data rights) down the supply chain",
+        "It increases subcontract prices","Subcontractors would otherwise be liable directly to the buyer","It is optional drafting practice"],
+     a:0, e:"The buyer can't enforce anything directly against a subcontractor it has no contract with. Flowdown puts the required obligations into the only contract that binds the sub — the subcontract — with the prime as enforcer. Miss a mandatory flowdown and the prime hasn't escaped the obligation; it has just guaranteed personally that it will be met."},
+
+    {d:"POST", q:"Which modification may the buyer issue unilaterally?",
+     o:["A supplemental agreement revising the price","A change order within the scope of the Changes clause, and administrative changes like a revised paying office",
+        "A modification adding out-of-scope work","A settlement of a disputed claim"],
+     a:1, e:"Unilateral instruments are the ones the contract already authorized: in-scope change orders (the contractor must perform, with an equitable adjustment to follow) and administrative housekeeping. Anything requiring fresh agreement — new scope, price settlements, claim resolutions — is bilateral by nature. The Changes clause is what makes the unilateral change order possible at all."},
+
+    {d:"POST", q:"Retainage — withholding a percentage from progress payments — exists primarily to:",
+     o:["Improve the buyer's cash flow","Penalize slow performance","Fund the buyer's administrative costs",
+        "Preserve leverage and a fund against incomplete punch-list work and latent problems as final completion approaches"],
+     a:3, e:"By the end of a construction job, the contractor's attention is on the next project; retainage keeps a material sum riding on the last 2% of the work. It's security, not punishment — and because over-retention strains contractor cash flow, well-run buyers release it promptly as milestones complete."},
+
+    // ---------- AWARD — full-length expansion ----------
+    {d:"AWD", q:"After discussions close in a negotiated procurement, the contracting officer requests final proposal revisions (FPRs) with a common cutoff date. After the cutoff, an offeror asks to revise its price again. The CO should:",
+     o:["Allow it if the price drops",
+        "Reopen discussions with that offeror only",
+        "Decline — accepting a late revision after the common cutoff without reopening discussions with all offerors would be unfair to the field",
+        "Award to that offeror immediately"],
+     a:2, e:"The common cutoff is what makes final revisions fair: everyone's best offer, same deadline. Taking one offeror's post-cutoff sweetener means either unequal treatment or reopening discussions with everyone. Late-breaking generosity is a trap — the disciplined answer is decline, or formally reopen for all."},
+
+    {d:"AWD", q:"A contracting officer finds a small business nonresponsible for lack of production capacity. Before rejecting its low offer, the CO must:",
+     o:["Refer the matter to the Small Business Administration, which may issue a Certificate of Competency conclusively establishing responsibility",
+        "Give the firm 30 days to acquire capacity","Document the file and award to the next offeror","Request a GAO opinion"],
+     a:0, e:"Small businesses get a second opinion on responsibility: the SBA's Certificate of Competency process. If SBA issues a COC, the responsibility question is settled in the firm's favor — the CO cannot re-litigate it. Skipping the referral and simply awarding elsewhere is a protest waiting to happen."},
+
+    {d:"AWD", q:"An offer front-loads pricing: early line items are priced far above cost, later ones below. Even though the total is lowest, this materially unbalanced pricing concerns the evaluator because:",
+     o:["It always indicates fraud","Unbalanced offers must win on technical merit",
+        "It violates the Truth in Negotiations Act",
+        "The buyer overpays early (financing the contractor interest-free) and bears the risk the offeror never performs the underpriced later items — the low total may be illusory"],
+     a:3, e:"Unbalanced pricing shifts money forward: the buyer pays above value early and hopes the below-cost tail actually gets delivered at those prices. If quantities shift or the contract ends early, the 'lowest' offer turns out expensive. Evaluators must analyze whether the imbalance poses unacceptable risk — and may reject the offer if it does."},
+
+    {d:"AWD", q:"During evaluation, the buyer asks an offeror to confirm which of two subcontractor names in its proposal is correct — without inviting any proposal change. This exchange is:",
+     o:["Discussions, requiring a competitive range and exchanges with all offerors",
+        "A clarification — resolving a minor ambiguity without proposal revision — which does not trigger the obligations that discussions do",
+        "Prohibited communication","An unauthorized commitment"],
+     a:1, e:"The line between clarifications and discussions is whether the offeror gets to change its proposal. Confirming a typo: clarification. Inviting revised pricing or cured weaknesses: discussions — which trigger competitive range, exchanges with all offerors in it, and final proposal revisions. COs guard this line carefully because crossing it accidentally creates protest exposure."},
+
+    {d:"AWD", q:"A structured profit analysis (weighted guidelines) sets the profit objective for a negotiation primarily by:",
+     o:["Applying the contractor's historical profit rate",
+        "Matching the industry average",
+        "Weighing factors like performance risk, contract-type risk, and capital investment — so profit rewards risk borne and value added, not simply a percentage of cost",
+        "Maximizing the fee the budget allows"],
+     a:2, e:"Percentage-of-cost profit habits create perverse incentives — the more it costs, the more you make. Structured approaches build the objective from what profit is supposed to compensate: risk assumed, complexity managed, capital committed, efficiency delivered. A contractor bearing FFP risk on complex work merits more margin than one running cost-plus on routine effort."},
+
+    {d:"AWD", q:"An RFP states the government intends to award without discussions. It may do so:",
+     o:["Only after at least one round of clarifications",
+        "Evaluating proposals exactly as submitted and awarding to the best value — offerors were on notice to submit their best terms up front",
+        "Only if fewer than three proposals arrive","Never — discussions are mandatory in negotiated procurement"],
+     a:1, e:"Award without discussions is legitimate when the solicitation announced the intent — that notice is what obligates offerors to lead with their best proposal instead of holding negotiating room. The government keeps the option to open discussions if needed, but offerors gambling on a second bite have no complaint when there isn't one."},
+
+    {d:"AWD", q:"On a multiple-award IDIQ, the contracting officer routes a task order to a favorite awardee without considering the others. The defect is:",
+     o:["A violation of the fair opportunity requirement — each awardee must generally be given a fair opportunity to be considered for each order",
+        "Nothing — any awardee may receive any order at the CO's sole discretion",
+        "A Buy American Act violation","An improper novation"],
+     a:0, e:"Multiple-award vehicles preserve competition at the order level: that's the fair opportunity principle. Exceptions exist (urgency, logical follow-on, only one capable awardee), but they must be justified — habit and comfort don't qualify. Order-level favoritism quietly converts a competitive vehicle into serial sole-sourcing, which is exactly what the rule exists to prevent."},
+
+    {d:"AWD", q:"A reverse auction is most appropriate for acquiring:",
+     o:["Complex professional services where approach quality varies",
+        "R&D with uncertain scope",
+        "Well-defined commodities where offerings are essentially interchangeable and price is the discriminator",
+        "Anything — auctions always lower prices"],
+     a:2, e:"Reverse auctions harness live price competition, and they work when price is genuinely the only thing left to compete on — commodity goods, tight specs, interchangeable sources. Auctioning complex services drives price down by driving quality and realism out of the offers, then charges the difference back during performance."},
+
+    // ---------- GUIDING PRINCIPLES — full-length expansion ----------
+    {d:"GP", q:"A party agrees to sell a valuable asset for a nominal sum. Courts asked to enforce the deal will generally:",
+     o:["Refuse enforcement as unfair",
+        "Enforce it — courts require that consideration exist, but do not weigh its adequacy absent fraud, duress, or unconscionability",
+        "Rewrite the price to market value","Require independent appraisal"],
+     a:1, e:"Freedom of contract includes the freedom to make bad bargains. Consideration doctrine asks whether something of legal value moved both ways, not whether the exchange was even. Courts step in only when the imbalance evidences a defect in formation — fraud, duress, unconscionability — not merely a lopsided price."},
+
+    {d:"GP", q:"An offeror wants to keep an offer open for 30 days and be unable to revoke it. Under common law, this requires:",
+     o:["Stating the duration in the offer",
+        "Notarizing the offer",
+        "Nothing — all offers are irrevocable once made",
+        "An option contract — separate consideration paid for the promise to hold the offer open"],
+     a:3, e:"A bare promise to hold an offer open is unenforceable at common law; the offeror can revoke anytime before acceptance, stated duration notwithstanding. Buying that promise — an option — makes it binding. (The UCC's firm offer rule for merchants is the statutory exception, and the contrast between the two is a favorite exam pairing.)"},
+
+    {d:"GP", q:"Under the mailbox rule, an acceptance sent by an authorized medium is effective:",
+     o:["Upon dispatch — while a revocation is effective only upon receipt",
+        "Upon receipt by the offeror","When the offeror reads it","At midnight on the day sent"],
+     a:0, e:"The asymmetry is the whole rule: acceptance binds when sent; revocation binds when received. So an acceptance mailed before a revocation arrives makes a contract even if the revocation was sent first. The rule allocates transmission risk to the offeror, who controlled the terms of the offer and could have required receipt."},
+
+    {d:"GP", q:"A buyer's purchase order and a seller's acknowledgment contain differing boilerplate terms, but both sides perform. Under the UCC's battle-of-the-forms rule, the result is:",
+     o:["No contract — the mirror image rule voids the exchange",
+        "The seller's terms control as last shot",
+        "A contract exists; between merchants, non-material additional terms may enter, while conflicting terms typically knock each other out and default rules fill the gap",
+        "The buyer's terms control in all cases"],
+     a:2, e:"Common law's mirror image rule would call the mismatched acknowledgment a counteroffer; the UCC recognizes commercial reality — parties perform without reading boilerplate — and finds a contract anyway. Materially different terms cancel out (the knockout rule) and the Code's defaults fill the hole. Exam signal: goods + mismatched forms + performance = UCC analysis, not mirror image."},
+
+    {d:"GP", q:"A contract signed by a minor is generally:",
+     o:["Void from inception","Enforceable only against the adult party",
+        "Criminal to form","Voidable at the minor's option — the minor can disaffirm, while the adult party remains bound"],
+     a:3, e:"Capacity defects make contracts voidable, not void — the protected party holds the choice. A minor can disaffirm or, after reaching majority, ratify; the adult counterparty is stuck either way. Void means no contract ever existed (illegal purpose territory); voidable means one party owns an escape hatch. Exams test the distinction relentlessly."},
+
+    {d:"GP", q:"Both parties contract for the sale of a specific machine that, unknown to either, was destroyed in a fire the day before signing. The contract is:",
+     o:["Enforceable, with damages for nondelivery",
+        "Voidable for mutual mistake — both parties were wrong about a basic assumption (the subject matter's existence) going to the essence of the exchange",
+        "Enforceable if insurance existed","Converted to a contract for a substitute machine"],
+     a:1, e:"Mutual mistake about a basic assumption on which the contract was made — here, that the thing sold exists — makes the deal voidable. Contrast unilateral mistake, where one party's error generally provides no relief unless the other side knew or should have known of it (the clerical-error-in-bids rule is that exception in action)."},
+
+    // ---------- PRE-AWARD — full-length expansion ----------
+    {d:"PRE", q:"A solicitation describes the requirement as 'Acme Model 500 or equal.' For the 'or equal' competition to be meaningful, the solicitation must:",
+     o:["State the salient physical and functional characteristics an equal product must meet — otherwise offerors and evaluators have no objective basis for equivalence",
+        "List every approved competitor","Include the brand-name manufacturer's price","Require samples from all offerors"],
+     a:0, e:"Brand name or equal is only a competitive technique if 'equal' is testable. The salient characteristics are the definition of equivalence: meet them and an offer can't be rejected for not being the brand. Omit them and the solicitation is a de facto sole-source with extra steps — and a protest magnet."},
+
+    {d:"PRE", q:"Two-step sealed bidding is designed for the situation where:",
+     o:["Price competition is impossible",
+        "Only one source exists",
+        "Discussions must continue through award",
+        "The buyer wants sealed bidding's price discipline but specifications aren't definite enough to go straight to price — so step one qualifies technical proposals, and step two takes sealed bids from those qualified"],
+     a:3, e:"It's a hybrid: step one is technical proposals, evaluated and discussed until acceptable — no prices. Step two is classic sealed bidding, open only to step-one survivors. The buyer gets rigid price competition on a requirement that started too loose for an IFB. Know it as the bridge between the two methods' preconditions."}
   ];
 
   Q.forEach(function(q,i){ q.id = "Q" + String(i+1).padStart(3,"0"); });
@@ -2014,7 +2222,7 @@
      ============================================================ */
   var K_EXAM_HIST = "cpcm:exam-history";
   state.examHistory = state.examHistory || [];
-  var exam = { active:false, ids:[], answers:{}, timeLimit:0, secondsLeft:0, timerHandle:null, startedAt:null };
+  var exam = { active:false, ids:[], answers:{}, times:{}, lastMark:null, timeLimit:0, secondsLeft:0, timerHandle:null, startedAt:null };
 
   async function loadExamHistory(){
     try{ var r = await store.get(K_EXAM_HIST); if(r) state.examHistory = JSON.parse(r); }catch(e){}
@@ -2070,6 +2278,8 @@
       ? (exam.ids.length - scenarioCount) + scenarioCount * 2
       : parseInt(timeVal, 10);
     exam.answers = {};
+    exam.times = {};              // seconds to FIRST answer, per question
+    exam.lastMark = Date.now();   // pacing clock: resets at each first answer
     exam.active = true;
     exam.timeLimit = mins;
     exam.secondsLeft = mins * 60;
@@ -2124,6 +2334,11 @@
         b.className = "opt" + (picked===oi ? " hit" : "");
         b.innerHTML = '<span class="k">' + "ABCD"[oi] + '</span><span>' + text + '</span>';
         b.onclick = function(){
+          if(exam.times[id] === undefined){
+            var now = Date.now();
+            exam.times[id] = Math.round((now - exam.lastMark) / 1000);
+            exam.lastMark = now;
+          }
           exam.answers[id] = oi;
           renderExamCards();
           updateExamProgress();
@@ -2207,9 +2422,51 @@
       bd.appendChild(row);
     });
 
+    renderPacingReport();
     renderExamHistory();
     renderAll();
     document.getElementById("exam-summary").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  /* Per-question pacing: time to first answer vs the real exam's budget
+     (60s regular, 120s scenario). Only questions actually answered are timed. */
+  function renderPacingReport(){
+    var box = document.getElementById("exam-pacing");
+    if(!box) return;
+    box.innerHTML = "";
+    var timed = [];
+    exam.ids.forEach(function(id, idx){
+      if(exam.times[id] === undefined) return;
+      var q = Q.filter(function(qq){ return qq.id===id; })[0];
+      if(!q) return;
+      timed.push({ n: idx+1, q: q, sec: exam.times[id], budget: q.scenario ? 120 : 60 });
+    });
+    if(timed.length === 0) return;
+
+    var reg = timed.filter(function(t){ return !t.q.scenario; });
+    var scn = timed.filter(function(t){ return t.q.scenario; });
+    var avg = function(a){ return a.length ? Math.round(a.reduce(function(s,t){ return s+t.sec; },0) / a.length) : null; };
+    var over = timed.filter(function(t){ return t.sec > t.budget; }).sort(function(a,b){ return (b.sec-b.budget) - (a.sec-a.budget); });
+
+    var html =
+      '<div class="panel-head" style="border-bottom:2px solid var(--rule-hard);padding-bottom:9px;margin-bottom:10px"><h2 style="font-size:15px">Pacing</h2>' +
+      '<span class="ref">Budget: 60s regular &middot; 120s scenario</span></div>' +
+      '<div class="facts">' +
+      '<div class="fact"><div class="v">' + (avg(reg) !== null ? avg(reg) + 's' : '—') + '</div><div class="l">Avg regular (of 60s)</div></div>' +
+      '<div class="fact"><div class="v">' + (avg(scn) !== null ? avg(scn) + 's' : '—') + '</div><div class="l">Avg scenario (of 120s)</div></div>' +
+      '<div class="fact"><div class="v">' + over.length + ' / ' + timed.length + '</div><div class="l">Over budget</div></div>' +
+      '</div>';
+    if(over.length){
+      html += '<table style="margin-top:14px"><thead><tr><th>#</th><th>Domain</th><th>Type</th><th style="text-align:right">Took</th><th style="text-align:right">Over by</th></tr></thead><tbody>' +
+        over.slice(0, 12).map(function(t){
+          return '<tr><td class="mono">Q' + t.n + '</td><td>' + t.q.d + '</td><td>' + (t.q.scenario ? 'Scenario' : 'Regular') + '</td>' +
+            '<td class="num">' + t.sec + 's</td><td class="num" style="color:var(--stamp)">+' + (t.sec - t.budget) + 's</td></tr>';
+        }).join('') + '</tbody></table>' +
+        (over.length > 12 ? '<p class="note" style="margin-top:10px">Showing the 12 furthest over budget (' + over.length + ' total).</p>' : '');
+    } else {
+      html += '<p class="note" style="margin-top:14px">Every answered question came in under its real-exam budget. That\'s the rhythm to keep.</p>';
+    }
+    box.innerHTML = html;
   }
 
   function renderExamHistory(){
