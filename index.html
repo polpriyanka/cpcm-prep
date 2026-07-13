@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPCM Readiness File — NCMA Exam Prep</title>
+<meta name="description" content="Interactive CPCM exam prep: drill questions across all seven CMBOK competencies, timed mock exams, a deficiency log, audio lessons, and a CPE hour ledger.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
@@ -107,6 +115,7 @@
     background:var(--ink);color:#fff;border:none;padding:10px 18px;cursor:pointer;
     font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
   }
+  a.btn{text-decoration:none;display:inline-block}
   .btn:hover{background:var(--blue)}
   .btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
   .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule-hard)}
@@ -244,6 +253,8 @@
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+</head>
+<body>
 
 <div id="hub">
   <header class="masthead">
@@ -253,7 +264,7 @@
         <h1 class="mh-title">CPCM Readiness File</h1>
       </div>
       <div class="mh-stats">
-        <div class="mh-stat"><div class="v" id="mh-cpe">81</div><div class="l">CPE of 120</div></div>
+        <div class="mh-stat"><div class="v" id="mh-cpe">&mdash;</div><div class="l">CPE of 120</div></div>
         <div class="mh-stat"><div class="v" id="mh-acc">&mdash;</div><div class="l">Accuracy</div></div>
         <div class="mh-stat"><div class="v" id="mh-def">0</div><div class="l">Open deficiencies</div></div>
       </div>
@@ -289,13 +300,24 @@
           <div class="btnrow">
             <button class="btn" id="go-weak">Drill weakest domain</button>
             <button class="btn ghost" id="go-def">Clear deficiencies</button>
+            <a class="btn ghost" href="https://github.com/polpriyanka/cpcm-prep/blob/main/STUDY-GUIDE.md" target="_blank" rel="noopener">Study guide &#8599;</a>
           </div>
         </div>
         <div class="panel">
           <div class="panel-head"><h2>CPE runway</h2><span class="ref">120 required to apply</span></div>
-          <div class="gauge"><i id="g-fill"></i><span id="g-label">81 / 120</span></div>
-          <div class="gauge-meta"><span id="g-left">39 hours remaining</span><span>68%</span></div>
+          <div class="gauge"><i id="g-fill"></i><span id="g-label">&mdash; / 120</span></div>
+          <div class="gauge-meta"><span id="g-left"></span><span></span></div>
           <p class="note" style="margin-top:14px">All 120 must be banked <em>before</em> you submit the application. Once approved, you get one year and three attempts.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>Backup</h2><span class="ref">Progress lives in this browser only</span></div>
+        <p class="lede">Drill history, exam results, and the CPE ledger are stored in this browser. Export a backup before clearing site data or to move to another device.</p>
+        <div class="btnrow">
+          <button class="btn sm" id="export-data">Export progress</button>
+          <button class="btn ghost sm" id="import-data">Import progress</button>
+          <input type="file" id="import-file" accept=".json,application/json" style="display:none">
         </div>
       </div>
 
@@ -408,7 +430,7 @@
           <h2>Audio lessons</h2>
           <span class="ref">Spoken narration &middot; built-in voice</span>
         </div>
-        <p class="lede">Read aloud using your device's own text-to-speech — works on phone or laptop, no download, no app. Pick a lesson, hit play, listen while you drive or do dishes. Pace is adjustable.</p>
+        <p class="lede">Read aloud using your device's own text-to-speech — works on phone or laptop, no download, no app. Pick a lesson, hit play, listen while you drive or do dishes. Pace is adjustable. Note: on iPhone, keep the screen on — iOS pauses built-in speech when the screen locks.</p>
         <div id="audio-unsupported" style="display:none" class="empty">
           <div class="big">Speech isn't available in this browser.</div>
           <p>Try Safari or Chrome on desktop or iOS — both support built-in text-to-speech.</p>
@@ -1037,7 +1059,89 @@
     {d:"GP", q:"A liquidated damages clause will most likely be struck down by a court as an unenforceable penalty when:",
      o:["It was negotiated by sophisticated parties","The stipulated amount bears no reasonable relationship to anticipated actual damages at the time of contracting",
         "It specifies a daily rate rather than a lump sum","Both parties are corporations"],
-     a:1, e:"Courts test liquidated damages clauses at the time of FORMATION, not with hindsight: was the amount a reasonable pre-estimate of likely harm when the contract was signed? A wildly disproportionate figure — designed to punish rather than compensate — gets struck down as an unenforceable penalty regardless of how sophisticated the parties were."}
+     a:1, e:"Courts test liquidated damages clauses at the time of FORMATION, not with hindsight: was the amount a reasonable pre-estimate of likely harm when the contract was signed? A wildly disproportionate figure — designed to punish rather than compensate — gets struck down as an unenforceable penalty regardless of how sophisticated the parties were."},
+
+    {d:"LDR", q:"A newly formed source-selection team has moved past polite introductions and into open friction over roles and evaluation approach. The team lead's best response is to:",
+     o:["Suppress the conflict and reassign the loudest dissenters",
+        "Escalate to the program manager for a decision",
+        "Facilitate agreement on working norms and decision rules — the conflict is a normal stage, not a failure",
+        "Delay the evaluation until the team gels on its own"],
+     a:2, e:"This is the storming stage of team development (forming–storming–norming–performing). It's expected, and the way through is facilitated norm-setting, not suppression — teams that never surface disagreement never reach performing. Reassigning dissenters or waiting it out both dodge the leader's actual job."},
+
+    {d:"LDR", q:"A contract manager delegates preparation of a contract file review to a specialist. For the delegation to work, what must transfer with the task?",
+     o:["Accountability for the outcome",
+        "The authority needed to complete it — access, decisions within scope, standing to request information",
+        "The manager's signature authority","Responsibility for the specialist's development"],
+     a:1, e:"Delegation transfers the task and the authority to do it; accountability stays with the delegator. Handing someone a task without the access and decision room to complete it is assignment, not delegation — and it sets them up to fail. Signature authority is a formal designation and doesn't travel with informal delegation."},
+
+    {d:"LDR", q:"A new hire is enthusiastic but has never run a contract closeout. Under a situational leadership approach, the appropriate style is:",
+     o:["Directing — specific instruction and close follow-up, because competence is low even though commitment is high",
+        "Delegating — enthusiasm indicates readiness",
+        "The same style used with senior staff, for fairness",
+        "Supporting — encouragement with minimal task instruction"],
+     a:0, e:"Situational leadership matches style to the follower's development level, not to a fairness norm. High commitment plus low competence calls for directive behavior: clear instruction, defined checkpoints. Delegating to enthusiasm without skill is how closeouts get botched — and how enthusiasm gets destroyed."},
+
+    {d:"LDR", q:"In a heated disagreement with a program office over a scope interpretation, the contract manager's most effective opening move is to:",
+     o:["Restate the contract language verbatim",
+        "Present the legal risk of the program office's position",
+        "Ask for the disagreement to be documented in writing",
+        "Paraphrase the program office's position and the interest behind it until they confirm she has it right"],
+     a:3, e:"Active listening — paraphrasing until the other side confirms — does two things at once: it surfaces the actual interest (which may be satisfiable another way) and it lowers the temperature, because people argue hardest when they feel unheard. The contract language and the risk case matter, but they land better after the other side feels understood."},
+
+    {d:"LDR", q:"A department is rolling out a new contract writing system and resistance is high. Most of the resistance is best explained by:",
+     o:["Employees' inability to learn new software",
+        "Perceived loss of competence and control — people are proficient in the old way and uncertain in the new",
+        "Poor software quality","Inadequate training budgets"],
+     a:1, e:"Change resistance is rarely about capability; it's about loss. Proficient people are being asked to become novices again, publicly. That's why effective change leadership leads with the why, acknowledges the loss, and creates safe ways to rebuild competence — and why 'more training' alone routinely fails."},
+
+    {d:"LDR", q:"For experienced contracts professionals, the most durable source of motivation a leader can offer is:",
+     o:["Annual bonuses tied to workload metrics",
+        "Public praise at staff meetings",
+        "Meaningful work with real autonomy and visible growth — intrinsic motivators",
+        "Competition among team members for ratings"],
+     a:2, e:"Extrinsic rewards move behavior briefly and reset expectations permanently. For professionals, the durable motivators are intrinsic: autonomy over how work gets done, mastery that's visibly growing, and work that matters. Praise and money aren't wrong — they're just not the engine."},
+
+    {d:"LDR", q:"The key difference between coaching and mentoring is that coaching:",
+     o:["Is reserved for poor performers",
+        "Requires a senior executive",
+        "Focuses on long-term career navigation",
+        "Is task- and performance-focused over a defined period, while mentoring is a longer-term developmental relationship"],
+     a:3, e:"Coaching targets specific performance — a skill, a task, a defined gap — and has an endpoint. Mentoring is relational and career-scoped: navigating the organization, growing professional judgment, opening doors. Both are developmental; conflating them is why so many 'mentoring programs' are really just coaching schedules."},
+
+    {d:"LDR", q:"An organization's ethical climate is shaped most powerfully by:",
+     o:["What leaders actually do when compliance is costly — especially what they tolerate and reward",
+        "The published code of conduct",
+        "Annual ethics training completion rates",
+        "The severity of penalties in policy"],
+     a:0, e:"People read behavior, not policy. A leader who shades a past-performance narrative to win, or rewards the person who did, has set the real standard regardless of what the code says. Tone at the top is the strongest predictor of ethical conduct in the CMBOK's framing — training and penalties operate at the margins."},
+
+    {d:"PRE", q:"The primary purpose of an independent government cost estimate (IGCE) prepared before solicitation is to:",
+     o:["Set the ceiling price offerors may propose",
+        "Provide an objective baseline for judging the reasonableness of offered prices and for budgeting",
+        "Satisfy a filing requirement with no analytical use",
+        "Replace price analysis after offers arrive"],
+     a:1, e:"The IGCE is the yardstick built before you see anyone's number, so the first offer through the door doesn't become your anchor. It supports budget requests, informs negotiation objectives, and flags offers that are too high — or suspiciously low. It is not a ceiling and it never substitutes for analyzing the actual offers."},
+
+    {d:"PRE", q:"The chief risk of starting performance under a letter contract (undefinitized contract action) is that:",
+     o:["The contractor cannot be paid until definitization",
+        "The work performed is not legally authorized",
+        "Once the contractor is performing and costs are accruing, the buyer has lost most of its negotiating leverage on price and terms",
+        "It cannot later be definitized into a fixed-price arrangement"],
+     a:2, e:"A letter contract authorizes work before terms are settled — useful in urgency, dangerous by design. Every day of performance shifts leverage toward the contractor: costs are sunk, switching is impractical, and the buyer is negotiating terms for work already underway. That's why definitization deadlines exist and why UCAs are supposed to be rare."},
+
+    {d:"PRE", q:"Why must option prices be evaluated as part of the initial award decision?",
+     o:["Options are automatically exercised at award",
+        "Evaluation is optional if funds for the option years are not yet available",
+        "Option prices are binding only after exercise",
+        "Otherwise an offeror could buy in with a low base price and recover it through inflated, never-competed option years"],
+     a:3, e:"Options are exercised without further competition, so the only moment competitive pressure ever touches those prices is the initial evaluation. Skip it and you invite the buy-in: a lowball base year recovered through fat option years. Evaluating the total including options closes that door — and it's why exercising an option later requires determining it's still the most advantageous course."},
+
+    {d:"PRE", q:"Before releasing a solicitation, the buying office holds an industry day and one-on-one sessions with potential offerors. This is:",
+     o:["Prohibited — contact with potential offerors before release taints the competition",
+        "Encouraged — early exchanges improve requirements and industry understanding, provided no potential offeror gets access to nonpublic information that others are denied",
+        "Permitted only after the solicitation is released",
+        "Permitted only with offerors who have existing contracts"],
+     a:1, e:"Pre-solicitation exchanges — industry days, draft RFP comments, one-on-ones — are affirmatively encouraged because they surface unrealistic requirements and ambiguities while they're still cheap to fix. The line is equal access: the moment one prospective offeror learns something material and nonpublic that the field doesn't get, you've created an unfair competitive advantage problem."}
   ];
 
   Q.forEach(function(q,i){ q.id = "Q" + String(i+1).padStart(3,"0"); });
@@ -1047,6 +1151,7 @@
      STATE
      ============================================================ */
   var state = { results:{}, cpe:[] };
+  var CPE_BASELINE = 81;   // hours already earned before this tracker existed — single source of truth
   var K_RES = "cpcm:results", K_CPE = "cpcm:cpe";
   var filter = "ALL", onlyUnseen = false, order = null;
 
@@ -1096,7 +1201,7 @@
   }
   function seedCpe(){
     if(!state.cpe || state.cpe.length === 0){
-      state.cpe = [{n:"Baseline hours already earned", c:"Baseline (pre-logged)", h:81}];
+      state.cpe = [{n:"Baseline hours already earned", c:"Baseline (pre-logged)", h:CPE_BASELINE}];
     }
   }
   async function saveResults(){
@@ -1754,6 +1859,42 @@
     if(e.key === "Enter") document.getElementById("cpe-add").click();
   };
 
+  /* ---- backup: export / import every stored key as-is ---- */
+  var BACKUP_KEYS = [K_RES, K_CPE, K_EXAM_HIST, K_AUDIO];
+
+  document.getElementById("export-data").onclick = function(){
+    Promise.all(BACKUP_KEYS.map(function(k){ return store.get(k); })).then(function(vals){
+      var payload = { app:"cpcm-prep", version:1, exported:new Date().toISOString(), data:{} };
+      BACKUP_KEYS.forEach(function(k,i){ if(vals[i]) payload.data[k] = vals[i]; });
+      var blob = new Blob([JSON.stringify(payload,null,2)], {type:"application/json"});
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "cpcm-progress-" + new Date().toISOString().slice(0,10) + ".json";
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(a.href);
+      setStatus("backup downloaded");
+    });
+  };
+  document.getElementById("import-data").onclick = function(){
+    document.getElementById("import-file").click();
+  };
+  document.getElementById("import-file").onchange = function(e){
+    var f = e.target.files[0];
+    e.target.value = "";
+    if(!f) return;
+    f.text().then(function(txt){
+      var p = JSON.parse(txt);
+      if(!p || p.app !== "cpcm-prep" || !p.data) throw new Error("not a cpcm-prep backup");
+      return Promise.all(BACKUP_KEYS.map(function(k){
+        return p.data[k] ? store.set(k, p.data[k]) : Promise.resolve(true);
+      }));
+    }).then(function(){
+      location.reload();
+    }).catch(function(){
+      setStatus("import failed — not a cpcm-prep backup file");
+    });
+  };
+
   document.getElementById("reset-q").onclick = function(){
     state.results = {}; order = null;
     saveResults(); renderAll(); setStatus("question history cleared");
@@ -1778,3 +1919,5 @@
 
 })();
 </script>
+</body>
+</html>
