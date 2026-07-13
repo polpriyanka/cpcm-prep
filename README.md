@@ -2,14 +2,17 @@
 
 Study materials for the NCMA **Certified Professional Contracts Manager** exam.
 
-Live at: **contractmanagementncma.com** (once DNS + Pages are wired up — see below)
+Live at: **contractmanagementncma.com**
+
+Question bank current as of 2026-07-13; run the audit checklist before trusting counts in this file.
 
 ## Contents
 
 | File | What it is |
 |---|---|
-| `index.html` | Interactive study hub — question bank, deficiency log, CPE ledger. Open in a browser or serve as the site. |
-| `STUDY-GUIDE.md` | The written curriculum. All 7 CMBOK competencies plus the federal statutes cross-cut. |
+| `index.html` | Interactive study hub — question bank, mock exam, deficiency log, CPE ledger. Open in a browser or serve as the site. |
+| `audio-lessons.js` | Ten spoken-narration lessons for the Audio Lessons tab (Web Speech API). |
+| `STUDY-GUIDE.md` | The written curriculum. All CMBOK competencies, framework/foundations, protests and financing mechanics, plus the federal statutes cross-cut. |
 | `CNAME` | GitHub Pages custom domain config — points the repo at `contractmanagementncma.com`. |
 
 ## Deploying to contractmanagementncma.com
@@ -42,11 +45,13 @@ Or via the web UI: repo → Settings → Pages → Source: `main` / root. The `C
 Open `index.html` in any browser. No build step, no dependencies. Progress saves via `localStorage` when run outside the Claude artifact runtime (i.e. once deployed here), so it persists across visits.
 
 **Tabs:**
-- **Status** — accuracy by competency, next recommended action, CPE runway
-- **Drill** — 48 questions, filterable by domain
-- **Deficiency Log** — every question you've missed, held open until you get it right
+- **Status** — exam-readiness gate (three criteria, stricter than the 72.2% pass line), accuracy by competency, next recommended action, CPE runway, progress backup (export/import)
+- **Drill** — 279 questions, filterable by domain
+- **Mock Exam** — blueprint-weighted draws (20 up to full-length 180), real-exam pacing timer, scenario markers, per-question pacing report
+- **Deficiency Log** — every question you've missed, held open until you get it right, with miss-reason tagging (knowledge / misread / second-guessed)
+- **Audio Lessons** — ten spoken lessons via the device's text-to-speech
 - **CPE Ledger** — tracks progress toward the 120 hours required to apply
-- **Exam Facts** — fees, thresholds, sequence to certification
+- **Exam Facts** — fees, thresholds, the official exam blueprint, sequence to certification
 
 ## Study loop
 
@@ -66,10 +71,9 @@ The `⚠ Trap` markers in the study guide flag places where real-world experienc
 ## Roadmap
 
 - [ ] Decide domain scope — study hub only, or expand into a CPE-eligible publishing site
-- [ ] Expand question bank past 48
-- [ ] Deepen the *Pricing & Cost Analysis* material
-- [ ] Add a timed mock-exam mode
 - [ ] Itemize the 81 baseline CPE hours with documentation (NCMA audits a percentage of applications)
+- [ ] CPE article pipeline — published writing on contract management earns CPE hours
+- [ ] Periodic re-audit after each content merge (counts, answer-position balance, scenario share, guide/bank/audio sync)
 
 ## License
 
