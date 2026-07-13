@@ -286,6 +286,14 @@
     <section class="view on" id="v-dash">
       <div class="panel">
         <div class="panel-head">
+          <h2>Exam readiness</h2>
+          <span class="ref">Gate: stricter than the 72.2% pass line, by design</span>
+        </div>
+        <div id="readiness-body"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
           <h2>Coverage by competency</h2>
           <span class="ref">Bar = accuracy &middot; Right column = attempted</span>
         </div>
@@ -362,6 +370,7 @@
               <option value="20">20 questions</option>
               <option value="40" selected>40 questions</option>
               <option value="60">60 questions</option>
+              <option value="120">120 — full-length simulation</option>
               <option value="180">180 — full length, real exam</option>
               <option value="all">All available</option>
             </select>
@@ -422,7 +431,8 @@
           <h2>Deficiency log</h2>
           <span class="ref">Every question you've missed</span>
         </div>
-        <p class="lede">A deficiency clears when you answer it correctly. Miss it again and it stays open.</p>
+        <p class="lede">A deficiency clears when you answer it correctly. Miss it again and it stays open. Tag each miss with <em>why</em> you missed it — the pattern tells you whether to study content or fix test-taking mechanics.</p>
+        <div id="def-reason-summary"></div>
       </div>
       <div id="def-cards"></div>
     </section>
@@ -2650,6 +2660,7 @@
   }
 
   function renderDef(){
+    renderReasonSummary();
     var box = document.getElementById("def-cards");
     box.innerHTML = "";
     var defs = openDeficiencies();
@@ -2664,6 +2675,31 @@
     }
     defs.forEach(function(q){
       var c = card(q);
+      var r = state.results[q.id];
+
+      // why-did-you-miss-it tags: one of three, tap active to clear
+      var tagRow = document.createElement("div");
+      tagRow.style.padding = "0 18px 12px";
+      var lbl = document.createElement("span");
+      lbl.className = "status";
+      lbl.style.cssText = "display:block;margin-bottom:6px";
+      lbl.textContent = "Why did you miss it?";
+      tagRow.appendChild(lbl);
+      [["knowledge","Didn't know"],["misread","Misread it"],["secondguess","Second-guessed"]].forEach(function(pair){
+        var b = document.createElement("button");
+        b.className = "chip";
+        b.style.marginRight = "6px";
+        b.textContent = pair[1];
+        b.setAttribute("aria-pressed", r.reason === pair[0] ? "true" : "false");
+        b.onclick = function(){
+          r.reason = (r.reason === pair[0]) ? undefined : pair[0];
+          saveResults();
+          renderDef();
+        };
+        tagRow.appendChild(b);
+      });
+      c.appendChild(tagRow);
+
       var retry = document.createElement("div");
       retry.style.padding = "0 18px 18px";
       var b = document.createElement("button");
@@ -2722,7 +2758,87 @@
 
   function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
 
-  function renderAll(){ renderMast(); renderDash(); renderFilters(); renderDrill(); renderDef(); renderCpe(); renderAudio(); renderExamHistory(); }
+  /* ============================================================
+     READINESS GATE — three criteria, all stricter than the 72.2%
+     pass line; never "ready" on missing data.
+     ============================================================ */
+  function renderReadiness(){
+    var box = document.getElementById("readiness-body");
+    if(!box) return;
+
+    // 1: three most recent full-length (100+ Q) TIMED mocks, all >= 75%
+    var qual = state.examHistory.filter(function(r){ return r.total >= 100 && r.timeLimit > 0; });
+    var recent = qual.slice(0, 3);   // history is newest-first
+    var c1 = recent.length === 3 && recent.every(function(r){ return r.pct >= 75; });
+    var d1;
+    if(recent.length < 3){
+      d1 = recent.length + " of 3 qualifying attempts so far (full-length = 100+ questions, timed)";
+    } else {
+      var below = recent.filter(function(r){ return r.pct < 75; }).length;
+      d1 = "Last 3 full-length timed mocks: " + recent.map(function(r){ return r.pct + "%"; }).join(", ") +
+        (below ? " — " + below + " below 75%" : "");
+    }
+
+    // 2: every domain at 65%+ accuracy on 8+ attempts (insufficient data = not met)
+    var c2 = true, gaps = [];
+    DOMAINS.forEach(function(d){
+      var s = domainStats(d.code);
+      if(s.seen < 8){ c2 = false; gaps.push(d.name + ": only " + s.seen + " attempted — need 8+ for a reliable read"); }
+      else if(s.pct < 65){ c2 = false; gaps.push(d.name + " at " + s.pct + "% (" + s.seen + " attempted) — below the 65% floor"); }
+    });
+    var d2 = c2 ? "Every domain at 65%+ with 8+ attempts"
+                : gaps.slice(0,3).join("; ") + (gaps.length > 3 ? " (+" + (gaps.length - 3) + " more)" : "");
+
+    // 3: zero open deficiencies — vacuously "met" with no attempts doesn't count
+    var defs = openDeficiencies().length;
+    var attempted = Object.keys(state.results).length;
+    var c3 = defs === 0 && attempted > 0;
+    var d3 = attempted === 0 ? "Nothing attempted yet — no data"
+           : (defs === 0 ? "No open deficiencies" : defs + " open deficienc" + (defs === 1 ? "y" : "ies"));
+
+    var met = [c1, c2, c3].filter(Boolean).length;
+    var head = met === 3
+      ? '<p style="margin:0 0 14px"><span class="verdict ok" style="font-size:12px;padding:6px 12px">READY: Book the exam.</span></p>'
+      : '<p style="margin:0 0 14px"><span class="verdict no" style="font-size:12px;padding:6px 12px">NOT YET &mdash; ' + met + ' of 3 criteria met</span></p>';
+    box.innerHTML = head + [
+      [c1, "Three full-length timed mocks at 75%+", d1],
+      [c2, "No domain below 65% (min 8 attempts each)", d2],
+      [c3, "Zero open deficiencies", d3]
+    ].map(function(r){
+      return '<div class="drow" style="grid-template-columns:74px 1fr">' +
+        '<div><span class="verdict ' + (r[0] ? 'ok' : 'no') + '">' + (r[0] ? 'Met' : 'Not met') + '</span></div>' +
+        '<div class="dname">' + r[1] + '<small>' + r[2] + '</small></div></div>';
+    }).join("");
+  }
+
+  /* ============================================================
+     MISS-REASON SUMMARY — appears once 10+ misses are tagged
+     ============================================================ */
+  function renderReasonSummary(){
+    var box = document.getElementById("def-reason-summary");
+    if(!box) return;
+    var counts = { knowledge:0, misread:0, secondguess:0 }, total = 0;
+    Object.keys(state.results).forEach(function(k){
+      var r = state.results[k];
+      if(r && !r.correct && r.reason && counts[r.reason] !== undefined){ counts[r.reason]++; total++; }
+    });
+    if(total < 10){
+      box.innerHTML = total ? '<p class="note" style="margin-top:2px">' + total + ' of 10 misses tagged — the breakdown appears at 10.</p>' : "";
+      return;
+    }
+    var pk = Math.round(counts.knowledge / total * 100),
+        pm = Math.round(counts.misread / total * 100),
+        ps = 100 - pk - pm;
+    var advice = "";
+    if(pk > 50)      advice = "Content gap: pair drilling with the guide sections for your weakest domains.";
+    else if(pm > 35) advice = "Read the stem twice before the options — your errors are mechanical, not conceptual.";
+    else if(ps > 30) advice = "Your first answer is right more often than your revision. On exam day, change answers only when you can name the specific error.";
+    box.innerHTML = '<p class="note" style="margin-top:2px"><b style="color:var(--ink)">Tagged misses: ' +
+      pk + '% knowledge &middot; ' + pm + '% misread &middot; ' + ps + '% second-guessed.</b>' +
+      (advice ? '<br>' + advice : '') + '</p>';
+  }
+
+  function renderAll(){ renderMast(); renderReadiness(); renderDash(); renderFilters(); renderDrill(); renderDef(); renderCpe(); renderAudio(); renderExamHistory(); }
 
   /* ============================================================
      MOCK EXAM
