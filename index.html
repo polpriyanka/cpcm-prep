@@ -352,9 +352,9 @@
       <div class="panel" id="exam-setup">
         <div class="panel-head">
           <h2>Mock exam</h2>
-          <span class="ref">Randomized &middot; proportional across domains &middot; timed</span>
+          <span class="ref">Randomized &middot; official blueprint weights &middot; timed</span>
         </div>
-        <p class="lede">Pulls a fresh random set every time — proportional to each domain's share of the full bank, so it mirrors the real exam's spread rather than whatever you last drilled.</p>
+        <p class="lede">Pulls a fresh random set every time, weighted to the official NCMA exam blueprint: Management, Guiding Principles, Pre-Award, Award, and Post-Award ~18% each, Learn ~12%, Leadership ~6%. Federal Statutes is drill-only — that content shows up inside the other sections on the real exam.</p>
         <div class="split">
           <div>
             <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Question count</label>
@@ -527,6 +527,33 @@
       </div>
 
       <div class="panel">
+        <div class="panel-head"><h2>Exam blueprint</h2><span class="ref">Official NCMA handbook &middot; March 2026</span></div>
+        <div class="facts">
+          <div class="fact"><div class="v">180</div><div class="l">Questions total</div></div>
+          <div class="fact"><div class="v">10</div><div class="l">Unscored beta Qs</div></div>
+          <div class="fact"><div class="v">30</div><div class="l">Scenario-based</div></div>
+          <div class="fact"><div class="v">4 hrs</div><div class="l">Time limit</div></div>
+          <div class="fact"><div class="v">72.2%</div><div class="l">Passing score</div></div>
+          <div class="fact"><div class="v">10 days</div><div class="l">Wait before retake</div></div>
+        </div>
+        <table style="margin-top:18px">
+          <thead><tr><th>Section</th><th style="text-align:right">Questions</th><th style="text-align:right">Share</th></tr></thead>
+          <tbody>
+            <tr><td>Management</td><td class="num">30&ndash;35</td><td class="num">~18%</td></tr>
+            <tr><td>Guiding Principles</td><td class="num">30&ndash;35</td><td class="num">~18%</td></tr>
+            <tr><td>Pre-Award</td><td class="num">30&ndash;35</td><td class="num">~18%</td></tr>
+            <tr><td>Award</td><td class="num">30&ndash;35</td><td class="num">~18%</td></tr>
+            <tr><td>Post-Award</td><td class="num">30&ndash;35</td><td class="num">~18%</td></tr>
+            <tr><td>Leadership</td><td class="num">8&ndash;12</td><td class="num">~6%</td></tr>
+            <tr><td>Learn</td><td class="num">6&ndash;10</td><td class="num">~4%</td></tr>
+            <tr><td>CM Framework</td><td class="num">5&ndash;8</td><td class="num">~4%</td></tr>
+            <tr><td>CMBOK Overview</td><td class="num">5&ndash;8</td><td class="num">~4%</td></tr>
+          </tbody>
+        </table>
+        <p class="note" style="margin-top:14px">All scored questions are weighted equally. Five sections carry ~90% of the exam at roughly equal weight — study time should follow the same shape. The mock exam here draws to these proportions (Framework, Overview, and Learn are combined under LRN).</p>
+      </div>
+
+      <div class="panel">
         <div class="panel-head"><h2>Sequence to certification</h2><span class="ref">Where you are: step 1</span></div>
         <div id="steps"></div>
       </div>
@@ -543,14 +570,18 @@
   /* ============================================================
      QUESTION BANK
      ============================================================ */
+  /* xw = share of the real exam per the official NCMA blueprint (midpoint question
+     counts out of 180). FED is drill-only (xw:0) — federal statute content appears
+     inside other sections on the real exam, not as its own block. */
   var DOMAINS = [
-    {code:"GP",  name:"Guiding Principles", sub:"Skills, roles, standards, ethics"},
-    {code:"PRE", name:"Pre-Award",          sub:"Planning, market research, solicitation"},
-    {code:"AWD", name:"Award",              sub:"Pricing, negotiation, source selection"},
-    {code:"POST",name:"Post-Award",         sub:"Administration, changes, claims, closeout"},
-    {code:"LDR", name:"Leadership",         sub:"Vision, influence, ethical judgment"},
-    {code:"MGT", name:"Management",         sub:"Business, project, financial management"},
-    {code:"FED", name:"Federal Statutes",   sub:"BAA, TAA, OTA, socioeconomic"}
+    {code:"GP",  name:"Guiding Principles", sub:"Skills, roles, standards, ethics",            xw:32.5},
+    {code:"PRE", name:"Pre-Award",          sub:"Planning, market research, solicitation",     xw:32.5},
+    {code:"AWD", name:"Award",              sub:"Pricing, negotiation, source selection",      xw:32.5},
+    {code:"POST",name:"Post-Award",         sub:"Administration, changes, claims, closeout",   xw:32.5},
+    {code:"LDR", name:"Leadership",         sub:"Vision, influence, ethical judgment",         xw:10},
+    {code:"MGT", name:"Management",         sub:"Business, project, financial management",     xw:32.5},
+    {code:"LRN", name:"Learn",              sub:"CM framework, CMBOK, continuous learning",    xw:21},
+    {code:"FED", name:"Federal Statutes",   sub:"BAA, TAA, OTA, socioeconomic",                xw:0}
   ];
 
   var Q = [
@@ -1141,7 +1172,263 @@
         "Encouraged — early exchanges improve requirements and industry understanding, provided no potential offeror gets access to nonpublic information that others are denied",
         "Permitted only after the solicitation is released",
         "Permitted only with offerors who have existing contracts"],
-     a:1, e:"Pre-solicitation exchanges — industry days, draft RFP comments, one-on-ones — are affirmatively encouraged because they surface unrealistic requirements and ambiguities while they're still cheap to fix. The line is equal access: the moment one prospective offeror learns something material and nonpublic that the field doesn't get, you've created an unfair competitive advantage problem."}
+     a:1, e:"Pre-solicitation exchanges — industry days, draft RFP comments, one-on-ones — are affirmatively encouraged because they surface unrealistic requirements and ambiguities while they're still cheap to fix. The line is equal access: the moment one prospective offeror learns something material and nonpublic that the field doesn't get, you've created an unfair competitive advantage problem."},
+
+    // ---------- GUIDING PRINCIPLES — blueprint expansion ----------
+    {d:"GP", q:"A contract covers both the sale of equipment and installation services. Whether UCC Article 2 or common law governs is decided by:",
+     o:["Which party drafted the agreement","The predominant purpose of the transaction — is it mainly goods or mainly services?",
+        "The dollar value of the contract","Whether the parties are merchants"],
+     a:1, e:"UCC Article 2 governs sales of goods; common law governs services. Mixed contracts get the predominant-purpose test: a generator sale with incidental installation is UCC; a construction job that happens to include materials is common law. The distinction matters — the two regimes differ on formation, modification, and warranties."},
+
+    {d:"GP", q:"A homeowner watches a landscaping crew mistakenly begin work on her yard, says nothing, and lets them finish. Her obligation to pay arises from:",
+     o:["An express contract","An implied-in-fact contract formed by conduct",
+        "Quasi-contract — an obligation imposed by law to prevent unjust enrichment","No obligation — she never agreed"],
+     a:2, e:"There's no real contract here — no assent by conduct she initiated — but the law imposes a payment obligation anyway because knowingly accepting valuable services without paying would unjustly enrich her. That's quasi-contract (implied-in-law): a remedy, not an agreement. Implied-in-fact requires conduct manifesting actual mutual assent."},
+
+    {d:"GP", q:"Which contract generally must be in writing to be enforceable under the statute of frauds?",
+     o:["A services agreement that could be completed within six months",
+        "An oral agreement already fully performed by both sides",
+        "A promise to answer for another party's debt (suretyship)",
+        "Any contract exceeding $10,000 in value"],
+     a:2, e:"The classic statute-of-frauds categories: suretyship, real estate interests, contracts not performable within one year, and (under the UCC) goods at or above the threshold. A general dollar trigger for all contracts isn't one of them, a six-month service deal can be oral, and full performance typically takes a deal out of the statute entirely."},
+
+    {d:"GP", q:"A seller delegates its production duties to a subcontractor without the buyer's consent. Absent a contrary clause, the seller:",
+     o:["Remains fully liable to the buyer for performance — delegation transfers the work, not the responsibility",
+        "Is released once the delegatee accepts the duty",
+        "Has committed an automatic material breach",
+        "Must novate the contract within 30 days"],
+     a:0, e:"Delegation hands off the task; it never hands off the liability. The delegator stays on the hook unless the other party agrees to a novation — which is exactly why novation exists as a distinct, consent-based mechanism. Delegation alone isn't breach either, unless performance was personal in character or the contract forbids it."},
+
+    {d:"GP", q:"A subcontractor benefits from a prime contract clause requiring the owner to make site access available. When the owner denies access, the subcontractor sues the owner directly. The subcontractor's problem is that it is likely:",
+     o:["Barred by the statute of frauds","An incidental beneficiary with no enforcement rights",
+        "Required to arbitrate first","An intended beneficiary who waived its rights"],
+     a:1, e:"Third parties can enforce a contract only if the contracting parties intended to benefit them directly — the intended-beneficiary test. Most parties who merely gain from someone else's contract are incidental beneficiaries and get nothing in court. Subs generally must pursue the prime under their own subcontract, not the owner."},
+
+    {d:"GP", q:"After all other interpretation tools fail, a genuinely ambiguous clause that the buyer drafted will be construed:",
+     o:["In favor of the buyer, as the party with the greater interest",
+        "According to trade usage only",
+        "By splitting the difference between the two readings",
+        "Against the buyer as drafter, if the other side's reading is reasonable — contra proferentem"],
+     a:3, e:"Contra proferentem is the tiebreaker of last resort: the drafter controlled the words, so the drafter eats the ambiguity. It only operates when the ambiguity is genuine, the non-drafter's interpretation is reasonable, and — in the federal context — the ambiguity is latent rather than so obvious the offeror had a duty to ask before bidding."},
+
+    {d:"GP", q:"A typed special provision conflicts with a preprinted standard clause in the same contract. Interpretation principles resolve this by:",
+     o:["Giving effect to the typed provision — specific, deliberately added terms control over general boilerplate",
+        "Giving effect to the preprinted clause as the more standard term",
+        "Declaring the contract void for internal inconsistency",
+        "Submitting the conflict to the drafting party for election"],
+     a:0, e:"The hierarchy runs from most to least deliberate: handwritten beats typed, typed beats preprinted, specific beats general. The logic is evidentiary — terms the parties actively inserted are better proof of actual intent than boilerplate nobody read. Internal conflict doesn't void a contract; interpretation rules exist precisely to resolve it."},
+
+    {d:"GP", q:"The implied covenant of good faith and fair dealing:",
+     o:["Applies only to government contracts",
+        "Exists in every contract and cannot be disclaimed — neither party may act to destroy the other's right to receive the benefit of the bargain",
+        "Applies only where the contract expressly incorporates it",
+        "Requires each party to sacrifice its own interests when asked"],
+     a:1, e:"Good faith rides along in every contract, express or not, and no clause can waive it. It doesn't make you altruistic — you can drive hard bargains and enforce your rights — but you cannot exercise discretion or technicalities in a way calculated to strip the other side of what the deal promised them."},
+
+    // ---------- MANAGEMENT — blueprint expansion ----------
+    {d:"MGT", q:"To judge whether a supplier can meet its short-term obligations, the most useful financial statement is the:",
+     o:["Income statement, for profitability trends",
+        "Statement of retained earnings",
+        "Balance sheet — current assets against current liabilities at a point in time",
+        "Prior year's tax return"],
+     a:2, e:"Liquidity lives on the balance sheet: current assets versus current liabilities (the current ratio) tells you whether near-term bills can be paid. The income statement shows performance over a period — a firm can be profitable and still illiquid, which is exactly the failure mode that surprises people. Cash flow analysis complements; the balance sheet is where you start."},
+
+    {d:"MGT", q:"On a project network diagram, the critical path is the path:",
+     o:["With the most activities",
+        "Requiring the most resources",
+        "With the highest-risk activities",
+        "Of longest duration, where activities have zero float — any delay on it delays the project finish"],
+     a:3, e:"The critical path is the longest duration path through the network, which makes it the shortest possible project duration — and every activity on it has zero float. Management attention follows float: a week slip on the critical path is a week slip on delivery; a week slip elsewhere may cost nothing."},
+
+    {d:"MGT", q:"A program has consumed $2M of its $3M budget and is failing. In deciding whether to continue, the $2M already spent should be:",
+     o:["Excluded from the decision — sunk costs are unrecoverable regardless of what you decide next",
+        "Weighted heavily, to avoid wasting the investment",
+        "Amortized across the remaining work",
+        "Recovered through scope reductions before any cancellation"],
+     a:0, e:"Sunk cost is the canonical decision trap: the $2M is gone under every future scenario, so it carries zero decision weight. The only question is whether the remaining $1M buys more value spent here than spent elsewhere. 'We've come too far to stop' is how failing programs consume their third million."},
+
+    {d:"MGT", q:"The difference between sole source and single source is that sole source means:",
+     o:["The buyer prefers one supplier after competition",
+        "Only one supplier is capable of meeting the requirement — there is no alternative — while single source is a deliberate choice among available alternatives",
+        "The supplier holds a patent",
+        "The two terms are interchangeable"],
+     a:1, e:"Sole source is a market condition: nobody else can do it. Single source is a strategy: others could, but you've chosen one — for leverage, quality, or relationship reasons. The distinction drives risk management: single source has a fallback by definition; sole source demands supplier-viability monitoring, because there is no plan B."},
+
+    {d:"MGT", q:"A risk has a 20% probability of occurring with a $100,000 impact. A proposed mitigation costing $35,000 would eliminate it entirely. On expected value terms, the mitigation is:",
+     o:["Justified, because $35,000 is less than $100,000",
+        "Justified, because eliminating any risk is worth the cost",
+        "Not justified — the expected exposure is $20,000, less than the $35,000 cure",
+        "Not evaluable without a Monte Carlo simulation"],
+     a:2, e:"Expected monetary value = probability × impact = $20,000. Spending $35,000 to remove $20,000 of expected exposure destroys value unless there's something the EMV misses — a catastrophic tail, a contractual showstopper, reputational stakes. The comparison is always cure cost versus exposure, never cure cost versus raw impact."},
+
+    // ---------- POST-AWARD — blueprint expansion ----------
+    {d:"POST", q:"A series of modifications cumulatively transforms a warehouse renovation into new building construction. The contractor's strongest argument is that this is:",
+     o:["A compensable delay",
+        "A standard in-scope change requiring equitable adjustment only",
+        "A violation of the Anti-Deficiency Act",
+        "A cardinal change — beyond the scope of the changes clause, and therefore a breach"],
+     a:3, e:"The changes clause authorizes changes within the general scope of the contract. Push far enough — in magnitude or in kind — and the modification is 'cardinal': work the parties never bargained for, which the clause cannot authorize. That's a breach, freeing the contractor from the duty to perform under the clause and opening breach remedies rather than just an equitable adjustment."},
+
+    {d:"POST", q:"A hurricane closes the contractor's plant for two weeks. The correct relief is:",
+     o:["A time extension and recovery of the delay costs",
+        "A time extension only — the delay is excusable but not compensable, since neither party caused it",
+        "No relief; fixed-price contractors bear all delay risk",
+        "Termination for convenience"],
+     a:1, e:"The delay taxonomy has three boxes: contractor-caused (no time, no money — and default exposure), excusable (no one's fault: acts of God, strikes, unusually severe weather — time but no money), and compensable (buyer-caused — time and money). A hurricane is the middle box. Each side bears its own costs; the schedule moves."},
+
+    {d:"POST", q:"Six months after accepting delivered units, the buyer discovers an internal defect no reasonable inspection would have caught. Acceptance:",
+     o:["Is final in all cases once payment is made",
+        "Can be revoked for any defect within one year",
+        "Does not bar the claim — acceptance is final except for latent defects, fraud, or gross mistakes amounting to fraud",
+        "Bars the claim unless a warranty clause was included"],
+     a:2, e:"Acceptance is meant to be final — that's its function — but it has three standard exceptions: latent defects (undiscoverable by reasonable inspection), fraud, and gross mistakes amounting to fraud. A hidden internal flaw is the textbook latent defect. For patent defects, though, acceptance really does close the door, warranty clauses aside."},
+
+    {d:"POST", q:"Before the delivery date, a contractor is falling so far behind that timely completion is endangered. Before terminating for default on that basis, the buyer should issue a:",
+     o:["Cure notice giving the contractor a stated period to fix the failure",
+        "Show cause notice demanding an explanation",
+        "Stop-work order",
+        "Final decision under the Disputes clause"],
+     a:0, e:"Failure to make progress is a curable default — so due process requires a cure notice: here's the failure, you have (typically) ten days to cure. The show cause notice fits the already-blown delivery date, where there's nothing left to cure and the question is whether the failure was excusable. Skipping the required notice is how defensible terminations get converted into convenience terminations by a board."},
+
+    {d:"POST", q:"A contractor misses its delivery date, but the buyer says nothing for months and keeps urging completion. The buyer then abruptly terminates for default based on the missed date. The termination is vulnerable because:",
+     o:["Default terminations require 90 days' notice",
+        "The buyer waived the delivery schedule by its inaction and encouragement, and never reestablished a new date",
+        "Late delivery can only support liquidated damages",
+        "The contractor substantially performed"],
+     a:1, e:"Sit on a default while encouraging continued performance and you waive it — the contractor reasonably relied by continuing to spend. Once the schedule is waived, the buyer must reestablish a new, reasonable delivery date (bilaterally or unilaterally with consideration of the contractor's position) before default rights revive. Prompt election is the discipline: terminate, extend, or waive — but decide."},
+
+    {d:"POST", q:"At closeout, the primary purpose of obtaining the contractor's release of claims before final payment is to:",
+     o:["Satisfy an audit formality",
+        "Trigger the Prompt Payment Act clock",
+        "Transfer title to residual materials",
+        "Achieve finality — cutting off claims not reserved in the release, so the file can close without a tail of liability"],
+     a:3, e:"Final payment plus an executed release is the legal end of the story: claims not expressly excepted in the release are barred. That's why a contractor with a pending REA must reserve it in the release, and why closeout checklists treat the release as a gate, not paperwork. Finality is the whole point of closeout."},
+
+    {d:"POST", q:"A stop-work order is issued during performance. Which statement is correct?",
+     o:["The contractor may ignore it if costs would increase",
+        "It may remain in effect indefinitely",
+        "The contractor must stop as directed and is entitled to an equitable adjustment for resulting cost and schedule impact",
+        "It converts the contract to cost-reimbursement"],
+     a:2, e:"The order is mandatory — stop means stop, and mitigation of cost is expected — but it isn't free for the buyer: the contractor gets an equitable adjustment for the disruption, and the order has a limited life (canonically 90 days) after which the buyer must cancel it, extend by agreement, or terminate. It suspends work; it doesn't rewrite the deal."},
+
+    // ---------- PRE-AWARD — blueprint expansion ----------
+    {d:"PRE", q:"Sealed bidding (rather than negotiation) is the appropriate method when:",
+     o:["The requirement is complex and technical tradeoffs matter",
+        "Award will be made on price and price-related factors alone, specifications are firm, discussions are unnecessary, and multiple bids are expected",
+        "Time pressure demands the fastest possible award",
+        "Only one responsible source exists"],
+     a:1, e:"Sealed bidding trades flexibility for transparency: public opening, no discussions, award to the lowest responsive, responsible bidder. That only works when the requirement is defined tightly enough that price is the only real discriminator and no dialogue is needed. Complexity, tradeoffs, or a need for discussions all push you to negotiation."},
+
+    {d:"PRE", q:"A bid omits a required acknowledgment of a material solicitation amendment. Separately, a question arises about whether the low bidder has adequate financial resources. These are, respectively, issues of:",
+     o:["Responsiveness (bid conformance, judged at opening) and responsibility (offeror capability, determined any time before award)",
+        "Responsibility and responsiveness",
+        "Both responsiveness","Both responsibility"],
+     a:0, e:"Responsiveness asks: does the bid, as opened, conform to the material terms? It's frozen at bid opening and can't be fixed afterward — allowing repair would let a bidder choose whether to stand behind its bid. Responsibility asks: can this firm actually perform? That's about the offeror, not the bid, and can be established right up to award."},
+
+    {d:"PRE", q:"A program office requests a sole-source award to the incumbent because 'they know our systems and recompeting is disruptive.' As justification for other than full and open competition, this is:",
+     o:["Sufficient, if the incumbent's performance has been satisfactory",
+        "Sufficient under the follow-on exception",
+        "Insufficient — familiarity and convenience don't establish that only one responsible source can satisfy the requirement",
+        "Insufficient only above the simplified acquisition threshold"],
+     a:2, e:"The 'only one responsible source' exception requires that no other supplier's product or service will satisfy the need — a market fact, not a preference. Incumbent familiarity, transition friction, and staff comfort are the arguments in every weak J&A, and they fail because they describe cost of competition, not absence of competitors. If the market has alternatives, plan the transition."},
+
+    // ---------- AWARD — blueprint expansion ----------
+    {d:"AWD", q:"An offeror with no relevant past performance history must be evaluated:",
+     o:["Unfavorably — no record is a performance risk",
+        "Favorably, to encourage new entrants",
+        "By substituting the past performance of its individual employees' former employers",
+        "Neutrally — the lack of a record may not count for or against the offeror"],
+     a:3, e:"No record gets a neutral (unknown-confidence) rating: it cannot be treated as bad performance, or new entrants could never break in. It doesn't get treated as good performance either. An offeror with relevant history can still be rated higher on the merits of that history — neutral protects the newcomer from penalty, not from comparison."},
+
+    {d:"AWD", q:"In a debriefing, an unsuccessful offeror is entitled to:",
+     o:["The agency's evaluation of its own proposal's significant weaknesses and deficiencies, and the overall rationale for award",
+        "A page-by-page comparison of its proposal against the winner's",
+        "Copies of the winning proposal with pricing",
+        "The individual scoring sheets of each evaluator"],
+     a:0, e:"A debriefing explains what happened to YOUR proposal — significant weaknesses, deficiencies, overall ranking and award rationale — without exposing the winner's proprietary content or turning into a proposal-writing seminar at competitors' expense. Done well, it also serves the agency: offerors who understand the outcome protest less and propose better next time."},
+
+    // ---------- LEARN / FRAMEWORK / CMBOK OVERVIEW ----------
+    {d:"LRN", q:"The Contract Management Body of Knowledge (CMBOK) is best described as:",
+     o:["A federal regulation governing contract managers",
+        "The organized statement of the competencies — skills, knowledge, abilities — that define the contract management profession, and the reference base for CPCM exam questions",
+        "A digest of court decisions on contract disputes",
+        "NCMA's internal training curriculum"],
+     a:1, e:"The CMBOK is the profession's competency map: what a contract manager needs to know and do, organized into defined competencies and knowledge areas. It's descriptive of the discipline, not regulatory — and it matters to you concretely because every CPCM exam question is referenced back to it. It's the sole source material."},
+
+    {d:"LRN", q:"The Contract Management Standard (CMS) relates to the CMBOK in that the CMS:",
+     o:["Replaced the CMBOK",
+        "Covers only federal contracting while the CMBOK covers commercial",
+        "Is the ANSI-approved standard defining what contract management IS — its phases and job tasks — while the CMBOK elaborates the competencies needed to perform it",
+        "Is published by a different professional association"],
+     a:2, e:"Think of the CMS as the skeleton and the CMBOK as the anatomy text. The CMS — an American National Standard — defines the discipline: the lifecycle phases and the job tasks in each. The CMBOK builds on it, detailing the competencies and knowledge content behind those tasks. Standard first, body of knowledge elaborating it."},
+
+    {d:"LRN", q:"The contract management lifecycle, as framed by the CMS, consists of:",
+     o:["Solicitation, evaluation, and payment",
+        "Planning, execution, and audit",
+        "Requirements, negotiation, delivery, and invoicing",
+        "Three phases — pre-award, award, and post-award — each with defined job tasks, performed from both buyer and seller perspectives"],
+     a:3, e:"Three phases, and every job task in the discipline lives in one of them. The framing is deliberately buyer-AND-seller: the same lifecycle looks like acquisition planning and source selection from one chair, and capture, proposal, and delivery from the other. The CPCM tests the whole framework, both perspectives."},
+
+    {d:"LRN", q:"During the buyer's pre-award phase, the seller's mirror-image activity is primarily:",
+     o:["Business development and capture — shaping opportunities, assessing pursuit decisions, and preparing to propose",
+        "Contract closeout","Invoice processing","Property disposition"],
+     a:0, e:"While the buyer does market research and acquisition planning, the seller is finding and qualifying the opportunity, deciding bid/no-bid, and positioning to win. Every buyer-side phase has a seller-side reflection — one of the CMBOK's core framing ideas, and a reason CPCM questions can put you in either chair without warning."},
+
+    {d:"LRN", q:"The CMBOK treats continuous learning as a professional competency in its own right chiefly because:",
+     o:["Certification bodies require revenue from training",
+        "The field's rules, market practices, and technology change continuously — competence is perishable without deliberate maintenance",
+        "Junior staff need structured onboarding",
+        "Employers mandate annual training hours"],
+     a:1, e:"Statutes amend, thresholds move, case law shifts, tools change. A contract manager running on five-year-old knowledge is confidently wrong, which is worse than ignorant. Making Learn a competency says maintenance of expertise is part of the job itself — not an extracurricular — and it's why certifications carry continuing-education requirements."},
+
+    {d:"LRN", q:"The distinction the Learn competency draws between education, training, and experience is best captured as:",
+     o:["Education is for managers; training is for staff",
+        "Training precedes education in a career",
+        "Education builds understanding of principles and theory; training builds proficiency in specific applied skills; experience develops judgment by doing",
+        "The three terms are synonyms for professional development"],
+     a:2, e:"Why negotiation works the way it does — education. How to run this negotiation with this playbook — training. Knowing which lever to pull when the playbook runs out — experience. Development plans that lean on only one leg produce either theorists who can't execute or operators who can't adapt."},
+
+    {d:"LRN", q:"Lessons-learned programs deliver the most value when lessons are:",
+     o:["Compiled comprehensively at contract closeout",
+        "Restricted to failures, since successes need no analysis",
+        "Held within the team that learned them",
+        "Captured as they occur and fed back into current planning, templates, and checklists — closing the loop while it can still change behavior"],
+     a:3, e:"The closeout-binder model fails predictably: memory has faded, the team has scattered, and the findings ship after every decision they could have improved. Effective programs capture continuously, mine wins as hard as losses, and institutionalize the result — the lesson isn't learned until a template, checklist, or process actually changes."},
+
+    {d:"LRN", q:"A senior contract manager is retiring in six months, carrying twenty years of program-specific knowledge. The most effective knowledge-transfer approach is:",
+     o:["An exit interview in the final week",
+        "Structured transfer over the whole six months — pairing on live work, documenting decision rationale, and introducing successors to key relationships",
+        "Archiving her email account",
+        "A farewell presentation to the team"],
+     a:1, e:"Tacit knowledge — why we do it this way, who to call, what failed in 2019 — doesn't survive an exit interview. It transfers through working together: shadowing on live issues, narrated decisions, warm handoffs of relationships. Six months is enough runway if you use all of it; the last week is enough for the parking pass."},
+
+    {d:"LRN", q:"An individual development plan (IDP) is most effective when built by:",
+     o:["Adopting the training catalog's most popular courses",
+        "Matching whatever the annual budget allows",
+        "Assessing current capability against a competency standard, identifying the gaps that matter for current and next roles, and targeting development at those gaps",
+        "Repeating the prior year's plan for consistency"],
+     a:2, e:"The standard gives you the map, the self-assessment gives you the you-are-here, and the gaps in between are the plan. Everything else is training by coincidence. Anchoring to next-role competencies, not just the current job, is what turns an IDP from compliance paperwork into career strategy — and the CMBOK is exactly the kind of standard to assess against."},
+
+    {d:"LRN", q:"After a major source selection concludes, the team runs an after-action review. The practice that most improves its value is:",
+     o:["Limiting attendance to managers",
+        "Focusing on assigning responsibility for errors",
+        "Examining what succeeded and why with the same rigor as what failed — blamelessly, so people surface what actually happened",
+        "Deferring the review until the protest window closes and memories consolidate"],
+     a:2, e:"Two disciplines make AARs work: blamelessness (the moment reviews assign fault, people stop reporting facts) and symmetric curiosity (successes have causes too, and you can't repeat what you can't explain). Run soon, run honest, and write down what changes — otherwise it's a meeting, not a review."},
+
+    {d:"LRN", q:"Professional communities of practice — NCMA chapters, working groups, peer networks — contribute to competence primarily by:",
+     o:["Exposing practitioners to problems, solutions, and interpretations beyond their own organization's experience",
+        "Providing certification fee discounts",
+        "Substituting for formal education requirements",
+        "Generating continuing education certificates"],
+     a:0, e:"One organization sees one slice of the discipline. A community of practice aggregates hundreds of slices — how other shops read the new rule, what failed at another agency, which practices are becoming standard. That cross-pollination is the fastest correction for institutional blind spots, and it's the substantive reason (beyond CPE hours) the CMBOK values professional engagement."},
+
+    {d:"LRN", q:"The CPCM exam itself is best characterized as:",
+     o:["A federal-contracting exam based on the FAR",
+        "A commercial-contracting exam based on the UCC",
+        "An experience review with no written test",
+        "A profession-wide exam referenced to the CMBOK, spanning all competencies from both buyer and seller perspectives"],
+     a:3, e:"The CPCM is deliberately the generalist credential: every CMBOK competency, both sides of the table, commercial and government contexts. FAR-specific and DoD-specific depth belongs to the CFCM and CDCM respectively. Knowing the credential's own scope tells you how to study — breadth across the framework beats depth in your home domain."}
   ];
 
   Q.forEach(function(q,i){ q.id = "Q" + String(i+1).padStart(3,"0"); });
@@ -1456,23 +1743,31 @@
   }
 
   function proportionalSample(n){
+    /* Draw follows the official exam blueprint weights (DOMAINS[].xw),
+       not the bank's own composition. xw:0 domains never appear. */
+    var examDomains = DOMAINS.filter(function(d){ return d.xw > 0; });
+    var totalW = examDomains.reduce(function(s,d){ return s + d.xw; }, 0);
     var byDomain = {};
-    DOMAINS.forEach(function(d){ byDomain[d.code] = Q.filter(function(q){ return q.d===d.code; }).slice(); });
+    examDomains.forEach(function(d){ byDomain[d.code] = Q.filter(function(q){ return q.d===d.code; }).slice(); });
     Object.keys(byDomain).forEach(function(k){
       var arr = byDomain[k];
       for(var i=arr.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=arr[i];arr[i]=arr[j];arr[j]=t; }
     });
-    if(n === "all" || n >= Q.length) return Q.map(function(q){return q.id;}).sort(function(){return Math.random()-0.5;});
-    var total = Q.length;
+    var poolIds = [];
+    examDomains.forEach(function(d){ poolIds = poolIds.concat(byDomain[d.code].map(function(q){return q.id;})); });
+    if(n === "all" || n >= poolIds.length){
+      for(var i=poolIds.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=poolIds[i];poolIds[i]=poolIds[j];poolIds[j]=t; }
+      return poolIds;
+    }
     var picked = [];
-    DOMAINS.forEach(function(d){
-      var share = Math.max(1, Math.round(byDomain[d.code].length / total * n));
+    examDomains.forEach(function(d){
+      var share = Math.max(1, Math.round(d.xw / totalW * n));
       picked = picked.concat(byDomain[d.code].slice(0, share).map(function(q){return q.id;}));
     });
-    // trim or pad to exact n
+    // trim or pad to exact n (pad only from exam-eligible domains)
     if(picked.length > n) picked = picked.slice(0, n);
     if(picked.length < n){
-      var remaining = Q.filter(function(q){ return picked.indexOf(q.id) === -1; }).map(function(q){return q.id;});
+      var remaining = poolIds.filter(function(id){ return picked.indexOf(id) === -1; });
       for(var i=remaining.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=remaining[i];remaining[i]=remaining[j];remaining[j]=t; }
       picked = picked.concat(remaining.slice(0, n-picked.length));
     }

@@ -12,6 +12,56 @@ Read a competency. Close the guide. Explain it out loud to no one. Then drill th
 
 The sections marked **⚠ Trap** are where candidates with real-world experience lose points. Experience teaches you what your organization does. The exam tests what the CMBOK says. When those diverge, the CMBOK wins.
 
+## Exam blueprint — where the points are
+
+From the official NCMA handbook (March 2026): **180 questions** (10 unscored beta, 30 scenario-based), **4 hours**, **72.2% to pass**. All scored questions weighted equally.
+
+| Section | Questions | Share |
+|---|---|---|
+| Management | 30–35 | ~18% |
+| Guiding Principles | 30–35 | ~18% |
+| Pre-Award | 30–35 | ~18% |
+| Award | 30–35 | ~18% |
+| Post-Award | 30–35 | ~18% |
+| Leadership | 8–12 | ~6% |
+| Learn | 6–10 | ~4% |
+| CM Framework | 5–8 | ~4% |
+| CMBOK Overview | 5–8 | ~4% |
+
+Read the shape: five sections carry ~90% of the exam at equal weight. Leadership is a sliver. Framework + Overview + Learn together are ~10–12% — small individually, but they're the easiest points on the exam because the material is short and factual. Study them last, but study them.
+
+---
+
+# 0. The Framework — CMS, CMBOK, and the exam itself
+
+*~10–12% of the exam, and the cheapest points on it. This section is short because the material is short.*
+
+## The Contract Management Standard (CMS)
+
+The CMS is an **ANSI-approved American National Standard** that defines what contract management *is*: the discipline's phases and job tasks. It is **sector-neutral** — government and commercial both. It is a standard, not a regulation; it describes the profession, it doesn't carry the force of law. (The FAR is the opposite: a regulation, force of law, federal-only.)
+
+## The CMBOK
+
+The Contract Management Body of Knowledge **builds on the CMS**: where the standard defines the phases and tasks, the CMBOK details the **competencies** — the skills, knowledge, and abilities — needed to perform them. Standard first, body of knowledge elaborating it. The CMBOK (7th Edition) is the **sole source material** for the CPCM exam; every question is referenced to it.
+
+Structure to know cold: two professional competencies that apply everywhere (**Leadership**, **Management**), the lifecycle competencies (**Guiding Principles**, **Pre-Award**, **Award**, **Post-Award**), and **Learn** (continuous improvement of the function itself).
+
+## The lifecycle
+
+Three phases — **pre-award, award, post-award** — each with defined job tasks, performed from **both buyer and seller perspectives**. The buyer/seller mirror is a core framing idea: while the buyer does market research and acquisition planning, the seller is doing business development and capture; the buyer's source selection is the seller's proposal; the buyer's administration is the seller's delivery. Exam questions put you in either chair without warning.
+
+## The credential family
+
+- **CPCM** — the generalist: all competencies, both perspectives, commercial *and* government. Based on the whole CMBOK.
+- **CFCM** — federal: FAR-based depth.
+- **CDCM** — defense: DoD-specific.
+
+**⚠ Trap:** "The CPCM is a FAR exam." No — that's the CFCM. CPCM questions deliberately span commercial (UCC, common law) and government contexts. Knowing the credential's own scope tells you how to allocate study time.
+
+## The JTA connection
+
+Exam content isn't invented by committee whim: NCMA runs a **Job Task Analysis** (survey + SMEs + public comment) to determine what contract managers actually do, and the competencies — and therefore the blueprint — flow from it. Questions are written by CPCM holders, referenced to the CMBOK, and validated psychometrically (that's what the 10 unscored beta questions on your exam are doing).
+
 ---
 
 # 1. Guiding Principles

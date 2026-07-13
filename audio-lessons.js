@@ -5,6 +5,24 @@
 
 window.AUDIO_LESSONS = [
   {
+    id: "fw",
+    title: "The Framework & the Exam",
+    minutes: 5,
+    script: `Before any competency, spend five minutes on the framework itself — because the exam tests it directly, about ten to twelve percent of your questions, and it's the shortest material on the whole test.
+
+Start with two documents you have to keep separate. The Contract Management Standard — the C-M-S — is an ANSI-approved American National Standard. It defines what contract management is: the phases of the lifecycle and the job tasks inside each phase. It's sector-neutral, covering government and commercial work alike, and it's a standard, not a law. The CMBOK — the Contract Management Body of Knowledge — builds on that standard. Where the CMS defines the tasks, the CMBOK details the competencies — the skills, knowledge, and abilities you need to perform those tasks. So remember the relationship: standard first, body of knowledge elaborating it. And the CMBOK, seventh edition, is the sole source for every question on your exam.
+
+Now the structure of the CMBOK. Two professional competencies apply everywhere — Leadership and Management. Then the lifecycle competencies: Guiding Principles, Pre-Award, Award, and Post-Award. And finally Learn, which is about continuously improving the contract management function itself.
+
+The lifecycle has exactly three phases: pre-award, award, and post-award. And here's the framing idea the exam loves — every phase happens from both the buyer's chair and the seller's chair, as mirror images. While the buyer runs market research and acquisition planning, the seller is doing business development and capture. The buyer's source selection is the seller's proposal. The buyer's contract administration is the seller's delivery. Exam questions will drop you into either chair without warning, so practice thinking from both sides.
+
+Know the credential family too. The CPCM is the generalist certification — all competencies, both perspectives, commercial and government together. The CFCM is the federal credential, built on the FAR. The CDCM is defense-specific. Here's the trap: the CPCM is not a FAR exam. It deliberately tests commercial concepts — the U-C-C, common law — right alongside government ones.
+
+Last piece: where the exam comes from. NCMA runs a job task analysis — a survey of practitioners, subject matter expert review, and public comment — to determine what contract managers actually do. The competencies, and the exam blueprint, flow from that analysis. The questions themselves are written by CPCM holders, referenced back to the CMBOK, and validated statistically. That's also why ten of your one hundred eighty questions are unscored beta questions — they're being tested on you before they count against anyone.
+
+And the numbers worth carrying into exam day: one hundred eighty questions, four hours, seventy-two point two percent to pass. Five sections — Management, Guiding Principles, Pre-Award, Award, and Post-Award — carry roughly ninety percent of the weight, about eighteen percent each. Leadership is small, around six percent. And this framework material, plus Learn — call it ten percent — is the easiest ten percent on the test. Don't leave it on the table.`
+  },
+  {
     id: "gp",
     title: "Guiding Principles",
     minutes: 9,
