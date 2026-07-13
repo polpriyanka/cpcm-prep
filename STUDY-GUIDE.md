@@ -59,9 +59,28 @@ Three phases — **pre-award, award, post-award** — each with defined job task
 
 **⚠ Trap:** "The CPCM is a FAR exam." No — that's the CFCM. CPCM questions deliberately span commercial (UCC, common law) and government contexts. Knowing the credential's own scope tells you how to allocate study time.
 
-## The JTA connection
+## How the exam itself is built (tested directly)
 
-Exam content isn't invented by committee whim: NCMA runs a **Job Task Analysis** (survey + SMEs + public comment) to determine what contract managers actually do, and the competencies — and therefore the blueprint — flow from it. Questions are written by CPCM holders, referenced to the CMBOK, and validated psychometrically (that's what the 10 unscored beta questions on your exam are doing).
+The Foundations questions test NCMA's own machinery, not contracting law:
+
+- **The JTA (Job Task Analysis)** underlying the exam blueprint is developed through a
+  *public survey plus subject-matter-expert review plus public comment* — deliberately
+  participatory so the competency model reflects real practice across sectors.
+- **Competencies vs. job tasks:** tasks are what practitioners *do*; competencies are
+  the knowledge/skill domains that enable them. The JTA maps one to the other, and the
+  blueprint allocates questions across competencies validated against task data.
+- **A "competency" by NCMA's definition** correlates with job performance, can be
+  measured against accepted standards, differentiates performers — and **can be
+  improved through training and experience** (a trait that can't be developed would be
+  useless as a certification target; "fixed and unimprovable" is the designed wrong
+  answer).
+- **Item development:** exam questions are written and independently validated by
+  working groups of CPCM holders, referenced to the CMBOK, and monitored
+  psychometrically. There are **no multiply-correct questions and no
+  all-of-the-above/none-of-the-above options** — every scored item has exactly one
+  defensible answer.
+- **Exam-taking guidance, per NCMA itself:** eliminate clearly wrong options and make
+  an educated guess; don't leave blanks.
 
 ---
 
@@ -384,40 +403,79 @@ The Government contracts with the **prime**. There is **no privity** with the su
 
 # 5. Leadership
 
-*Tested lightly on facts, heavily on judgment.*
+*8–12 questions. Tested on judgment, not vocabulary — scenario answers reward the
+response that builds durable capability and credibility over the one that "wins" the
+moment.*
 
-## The model
+## The model and its sequence
 
 Vision → communication → influence → ethical decision-making → developing others.
 
-**Order matters.** Establish and communicate a credible vision *before* restructuring, reassigning, or raising targets. Structural moves made without a narrative read as punishment and destroy trust.
+**Sequence is itself testable:** establish and communicate a credible vision *before*
+restructuring, reassigning, or raising targets. Structural moves without a narrative
+read as punishment and destroy trust — the classic scenario gives you a demoralized
+team and asks what comes first. The answer is never "reorganize" or "raise targets."
 
 ## Influence without authority
 
-Contract managers routinely need cooperation from people who don't report to them — program, finance, legal, engineering. The currency is **credibility**, and credibility is built on **consistency**.
+Contract managers constantly need cooperation from people who don't report to them.
+The currency is **credibility**, and credibility is built on **consistency**.
 
-**⚠ Trap.** The thing that destroys influence fastest is not an unpopular decision. It's **inconsistency** — giving different answers to different stakeholders on the same question. Saying "no" to an unlawful request, clearly explained, actually *builds* credibility. Saying "yes" to one person and "no" to another on identical facts ends it.
+- The fastest destroyer of influence is not an unpopular decision — it's giving
+  *different answers to different stakeholders on the same question.*
+- Saying "no" to an improper request, clearly explained, *builds* credibility.
+- Genuine influence connects your request to the *other party's* objectives — not
+  directives (positional authority), not escalation (borrowed authority).
 
-## Emotional intelligence — the operational payoff
+## Stakeholder management
 
-Not a soft ornament. Where it cashes out:
-- Reading the **interests behind stated positions** in negotiation
-- De-escalating disputes before they become claims
-- Sensing stakeholder resistance early enough to address it
+The influence/interest grid drives engagement level:
 
-## SMART goals
-
-| | |
+| Stakeholder | Approach |
 |---|---|
-| **S**pecific | Names the actual outcome |
-| **M**easurable | Objectively determinable |
-| **A**chievable | Realistic given resources |
-| **R**elevant | Tied to the organizational objective |
-| **T**ime-bound | Has a deadline |
+| High influence, high interest | Manage closely — partner with them |
+| High influence, low interest | **Keep satisfied** — concise, periodic, decision-relevant updates |
+| Low influence, high interest | Keep informed |
+| Low influence, low interest | Monitor with minimal effort |
 
-**Why they improve accountability:** measurability + a deadline make it objectively determinable whether the goal was met, without argument. That's the mechanism. Ambition is *not* part of SMART — "achievable" cuts the other way.
+The tested trap is the high-power/low-interest actor: over-communicating wastes their
+attention; ignoring them invites a powerful surprise objection late.
 
-**Why regular review matters:** goals set once and never revisited drift from a changing environment. Review is what keeps them relevant, and what surfaces the need to adjust before failure rather than after.
+## Disagree and commit
+
+After a full and fair hearing, once the decision is made: support it professionally.
+Continued open resistance and quiet undermining are both wrong answers; so is never
+having voiced the concern. The sequence — speak once, clearly, when it matters; then
+commit — is the expected professional behavior.
+
+## Developing others
+
+- **Delegation is a development tool**, not offloading: stretch assignments matched to
+  capability, *with commensurate authority and support*, while the leader retains
+  accountability. Delegating tasks without authority, or authority without support,
+  are the two named failure modes.
+- **Defensible errors get coaching, not punishment.** A junior person's good-faith
+  wrong call is a teaching moment; public reprimand or stripping authority teaches
+  people to stop making decisions — a worse organizational outcome than the mistake.
+
+## Emotional intelligence — the operational version
+
+Not an ornament: it cashes out in reading the *interests behind stated positions* in
+negotiation and dispute resolution, de-escalating conflicts before they become claims,
+and sensing resistance early enough to address it.
+
+## SMART goals — the mechanism
+
+Specific, Measurable, Achievable, Relevant, Time-bound. The reason SMART improves
+accountability is narrow and specific: **measurability plus a deadline make goal
+attainment objectively determinable without argument.** Ambition is not part of SMART —
+"achievable" cuts the other way. Goals set once and never reviewed drift from a
+changing environment; review is what keeps them relevant.
+
+**⚠ Trap.** Leadership wrong answers are usually the *forceful* option: reorganize
+first, reprimand publicly, escalate immediately, override consensus. The credited
+answer almost always builds capability, preserves credibility, or protects the
+relationship while still addressing the problem directly.
 
 ---
 
@@ -504,25 +562,71 @@ The correct instinct when a disruption threatens a milestone: **notify the buyer
 
 # 7. Learn
 
-*The competency people skip. It's short — don't skip it.*
+*Up to 10 questions. The competency people skip — and the easiest points on the exam,
+because the ideas are few and the traps are gentle.*
 
 ## What it covers
 
-Continuous improvement of the contract management function itself: lessons learned, performance measurement, knowledge management, and professional development.
+Continuous improvement of the contract management function itself: lessons learned,
+knowledge management, performance measurement of the function, and professional
+development — individual and organizational.
 
-## Lessons learned
+## Lessons learned — the value chain
 
-Collected **throughout** the lifecycle, not just at closeout. The closeout-only approach fails because the people who know what happened have already moved on and the details are gone. Capture at phase transitions.
+The CMBOK's model is a chain, and questions test whether you know which link broke:
 
-A lessons-learned process that has no mechanism for **feeding back into future acquisition planning** is theater. The test of the process is whether the next acquisition plan is different because of it.
+**Capture → Structure → Access → Feedback into future planning**
 
-## Performance measurement
+- **Capture happens throughout the lifecycle**, at phase transitions — not only at
+  closeout. Closeout-only capture fails because the people who knew what happened have
+  moved on and the detail is gone.
+- **Structure and access are knowledge management.** A repository with hundreds of
+  untagged, unsearchable entries has captured everything and transferred nothing —
+  functionally equivalent to never capturing at all.
+- **The test of the whole process is behavioral:** is the *next* acquisition plan
+  different because of what was learned? Reports nobody acts on are process theater.
+  If an exam scenario describes beautiful documentation and zero changed practice, the
+  answer is "ineffective."
 
-Measure the **contract management function**, not just the contract: cycle time, protest rate, change order volume and cause, closeout backlog, supplier performance trends.
+## Root cause analysis
+
+RCA aimed at *blame* produces hiding; RCA aimed at *systems* produces prevention. The
+expected focus is process, information, and decision factors — not identifying whom to
+discipline. Psychological safety isn't a soft nicety here; it's what makes honest
+capture possible.
+
+## Performance measurement — function vs. contract
+
+Two levels, and the exam tests whether you can tell them apart:
+
+- **Contract-level:** did *this* contract hit cost/schedule/quality?
+- **Function-level:** how is the contract management *organization* performing —
+  cycle time trends, protest rate, change-order volume and root causes, closeout
+  backlog, supplier performance trends across the portfolio.
+
+A question asking for a "function" measure wants the portfolio answer, never a single
+contract's outcome.
+
+## Individual competence vs. organizational capability
+
+A skilled individual inside a broken process still produces poor organizational
+outcomes. Competence is the person's own knowledge and skill; capability is whether the
+organization's systems, processes, and tools let that skill produce results. Skills-gap
+analysis exists to point development spending at *identified* gaps — measuring a gap
+and then buying generic training anyway defeats the purpose.
 
 ## Professional development
 
-Certification, CPE, mentoring, publishing, instructing. The CMBOK treats contribution to the profession as part of the competency — which is why publishing and teaching earn CPE.
+Certification, CPE, mentoring, publishing, instructing. The CMBOK treats contribution
+back to the profession as part of the competency itself — which is why writing
+published articles and teaching earn CPE credit (roughly one CPE per hour of qualifying
+writing, once published, on CMBOK-related topics). Development is expected to be
+continuous and targeted, not episodic and generic.
+
+**⚠ Trap.** "Learn" questions are rarely hard; they're lost through neglect. Common
+wrong-answer patterns: treating closeout as the lessons-learned moment, treating report
+volume as success, treating RCA as a disciplinary tool, and confusing contract-level
+with function-level measurement.
 
 ---
 
