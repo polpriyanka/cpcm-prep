@@ -154,6 +154,45 @@ Do not conflate them. A question describing "the standard" is not describing the
 
 ---
 
+## Commercial & international dimensions
+
+The CPCM covers commercial and international contracting, not just the FAR:
+
+- **UCC Article 2** (goods, between merchants) relaxes the mirror-image rule: an
+  acceptance with minor additional terms can still form a contract
+  (battle of the forms). Implied warranty **disclaimers must be conspicuous**, and
+  terms arriving after formation (invoice boilerplate) may not be part of the deal.
+- **CISG** governs cross-border goods sales between signatory-country parties **by
+  default, unless the parties opt out** — the reverse of what people assume.
+- **INCOTERMS** allocate delivery cost and **risk of loss** — not price, not title.
+  CIF: seller pays cost/insurance/freight, but **risk passes at loading**; the buyer
+  claims on the insurance for in-transit loss.
+- **FCPA**: two prongs — anti-bribery (corrupt payments to foreign officials to get
+  or keep business) and books-and-records/internal controls. Not a ban on courtesies
+  or foreign hiring.
+- **Arbitration** wins internationally on **enforceability**: New York Convention
+  awards are enforceable in 170+ countries; foreign court judgments often aren't.
+- **Offsets** (international defense): local production, tech transfer, or purchase
+  commitments demanded by the buying government — real cost and risk to price in.
+
+## Integrity infrastructure (thin spots reinforced)
+
+- **Suspension & debarment** exclude a contractor from new federal awards — a
+  *business-risk protection* for the Government, **not a punishment**, which is why
+  the test is *present responsibility*, not retribution for past sins. Suspension is
+  temporary (pending investigation); debarment is for a fixed term.
+- **Mandatory disclosure rule**: contractors must timely disclose to the agency OIG
+  **credible evidence** of certain criminal violations (fraud, bribery, gratuities)
+  or False Claims Act violations connected to their contracts — knowing failure to
+  disclose is itself a cause for suspension/debarment.
+- **Data rights** run in three broad grades: **unlimited rights** (Government funded
+  the development), **limited/restricted rights** (developed at private expense), and
+  negotiated middle grounds (Government-purpose rights in DoD practice). The money
+  that paid for development is what drives the rights — mark-ups on deliverables
+  don't create rights the funding history doesn't support.
+
+---
+
 # 2. Pre-Award
 
 *Everything before the solicitation goes out, plus the solicitation itself.*
@@ -303,6 +342,74 @@ What preparation means concretely:
 
 ---
 
+# 3B. Protests, Venues & Competition Mechanics
+
+## The three protest forums
+
+| Forum | Speed/cost | Power | Signature feature |
+|---|---|---|---|
+| **Agency** | Fastest, cheapest | Agency decides | Informal; no stay leverage to speak of |
+| **GAO** | 100-day statutory decision deadline | **Recommends** (agencies comply almost always; non-compliance is reported to Congress) | The **CICA automatic stay** |
+| **Court of Federal Claims** | Slowest, costliest | **Binding injunctions** | Flexible timing; formal litigation |
+
+**Never district court** — for protests or CDA appeals. That answer choice is always
+wrong.
+
+## The clocks (memorize these three)
+
+1. **Solicitation-defect protests** (restrictive spec, patent ambiguity): file
+   **before proposals are due**. Compete first, complain later = untimely.
+2. **CICA stay**: attaches only if the post-award protest is filed within **10 days
+   of award or 5 days after a required debriefing**. File later and you can still
+   protest — but performance continues.
+3. GAO's general timeliness for other grounds: 10 days from when the basis was known
+   or should have been known.
+
+The stay is the protester's leverage; the agency can override it only with a formal
+urgent-and-compelling / best-interests determination.
+
+## Debriefings
+
+A required debriefing explains the **debriefed offeror's own evaluation** — its
+weaknesses, deficiencies, and the award rationale — while protecting competitors'
+proprietary information. It is not a second bite at the competition. Strategically it
+matters because it **starts the 5-day enhanced protest clock** — request it promptly.
+
+## Sealed bidding vs. negotiation
+
+Sealed bidding (IFB) fits when *all four* hold: adequate time; award on price and
+price-related factors; **no discussions needed**; multiple bids expected. Any need to
+negotiate or trade off technical merit → negotiated procurement (RFP).
+
+**Responsiveness vs. responsibility** — the classic pair:
+- **Responsiveness** = does the *bid* conform to the IFB's material terms, judged at
+  bid opening from the bid's face. Nonresponsive = rejected; not curable.
+- **Responsibility** = can the *bidder* perform (finances, capability, integrity,
+  record), judged before award; developable/curable. A small business found
+  nonresponsible generally gets SBA **Certificate of Competency** review.
+
+## Clarifications vs. discussions
+
+- **Clarifications**: limited exchanges; no proposal revision allowed; may be held
+  with one offeror.
+- **Discussions**: bargaining that permits revisions — and once opened with anyone,
+  must be held with **everyone in the competitive range**.
+
+Accepting a revised staffing plan while calling it a "clarification" is the classic
+sustained-protest fact pattern.
+
+## Interagency acquisitions & schedules
+
+- **Economy Act** orders let one agency buy through another when it's in the
+  Government's interest — with a determination that the servicing agency can fill the
+  need at least as cheaply/conveniently.
+- **GSA Federal Supply Schedules** are pre-competed, pre-priced catalogs; ordering
+  activities compete task/delivery orders *among schedule holders* rather than
+  running full open competitions. Fast, but only within the schedule's scope — and
+  ordering outside scope is an improper sole source in disguise.
+
+---
+
 # 4. Post-Award
 
 *The longest phase and the one where money is actually won and lost.*
@@ -398,6 +505,97 @@ The Government contracts with the **prime**. There is **no privity** with the su
 - A sub's failure is the **prime's** failure, fully, as against the buyer
 - A sub generally cannot sue the Government directly
 - The prime's protection is **flow-down clauses** and back-to-back terms in the subcontract
+
+---
+
+# 4B. Financing, Payment & Contract Mechanics
+
+*The bank tests these heavily now; this is the teaching layer for them.*
+
+## Contract financing — the preference order
+
+Financing is money before delivery. The Government's preference order runs from least
+risk to most:
+
+1. **Performance-based payments (PBPs)** — the *preferred* method for non-commercial
+   items: payments tied to defined, verifiable events or milestones.
+2. **Progress payments** — a customary percentage of *costs incurred*, regardless of
+   milestones. Cost-based, audit-supported.
+3. **Advance payments** — money before *any* work; the *least preferred*, requiring
+   special determinations and security.
+
+Two mechanics attach to all of them:
+
+- **Liquidation.** Financing is an advance, not extra money — it's recovered by
+  deduction from the payments due at delivery/acceptance.
+- **Title vesting.** Under the progress payments clause, title to materials and
+  work-in-process allocable to the contract vests in the Government as payments are
+  made — the Government's security for money advanced. Vesting is *not* acceptance;
+  risk of loss and the duty to perform stay with the contractor.
+
+**⚠ Trap.** A contract sliding into a loss position (estimated cost to complete
+exceeds remaining contract value) triggers the **loss ratio adjustment** — progress
+payments are *reduced* so the Government doesn't finance costs it can never recover
+through the fixed price. "Continue payments unchanged" and "demand full repayment"
+are both wrong.
+
+**Commercial item financing** follows commercial practice: available when customary
+in the market for that item *and* the offeror requested it. Cost-based progress
+payments are a non-commercial mechanism.
+
+## Assignment — claims vs. contracts
+
+- **Payment claims** MAY be assigned — to a bank or financing institution, under the
+  Assignment of Claims Act, so contractors can borrow against receivables.
+- **The contract itself** may NOT be transferred without Government consent — that's
+  the anti-assignment rule, and the cure is a **novation agreement** (standard in
+  mergers/acquisitions). A change of contractor without novation leaves the original
+  party on the hook.
+
+## Prompt payment
+
+Default: payment due **30 days** from receipt of a proper invoice (or acceptance if
+later); interest penalties accrue automatically on late payment. An improper invoice
+must be returned with reasons within 7 days.
+
+## Bonds — the Miller Act
+
+On federal **construction** contracts above the threshold, the Miller Act requires:
+
+- a **performance bond** — protects the *Government* if the contractor defaults, and
+- a **payment bond** — protects *subcontractors and suppliers*, who cannot lien
+  federal property the way they could lien a private project.
+
+That "can't lien the Government" point is *why* the payment bond exists — the bond
+substitutes for the mechanic's lien remedy. Sureties who pay out step into the
+contractor's shoes (subrogation).
+
+## Letter contracts / undefinitized contract actions
+
+A letter contract authorizes immediate performance before terms are fully negotiated —
+used for genuine urgency. The discipline: a **definitization schedule** (deadline to
+negotiate final terms), a **ceiling on Government liability**, and limits on
+obligated amounts. The risk pattern is obvious: work racing ahead of agreed price
+erodes the Government's negotiating position — which is why UCAs are tracked and
+capped.
+
+## FOB origin vs. FOB destination (domestic)
+
+- **FOB origin:** title and **risk of loss pass at the origin** (carrier pickup);
+  the buyer arranges/pays transport and bears transit risk.
+- **FOB destination:** seller delivers to the named destination; **risk stays with
+  the seller until delivery there.**
+
+The domestic cousin of INCOTERMS: separate *who pays freight* from *who bears risk*,
+and answer only the one asked.
+
+## Multiyear contracting
+
+A multiyear contract buys **more than one program year's requirement** in a single
+contract (up to five), *funded incrementally*, with a **cancellation ceiling**
+compensating the contractor if later years aren't funded. Distinguish from a
+single-year contract *with options*: options are discretionary add-ons; multiyear is
+one integrated purchase priced on the economies of the full quantity.
 
 ---
 
