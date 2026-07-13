@@ -354,7 +354,7 @@
           <h2>Mock exam</h2>
           <span class="ref">Randomized &middot; official blueprint weights &middot; timed</span>
         </div>
-        <p class="lede">Pulls a fresh random set every time, weighted to the official NCMA exam blueprint: Management, Guiding Principles, Pre-Award, Award, and Post-Award ~18% each, Learn ~12%, Leadership ~6%. Federal Statutes is drill-only — that content shows up inside the other sections on the real exam.</p>
+        <p class="lede">Pulls a fresh random set every time, weighted to the official NCMA exam blueprint: Management, Guiding Principles, Pre-Award, Award, and Post-Award ~18% each, Foundations (CM Framework + CMBOK Overview) ~7%, Leadership ~6%, Learn ~4%.</p>
         <div class="split">
           <div>
             <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Question count</label>
@@ -430,7 +430,7 @@
           <h2>Audio lessons</h2>
           <span class="ref">Spoken narration &middot; built-in voice</span>
         </div>
-        <p class="lede">Read aloud using your device's own text-to-speech — works on phone or laptop, no download, no app. Pick a lesson, hit play, listen while you drive or do dishes. Pace is adjustable. Note: on iPhone, keep the screen on — iOS pauses built-in speech when the screen locks.</p>
+        <p class="lede">Read aloud using your device's own text-to-speech — works on phone or laptop, no download, no app. Pick a lesson, hit play, listen while you drive or do dishes. Pace is adjustable. Note: on iPhone, keep the screen on — iOS pauses built-in speech when the screen locks. The Federal Statutes lesson is cross-cutting bonus material — that content appears inside other sections on the real exam, not as its own graded section.</p>
         <div id="audio-unsupported" style="display:none" class="empty">
           <div class="big">Speech isn't available in this browser.</div>
           <p>Try Safari or Chrome on desktop or iOS — both support built-in text-to-speech.</p>
@@ -550,7 +550,7 @@
             <tr><td>CMBOK Overview</td><td class="num">5&ndash;8</td><td class="num">~4%</td></tr>
           </tbody>
         </table>
-        <p class="note" style="margin-top:14px">All scored questions are weighted equally. Five sections carry ~90% of the exam at roughly equal weight — study time should follow the same shape. The mock exam here draws to these proportions (Framework, Overview, and Learn are combined under LRN).</p>
+        <p class="note" style="margin-top:14px">All scored questions are weighted equally. Five sections carry ~90% of the exam at roughly equal weight — study time should follow the same shape. The mock exam here draws to these proportions (CM Framework and CMBOK Overview are combined under Foundations).</p>
       </div>
 
       <div class="panel">
@@ -571,17 +571,17 @@
      QUESTION BANK
      ============================================================ */
   /* xw = share of the real exam per the official NCMA blueprint (midpoint question
-     counts out of 180). FED is drill-only (xw:0) — federal statute content appears
-     inside other sections on the real exam, not as its own block. */
+     counts out of 180). Former FED questions now live inside GP/PRE/AWD, where that
+     content appears on the real exam. */
   var DOMAINS = [
-    {code:"GP",  name:"Guiding Principles", sub:"Skills, roles, standards, ethics",            xw:32.5},
-    {code:"PRE", name:"Pre-Award",          sub:"Planning, market research, solicitation",     xw:32.5},
-    {code:"AWD", name:"Award",              sub:"Pricing, negotiation, source selection",      xw:32.5},
-    {code:"POST",name:"Post-Award",         sub:"Administration, changes, claims, closeout",   xw:32.5},
-    {code:"LDR", name:"Leadership",         sub:"Vision, influence, ethical judgment",         xw:10},
-    {code:"MGT", name:"Management",         sub:"Business, project, financial management",     xw:32.5},
-    {code:"LRN", name:"Learn",              sub:"CM framework, CMBOK, continuous learning",    xw:21},
-    {code:"FED", name:"Federal Statutes",   sub:"BAA, TAA, OTA, socioeconomic",                xw:0}
+    {code:"GP",  name:"Guiding Principles", sub:"Skills, roles, standards, ethics",              xw:32.5},
+    {code:"PRE", name:"Pre-Award",          sub:"Planning, market research, solicitation",       xw:32.5},
+    {code:"AWD", name:"Award",              sub:"Pricing, negotiation, source selection",        xw:32.5},
+    {code:"POST",name:"Post-Award",         sub:"Administration, changes, claims, closeout",     xw:32.5},
+    {code:"LDR", name:"Leadership",         sub:"Vision, influence, ethical judgment",           xw:10},
+    {code:"MGT", name:"Management",         sub:"Business, project, financial management",       xw:32.5},
+    {code:"LRN", name:"Learn",              sub:"Lessons learned, professional development",     xw:8},
+    {code:"FOUND",name:"Foundations",       sub:"CM framework, CMBOK structure, the profession", xw:13}
   ];
 
   var Q = [
@@ -597,7 +597,7 @@
      o:["Written form in all cases","Consideration flowing both ways","Notarization","Registration with a public body"],
      a:1, e:"Offer, acceptance, consideration, capacity, and legality are the elements. Consideration must be mutual — each side gives something of value. Writing is required only for certain categories (Statute of Frauds); notarization and registration are not general requirements."},
 
-    {d:"GP", q:"A contract manager discovers her employer's proposal contains a materially misleading past-performance claim. The CMBOK's ethical framework directs her first to:",
+    {d:"GP", scenario:true, q:"A contract manager discovers her employer's proposal contains a materially misleading past-performance claim. The CMBOK's ethical framework directs her first to:",
      o:["Report externally to the customer immediately",
         "Resign to avoid complicity",
         "Raise it internally through the appropriate channel and document it",
@@ -653,7 +653,7 @@
      a:1, e:"LPTA fits well-defined, low-risk, commodity-like requirements where technical differentiation adds no value. Tradeoff is appropriate when it may be worth paying more for superior technical merit or lower performance risk."},
 
     // ---------- AWARD ----------
-    {d:"AWD", q:"During source selection, the evaluation team scores Offeror C low and excludes it from the competitive range, relying on point scores without narrative rationale. The core defect is:",
+    {d:"AWD", scenario:true, q:"During source selection, the evaluation team scores Offeror C low and excludes it from the competitive range, relying on point scores without narrative rationale. The core defect is:",
      o:["Point scores may not be used at all",
         "The evaluation record lacks the qualitative documentation needed to make the decision defensible on protest",
         "Offerors must always be given a chance to revise",
@@ -692,7 +692,7 @@
      a:0, e:"Issue the solicitation, evaluate initial proposals against stated criteria, establish the competitive range, conduct discussions with those in range, request final proposal revisions, then make the best-value decision and award. Debriefings follow award."},
 
     // ---------- POST-AWARD ----------
-    {d:"POST", q:"A contracting officer's representative (COR) directs the contractor to add a feature not in the SOW. The contractor performs. This is best characterized as:",
+    {d:"POST", scenario:true, q:"A contracting officer's representative (COR) directs the contractor to add a feature not in the SOW. The contractor performs. This is best characterized as:",
      o:["A bilateral modification","A constructive change","An unauthorized commitment by the contractor","A novation"],
      a:1, e:"A constructive change: work outside the contract scope was effectively directed by someone with apparent (not actual) authority, and the contractor performed. The contractor may seek an equitable adjustment. The COR lacks authority to change the contract — only the CO does. A prudent contractor notifies the CO in writing BEFORE performing."},
 
@@ -733,7 +733,7 @@
      a:1, e:"Administration is bilateral performance assurance and active management of change, risk, and the relationship. The adversarial framing ('police the contractor') is precisely what CMBOK argues destroys value."},
 
     // ---------- LEADERSHIP ----------
-    {d:"LDR", q:"A contract manager inherits a team demoralized by a lost recompete. The CMBOK leadership model suggests the first priority is:",
+    {d:"LDR", scenario:true, q:"A contract manager inherits a team demoralized by a lost recompete. The CMBOK leadership model suggests the first priority is:",
      o:["Restructure roles to signal change","Establish a clear, credible vision and communicate it consistently",
         "Increase individual performance targets","Bring in outside talent"],
      a:1, e:"Vision and consistent communication precede structural moves. People need to know where they're going and believe it's achievable before reorganization means anything. Restructuring first, absent a narrative, reads as punishment."},
@@ -775,71 +775,71 @@
         "A cost incurred by a subcontractor","A cost disallowed by audit"],
      a:1, e:"Indirect = not traceable to one cost objective, so it's pooled and allocated over a base (overhead, G&A, fringe). Direct = traceable to a single final cost objective. The same TYPE of cost can be direct on one contract and indirect on another — consistency in treatment is what CAS enforces."},
 
-    {d:"MGT", q:"A supply chain disruption threatens a delivery milestone. The contract manager's most valuable early action is:",
+    {d:"MGT", scenario:true, q:"A supply chain disruption threatens a delivery milestone. The contract manager's most valuable early action is:",
      o:["Issue a cure notice","Notify the buyer promptly and jointly evaluate options",
         "Absorb the delay silently and try to recover","Terminate the subcontract"],
      a:1, e:"Prompt notice preserves options, preserves the relationship, and preserves whatever entitlement may exist. Silent absorption is the most common and most damaging instinct — by the time it surfaces, the buyer has lost the chance to help and has reason to doubt everything else you report."},
 
     // ---------- FEDERAL STATUTES ----------
-    {d:"FED", q:"A federal agency buys laptops manufactured and assembled in the US, but 75% of component cost originates in Japan. Under the Buy American Act, the correct characterization is:",
+    {d:"AWD", q:"A federal agency buys laptops manufactured and assembled in the US, but 75% of component cost originates in Japan. Under the Buy American Act, the correct characterization is:",
      o:["Domestic end product","Not a domestic end product","BAA does not apply (N/A)","Requires a public interest waiver"],
      a:2, e:"THE TRAP. Japan is a WTO Government Procurement Agreement signatory and therefore a TAA-designated country. When TAA applies, it SUPERSEDES the BAA entirely — so the answer is N/A, not 'fails the component test.' Compare with a non-designated country (Honduras, China): BAA remains in play and the domestic end product test actually runs."},
 
-    {d:"FED", q:"PPE manufactured in Honduras, purchased at $8,000 (below the micro-purchase threshold). Under the BAA:",
+    {d:"PRE", q:"PPE manufactured in Honduras, purchased at $8,000 (below the micro-purchase threshold). Under the BAA:",
      o:["Not a domestic end product","BAA does not apply (N/A)","Domestic end product","TAA governs"],
      a:1, e:"BAA applies ABOVE the micro-purchase threshold ($10,000). At $8,000 you are below it, so BAA does not apply. Note the distinction from the same question at $50,000 — there BAA WOULD apply, Honduras is not TAA-designated, and the answer would be 'not a domestic end product.' Threshold first, then designation, then the two-part test."},
 
-    {d:"FED", q:"The BAA two-part domestic end product test requires:",
+    {d:"PRE", q:"The BAA two-part domestic end product test requires:",
      o:["US manufacture only",
         "US manufacture AND that the cost of domestic components exceed the applicable threshold percentage of total component cost",
         "US ownership of the manufacturer","US-origin raw materials only"],
      a:1, e:"Both prongs: (1) manufactured in the United States, AND (2) the domestic component cost test. Failing either prong defeats domestic end product status. Commercially available off-the-shelf items are generally exempt from the component test."},
 
-    {d:"FED", q:"Which is NOT one of the three types of Other Transaction (OT) authority?",
+    {d:"PRE", q:"Which is NOT one of the three types of Other Transaction (OT) authority?",
      o:["Research OT","Prototype OT","Production OT","Sustainment OT"],
      a:3, e:"The three are Research, Prototype, and Production. There is no 'Sustainment OT.' A Production OT generally must follow a successfully completed Prototype OT — that's the pathway. Also: OTs are not new; the authority dates to 1958 (NASA)."},
 
-    {d:"FED", q:"An Other Transaction Agreement is exempt from the FAR. Which of the following STILL applies?",
+    {d:"GP", q:"An Other Transaction Agreement is exempt from the FAR. Which of the following STILL applies?",
      o:["Cost Accounting Standards","The Competition in Contracting Act",
         "The Anti-Deficiency Act","Bayh-Dole"],
      a:2, e:"OTs escape the FAR ecosystem — no CICA, no CAS, no Bayh-Dole, no agency FAR supplements. But universal statutory law still binds: the Anti-Deficiency Act, export controls (ITAR/EAR), anti-bribery statutes, and the agency's own OT guidelines. The mental model: OT exits the regulation, not the law."},
 
-    {d:"FED", q:"An agency proposes an R&D OT for a self-riding bicycle. The Air Force already has a substantially similar prototype effort underway. The principal problem is:",
+    {d:"PRE", q:"An agency proposes an R&D OT for a self-riding bicycle. The Air Force already has a substantially similar prototype effort underway. The principal problem is:",
      o:["No planned competition","Duplication of effort with another agency's program",
         "OTs may not be used for R&D","The agency lacks OT authority"],
      a:1, e:"Duplication is the disqualifier. Agencies must ensure an OT is not duplicating existing effort. OTs are expressly available for R&D, and while competition to the maximum extent practicable is expected, absence of formal competition is not by itself fatal the way duplication is."},
 
-    {d:"FED", q:"The Trade Agreements Act functions primarily to:",
+    {d:"PRE", q:"The Trade Agreements Act functions primarily to:",
      o:["Prohibit foreign end products",
         "Waive the BAA for products from designated countries, above the TAA threshold",
         "Impose tariffs on federal purchases","Require domestic sourcing of raw materials"],
      a:1, e:"TAA WAIVES the BAA for designated-country end products above the TAA threshold — it opens markets, it doesn't close them. Designated countries include WTO GPA signatories, FTA partners, least-developed countries, and Caribbean Basin countries. China, Russia, India, and Honduras are NOT designated."},
 
-    {d:"FED", q:"A small business subcontracting plan is generally required when:",
+    {d:"PRE", q:"A small business subcontracting plan is generally required when:",
      o:["Any contract is awarded to a large business",
         "A contract to a large business exceeds the threshold and offers subcontracting opportunities",
         "The prime is a small business","The contract is cost-reimbursement"],
      a:1, e:"Two conditions: the prime is other-than-small, the value exceeds the threshold, AND subcontracting opportunities exist. Small business primes are exempt — they are the goal, not the vehicle for it."},
 
-    {d:"FED", q:"Under the Truthful Cost or Pricing Data statute (formerly TINA), certified cost or pricing data is generally NOT required when:",
+    {d:"AWD", q:"Under the Truthful Cost or Pricing Data statute (formerly TINA), certified cost or pricing data is generally NOT required when:",
      o:["The contract exceeds the threshold",
         "The price is based on adequate price competition or a commercial product/service",
         "The contract is cost-reimbursement","The contractor is a large business"],
      a:1, e:"The exceptions: adequate price competition, prices set by law or regulation, commercial products/services, and waivers. If any exception applies, no certification — and no defective pricing exposure. Certification is what creates the Government's right to a price reduction for defective data."},
 
-    {d:"FED", q:"The Procurement Integrity Act prohibits:",
+    {d:"AWD", q:"The Procurement Integrity Act prohibits:",
      o:["All contact between government and industry during a procurement",
         "Disclosing or obtaining contractor bid or proposal information or source selection information before award",
         "Hiring former government employees","Attending industry days"],
      a:1, e:"PIA targets the information: obtaining or disclosing contractor bid/proposal information or source selection information before award. It also imposes post-employment restrictions on certain officials. It does not prohibit legitimate industry engagement — that's a widespread and costly misreading."},
 
     // ---------- MIXED / SCENARIO ----------
-    {d:"AWD", q:"A firm-fixed-price contract is awarded. Six months in, the contractor's material costs rise 40% due to inflation. Absent an economic price adjustment clause, the contractor:",
+    {d:"AWD", scenario:true, q:"A firm-fixed-price contract is awarded. Six months in, the contractor's material costs rise 40% due to inflation. Absent an economic price adjustment clause, the contractor:",
      o:["Is entitled to an equitable adjustment","Bears the cost increase",
         "May terminate for convenience","May demand a bilateral modification"],
      a:1, e:"That is precisely what FFP means — the contractor bears cost risk. The remedy the contractor SHOULD have negotiated is a Fixed-Price with Economic Price Adjustment (FPEPA) contract type. There is no entitlement here; a bilateral mod requires the buyer's agreement, which it has no obligation to give."},
 
-    {d:"POST", q:"A subcontractor's defective part causes a prime's delivery failure. As to the Government, the prime is:",
+    {d:"POST", scenario:true, q:"A subcontractor's defective part causes a prime's delivery failure. As to the Government, the prime is:",
      o:["Excused, because the fault lies with the subcontractor",
         "Fully liable — there is no privity between the Government and the subcontractor",
         "Liable only for the subcontract value","Entitled to a no-cost extension"],
@@ -918,7 +918,7 @@
         "Both transferred via insurance","Both avoided by canceling the project"],
      a:1, e:"Match response to profile. Lower-impact risks, even if likelier, are handled through mitigation or acceptance — the cost of transfer isn't justified. High-impact, low-probability risk is the classic insurance/transfer profile, since the rare event would otherwise be catastrophic if unaddressed."},
 
-    {d:"MGT", q:"A contract manager notices a subcontractor's on-time delivery rate has dropped from 98% to 81% over two months, well before any milestone is actually missed. The best-practice response is:",
+    {d:"MGT", scenario:true, q:"A contract manager notices a subcontractor's on-time delivery rate has dropped from 98% to 81% over two months, well before any milestone is actually missed. The best-practice response is:",
      o:["Wait until a milestone is actually missed before acting",
         "Proactively engage the subcontractor now to understand root cause and adjust the plan",
         "Terminate the subcontract immediately","Escalate directly to the Government without contacting the sub first"],
@@ -930,38 +930,38 @@
         "Contributions to a political campaign","Interest on borrowed working capital"],
      a:1, e:"Reasonable, allocable travel is a routine allowable direct or indirect cost. The other three are all in the expressly-unallowable category: costs of an unsuccessful defense against a Government claim, political contributions, and interest on borrowings are all specifically excluded by the FAR cost principles."},
 
-    {d:"FED", q:"A construction project uses steel manufactured domestically but with 60% of raw material cost sourced from an unspecified foreign origin, purchase value $2M. No TAA-designated country is involved. This falls under:",
+    {d:"PRE", q:"A construction project uses steel manufactured domestically but with 60% of raw material cost sourced from an unspecified foreign origin, purchase value $2M. No TAA-designated country is involved. This falls under:",
      o:["Buy American Act — construction materials provision, not the standard end-product test",
         "Trade Agreements Act automatically","Berry Amendment","Small Business Act"],
      a:0, e:"Construction materials have a separate BAA framework from supplies/end products — a domestic construction material test focused on where the material was manufactured and mined/produced/manufactured components, applied via the Construction clause rather than the standard Buy American end-product clause. Recognizing that BAA has distinct supply vs. construction tracks is a frequently-missed nuance."},
 
-    {d:"FED", q:"Which statute specifically restricts DoD acquisition of specialty metals and certain textile/clothing items to domestic sources, separate from and generally stricter than the BAA?",
+    {d:"PRE", q:"Which statute specifically restricts DoD acquisition of specialty metals and certain textile/clothing items to domestic sources, separate from and generally stricter than the BAA?",
      o:["Berry Amendment","Trade Agreements Act","Anti-Deficiency Act","Service Contract Act"],
      a:0, e:"The Berry Amendment is a DoD-specific, generally more restrictive domestic-source requirement (clothing, textiles, specialty metals, food) with narrower exceptions than the BAA. It is not waived by TAA the way BAA is — a critical distinction if the question involves DoD rather than a civilian agency."},
 
-    {d:"FED", q:"A contracting officer wants to award without full and open competition, citing an unusual and compelling urgency. Under CICA, this justification:",
+    {d:"PRE", q:"A contracting officer wants to award without full and open competition, citing an unusual and compelling urgency. Under CICA, this justification:",
      o:["Requires no written documentation","Requires a written Justification & Approval (J&A), limiting competition to the minimum necessary to meet the urgent need",
         "Is prohibited entirely","Applies only to construction contracts"],
      a:1, e:"Unusual and compelling urgency is one of CICA's recognized exceptions to full and open competition, but it still requires a documented J&A, and — this is the tested nuance — the agency must still seek offers from as many potential sources as practicable given the urgency, rather than defaulting to sole-source."},
 
-    {d:"FED", q:"The False Claims Act creates liability for a contractor that:",
+    {d:"GP", q:"The False Claims Act creates liability for a contractor that:",
      o:["Simply makes a good-faith billing error, corrected promptly",
         "Knowingly submits a false or fraudulent claim for payment to the Government",
         "Loses a bid protest","Fails to meet a delivery schedule"],
      a:1, e:"The FCA requires knowing submission of a false claim — mere negligence or a promptly-corrected honest error doesn't meet the scienter requirement. It carries treble damages and per-claim penalties, and includes a qui tam provision allowing private whistleblowers to sue on the Government's behalf and share in recovery."},
 
-    {d:"FED", q:"An 8(a) sole-source award to a certified small disadvantaged business is generally permitted up to:",
+    {d:"PRE", q:"An 8(a) sole-source award to a certified small disadvantaged business is generally permitted up to:",
      o:["Any dollar amount with no ceiling","A statutory dollar threshold, above which competition among eligible 8(a) firms is generally required",
         "Only for construction contracts","Only if no other 8(a) firm exists"],
      a:1, e:"8(a) sole-source authority has statutory dollar thresholds; above them, awards are generally competed among eligible 8(a) participants rather than sole-sourced. The exact threshold changes periodically, but the structural point — thresholds exist and drive competed vs. sole-source — is what's tested."},
 
-    {d:"FED", q:"The Service Contract Act (McNamara-O'Hara) primarily requires:",
+    {d:"PRE", q:"The Service Contract Act (McNamara-O'Hara) primarily requires:",
      o:["Domestic manufacture of services (a category error — services aren't manufactured)",
         "Payment of locality-based prevailing wages and fringe benefits to service employees on covered contracts",
         "Union membership for all service employees","A minimum profit margin for service contractors"],
      a:1, e:"SCA requires contractors on covered service contracts to pay employees no less than the prevailing wage and fringe benefits for that labor category and locality, as determined by the Department of Labor. It parallels the Davis-Bacon Act's role for construction labor."},
 
-    {d:"GP", q:"A contract manager is asked by leadership to backdate a document to make a late submission appear timely. The correct response, per the CMBOK ethics framework, is to:",
+    {d:"GP", scenario:true, q:"A contract manager is asked by leadership to backdate a document to make a late submission appear timely. The correct response, per the CMBOK ethics framework, is to:",
      o:["Comply since it's a minor administrative fix","Decline, and raise the request through the appropriate internal channel",
         "Comply but keep a personal copy of the original as insurance","Resign immediately without raising it"],
      a:1, e:"Backdating a document is falsification, not a minor fix, regardless of leadership pressure. The correct sequence is still: decline, escalate internally through the proper channel, document it. Quiet personal insurance-gathering without escalation doesn't stop the falsification from happening."},
@@ -1013,7 +1013,7 @@
         "Automatic contract termination","Mandatory rejection unless Government-initiated"],
      a:1, e:"VECPs incentivize contractor-driven cost reduction by sharing the savings — the contractor benefits financially from proposing a smarter, cheaper way to meet the same requirement, and the Government benefits from the net savings. It's one of the few mechanisms explicitly designed to reward contractor cost-cutting initiative."},
 
-    {d:"POST", q:"A contractor discovers, mid-performance, that Government-furnished equipment (GFE) is defective, causing delay. The contractor continues working around it without notifying the CO. Later, the contractor claims an equitable adjustment for the delay. The claim is:",
+    {d:"POST", scenario:true, q:"A contractor discovers, mid-performance, that Government-furnished equipment (GFE) is defective, causing delay. The contractor continues working around it without notifying the CO. Later, the contractor claims an equitable adjustment for the delay. The claim is:",
      o:["Certain to succeed since GFE defects are automatically compensable","Weakened by the failure to give prompt notice, which is generally a precondition to recovery",
         "Irrelevant — notice is never required for GFE issues","Automatically converted to a termination for convenience"],
      a:1, e:"As with differing site conditions, prompt notice to the CO is generally a precondition for recovery on GFE-caused delay. Silently working around a known problem and raising it only after the fact undermines the claim — the Government loses the chance to mitigate, replace the GFE, or adjust the schedule in real time."},
@@ -1033,7 +1033,7 @@
         "Quietly undermine implementation","Escalate to the board immediately"],
      a:1, e:"'Disagree and commit' is the standard leadership expectation once a decision has been made after genuine input was heard: state your view clearly when it matters, then support the decided course professionally. Continued resistance or quiet sabotage after a fair hearing undermines organizational functioning without changing the outcome."},
 
-    {d:"LDR", q:"A junior contract specialist makes a defensible but ultimately incorrect judgment call that costs the team time. The leadership response most consistent with CMBOK's developmental approach is to:",
+    {d:"LDR", scenario:true, q:"A junior contract specialist makes a defensible but ultimately incorrect judgment call that costs the team time. The leadership response most consistent with CMBOK's developmental approach is to:",
      o:["Publicly reprimand to deter future errors","Use it as a coaching moment — analyze the reasoning, correct the gap, preserve the specialist's willingness to make judgment calls",
         "Remove all future decision-making authority from that person","Ignore it entirely to avoid discouragement"],
      a:1, e:"CMBOK leadership content favors developmental coaching over punitive responses to good-faith, defensible errors — public reprimand or authority-stripping teaches people to avoid decisions altogether, which is worse for the organization long-term than an occasional correctable mistake."},
@@ -1043,7 +1043,7 @@
         "Escalating to a shared manager to force compliance","Issuing a formal written directive"],
      a:1, e:"Influence without authority works by connecting the request to the OTHER person's actual goals and incentives — not by directive (that's positional authority) and not by escalation (that's borrowing someone else's authority). Genuine influence changes what the other party wants to do."},
 
-    {d:"MGT", q:"A make-or-buy analysis shows outsourcing a subsystem saves 8% on unit cost, but the subsystem represents the company's core technical differentiator versus competitors. The most defensible decision is:",
+    {d:"MGT", scenario:true, q:"A make-or-buy analysis shows outsourcing a subsystem saves 8% on unit cost, but the subsystem represents the company's core technical differentiator versus competitors. The most defensible decision is:",
      o:["Outsource — 8% savings is decisive","Keep in-house — protecting the core competency outweighs a modest cost saving",
         "Split the work evenly regardless of strategic fit","Default to whichever option is faster to implement"],
      a:1, e:"Make-or-buy is a strategic decision, not purely a cost decision. Outsourcing a genuine core competency for a modest savings risks the company's long-term competitive position and IP control — the CMBOK explicitly frames this as the archetypal make-or-buy error."},
@@ -1068,17 +1068,17 @@
         "The protester was a large business","Too many offerors submitted proposals"],
      a:1, e:"The single most common sustained-protest pattern is a disconnect between the stated evaluation criteria and what the record shows was actually evaluated — either different criteria were applied, or the documentation doesn't support that the stated criteria drove the decision. This reinforces why the documentation discipline in source selection matters so much."},
 
-    {d:"FED", q:"Under the Anti-Deficiency Act, a federal employee who obligates the Government to spend funds in excess of an available appropriation:",
+    {d:"GP", q:"Under the Anti-Deficiency Act, a federal employee who obligates the Government to spend funds in excess of an available appropriation:",
      o:["Faces no personal consequence if the intent was good","May be subject to administrative and even criminal penalties, regardless of intent to benefit the mission",
         "Is protected as long as a supervisor approved it verbally","Is only liable if the amount exceeds $1 million"],
      a:1, e:"The ADA is a strict-liability-style statute in practice — obligating funds beyond what's appropriated or authorized is a violation regardless of good intentions, and can carry administrative discipline or criminal penalties. This is exactly why it's one of the few statutes that survives even in the FAR-exempt world of Other Transactions."},
 
-    {d:"FED", q:"ITAR (International Traffic in Arms Regulations) controls exports of:",
+    {d:"GP", q:"ITAR (International Traffic in Arms Regulations) controls exports of:",
      o:["All commercial goods without exception","Defense articles, defense services, and related technical data on the U.S. Munitions List",
         "Only finished weapons systems, not components or technical data","Agricultural products"],
      a:1, e:"ITAR covers defense articles, services, and technical data on the U.S. Munitions List — including technical data and even certain oral/visual disclosures to foreign persons ('deemed exports'). It applies regardless of contract type, including OTAs, which is why export control survives even outside the FAR ecosystem."},
 
-    {d:"FED", q:"A contractor knowingly pays a kickback to a subcontractor's employee to secure favorable subcontract terms on a federal prime contract. This most directly violates:",
+    {d:"AWD", q:"A contractor knowingly pays a kickback to a subcontractor's employee to secure favorable subcontract terms on a federal prime contract. This most directly violates:",
      o:["The Anti-Kickback Act","The Buy American Act","The Service Contract Act","The Contract Disputes Act"],
      a:0, e:"The Anti-Kickback Act specifically prohibits providing, soliciting, or accepting kickbacks intended to improperly influence subcontract awards or terms on federal prime contracts — separate from bribery of government officials, which falls under different anti-bribery statutes."},
 
@@ -1348,28 +1348,28 @@
      a:0, e:"A debriefing explains what happened to YOUR proposal — significant weaknesses, deficiencies, overall ranking and award rationale — without exposing the winner's proprietary content or turning into a proposal-writing seminar at competitors' expense. Done well, it also serves the agency: offerors who understand the outcome protest less and propose better next time."},
 
     // ---------- LEARN / FRAMEWORK / CMBOK OVERVIEW ----------
-    {d:"LRN", q:"The Contract Management Body of Knowledge (CMBOK) is best described as:",
+    {d:"FOUND", q:"The Contract Management Body of Knowledge (CMBOK) is best described as:",
      o:["A federal regulation governing contract managers",
         "The organized statement of the competencies — skills, knowledge, abilities — that define the contract management profession, and the reference base for CPCM exam questions",
         "A digest of court decisions on contract disputes",
         "NCMA's internal training curriculum"],
      a:1, e:"The CMBOK is the profession's competency map: what a contract manager needs to know and do, organized into defined competencies and knowledge areas. It's descriptive of the discipline, not regulatory — and it matters to you concretely because every CPCM exam question is referenced back to it. It's the sole source material."},
 
-    {d:"LRN", q:"The Contract Management Standard (CMS) relates to the CMBOK in that the CMS:",
+    {d:"FOUND", q:"The Contract Management Standard (CMS) relates to the CMBOK in that the CMS:",
      o:["Replaced the CMBOK",
         "Covers only federal contracting while the CMBOK covers commercial",
         "Is the ANSI-approved standard defining what contract management IS — its phases and job tasks — while the CMBOK elaborates the competencies needed to perform it",
         "Is published by a different professional association"],
      a:2, e:"Think of the CMS as the skeleton and the CMBOK as the anatomy text. The CMS — an American National Standard — defines the discipline: the lifecycle phases and the job tasks in each. The CMBOK builds on it, detailing the competencies and knowledge content behind those tasks. Standard first, body of knowledge elaborating it."},
 
-    {d:"LRN", q:"The contract management lifecycle, as framed by the CMS, consists of:",
+    {d:"FOUND", q:"The contract management lifecycle, as framed by the CMS, consists of:",
      o:["Solicitation, evaluation, and payment",
         "Planning, execution, and audit",
         "Requirements, negotiation, delivery, and invoicing",
         "Three phases — pre-award, award, and post-award — each with defined job tasks, performed from both buyer and seller perspectives"],
      a:3, e:"Three phases, and every job task in the discipline lives in one of them. The framing is deliberately buyer-AND-seller: the same lifecycle looks like acquisition planning and source selection from one chair, and capture, proposal, and delivery from the other. The CPCM tests the whole framework, both perspectives."},
 
-    {d:"LRN", q:"During the buyer's pre-award phase, the seller's mirror-image activity is primarily:",
+    {d:"FOUND", q:"During the buyer's pre-award phase, the seller's mirror-image activity is primarily:",
      o:["Business development and capture — shaping opportunities, assessing pursuit decisions, and preparing to propose",
         "Contract closeout","Invoice processing","Property disposition"],
      a:0, e:"While the buyer does market research and acquisition planning, the seller is finding and qualifying the opportunity, deciding bid/no-bid, and positioning to win. Every buyer-side phase has a seller-side reflection — one of the CMBOK's core framing ideas, and a reason CPCM questions can put you in either chair without warning."},
@@ -1423,12 +1423,93 @@
         "Generating continuing education certificates"],
      a:0, e:"One organization sees one slice of the discipline. A community of practice aggregates hundreds of slices — how other shops read the new rule, what failed at another agency, which practices are becoming standard. That cross-pollination is the fastest correction for institutional blind spots, and it's the substantive reason (beyond CPE hours) the CMBOK values professional engagement."},
 
-    {d:"LRN", q:"The CPCM exam itself is best characterized as:",
+    {d:"FOUND", q:"The CPCM exam itself is best characterized as:",
      o:["A federal-contracting exam based on the FAR",
         "A commercial-contracting exam based on the UCC",
         "An experience review with no written test",
         "A profession-wide exam referenced to the CMBOK, spanning all competencies from both buyer and seller perspectives"],
-     a:3, e:"The CPCM is deliberately the generalist credential: every CMBOK competency, both sides of the table, commercial and government contexts. FAR-specific and DoD-specific depth belongs to the CFCM and CDCM respectively. Knowing the credential's own scope tells you how to study — breadth across the framework beats depth in your home domain."}
+     a:3, e:"The CPCM is deliberately the generalist credential: every CMBOK competency, both sides of the table, commercial and government contexts. FAR-specific and UCC-specific depth belongs to the CFCM and CCCM respectively. Knowing the credential's own scope tells you how to study — breadth across the framework beats depth in your home domain."},
+
+    // ---------- LEARN — gap-fill merge ----------
+    {d:"LRN", q:"Lessons learned captured only at contract closeout, rather than throughout the lifecycle, are most likely to suffer from:",
+     o:["Excessive detail","Loss of institutional knowledge as the people involved move on before capture happens",
+        "Too much stakeholder input","Being overly focused on successes rather than failures"],
+     a:1, e:"Capturing lessons only at the end means the people who actually knew what happened have often moved to other projects and the specific, useful detail is already gone. CMBOK recommends capture at phase transitions throughout the lifecycle, not just at the finish line."},
+
+    {d:"LRN", q:"A lessons-learned program that produces detailed reports after every major contract, but where nothing in the next acquisition plan ever changes as a result, is best described as:",
+     o:["A model program — documentation is the goal","Ineffective — the test of a lessons-learned process is whether it changes future practice, not whether it produces documents",
+        "Sufficient as long as reports are archived","A legal requirement regardless of impact"],
+     a:1, e:"The CMBOK frames lessons-learned as valuable only insofar as it feeds back into future acquisition planning. A program that generates reports nobody acts on is process theater — the measure of success is behavioral change in the next acquisition, not report volume."},
+
+    {d:"LRN", q:"Which is the best example of measuring the performance of the contract management FUNCTION, as opposed to the performance of an individual contract?",
+     o:["A single contract's final cost variance","Protest rate and cycle time trends across the organization's acquisition portfolio",
+        "One contractor's on-time delivery rate","The final invoice amount on a specific award"],
+     a:1, e:"Function-level performance measurement looks across the portfolio — protest rates, average cycle time, change-order volume and causes, closeout backlog — rather than any single contract's outcome. This distinguishes contract management maturity from simply how one deal went."},
+
+    {d:"LRN", q:"A contract manager pursuing professional development chooses to write and publish an original article analyzing a real negotiation she led, rather than simply reading more CMBOK material. Under the CPE framework, this activity:",
+     o:["Does not qualify for CPE since it isn't a formal course","Can qualify for CPE — one hour of qualifying writing time may earn one CPE hour when the work is published",
+        "Only qualifies if published in Contract Management Magazine specifically","Only qualifies if a co-author is also a CPCM holder"],
+     a:1, e:"NCMA's CPE Guide credits time spent writing published articles, books, or course material — roughly one CPE per hour of writing, once published — on topics tied to CMBOK competencies. It doesn't require a specific outlet; the work has to be genuinely original and genuinely published."},
+
+    {d:"LRN", q:"A skills-gap analysis conducted for a contracting team reveals strong technical skills but weak negotiation preparation across the group. The Learn competency's expected response is:",
+     o:["Ignore it since technical skill matters most","Target professional development activities specifically at the identified gap, not generic training",
+        "Replace the entire team","Wait for the gap to resolve itself through experience"],
+     a:1, e:"Skills-gap analysis exists to direct development spending where it's actually needed, rather than generic across-the-board training. Identifying a specific, real gap and not acting on it defeats the purpose of having measured it."},
+
+    {d:"LRN", q:"Which best distinguishes individual competence from organizational capability within the Learn competency?",
+     o:["They are the same thing measured differently","Individual competence is a person's own skill; organizational capability is whether the organization's systems and processes let that skill actually produce results",
+        "Organizational capability applies only to large companies","Individual competence cannot be measured"],
+     a:1, e:"A highly skilled individual contract manager working inside a dysfunctional process still produces poor organizational outcomes — that gap between personal skill and institutional capability is exactly what this distinction is meant to surface and address."},
+
+    {d:"LRN", q:"An organization's 'lessons learned' repository contains hundreds of entries with no tagging, categorization, or search function, making it effectively unused by anyone planning a new acquisition. This primarily reflects a failure of:",
+     o:["Employee motivation","Knowledge management — capture without accessible structure has little practical value",
+        "Budget allocation","Contract type selection"],
+     a:1, e:"Knowledge management is capture PLUS structure PLUS accessibility. A repository nobody can meaningfully search or navigate fails at the 'transfer' half of knowledge transfer — the information exists but isn't usable, which is functionally close to not existing at all."},
+
+    {d:"LRN", q:"A SWOT analysis applied to a contracting organization's own capability would classify 'strong relationships with key suppliers' as a:",
+     o:["Threat","Strength","Weakness","Opportunity"],
+     a:1, e:"Strengths and weaknesses are internal to the organization; opportunities and threats are external/environmental. Strong supplier relationships are an internal asset — a strength — not something happening in the external market, which is what would make it an opportunity or threat."},
+
+    // ---------- FOUNDATIONS — gap-fill merge ----------
+    {d:"FOUND", q:"The Contract Management Standard (CMS) and the Contract Management Body of Knowledge (CMBOK) relate to each other in that:",
+     o:["They are competing, incompatible frameworks","The CMS is the ANSI-accredited standard describing WHAT contract managers do; the CMBOK provides the broader, deeper explanation of those same competencies",
+        "The CMBOK is a federal regulation and the CMS is not","They apply to entirely different professions"],
+     a:1, e:"The CMS is the accredited standard (ANSI/NCMA ASD 1-2019) — the compact statement of competencies. The CMBOK expands on those same competencies in much greater depth. They are companion documents, not competitors, and not a regulation/standard pair the way FAR and CMS are."},
+
+    {d:"FOUND", q:"Under NCMA's official definition, a 'contract manager' is:",
+     o:["Only a government contracting officer","The authorized representative or agent for a contracting party",
+        "Only someone who holds a CPCM certification","Any employee who reads contracts"],
+     a:1, e:"NCMA's ANSI-referenced definition is deliberately broad: the authorized representative or agent for a contracting party — covering both buy-side and sell-side, government and commercial, certified or not. Certification demonstrates competence; it isn't what defines the role."},
+
+    {d:"FOUND", q:"NCMA's Job Task Analysis (JTA), which underlies the CPCM exam content, is developed through:",
+     o:["A single subject matter expert's judgment","A public survey combined with subject matter expert review and public comment",
+        "Federal statute alone","Internal NCMA staff decision with no outside input"],
+     a:1, e:"The JTA process is deliberately participatory — a public survey, SME review, and public comment — specifically so the resulting competency model reflects what practitioners across government and commercial contracting actually do, not a narrow or dated view of the job."},
+
+    {d:"FOUND", q:"A 'competency,' as NCMA defines the term for JTA purposes, must meet several criteria. Which of the following is NOT one of them?",
+     o:["It correlates with job performance","It can be measured against accepted standards",
+        "It is fixed and cannot be improved through training","It differentiates individuals and organizations from the competition"],
+     a:2, e:"NCMA's competency definition explicitly includes that a competency CAN be improved through education, training, and work experience — the opposite of fixed. A trait that can't be developed wouldn't be useful as a certification or training target in the first place."},
+
+    {d:"FOUND", q:"CPCM exam items are developed through which process, according to NCMA's stated item-development standard?",
+     o:["Written solely by NCMA staff with no outside validation","Developed and independently validated by working groups of CPCM holders, referenced to the CMBOK, and monitored through psychometric analysis",
+        "Purchased from a third-party test bank","Written by a single senior contracting officer"],
+     a:1, e:"Item development combines practitioner input (CPCM-holder working groups), content grounding (CMBOK references), and statistical validation (psychometric analysis) — three separate quality checks, not any single source acting alone."},
+
+    {d:"FOUND", q:"On the CPCM exam, a question with four answer choices where two options could both be defensibly argued as correct would be:",
+     o:["A normal, expected question type","Inconsistent with NCMA's stated exam construction standard, which avoids ambiguous or multiply-correct options",
+        "Only used in scenario-based questions","Scored as correct regardless of which of the two is chosen"],
+     a:1, e:"NCMA's own exam documentation states there are no questions where multiple options are correct or incorrect simultaneously, and no 'all of the above' / 'none of the above' options. Every scored item is built to have exactly one defensible correct answer."},
+
+    {d:"FOUND", q:"The CPCM's 'Certification Pyramid' relationship to the CFCM and CCCM credentials is best described as:",
+     o:["CPCM requires first earning both CFCM and CCCM","CPCM sits as NCMA's broadest, most senior credential, distinct from CFCM (FAR-based) and CCCM (UCC-based), which are narrower in scope",
+        "All three credentials test identical content","CFCM and CCCM are prerequisites in all cases"],
+     a:1, e:"CPCM is built on the CMBOK and covers both government and commercial contracting broadly. CFCM is FAR-specific (federal) and CCCM is UCC-specific (commercial) — narrower, sector-focused credentials. They sit together in NCMA's certification structure but test different, non-identical content."},
+
+    {d:"FOUND", q:"According to NCMA's stated exam-taking guidance, a candidate unsure of the correct answer to a CPCM question should:",
+     o:["Leave it blank to avoid a wrong-answer penalty","Eliminate choices known to be false and make an educated guess from what remains",
+        "Always select option C statistically","Skip it permanently and never return"],
+     a:1, e:"NCMA's own guidance recommends elimination-based educated guessing over leaving an answer blank — since all scored questions are equally weighted and there's no indication of a penalty structure that would make guessing worse than skipping, an educated guess after eliminating clearly wrong options is the better strategy."}
   ];
 
   Q.forEach(function(q,i){ q.id = "Q" + String(i+1).padStart(3,"0"); });

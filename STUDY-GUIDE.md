@@ -54,7 +54,8 @@ Three phases — **pre-award, award, post-award** — each with defined job task
 
 - **CPCM** — the generalist: all competencies, both perspectives, commercial *and* government. Based on the whole CMBOK.
 - **CFCM** — federal: FAR-based depth.
-- **CDCM** — defense: DoD-specific.
+- **CCCM** — commercial: UCC-based depth.
+- **CCMA** — entry-level associate credential, based on the Contract Management Standard.
 
 **⚠ Trap:** "The CPCM is a FAR exam." No — that's the CFCM. CPCM questions deliberately span commercial (UCC, common law) and government contexts. Knowing the credential's own scope tells you how to allocate study time.
 
