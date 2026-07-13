@@ -277,6 +277,19 @@ Anything in between is a hybrid. The exam wants you to match the situation to th
 
 ---
 
+## Unsolicited proposals
+
+A valid unsolicited proposal is **independently originated** (no Government supervision),
+**innovative and unique**, and **not** a response to a known agency requirement. A
+meritorious one can support a **sole-source award** — precisely because the idea is
+unique to the offeror — but the Government may **not** lift the proprietary concept or
+data into a competitive solicitation without permission; marked data is restricted to
+evaluation use. **⚠ Trap:** an "unsolicited" proposal invited by an agency official for
+an already-defined requirement fails the independent-origination test — it's a disguised
+sole-source steer, and competition rules apply.
+
+---
+
 # 3. Award
 
 *Evaluation, negotiation, and the decision itself.*
@@ -339,6 +352,19 @@ What preparation means concretely:
 | After award | Unilateral mistake the buyer *knew or should have known* about | Relief may be available |
 
 **⚠ Trap.** Holding an offeror to an obvious decimal-point error is *not* the right answer. When a mistake is apparent, the buyer has an affirmative duty to seek verification. An award made on an offer the buyer knew was mistaken is vulnerable.
+
+---
+
+## Cost realism vs. price reasonableness
+
+Two different questions, policing opposite directions:
+
+- **Price reasonableness** asks: is the price too **high**? Required everywhere.
+- **Cost realism** asks: is the proposed cost too **low** for the offeror's own
+  technical approach? Applies on **cost-reimbursement** competitions, where the
+  Government pays actuals — a lowball proposal is a hidden cost, not a bargain. The
+  evaluator adjusts to a **most probable cost** for evaluation, so unrealistic
+  proposals get evaluated **up**, not rewarded.
 
 ---
 
@@ -505,6 +531,25 @@ The Government contracts with the **prime**. There is **no privity** with the su
 - A sub's failure is the **prime's** failure, fully, as against the buyer
 - A sub generally cannot sue the Government directly
 - The prime's protection is **flow-down clauses** and back-to-back terms in the subcontract
+
+---
+
+## Stop-work orders & suspension of work
+
+A **stop-work order** suspends work for a bounded period (canonically 90 days), after
+which the Government must terminate, extend by agreement, or lift it — with an
+**equitable adjustment** for the disruption. It's mandatory (stop means stop, mitigate
+costs) but not free for the buyer. On construction, the **Suspension of Work clause**
+plays the same role — and covers **constructive suspensions** (Government-caused
+stoppages nobody formalized) — with one tested wrinkle: the adjustment **excludes
+profit** on the delay period.
+
+## First article testing
+
+FAT validates the **initial unit(s) and the production process** before committing to
+quantity: approval authorizes production; disapproval requires correction. It
+**supplements** — never replaces — ongoing inspection and acceptance for later units,
+and Government inspection never relieves the contractor of its own quality obligation.
 
 ---
 
