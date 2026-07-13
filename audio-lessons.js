@@ -165,5 +165,35 @@ The mental model for what an O-T escapes and what it doesn't: an Other Transacti
 One more scenario worth knowing cold: an agency proposes a research O-T for a project, and another agency already has a substantially similar prototype effort underway. The actual problem there is duplication of effort — not lack of competition. O-T-s are explicitly meant for research and development, and they're expected to have competition where practicable, but the disqualifying issue in that scenario is specifically duplication, not the absence of a formal competition.
 
 Last one — the Procurement Integrity Act. It prohibits obtaining or disclosing contractor bid and proposal information, or source selection information, before award. It does not prohibit legitimate industry engagement — things like industry days or one-on-one meetings are fine. The statute targets the information itself, not ordinary contact with industry. That's a very common and costly misreading in practice, and the exam tests whether you know the difference.`
-  }
+  },
+  {
+  id: "mech",
+  title: "Financing, Protests & Contract Mechanics",
+  minutes: 9,
+  script: `This lesson covers the newest material in the bank — contract financing, bid protests, and a handful of mechanics that show up as easy points if you know them cold.
+
+Contract financing first. Financing means money before delivery, and the Government ranks the methods by its own risk. Performance-based payments are the preferred method for non-commercial work — payments tied to defined, verifiable milestones. Progress payments come next — a percentage of costs the contractor has incurred, regardless of milestones. And advance payments — money before any work at all — are the least preferred, requiring special determinations and security.
+
+Two mechanics attach to all financing. First, liquidation: financing is an advance, not extra compensation, so it gets recovered by deduction from the payments due at delivery. Second, title vesting: under the progress payments clause, title to materials and work in process vests in the Government as payments are made. That's security for the money advanced — it is not acceptance, and risk of loss stays with the contractor.
+
+Here's a trap worth remembering. When a contract slides into a loss position — the cost to finish now exceeds what's left of the price — the loss ratio adjustment kicks in, and progress payments get reduced. The Government won't finance costs it can never recover through a fixed price.
+
+One more financing pair: a contractor may assign its right to receive payments to a bank — that's the Assignment of Claims Act, and it's how contractors borrow against receivables. But the contract itself cannot be transferred without Government consent — that requires a novation agreement. Payments, assignable. The contract, not without consent.
+
+On construction contracts, the Miller Act requires two bonds, and they protect different people. The performance bond protects the Government if the contractor defaults. The payment bond protects subcontractors and suppliers — and here's the why, which is what gets tested: you cannot place a mechanic's lien on federal property. On a private job, an unpaid subcontractor liens the building. On a federal job, the payment bond replaces that remedy.
+
+Now protests. Three forums, and only three: the agency itself, the Government Accountability Office — the GAO — and the U.S. Court of Federal Claims. Never a federal district court. That wrong answer shows up constantly, for protests and for disputes appeals alike.
+
+The GAO's superpower is speed and the automatic stay. Decisions come within one hundred days by statute. And if you file within ten days of award — or within five days after a required debriefing — the CICA stay kicks in and contract performance is suspended while the protest is decided. Miss that window and you can still protest, but the work proceeds without you. The Court of Federal Claims is slower and costlier, but it issues binding injunctions, where GAO technically only recommends — though agencies follow GAO recommendations almost every time, because ignoring one has to be reported to Congress.
+
+One more clock: if your complaint is about the solicitation itself — a restrictive spec, an obvious ambiguity — you must protest before proposals are due. You cannot compete first and complain later.
+
+A quick word on debriefings. A debriefing explains your own evaluation — your weaknesses, your rating, the award rationale. It does not reveal competitors' proprietary information, and it is not a chance to revise your proposal. Strategically, request it promptly, because a required debriefing starts that five-day enhanced protest clock.
+
+Two competition mechanics to close. First, responsiveness versus responsibility, in sealed bidding. Responsiveness asks: does the bid conform to the solicitation's material terms — judged at bid opening, from the face of the bid, and not curable. Responsibility asks: can this bidder actually perform — finances, capability, integrity — judged before award, and curable. A small business found nonresponsible generally gets a second look from the Small Business Administration under the Certificate of Competency program.
+
+Second, clarifications versus discussions, in negotiated procurements. Clarifications are limited exchanges — no proposal changes allowed, and you can clarify with just one offeror. Discussions are bargaining — they permit revisions, and once you open discussions with anyone, you must hold them with everyone in the competitive range. Accepting a revised staffing plan while calling it a clarification is the classic protest an agency loses.
+
+And finally, three quick mechanics. FOB origin means risk of loss passes to the buyer when the carrier picks up; FOB destination means the seller bears risk until delivery. A waived delivery schedule — the Government accepting late performance without protest — must be reset with a new reasonable date before a default termination will stick. And a commercial product determination unlocks streamlined procedures, including exemption from certified cost or pricing data — which is exactly why parties fight over whether something is commercial.`
+}
 ];
