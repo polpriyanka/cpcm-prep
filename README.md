@@ -4,14 +4,14 @@ Study materials for the NCMA **Certified Professional Contracts Manager** exam.
 
 Live at: **contractmanagementncma.com**
 
-Question bank current as of 2026-07-13; run the audit checklist before trusting counts in this file.
+Question bank current as of 2026-07-13 (327 questions); run the audit checklist before trusting counts in this file.
 
 ## Contents
 
 | File | What it is |
 |---|---|
 | `index.html` | Interactive study hub — question bank, mock exam, deficiency log, CPE ledger. Open in a browser or serve as the site. |
-| `audio-lessons.js` | Ten spoken-narration lessons for the Audio Lessons tab (Web Speech API). |
+| `audio-lessons.js` | Eleven spoken-narration lessons for the Audio Lessons tab (Web Speech API). |
 | `STUDY-GUIDE.md` | The written curriculum. All CMBOK competencies, framework/foundations, protests and financing mechanics, plus the federal statutes cross-cut. |
 | `CNAME` | GitHub Pages custom domain config — points the repo at `contractmanagementncma.com`. |
 
@@ -46,7 +46,7 @@ Open `index.html` in any browser. No build step, no dependencies. Progress saves
 
 **Tabs:**
 - **Status** — exam-readiness gate (three criteria, stricter than the 72.2% pass line), accuracy by competency, next recommended action, CPE runway, progress backup (export/import)
-- **Drill** — 279 questions, filterable by domain
+- **Drill** — 327 questions, filterable by domain
 - **Mock Exam** — blueprint-weighted draws (20 up to full-length 180), real-exam pacing timer, scenario markers, per-question pacing report
 - **Deficiency Log** — every question you've missed, held open until you get it right, with miss-reason tagging (knowledge / misread / second-guessed)
 - **Audio Lessons** — ten spoken lessons via the device's text-to-speech

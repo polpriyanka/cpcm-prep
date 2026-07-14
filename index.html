@@ -2898,7 +2898,22 @@
         "Optional and outside the competency framework",
         "Part of the Learn competency itself — including certification, CPE, mentoring, publishing, and instructing",
         "A human resources function unrelated to contract management"],
-     a:2, e:"Contribution back to the profession — teaching, writing, mentoring — is built INTO the competency model, not bolted on. That design choice is precisely why published writing and instructing earn CPE credit: they're treated as professional practice, not extracurriculars."}
+     a:2, e:"Contribution back to the profession — teaching, writing, mentoring — is built INTO the competency model, not bolted on. That design choice is precisely why published writing and instructing earn CPE credit: they're treated as professional practice, not extracurriculars."},
+
+    // ---------- ROUND-5 CHECKLIST CLOSURE ----------
+    {d:"GP", q:"A court finds one clause of a commercial contract unenforceable. A severability clause provides that:",
+     o:["The parties must renegotiate from scratch",
+        "Only the breaching party is bound",
+        "The remainder of the contract survives and stays enforceable without the stricken clause",
+        "The entire contract is void"],
+     a:2, e:"Severability keeps one bad clause from taking the whole deal down — the offending provision is excised and the rest stands. It's boilerplate nobody reads until the day it saves the contract, and its absence is why some agreements collapse entirely over a single unenforceable term."},
+
+    {d:"GP", q:"A party who is not a signatory to a contract may nonetheless enforce it when that party is:",
+     o:["An intended third-party beneficiary — the contracting parties meant to confer the benefit directly on it",
+        "An employee of either party",
+        "Any party who gains economically from the contract's performance",
+        "A creditor of either party"],
+     a:0, e:"Intended beneficiaries can sue; incidental beneficiaries — those who merely happen to gain — cannot. The test is whether the contracting parties meant to benefit them directly. This is why subcontractors generally cannot sue the owner on the prime contract, and why flow-down clauses exist to create obligations that privity won't."}
   ];
 
   Q.forEach(function(q,i){ q.id = "Q" + String(i+1).padStart(3,"0"); });
