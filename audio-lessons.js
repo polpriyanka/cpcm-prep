@@ -195,5 +195,43 @@ Two competition mechanics to close. First, responsiveness versus responsibility,
 Second, clarifications versus discussions, in negotiated procurements. Clarifications are limited exchanges — no proposal changes allowed, and you can clarify with just one offeror. Discussions are bargaining — they permit revisions, and once you open discussions with anyone, you must hold them with everyone in the competitive range. Accepting a revised staffing plan while calling it a clarification is the classic protest an agency loses.
 
 And finally, three quick mechanics. FOB origin means risk of loss passes to the buyer when the carrier picks up; FOB destination means the seller bears risk until delivery. A waived delivery schedule — the Government accepting late performance without protest — must be reset with a new reasonable date before a default termination will stick. And a commercial product determination unlocks streamlined procedures, including exemption from certified cost or pricing data — which is exactly why parties fight over whether something is commercial.`
+},
+  {
+  id: "comlaw",
+  title: "Commercial Contract Law — Excuse, Breach & Remedies",
+  minutes: 10,
+  script: `This lesson covers the part of the CPCM that a federal contracting career prepares you for least — commercial contract law. Excuse doctrines, breach, and remedies. The CPCM is the government AND commercial credential; this is the commercial half, and it's where experienced federal people quietly lose points.
+
+Start with excuse — when is non-performance forgiven? There are four concepts, and they are not interchangeable.
+
+Impossibility means performance became objectively impossible. The subject matter was destroyed; the performer in a personal-services contract died. The duty is discharged.
+
+Commercial impracticability is different and weaker. Performance is still technically possible, but it became excessively, unreasonably difficult because of an unforeseen event whose non-occurrence was a basic assumption of the deal.
+
+Here is the trap, and it catches people constantly: increased cost alone is not impracticability. A supplier whose materials tripled in price is not excused. Courts set that bar near commercially senseless, not merely unprofitable. And think about why — a fixed price ALLOCATES cost risk to the seller. Excusing them because the very risk they took on actually happened would gut the bargain. The right answer was to negotiate an economic price adjustment clause up front.
+
+Third: frustration of purpose. Here performance is still possible, but the event destroyed the REASON for contracting. The classic example is renting a room to watch a parade, and the parade gets cancelled. The room is available. Your purpose is gone.
+
+And fourth: force majeure. This one matters most in practice, because force majeure is a creature of contract, not a background principle of law. If the clause doesn't list the event, the clause doesn't help you. A force majeure clause that doesn't mention pandemics gives you nothing when a pandemic hits — you're thrown back on impracticability, which is a much higher bar. Read the clause. Never reason from the phrase.
+
+Now breach. A material breach goes to the essence of the bargain — the non-breaching party may suspend its own performance and sue. A minor breach entitles you to damages, but you must keep performing. Misjudge that, walk away from a minor breach, and you become the breaching party. That's a real-world disaster and a favorite exam trap.
+
+Anticipatory repudiation is when a party clearly and unequivocally indicates, before performance is due, that it will not perform. You may treat that as an immediate breach and sue right now, without waiting for the deadline to pass.
+
+But — and this is the tested distinction — repudiation must be clear and unequivocal. If a supplier emails, "honestly, we're not sure we can hit the March date," that is NOT repudiation. That's expressed doubt. Suing on it is premature. The correct tool is to demand adequate assurance of performance, in writing, and suspend your dependent commitments while you wait. If they fail to provide adequate assurance within a reasonable time, THEN you can treat it as repudiation.
+
+On to remedies. The default is expectation damages — put the injured party where full performance would have put them.
+
+But there's a duty to mitigate. The injured party must take reasonable steps to limit its losses. If a buyer sits and watches damages compound without trying to source substitute goods, the avoidable portion isn't recoverable. Damages you could have prevented are damages you don't collect.
+
+Consequential damages — lost profits, downstream losses — are only recoverable if they were reasonably foreseeable to the breaching party at the time of contracting. That's the Hadley v. Baxendale rule. And it explains why sophisticated contracts almost always contain a consequential damages waiver: the exposure is otherwise open-ended and nearly impossible to price.
+
+Quantum meruit — literally, as much as he deserved — lets a party recover the reasonable value of services where no enforceable contract covers the work, preventing unjust enrichment. In federal practice this interacts with the authority rules, which is exactly why ratification exists as a pressure valve for unauthorized commitments.
+
+Finally, the risk-allocation clauses you actually negotiate. A limitation of liability caps exposure — often at contract value or fees paid — and between sophisticated commercial parties it's generally enforceable. What it cannot do is excuse gross negligence or intentional misconduct; that's void as against public policy.
+
+Indemnification: one party agrees to defend and hold the other harmless against specified claims. Watch the duty to DEFEND separately from the duty to INDEMNIFY — the duty to defend triggers earlier, when a claim is merely asserted, before any liability is established. Defense costs start accruing immediately and can dwarf the eventual indemnity.
+
+And two quick ones. Severability means if one clause is struck, the rest of the contract survives. And a third-party beneficiary — someone who was INTENDED to benefit from a contract they aren't party to — may enforce it, while a merely incidental beneficiary may not. That distinction matters for flow-down clauses and subcontractor rights.`
 }
 ];
