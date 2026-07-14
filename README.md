@@ -49,7 +49,7 @@ Open `index.html` in any browser. No build step, no dependencies. Progress saves
 - **Drill** — 327 questions, filterable by domain
 - **Mock Exam** — blueprint-weighted draws (20 up to full-length 180), real-exam pacing timer, scenario markers, per-question pacing report
 - **Deficiency Log** — every question you've missed, held open until you get it right, with miss-reason tagging (knowledge / misread / second-guessed)
-- **Audio Lessons** — ten spoken lessons via the device's text-to-speech
+- **Audio Lessons** — eleven spoken lessons via the device's text-to-speech
 - **CPE Ledger** — tracks progress toward the 120 hours required to apply
 - **Exam Facts** — fees, thresholds, the official exam blueprint, sequence to certification
 
