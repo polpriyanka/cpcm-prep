@@ -193,6 +193,76 @@ The CPCM covers commercial and international contracting, not just the FAR:
 
 ---
 
+## Excuse doctrines — when non-performance is forgiven
+
+The exam tests whether you can tell these apart. They are *not* interchangeable.
+
+| Doctrine | Trigger | Effect |
+|---|---|---|
+| **Impossibility** | Performance became objectively impossible (subject matter destroyed, performer died in a personal-services contract) | Duty discharged |
+| **Commercial impracticability** | Performance became excessively/unreasonably difficult due to an unforeseen event whose non-occurrence was a basic assumption | Duty may be discharged (UCC 2-615) |
+| **Frustration of purpose** | Performance is still *possible*, but the event destroyed the *reason* for contracting | Duty may be discharged |
+| **Force majeure** | Whatever the **clause says** it covers | Whatever the clause provides |
+
+**⚠ Trap.** *Increased cost alone is not impracticability.* A supplier whose materials
+tripled in price is not excused — that's the risk a fixed price allocates. Courts set
+the bar near "commercially senseless," not "unprofitable." And **force majeure is a
+creature of contract, not common law** — if the clause doesn't list the event, the
+clause doesn't help you. Read the clause; don't reason from the phrase.
+
+## Breach and repudiation
+
+- **Material breach** goes to the essence — the non-breaching party may suspend
+  performance and sue. **Minor breach** entitles damages but you must still perform.
+- **Anticipatory repudiation**: a party clearly and unequivocally states (or acts to
+  show) it will not perform *before* performance is due. The other party may treat it
+  as an immediate breach and sue at once, or demand adequate assurance of performance
+  and suspend its own performance in the meantime.
+
+**⚠ Trap.** Repudiation must be *clear and unequivocal*. "I'm not sure we can make the
+date" is not repudiation — it's a trigger to **demand adequate assurance**, which is
+the correct next move, not a lawsuit.
+
+## Remedies and damage limits
+
+- **Expectation damages** — the default: put the injured party where performance
+  would have. **Reliance** and **restitution** are alternatives.
+- **Duty to mitigate.** The injured party must take reasonable steps to limit its
+  losses; damages that could have been avoided are not recoverable. A buyer who sits
+  and watches losses mount recovers less.
+- **Consequential damages** (lost profits, downstream losses) are recoverable only if
+  they were **foreseeable at contracting** (*Hadley v. Baxendale*) — and are the single
+  most commonly **excluded** category by contract.
+- **Quantum meruit** — recovery of the reasonable value of services where there is no
+  enforceable contract (or work outside it), preventing unjust enrichment.
+- **Statute of limitations** — every claim has a filing clock; missing it kills an
+  otherwise valid claim. (UCC goods: 4 years by default.)
+
+## Risk-allocation clauses (the ones you negotiate)
+
+- **Limitation of liability** — caps exposure, often at contract value or fees paid.
+  Frequently paired with a **consequential damages waiver.** Generally enforceable
+  between sophisticated parties.
+- **Indemnification** — one party agrees to defend/hold harmless the other against
+  specified third-party claims. Watch the *scope* (whose negligence is covered) and
+  the *duty to defend*, which bites earlier than the duty to indemnify.
+- **Exculpatory clauses** cannot excuse **gross negligence or intentional
+  misconduct** — void as against public policy.
+- **Severability** — if one clause is struck, the rest survives.
+- **Confidentiality/NDA** — define what's confidential, the permitted use, the term,
+  and residuals. A mutual NDA is standard before proposals exchange sensitive data.
+- **Third-party beneficiary** — someone not party to the contract who was *intended*
+  to benefit may enforce it (an *incidental* beneficiary may not). Relevant to
+  flow-downs and to subcontractor rights.
+
+## Statute of Frauds
+
+Certain contracts must be **in writing** to be enforceable — most exam-relevantly:
+sale of goods **$500 or more** (UCC), contracts not performable within one year, and
+suretyship promises. Full performance can take a contract out of it.
+
+---
+
 # 2. Pre-Award
 
 *Everything before the solicitation goes out, plus the solicitation itself.*
@@ -287,6 +357,58 @@ data into a competitive solicitation without permission; marked data is restrict
 evaluation use. **⚠ Trap:** an "unsolicited" proposal invited by an agency official for
 an already-defined requirement fails the independent-origination test — it's a disguised
 sole-source steer, and competition rules apply.
+
+---
+
+## Socioeconomic programs and set-asides
+
+The named categories (know the names; NCMA tests recognition, not FAR citations):
+
+- **Small business** — the base category
+- **8(a)** — small disadvantaged, SBA-administered business development program
+- **HUBZone** — historically underutilized business zone
+- **SDVOSB** — service-disabled veteran-owned
+- **WOSB / EDWOSB** — women-owned / economically disadvantaged women-owned
+
+**The Rule of Two** — the single most testable socioeconomic mechanic: if the CO has
+a **reasonable expectation that offers will be received from at least two responsible
+small businesses** *and* award will be made at **fair market prices**, the acquisition
+**must be set aside** for small business. Two conditions, both required.
+
+- Acquisitions between the micro-purchase threshold and the SAT are **reserved** for
+  small business (essentially automatic).
+- **Subcontracting plans** are required of *other-than-small* primes above the
+  threshold when subcontracting opportunities exist — with goals by category. Small
+  business primes are exempt.
+
+## Teaming, joint ventures, and mentor-protégé
+
+- **Contractor team arrangement (CTA)** — a prime/sub teaming agreement, or a
+  **joint venture**, formed to bid together. Generally permitted and often encouraged;
+  the teaming agreement itself is between the companies, not with the Government.
+- **Joint venture** — a separate entity; size status is generally the *aggregate* of
+  the members' sizes, which is why unrestrained JVs can destroy small business
+  eligibility.
+- **Mentor-protégé** — an approved JV between a large mentor and a small protégé can
+  compete for **small business set-asides** despite the mentor's size. That exception
+  is the entire point of the program, and it's testable.
+
+## Simplified acquisition procedures (SAP)
+
+Below the **simplified acquisition threshold**, streamlined methods apply — fewer
+clauses, less documentation, faster award. **Micro-purchases** (below the
+micro-purchase threshold) can generally be made without competitive quotes if the
+price is reasonable. SAP is not a competition-free zone; it's a
+proportionate-effort zone.
+
+## Market research tools
+
+**Sources sought notices** and **RFIs** identify capable sources and shape the
+strategy — neither is a solicitation, and neither obligates the Government to award.
+**Should-cost analysis** independently models what a thing *ought* to cost (challenging
+the contractor's historical base) as distinct from an IGCE. **Life-cycle cost** and
+**total ownership cost** look past acquisition price to operation, support, and
+disposal — the cheapest bid is routinely the most expensive system.
 
 ---
 
@@ -436,6 +558,39 @@ sustained-protest fact pattern.
 
 ---
 
+## Prohibited conduct during discussions
+
+Three named prohibitions that appear as answer choices:
+
+- **Technical leveling** — helping a weak offeror bring its proposal up to the level
+  of others through successive rounds of coaching. Prohibited.
+- **Technical transfusion** — disclosing one offeror's technical solution to another.
+  Prohibited (and a Procurement Integrity Act problem).
+- **Auction techniques** — revealing an offeror's price to another, telling an offeror
+  its price is high without more, or otherwise running a bidding war. Prohibited.
+
+Permitted and expected: telling an offeror about **its own** deficiencies,
+significant weaknesses, and adverse past performance information it hasn't had a
+chance to address.
+
+## Evaluation structure
+
+Factors and **subfactors** must be stated in the solicitation along with their
+**relative importance** — and must be applied as stated. The **competitive range**
+comprises the most highly rated proposals (those with a real chance of award) unless
+further limited for efficiency. Offerors excluded from the competitive range get
+**pre-award notice** and may request a **pre-award debriefing**.
+
+## Profit/fee analysis
+
+On negotiated, non-competed pricing, the Government develops a **profit objective**
+using structured approaches (DoD: **weighted guidelines**) that reward **contractor
+risk assumption** — more cost risk borne (FFP) justifies more profit; cost-type
+contracts, which shift risk to the Government, justify less. Profit is *earned by
+risk*, and that logic is the answer to most "why is the fee lower here" questions.
+
+---
+
 # 4. Post-Award
 
 *The longest phase and the one where money is actually won and lost.*
@@ -550,6 +705,50 @@ FAT validates the **initial unit(s) and the production process** before committi
 quantity: approval authorizes production; disapproval requires correction. It
 **supplements** — never replaces — ongoing inspection and acceptance for later units,
 and Government inspection never relieves the contractor of its own quality obligation.
+
+---
+
+## Changes: the rest of the family
+
+- **Constructive acceleration** — the contractor is entitled to an excusable delay
+  extension, the Government **refuses to grant it** and insists on the original date,
+  and the contractor speeds up to comply. The added acceleration cost is compensable.
+  (Elements: excusable delay + timely request + denial/refusal + order to complete on
+  time + actual acceleration + added cost.)
+- **Deductive change** — the Government *reduces* scope; the price comes **down** by
+  the value of the deleted work. Distinguish from a **partial termination for
+  convenience**, where the contractor also recovers settlement costs and profit on
+  work performed. Which label attaches changes what the contractor recovers — that's
+  the tested distinction.
+- **Ratification** — an unauthorized commitment (someone without warrant authority
+  directed work) may be *ratified* by an official who **does** have authority, if the
+  Government got a benefit, the price is fair, and funds were available. Ratification
+  is a cure, not a right.
+
+## Performance management
+
+- **QASP (Quality Assurance Surveillance Plan)** — the Government's plan for *how* it
+  will verify performance against measurable standards. Pairs with performance-based
+  work statements.
+- **CPARS** — contractor performance is documented in past performance assessments,
+  which feed future source selections. Contractors get to **review and comment** on
+  the evaluation before it's finalized; adverse ratings are consequential precisely
+  because they follow the company into every future competition.
+
+## ADR — alternative dispute resolution
+
+Strongly encouraged in federal contracting. **Mediation** (a neutral facilitates a
+negotiated resolution — non-binding) and **arbitration** (a neutral decides — binding
+if agreed) are the main forms; also mini-trials and neutral evaluation. ADR preserves
+the relationship, costs less, and moves faster than the CDA appeal path. It supplements,
+not replaces, the CO's final decision gateway.
+
+## Closeout
+
+Physical completion → final invoice → **final indirect rate settlement** (the usual
+bottleneck) → subcontract settlements → **government property disposition / plant
+clearance** → patents and royalties → releases → file closed. Closeout timeframes are
+prescribed by contract type; the chronic delay driver is unsettled rates, not paperwork.
 
 ---
 
@@ -803,6 +1002,46 @@ The correct instinct when a disruption threatens a milestone: **notify the buyer
 
 ---
 
+## Schedule management
+
+- **Critical path** — the longest sequence of dependent activities; it determines the
+  minimum project duration. Activities on it have **zero float**.
+- **Float/slack** — how long an activity can slip without delaying the project (free
+  float: without delaying the *successor*; total float: without delaying the
+  *project*). Delay on a non-critical path with float may cause **no** compensable
+  impact — a crucial point in delay claims.
+- Compressing the schedule: **crashing** (add resources, costs money) vs.
+  **fast-tracking** (overlap activities, adds risk).
+
+## Risk management infrastructure
+
+- **Risk register** — the living artifact: each risk with description, probability,
+  impact, response, owner, and status. A risk without a named **owner** and a **date**
+  is not being managed.
+- **Qualitative** analysis (probability/impact matrix) screens and ranks; **quantitative**
+  (e.g., **Monte Carlo** simulation) models aggregate exposure and confidence ranges.
+- **Supply chain risk management** — extends risk practice past your prime/sub
+  boundary: single-source dependencies, counterfeit parts, cyber exposure, foreign
+  ownership/control. Increasingly tested as a named discipline.
+
+## Configuration and change control
+
+- **Configuration management** — identifying the baseline, controlling changes to it,
+  accounting for status, and auditing that the product matches the documented
+  configuration.
+- **Change control board (CCB)** — the governance body that approves/rejects changes
+  to the baseline. Its existence is what prevents scope creep from becoming invisible.
+
+## Contract Management Maturity Model (CMMM)
+
+Assesses organizational capability across five levels — roughly: *ad hoc → basic →
+structured → integrated → optimized*. The point of the model is that individual
+competence cannot compensate for an immature process; you move levels by building
+repeatable, measured, improving practice — which ties directly back to the **Learn**
+competency.
+
+---
+
 # 7. Learn
 
 *Up to 10 questions. The competency people skip — and the easiest points on the exam,
@@ -865,6 +1104,14 @@ back to the profession as part of the competency itself — which is why writing
 published articles and teaching earn CPE credit (roughly one CPE per hour of qualifying
 writing, once published, on CMBOK-related topics). Development is expected to be
 continuous and targeted, not episodic and generic.
+
+## Pre-mortem — lessons learned, run forwards
+
+A **pre-mortem** asks the team, *before* award, to imagine the acquisition has already
+failed and work backward to why. It inverts hindsight bias into foresight, and — the
+real mechanism — it makes voicing pessimism socially safe, which optimism-driven
+planning otherwise suppresses. It is the capture-throughout-the-lifecycle principle
+applied at the earliest possible moment.
 
 **⚠ Trap.** "Learn" questions are rarely hard; they're lost through neglect. Common
 wrong-answer patterns: treating closeout as the lessons-learned moment, treating report
