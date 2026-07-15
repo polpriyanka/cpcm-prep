@@ -445,6 +445,51 @@ assets you can reach** if it goes wrong, and **who has authority to sign** for t
 veil** where the owners ignored corporate formalities or used the entity to defraud,
 reaching personal assets. But that's the exception; the rule is limited liability.
 
+## Sustainable acquisition (green procurement)
+
+CMBOK 7th builds environmental performance into buying decisions. **Sustainable
+acquisition** prefers products and services that are **energy-efficient,
+water-efficient, biobased, environmentally preferable, or made with recovered
+materials** — *where available, meeting the requirement, and cost-effective.*
+
+- It's a **purchasing preference woven through the requirement and evaluation**, not a
+  socioeconomic set-aside and not a mandate to ignore price.
+- It pairs naturally with **life-cycle cost**: an efficient item often costs more up
+  front but less to operate and dispose of, so the green choice frequently wins on
+  **total ownership cost** once the whole life is counted.
+- Like any requirement, it's only real if **verified** — the specified environmental
+  attributes belong in the acceptance criteria and the surveillance plan, not just the
+  clause.
+
+**⚠ Trap.** Writing a specification that ignores available, adequate, cost-effective
+green options is a *gap*, not a neutral choice — sustainable acquisition is the default
+preference, and excluding it without justification defeats the policy.
+
+## Category management & strategic sourcing
+
+- **Category management** groups related spend across the organization into managed
+  **categories** to reduce duplicate contracts, leverage buying power, and standardize
+  practices. It treats spend as a **portfolio**, not a series of disconnected buys — the
+  risk it addresses is the fragmentation of every office buying the same thing its own
+  way.
+- **Strategic sourcing** is the deliberate, longer-term counterpart to **tactical
+  (transactional) buying**. Tactical asks "how do I fill this requisition?"; strategic
+  asks "how should we source this whole category, given our total spend and the supply
+  market?" — consolidating, standardizing, and negotiating from strength.
+- **Spend analysis** is the precondition: aggregate purchasing data to see where and
+  with whom the organization actually spends, surfacing redundancy and off-contract
+  **maverick buying**. You can't source a category strategically until you can see the
+  spend.
+
+## Modular & agile-friendly IT contracting
+
+For software and evolving-requirement efforts, **modular contracting** breaks the work
+into smaller, separately deliverable **increments** with frequent delivery and the
+flexibility to reprioritize between iterations. It reduces risk, enables
+course-correction, and matches funding to demonstrated progress. **⚠ Trap.** Forcing an
+iterative/agile effort into one large fixed-price deliverable defined entirely up front
+is the classic mismatch behind large-IT-program failures.
+
 ---
 
 # 2B. Solicitation Structure & Contract Format
@@ -1276,6 +1321,32 @@ The correct instinct when a disruption threatens a milestone: **notify the buyer
   configuration.
 - **Change control board (CCB)** — the governance body that approves/rejects changes
   to the baseline. Its existence is what prevents scope creep from becoming invisible.
+
+**⚠ Don't confuse the two "change" topics.** *Configuration/change control* governs
+changes to the **product baseline**. *Change management* (below) governs changes to the
+**organization and its people** — a distinct Management sub-competency (B.2).
+
+## Change management — the organizational discipline
+
+Distinct from contract changes and configuration control, **change management** (B.2) is
+about getting **people and organizations** to adopt a new way of working — a new
+contract writing system, a new process, a reorganization.
+
+- **Why change efforts fail:** far more often on the **"why"** than on the tools.
+  Without a clear, credible case for the change and sustained communication of it,
+  proficient people rationally revert to what they know. Technology and training address
+  *capability*; change management addresses *motivation and belief*.
+- **The arc** (unfreeze → change → refreeze, or create urgency → vision → enable action
+  → anchor): the step most often skipped is the last — **reinforcing and anchoring** the
+  change until the new behavior is simply "how we do it." Declaring victory at go-live
+  lets old habits creep back.
+- **Stakeholder engagement, not announcement.** A one-way email is broadcast, not
+  engagement. Adoption needs two-way communication, concerns heard, and leaders
+  visibly modeling the change. Low compliance after a rollout is usually a
+  change-management failing, not a staff failing.
+- **Change readiness assessment** — before a major change, gauge whether the
+  organization has the **sponsorship, capacity, and willingness** to absorb it, so gaps
+  get closed *before* rollout. It's the change-management analogue of market research.
 
 ## Contract Management Maturity Model (CMMM)
 
