@@ -490,6 +490,45 @@ course-correction, and matches funding to demonstrated progress. **⚠ Trap.** F
 iterative/agile effort into one large fixed-price deliverable defined entirely up front
 is the classic mismatch behind large-IT-program failures.
 
+## Architect-engineer (A-E) services — qualifications-based selection
+
+A-E services are acquired under the **Brooks Act** using **qualifications-based
+selection (QBS)** — a deliberately different process from a priced source selection:
+
+1. Evaluate and **rank firms on competence and qualifications** — *price plays no part
+   in the ranking.*
+2. Open **price negotiations with the most qualified firm only.**
+3. If a **fair and reasonable price** can't be reached, **formally terminate** those
+   negotiations and move to the **next-ranked** firm — strictly sequential, never
+   parallel, never dropping to the cheapest.
+
+**⚠ Trap.** Treating an A-E acquisition like an LPTA or best-value buy (letting price
+into the ranking) inverts the statute. The theory: in professional design work, design
+*quality* protects the public, so you pick the best firm first and discipline price
+after.
+
+## Cost estimating techniques
+
+Three methods, trading speed for accuracy:
+
+| Technique | How | Best when |
+|---|---|---|
+| **Analogous (top-down)** | Scale from a similar past project, adjusted | Early, little detail — only as good as the analog's comparability |
+| **Parametric** | Statistical cost-driver relationship ($/sq ft, $/line of code, $/lb) | Good historical data and a measurable driver exist |
+| **Bottoms-up (engineering)** | Sum detailed element-by-element estimates off the WBS | Most accurate, most time/data-intensive; needs a defined requirement |
+
+The **basis of estimate (BOE)** is the auditable story behind each number — method,
+assumptions, and supporting data. It's what makes **cost analysis** possible; an
+estimate without a documented basis can't be meaningfully evaluated or defended.
+
+## Major systems acquisition (in brief)
+
+Large, multi-year system buys are gated by **milestone decision points** — structured
+**go/no-go reviews** a program must pass before committing to the next, more expensive
+phase. The purpose is risk containment: don't fund the next phase until the current one
+has proven itself technically, financially, and against requirements. (Deep milestone/
+ACAT detail is more CFCM/CDCM territory; the CPCM tests the concept.)
+
 ---
 
 # 2B. Solicitation Structure & Contract Format

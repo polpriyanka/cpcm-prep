@@ -3364,7 +3364,64 @@
         "A cost-plus-award-fee contract with no defined increments",
         "Sealed bidding on the complete specification",
         "Modular contracting with an agile-friendly structure — smaller increments, frequent delivery, and the flexibility to adjust scope between iterations"],
-     a:3, e:"Iterative software development fits modular contracting: breaking the effort into smaller, separately deliverable increments reduces risk, enables course-correction, and matches funding to demonstrated progress. Forcing an agile effort into one big fixed-price deliverable defined entirely up front is the mismatch that produces the classic large-IT-program failure."}
+     a:3, e:"Iterative software development fits modular contracting: breaking the effort into smaller, separately deliverable increments reduces risk, enables course-correction, and matches funding to demonstrated progress. Forcing an agile effort into one big fixed-price deliverable defined entirely up front is the mismatch that produces the classic large-IT-program failure."},
+
+    // ---------- ROUND-9 A-E / ESTIMATING / MAJOR SYSTEMS ----------
+    {d:"PRE", q:"Architect-engineer (A-E) services are acquired using qualifications-based selection because, under the Brooks Act:",
+     o:["Sealed bidding is mandatory",
+        "A-E work must be sole-sourced",
+        "Firms are ranked on competence and qualifications first, and price is negotiated only with the most qualified firm",
+        "Price is the only evaluation factor"],
+     a:2, e:"The Brooks Act requires qualifications-based selection for A-E services: the Government evaluates and ranks firms on competence and qualifications, then opens price negotiations with the most qualified — and only moves to the next-ranked firm if a fair and reasonable price can't be reached. Price is deliberately kept out of the ranking, because the theory is that design quality, not low bid, protects the public in professional design work."},
+
+{d:"PRE", q:"Under qualifications-based selection for A-E services, if the contracting officer cannot reach a fair and reasonable price with the top-ranked firm, the correct next step is to:",
+     o:["Split the award between the top two firms",
+        "Formally terminate negotiations with that firm and begin negotiations with the next-most-qualified firm",
+        "Award to the lowest-priced firm regardless of rank",
+        "Re-solicit the entire requirement"],
+     a:1, e:"QBS is strictly sequential: negotiations with the top-ranked firm must be formally terminated before opening them with the second — you cannot run parallel price competitions or drop to the cheapest firm. This ordered, one-at-a-time structure is what preserves the qualifications-first principle while still disciplining price."},
+
+{d:"AWD", q:"The key difference between selecting an architect-engineer firm and awarding a typical supply contract is that A-E selection:",
+     o:["Ignores past performance",
+        "Excludes price from the competitive ranking entirely, negotiating it only after the most qualified firm is chosen",
+        "Requires the lowest price to win",
+        "Prohibits any negotiation"],
+     a:1, e:"In a normal best-value or LPTA source selection, price is an evaluation factor. In A-E acquisition under the Brooks Act, price plays no part in ranking — it's negotiated after selection. Treating an A-E acquisition like a priced source selection is a fundamental procedural error, because it inverts the statute's qualifications-first design."},
+
+{d:"MGT", q:"A cost estimator uses the actual cost of a similar completed project, adjusted for differences, to estimate a new effort. This technique is:",
+     o:["Bottoms-up (engineering) estimating",
+        "Analogous (top-down) estimating",
+        "Monte Carlo simulation",
+        "Parametric estimating"],
+     a:1, e:"Analogous estimating scales from a comparable past project — fast and useful early when detail is scarce, but only as good as the comparability of the analog. Parametric uses statistical cost-driver relationships (e.g., dollars per square foot); bottoms-up builds the estimate element by element from the work breakdown. Each trades speed for accuracy differently."},
+
+{d:"MGT", q:"Parametric estimating differs from bottoms-up estimating in that parametric estimating:",
+     o:["Requires a completed work breakdown structure",
+        "Can only be used after award",
+        "Applies a statistical relationship between a cost driver and cost (e.g., cost per unit of weight or square foot), rather than summing detailed element-by-element estimates",
+        "Is always less accurate for every project"],
+     a:2, e:"Parametric estimating models cost as a function of measurable drivers using historical data — dollars per square foot, per line of code, per pound. Bottoms-up instead decomposes the work and estimates each piece, which is the most accurate but the most time- and data-intensive. The right choice depends on how much requirement definition and historical data you actually have."},
+
+{d:"MGT", q:"A basis of estimate (BOE) documented in a cost proposal primarily serves to:",
+     o:["Hide the contractor's assumptions",
+        "Show the rationale, methods, and data behind each estimated cost element, so the estimate can be analyzed and defended",
+        "Set the profit rate",
+        "Replace the need for cost analysis"],
+     a:1, e:"The BOE is the auditable story behind the number: what method was used, what assumptions and historical data support it, and how each element was derived. It's what makes cost analysis possible — an estimate without a documented basis can't be meaningfully evaluated or defended, which is exactly why proposals are required to substantiate their numbers."},
+
+{d:"PRE", q:"In a major systems acquisition, milestone decision points primarily function to:",
+     o:["Guarantee full funding for the life of the program",
+        "Provide structured go/no-go reviews that a program must pass before committing to the next, more expensive phase",
+        "Eliminate the need for contracts",
+        "Replace source selection"],
+     a:1, e:"Major-system frameworks gate spending through milestone reviews: a program must demonstrate it's ready — technically, financially, and against requirements — before the decision authority approves entry into the next phase. The point is to avoid committing large sums to the next phase until the current one has proven itself, containing the risk inherent in big, multi-year acquisitions."},
+
+{d:"LDR", q:"On a cross-functional contract team, assigning two people to be 'accountable' for the same deliverable is a defect because:",
+     o:["It is prohibited by the FAR",
+        "It doubles the cost",
+        "Accountability must rest with exactly one person — split accountability means, in practice, that no one owns the outcome",
+        "Teams should never have more than two members"],
+     a:2, e:"A responsibility assignment matrix works only if a single person is accountable for any given result; consulted and informed roles can be shared, but accountability cannot. Two accountable owners diffuse ownership until each assumes the other has it — the classic way a deliverable falls through the cracks despite everyone being 'responsible.'"}
   ];
 
   Q.forEach(function(q,i){ q.id = "Q" + String(i+1).padStart(3,"0"); });

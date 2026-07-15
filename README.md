@@ -4,7 +4,7 @@ Study materials for the NCMA **Certified Professional Contracts Manager** exam.
 
 Live at: **contractmanagementncma.com**
 
-Question bank current as of 2026-07-13 (391 questions); run the audit checklist before trusting counts in this file.
+Question bank current as of 2026-07-13 (399 questions); run the audit checklist before trusting counts in this file.
 
 ## Contents
 
@@ -46,7 +46,7 @@ Open `index.html` in any browser. No build step, no dependencies. Progress saves
 
 **Tabs:**
 - **Status** — exam-readiness gate (three criteria, stricter than the 72.2% pass line), accuracy by competency, next recommended action, CPE runway, progress backup (export/import)
-- **Drill** — 391 questions, filterable by domain
+- **Drill** — 399 questions, filterable by domain
 - **Mock Exam** — blueprint-weighted draws (20 up to full-length 180), real-exam pacing timer, scenario markers, per-question pacing report
 - **Deficiency Log** — every question you've missed, held open until you get it right, with miss-reason tagging (knowledge / misread / second-guessed)
 - **Audio Lessons** — twelve spoken lessons (~92 min) via the device's text-to-speech
