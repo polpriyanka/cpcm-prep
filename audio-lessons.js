@@ -373,5 +373,51 @@ Finally, the risk-allocation clauses you actually negotiate. A limitation of lia
 Indemnification: one party agrees to defend and hold the other harmless against specified claims. Watch the duty to DEFEND separately from the duty to INDEMNIFY — the duty to defend triggers earlier, when a claim is merely asserted, before any liability is established. Defense costs start accruing immediately and can dwarf the eventual indemnity.
 
 And two quick ones. Severability means if one clause is struck, the rest of the contract survives. And a third-party beneficiary — someone who was INTENDED to benefit from a contract they aren't party to — may enforce it, while a merely incidental beneficiary may not. That distinction matters for flow-down clauses and subcontractor rights.`
+},
+  {
+  id: "struct",
+  title: "Solicitation Structure, Audits & Quality Systems",
+  minutes: 9,
+  script: `This lesson covers the plumbing of contracting — how a solicitation is built, how audits work, how quality systems work, plus quick foundations on business entities and electronic contracting. It sounds like administrative trivia. It isn't. This material generates clean, factual questions with unambiguous right answers, some of the most reliable scoring on the exam.
+
+Start with the Uniform Contract Format. Why does a standard structure exist at all? Because when every solicitation looks different, offerors miss requirements, evaluators lose track of terms, and disputes explode over where an obligation actually lives. A uniform format means anyone — buyer, seller, auditor, judge — can open the document and know exactly where to look.
+
+Walk the sections with me. Section A is the solicitation and contract form — the cover page. Section B is supplies or services and prices — the what and the how much. Section C is the statement of work. Section D is packaging and marking. Section E is inspection and acceptance — how the Government decides whether it got what it bought. Section F is deliveries or performance. Section G is contract administration data — who administers, who pays, how you invoice. Section H is special contract requirements, the negotiated one-off terms. Section I is the contract clauses. Section J is the list of attachments and exhibits. And then the three that exist only for the competition: Section K, representations and certifications; Section L, instructions to offerors; and Section M, evaluation factors for award.
+
+Now hammer the pair that actually gets tested. Section L tells offerors HOW to propose — page limits, volumes, format, what to submit and when. Section M tells offerors HOW they will be evaluated — the factors, the subfactors, and their relative importance. L is instructions. M is evaluation. Say it back, because the exam will drop you into a scenario and ask which section governs.
+
+And here's the trap. L and M must line up. If Section L demands a detailed staffing plan but Section M never lists staffing as an evaluation factor, you've asked for something you can't score. Worse — if the agency evaluates on a factor that Section M never disclosed and Section L never asked about, that is a classic sustained protest. Offerors are entitled to compete against the stated ground rules. Remember this one: unstated evaluation criteria are protestable, and an L-slash-M mismatch is one of the most common reasons agencies lose at the Government Accountability Office.
+
+One more structural point, tested quietly. Sections K, L, and M are solicitation-only. They do not survive into the awarded contract — when you sign, the contract is Sections A through J. So if a question asks what a contractor is bound to perform and an answer points at Section M, that answer is wrong on its face. Section M evaluated proposals; it never became an obligation.
+
+Which raises order of precedence. When parts of the contract conflict — and they do — there's a hierarchy. The schedule, Sections A through H, comes first, excluding specifications. Then representations and instructions. Then the contract clauses. Then other documents, exhibits, and attachments. And last, the specifications. So negotiated schedule terms beat boilerplate clauses, and clauses beat the technical spec. If a spec in an attachment contradicts a delivery term in the schedule, the schedule wins.
+
+Now audits. An audit is an independent examination of records — books, ledgers, timecards, rate calculations. There's a family of them, and each answers a different question.
+
+The preaward audit, also called a forward-pricing proposal audit, happens before you negotiate. It examines proposed costs and rates so the contracting officer knows whether the number in front of her is defensible. It's about the future.
+
+The incurred-cost audit happens after the fiscal year closes and looks backward at what was actually spent. It settles final indirect cost rates, and it is the chronic reason contracts sit open for years in closeout. You cannot finally price a cost-reimbursement contract until the year's rates are settled. If a question asks why closeout drags on cost-type work, the answer is final indirect rate settlement.
+
+The defective-pricing audit looks back at whether certified cost or pricing data was accurate, complete, and current as of the date of agreement on price. If it wasn't, and the Government relied on it, the price gets reduced.
+
+Floor checks are exactly what they sound like — an auditor walks the floor and verifies that labor timekeeping reflects reality. Labor is the easiest cost to mischarge, so it gets physically verified.
+
+Then C-A-S compliance and adequacy audits, covering the disclosure statement and consistent cost accounting practices. And the accounting system adequacy audit, which carries real consequences: an adequate accounting system is a precondition to being awarded cost-reimbursement work. Think about why. If the Government is going to pay your actual costs, it first has to believe your books. No credible books, no cost-type contract.
+
+Draw one clean line here. An audit examines records. Contract surveillance and quality assurance verify delivered performance. Different questions, different people, different evidence. Keep them apart.
+
+On to quality management systems, and the distinction the exam tests directly. Quality ASSURANCE is process-oriented. It builds quality into the process to PREVENT defects. Quality CONTROL is product-oriented. It inspects the output to DETECT defects that already exist. Assurance prevents, control detects.
+
+Then ISO nine thousand one. It certifies the management SYSTEM, not the product. A certified supplier can absolutely ship you a nonconforming item, and certification never relieves a contractor of its contractual conformance obligation. That is a genuinely tempting wrong answer, because "the supplier is ISO certified" sounds like a defense. It is not a defense. The contract defines conformance; the certificate only describes a system.
+
+A few more. Total Quality Management is an organization-wide, customer-focused commitment to continuous improvement. Six Sigma is a data-driven method for reducing defects and variation, structured as D-M-A-I-C — define, measure, analyze, improve, control. And Plan-Do-Check-Act is the basic improvement cycle underneath it.
+
+Now cost of quality, the economics that ties this together. Four buckets. Prevention costs — training, process design, planning. Appraisal costs — inspection, testing, audits. Internal failure costs — scrap and rework caught before it ships. And external failure costs — defects that reach the customer, meaning returns, warranty, recalls, and reputation. The key economics: prevention is the cheapest place to spend a dollar, and external failure is by far the most expensive. Cost rises the later a defect is caught. And notice what that means — that economics IS the argument for assurance over control.
+
+Briefly now, legal entity structures. A sole proprietorship has no liability shield at all — the owner is personally on the hook. A general partnership carries joint and several liability, so any one partner can be pursued for the whole debt. A limited liability company gives you a shield with pass-through taxation. And a corporation is a separate legal person, with shareholder liability limited to the amount invested — unless a court pierces the corporate veil, which happens where formalities were ignored or the form was used to defraud. Why does a contract manager care? Because entity form tells you who is actually bound, whose assets you can reach if things go wrong, and who has authority to sign.
+
+Finally, electronic contracting. Registration in the Government's central registration system is a precondition to award — no active registration, no contract. The exclusions list is where suspension and debarment actually bite, because that's what you check before awarding to anyone. Electronic signatures are not invalid merely because they are electronic. And contract writing and lifecycle management systems speed the work, but they never replace the contracting officer's judgment or the written contract itself. The system of record is evidence, not authority.
+
+To close, carry three things out of this lesson. First: Section L is how to propose, Section M is how you'll be evaluated, a mismatch between them is a sustained protest — and neither survives into the awarded contract. Second: an adequate accounting system is the price of admission to cost-reimbursement work, and the incurred-cost audit is why those contracts sit open in closeout. And third: assurance prevents, control detects, ISO certifies the system and not the product — and prevention is cheap while external failure is ruinous. That last one is the whole argument for building quality in rather than inspecting it in later.`
 }
 ];
