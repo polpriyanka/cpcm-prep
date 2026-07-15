@@ -96,6 +96,8 @@ Simplified acquisition procedures scale process to dollar value: fewer clauses, 
 
 Two more. An unsolicited proposal must be independently originated, innovative, and not a response to a known agency requirement — and it can support a sole-source award on its merits, while its proprietary data stays restricted to evaluation use. If an agency official invites an unsolicited proposal for a requirement it has already defined and budgeted, that's a disguised sole-source steer, and it fails the independent-origination test. And a commercial product determination unlocks streamlined procedures, market-based pricing with no certified cost or pricing data, and tailored commercial terms — which is exactly why parties fight over whether something is commercial.
 
+One topic that spans planning and evaluation: conflicts of interest. Organizational conflicts of interest come in a few flavors — unequal access to information, where a contractor got nonpublic information others didn't; impaired objectivity, where a contractor would be evaluating its own work; and biased ground rules, where a contractor helped write the requirement it now wants to bid. Organizational conflicts can sometimes be mitigated — a firewall, a disclosure, a limitation on future work. A personal conflict is stricter: an evaluator with a financial stake in an offeror doesn't get mitigated by disclosure, she gets recused. Disclosure is the trigger for action, not the remedy itself. Hiring a former government official is legal; using the competitively useful nonpublic information they carry is not.
+
 Finally, the best value continuum. Lowest price technically acceptable fits well-defined, low-risk, commodity-type buys where price should simply decide. The tradeoff process fits where paying more for better technical performance or lower risk is genuinely worth it. And know the L-P-T-A trap: under L-P-T-A you may not credit a superior technical approach as a discriminator. Acceptable is acceptable. If you want to pay for excellence, you had to say so in the solicitation.`
   },
   {
@@ -181,7 +183,7 @@ Closeout. The chain runs: physical completion, final invoice, final indirect rat
   {
     id: "ldr",
     title: "Leadership",
-    minutes: 6,
+    minutes: 8,
     script: `Leadership is only about six percent of the exam, but it's cheap to study and it's tested on judgment rather than vocabulary. Here's the pattern to internalize before anything else: the credited answer almost always builds durable capability, preserves credibility, or protects the relationship while still addressing the problem directly. The wrong answers are usually the forceful ones — reorganize first, reprimand publicly, escalate immediately, override the room.
 
 The model has a sequence, and the sequence itself is testable: vision, then communication, then influence, then ethical decision-making, then developing others. Establish and communicate a credible vision before you restructure, reassign, or raise targets. Give people a demoralized team after a lost recompete and ask what comes first — the answer is never reorganize and never raise the numbers. Structural moves without a narrative read as punishment, even when they aren't meant that way.
@@ -206,6 +208,8 @@ Motivation. For experienced professionals, the durable motivators are intrinsic:
 
 Emotional intelligence, operationally. It's not an ornament. It cashes out in reading the interests behind stated positions in negotiation and dispute resolution, de-escalating conflict before it becomes a claim, and sensing resistance early enough to address it. In a heated disagreement over scope interpretation, the strongest opening move is not the contract language and not the legal risk — it's paraphrasing the other side's position and the interest behind it until they confirm you've got it right. People argue hardest when they feel unheard.
 
+A few named techniques the exam expects you to recognize. Effective listening: paraphrase the other side's position, and the interest behind it, until they confirm you've got it right — people argue hardest when they feel unheard, so this is how you lower the temperature in a dispute. Customer relationship management: understand the customer's near-term and long-term requirements and manage expectations — but know the line between serving the customer and being captured by them. The contract manager who says yes to everything protects no one. Critical thinking: separate evidence from assumption, and test the premise of a request rather than swallowing it. A sole-source justification that assumes there are no alternatives is a premise to test, not a fact to accept. And defining team roles: use a responsibility assignment matrix — responsible, accountable, consulted, informed. The rule that gets tested is that exactly one person is accountable for any given deliverable. Two accountable people means nobody is.
+
 And SMART goals. Specific, measurable, achievable, relevant, time-bound. The reason SMART improves accountability is narrow and precise: measurability plus a deadline make it objectively determinable whether the goal was met, without argument. Ambition is not part of SMART — achievable cuts the other way.
 
 Finally, ethical climate. It's set by what leaders actually do when compliance is costly — especially what they tolerate and what they reward. People read behavior, not policy. A published code of conduct and a training completion rate are the weakest predictors of ethical conduct in an organization; tone at the top is the strongest.`
@@ -213,7 +217,7 @@ Finally, ethical climate. It's set by what leaders actually do when compliance i
   {
     id: "mgt",
     title: "Management",
-    minutes: 10,
+    minutes: 11,
     script: `Management is about eighteen percent of the exam and it's the most quantitative competency — business, financial, project, risk, and supply chain management applied to contracts. It's where experienced contract people most often feel shaky, so we'll go slowly.
 
 Earned value management first. Three base numbers. Planned value — what you expected to have earned by now. Earned value — what you've actually earned, meaning percent complete times the budget for that work. And actual cost — what you've spent. The most common error in the whole discipline is treating earned value as what you spent. It isn't. That's actual cost.
@@ -246,12 +250,12 @@ Decision tools. Break-even volume is fixed costs divided by contribution margin 
 
 Make-or-buy decisions should be driven by core competency, capacity, risk, and long-term supply position — alongside cost, not instead of it. Outsourcing your core technical differentiator to save eight percent is the classic wrong answer. And know the difference between sole source and single source: sole source means nobody else can do it, a market fact; single source means others could, but you chose one, a strategy. Single source has a fallback by definition. Sole source demands supplier-viability monitoring, because there is no plan B.
 
-Finally, elasticity, because it explains pricing power: when demand is inelastic — necessities, no substitutes — a price increase barely moves quantity, so revenue climbs. That's why sole-source suppliers of must-have items hold pricing power, and why buyers work so hard to create substitutes and competition. Making your own demand elastic is the whole game.`
+Two more from the business side. Marketing, from the seller's chair, comes down to the value proposition: the specific benefits this particular customer values, differentiated from competitors — not a recitation of everything your company can do. A capture strategy built on capabilities makes the customer do the work of figuring out why it matters; a value proposition does that work for them, and it's what a disciplined bid-or-no-bid decision hangs on. And elasticity, because it explains pricing power: when demand is inelastic — necessities, no substitutes — a price increase barely moves quantity, so revenue climbs. That's why sole-source suppliers of must-have items hold pricing power, and why buyers work so hard to create substitutes and competition. Making your own demand elastic is the whole game.`
   },
   {
     id: "learn",
     title: "Learn",
-    minutes: 7,
+    minutes: 8,
     script: `Learn is the smallest lifecycle competency — six to ten questions, about four percent — and it's the one candidates skip. That's exactly why it's worth your time: the ideas are few, the traps are gentle, and these are the cheapest points on the exam.
 
 Learn covers continuous improvement of the contract management function itself: lessons learned, knowledge management, performance measurement of the function, and professional development — individual and organizational.
@@ -282,7 +286,11 @@ Knowledge transfer deserves its own mention, because it's a favorite scenario. A
 
 Professional development, finally. Certification, continuing education, mentoring, publishing, instructing. The CMBOK treats contribution back to the profession as part of the competency itself — that's a deliberate design choice, and it's precisely why writing published articles and teaching earn continuing education credit. Roughly one CPE hour per hour of qualifying writing, once published, on CMBOK-related topics. It isn't a side benefit; it's treated as professional practice. And communities of practice — chapters, working groups, peer networks — matter for a substantive reason beyond the hours: your own organization sees one slice of the discipline, and a community aggregates hundreds of slices. That cross-pollination is the fastest correction available for institutional blind spots.
 
-One last framing tool that shows up: a SWOT analysis applied to your own contracting organization puts strengths and weaknesses on the inside and opportunities and threats on the outside. Strong supplier relationships are an internal asset — a strength — not an opportunity. Get the inside-outside axis right and those questions answer themselves.`
+One framing tool that shows up: a SWOT analysis applied to your own contracting organization puts strengths and weaknesses on the inside and opportunities and threats on the outside. Strong supplier relationships are an internal asset — a strength — not an opportunity. Get the inside-outside axis right and those questions answer themselves.
+
+And one last content area people dismiss, which is a mistake because the CMBOK names it explicitly: life balance. Treat it not as a personal nicety but as an organizational risk. Chronic overload and burnout degrade judgment, decision quality, and retention — a fatigued contract manager makes worse calls and eventually leaves, taking tacit knowledge with them. Sustainable workload and real boundaries are a capability issue, not a soft one. If a scenario frames burnout as a personal failing to push through, that's the wrong reading; the CMBOK frames it as something the organization is responsible for managing.
+
+And the last Learn content area: innovation. The CMBOK treats developing and implementing new approaches as part of the competency, and the tested idea is about conditions, not personality. Innovation surfaces where there's psychological safety, room for small pilots, and tolerance for intelligent failure — and it dies under process so risk-averse that trying anything new costs more than tolerating the status quo. Distinguish genuine innovation, which is a measurably better way to achieve the outcome, from novelty, which is just new for its own sake. The discriminator is always whether something actually got better, and by how much — not whether it was new.`
   },
   {
     id: "fed",

@@ -410,6 +410,41 @@ the contractor's historical base) as distinct from an IGCE. **Life-cycle cost** 
 **total ownership cost** look past acquisition price to operation, support, and
 disposal — the cheapest bid is routinely the most expensive system.
 
+## Electronic contracting tools
+
+Federal contracting runs on systems, and the exam expects you to know what they do —
+and what they don't.
+
+- **Central registration** (SAM.gov) — a contractor generally must be **registered to
+  be awarded**. The same system carries the **exclusions list**, which is where
+  suspension and debarment actually bite: an excluded firm shows up there and can't win.
+- **Electronic signatures** are valid — under E-SIGN and UETA, a signature is **not
+  invalid merely because it is electronic**. "It was signed electronically, so it's not
+  binding" is a wrong answer.
+- **Contract writing and contract lifecycle management (CLM) systems** speed drafting,
+  routing, and records — but the **system of record is evidence, not authority**. It
+  does not replace the contracting officer's judgment or the written contract.
+
+**⚠ Trap.** A system generating a document doesn't make the document authorized. If the
+person who ran the system lacked warrant authority, the tool didn't cure that — the
+authority question is separate from the paperwork.
+
+## Legal entity structures
+
+Entity form decides three things that matter to you: **who is actually bound**, **whose
+assets you can reach** if it goes wrong, and **who has authority to sign** for the party.
+
+| Form | Liability | Note |
+|---|---|---|
+| **Sole proprietorship** | Owner **personally liable** — no shield | The owner and the business are one |
+| **General partnership** | Partners **jointly and severally** liable | Any partner can bind the partnership |
+| **Limited liability company (LLC)** | Shield, with **pass-through taxation** | Members' personal assets protected |
+| **Corporation** | Separate legal person; shareholders liable **only to their investment** | The default assumption in large contracting |
+
+**⚠ Trap.** The corporate shield isn't absolute — a court may **pierce the corporate
+veil** where the owners ignored corporate formalities or used the entity to defraud,
+reaching personal assets. But that's the exception; the rule is limited liability.
+
 ---
 
 # 2B. Solicitation Structure & Contract Format
@@ -978,6 +1013,19 @@ Vision → communication → influence → ethical decision-making → developin
 restructuring, reassigning, or raising targets. Structural moves without a narrative
 read as punishment and destroy trust — the classic scenario gives you a demoralized
 team and asks what comes first. The answer is never "reorganize" or "raise targets."
+
+## Team development stages
+
+Teams mature through **forming, storming, norming, performing** (Tuckman). The exam
+tests the second stage: when a newly formed team moves past introductions into open
+friction over roles and approach, that's **storming** — a **normal, expected stage,
+not a failure.** The leader's job is to **facilitate agreement on working norms and
+decision rules**, not to suppress the conflict or reassign the loudest voices. Teams
+that never surface disagreement never reach *performing*.
+
+**⚠ Trap.** The wrong answers to a storming scenario are the forceful ones — reassign
+the dissenters, escalate to the program manager, wait for it to sort itself out. The
+credited move is to name the stage as normal and facilitate the norms.
 
 ## Influence without authority
 
