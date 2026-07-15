@@ -252,6 +252,55 @@
     .mh-title{font-size:23px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ---------- study guide reader ---------- */
+  .guide-toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px}
+  .guide-toc a{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.03em;
+    color:var(--blue);text-decoration:none;padding:7px 9px;border:1px solid var(--rule);
+    background:var(--surface-2);display:block;
+  }
+  .guide-toc a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .guide-toc a.hide{display:none}
+  .guide-body{
+    background:var(--surface);border:1px solid var(--rule);padding:26px 30px;
+    font-size:15px;line-height:1.62;color:var(--ink);
+  }
+  .guide-body .g-h1{
+    font-family:"IBM Plex Serif",Georgia,serif;font-size:22px;font-weight:700;
+    margin:38px 0 4px;padding-top:20px;border-top:2px solid var(--rule-hard);letter-spacing:-.01em;
+  }
+  .guide-body .g-h1:first-child{border-top:none;padding-top:0;margin-top:0}
+  .guide-body .g-h2{
+    font-family:"IBM Plex Serif",Georgia,serif;font-size:16.5px;font-weight:700;
+    margin:26px 0 8px;color:var(--ink);
+  }
+  .guide-body .g-h3{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);margin:20px 0 7px;font-weight:600;
+  }
+  .guide-body p{margin:0 0 13px}
+  .guide-body .g-lede{color:var(--muted);font-style:italic;font-size:14px}
+  .guide-body strong{font-weight:600;color:var(--ink)}
+  .guide-body code{
+    font-family:"IBM Plex Mono",monospace;font-size:.86em;background:var(--surface-2);
+    border:1px solid var(--rule);padding:1px 5px;
+  }
+  .guide-body .g-ul,.guide-body .g-ol{margin:0 0 14px;padding-left:22px}
+  .guide-body .g-ul li,.guide-body .g-ol li{margin-bottom:6px}
+  .guide-body .g-ul{list-style:none;padding-left:0}
+  .guide-body .g-ul li{position:relative;padding-left:18px}
+  .guide-body .g-ul li:before{content:"—";position:absolute;left:0;color:var(--blue);font-weight:600}
+  .g-tablewrap{overflow-x:auto;margin:0 0 16px}
+  .guide-body .g-table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .guide-body .g-table th{
+    text-align:left;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);font-weight:500;padding:8px 10px;
+    border-bottom:2px solid var(--rule-hard);background:var(--surface-2);
+  }
+  .guide-body .g-table td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+  #guide-search{max-width:340px}
+  @media (max-width:720px){ .guide-body{padding:18px 16px} }
 </style>
 </head>
 <body>
@@ -274,6 +323,7 @@
       <button class="tab" role="tab" aria-selected="false" data-view="drill">Drill</button>
       <button class="tab" role="tab" aria-selected="false" data-view="exam">Mock Exam</button>
       <button class="tab" role="tab" aria-selected="false" data-view="def">Deficiency Log</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="guide">Study Guide</button>
       <button class="tab" role="tab" aria-selected="false" data-view="audio">Audio Lessons</button>
       <button class="tab" role="tab" aria-selected="false" data-view="cpe">CPE Ledger</button>
       <button class="tab" role="tab" aria-selected="false" data-view="ref">Exam Facts</button>
@@ -308,7 +358,7 @@
           <div class="btnrow">
             <button class="btn" id="go-weak">Drill weakest domain</button>
             <button class="btn ghost" id="go-def">Clear deficiencies</button>
-            <a class="btn ghost" href="https://github.com/polpriyanka/cpcm-prep/blob/main/STUDY-GUIDE.md" target="_blank" rel="noopener">Study guide &#8599;</a>
+            <button class="btn ghost" id="go-guide">Open study guide</button>
           </div>
         </div>
         <div class="panel">
@@ -435,6 +485,23 @@
         <div id="def-reason-summary"></div>
       </div>
       <div id="def-cards"></div>
+    </section>
+
+    <!-- ============ STUDY GUIDE ============ -->
+    <section class="view" id="v-guide">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Study guide</h2>
+          <span class="ref">The written curriculum &middot; read here</span>
+        </div>
+        <p class="lede">The full CPCM curriculum — all seven competencies, the framework, protests, financing, commercial law, and the cross-cutting statutes. Jump to a section, or read straight through.</p>
+        <input id="guide-search" type="search" placeholder="Filter sections…" style="margin-bottom:14px" autocomplete="off">
+        <nav id="guide-toc" class="guide-toc" aria-label="Study guide sections"></nav>
+      </div>
+      <article id="guide-body" class="guide-body"></article>
+      <div class="btnrow" style="margin-top:14px">
+        <button class="btn ghost sm" id="guide-top">&uarr; Back to top</button>
+      </div>
     </section>
 
     <!-- ============ AUDIO LESSONS ============ -->
@@ -576,6 +643,7 @@
   </div>
 </div>
 
+<script src="study-guide.js"></script>
 <script src="audio-lessons.js"></script>
 <script>
 (function(){
@@ -4299,6 +4367,36 @@
     document.querySelectorAll(".tab").forEach(function(t){
       t.setAttribute("aria-selected", t.dataset.view===view ? "true":"false");
     });
+    if(view === "guide") renderGuide();
+  }
+
+  /* ============================================================
+     STUDY GUIDE READER — renders study-guide.js (generated from
+     STUDY-GUIDE.md) with a jump-to-section table of contents.
+     ============================================================ */
+  var guideRendered = false;
+  function renderGuide(){
+    if(guideRendered) return;
+    var body = document.getElementById("guide-body");
+    var toc = document.getElementById("guide-toc");
+    if(typeof window.STUDY_GUIDE_HTML === "undefined"){
+      body.innerHTML = '<p class="g-lede">Study guide could not be loaded.</p>';
+      return;
+    }
+    body.innerHTML = window.STUDY_GUIDE_HTML;
+    (window.STUDY_GUIDE_TOC || []).forEach(function(s){
+      var a = document.createElement("a");
+      a.href = "#" + s.id;
+      a.textContent = s.title;
+      a.dataset.title = s.title.toLowerCase();
+      a.onclick = function(e){
+        e.preventDefault();
+        var t = document.getElementById(s.id);
+        if(t) t.scrollIntoView({behavior:"smooth", block:"start"});
+      };
+      toc.appendChild(a);
+    });
+    guideRendered = true;
   }
 
   /* ============================================================
@@ -4307,6 +4405,18 @@
   document.querySelectorAll(".tab").forEach(function(t){
     t.onclick = function(){ show(t.dataset.view); };
   });
+
+  /* study-guide TOC filter + back-to-top */
+  document.getElementById("guide-search").oninput = function(){
+    var q = this.value.trim().toLowerCase();
+    document.querySelectorAll("#guide-toc a").forEach(function(a){
+      a.classList.toggle("hide", q !== "" && a.dataset.title.indexOf(q) === -1);
+    });
+  };
+  document.getElementById("guide-top").onclick = function(){
+    document.getElementById("v-guide").scrollIntoView({behavior:"smooth", block:"start"});
+  };
+  document.getElementById("go-guide").onclick = function(){ show("guide"); };
 
   document.getElementById("shuffle").onclick = shuffle;
   document.getElementById("unseen").onclick = function(){
