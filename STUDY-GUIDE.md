@@ -412,6 +412,71 @@ disposal — the cheapest bid is routinely the most expensive system.
 
 ---
 
+# 2B. Solicitation Structure & Contract Format
+
+*The Uniform Contract Format is free points. It is pure recall, it is tested directly, and candidates lose it because it looks too clerical to study.*
+
+## The Uniform Contract Format
+
+The UCF organizes a negotiated solicitation and the resulting contract into **four parts and thirteen sections, A through M**. Learn the letters cold — questions name a section and ask what belongs in it, or describe a piece of content and ask where it goes.
+
+| Part | Section | Contains |
+|---|---|---|
+| **I — The Schedule** | **A** | Solicitation/contract form — the cover sheet (SF 33 / SF 1449 family) |
+| | **B** | Supplies or services and prices/costs — the **CLIN structure** |
+| | **C** | Description, specifications, statement of work — *what you're buying* |
+| | **D** | Packaging and marking |
+| | **E** | Inspection and acceptance |
+| | **F** | Deliveries or performance — schedule, place, period of performance |
+| | **G** | Contract administration data — payment office, accounting/appropriation data, CO/COR designations |
+| | **H** | Special contract requirements — the negotiated, contract-specific terms that aren't standard clauses |
+| **II — Contract Clauses** | **I** | Contract clauses — the FAR/agency clause set, incorporated full-text or by reference |
+| **III — Documents, Exhibits, Attachments** | **J** | List of attachments — exhibits, CDRLs, drawings, wage determinations |
+| **IV — Representations and Instructions** | **K** | Representations, certifications, and other statements of offerors |
+| | **L** | Instructions, conditions, and notices to offerors |
+| | **M** | Evaluation factors for award |
+
+Two structural facts do most of the work on the exam:
+
+**Part I is the deal.** Sections A–H are what the parties actually agreed to buy, at what price, delivered when, inspected how. If a question asks where a *negotiated, contract-specific* term lives — a special security requirement, an organizational conflict of interest mitigation clause, a key personnel provision — the answer is **Section H**, not Section I. Section I holds the **standard** clauses; Section H holds the **special** ones. That pair is a favorite.
+
+**Part IV is the competition, and it does not survive award.** Sections **K, L, and M are solicitation-only**. They govern how offerors respond and how the Government chooses. Once award is made, they fall away — the awarded contract carries Sections A through J. (Certifications made in K are *incorporated by reference* and remain binding as representations; the *section* still isn't part of the contract's operative terms. Don't let that nuance talk you out of the rule.)
+
+## Section L vs. Section M — the distinction the exam is actually built on
+
+Burn this in:
+
+> **Section L tells offerors HOW to propose. Section M tells them HOW they will be evaluated.**
+
+L is mechanics and content: page limits, volume structure, format, due date, what information to submit, in what order. M is the decision rule: the evaluation factors and subfactors, their **relative importance**, and the basis for award (LPTA, tradeoff, or a hybrid).
+
+They must line up. An **L/M mismatch** is a classic sustained-protest ground, and it runs in both directions:
+
+- **L asks for something M never evaluates.** You demanded a 30-page management approach volume and then never scored management approach. You imposed cost on offerors for nothing, and — worse — an offeror who invested there was misled about where the points were.
+- **M evaluates something L never asked for.** You scored offerors on a transition plan the solicitation never requested. Now you're penalizing offerors for omitting a document they were never told to submit. That protest sustains, and it should.
+
+The rule underneath both: **the Government must evaluate against the stated criteria, and offerors must be told what the criteria are.** L and M are the two halves of that promise. When a scenario describes an evaluation team crediting a proposal for something the RFP didn't request, or a source selection ignoring a factor that consumed half the proposal, you are looking at an L/M defect — name it.
+
+## Order of precedence when sections conflict
+
+Contracts contradict themselves. The **Order of Precedence clause** resolves it, and the ranking is testable:
+
+1. The **Schedule** (Sections A–H), excluding the specifications
+2. **Representations and other instructions** (Part IV)
+3. **Contract clauses** (Section I)
+4. **Other documents, exhibits, and attachments** (Section J)
+5. **The specifications** (Section C)
+
+Read the shape rather than memorizing it as trivia: **the negotiated, deal-specific terms beat the boilerplate, and the boilerplate beats the attachments and specs.** The specifications sit *last* — which surprises people, because the spec feels like the most substantive document in the file. It isn't. If the Schedule says one delivery date and the spec says another, the Schedule wins.
+
+The clause is the contract's own tiebreaker, and it runs before you reach any interpretation doctrine. Four corners, then order of precedence, then contra proferentem — in that order.
+
+**⚠ Trap.** Two related instincts, both wrong. First: "the technical specification controls because it's the most detailed document." No — under the standard Order of Precedence clause, the specs rank **last**, below the Schedule and the clauses. Detail is not authority. Second: "Section L, since it's in the solicitation the contractor responded to, is part of the contract." No — **L and M are solicitation-only**, and a contractor arguing that its proposal or the RFP's instructions modified the awarded contract is making a losing argument. What binds is what's in the contract, and the proposal is only incorporated if the contract says it is.
+
+---
+
+---
+
 # 3. Award
 
 *Evaluation, negotiation, and the decision itself.*
@@ -752,6 +817,62 @@ prescribed by contract type; the chronic delay driver is unsettled rates, not pa
 
 ---
 
+## Quality management principles
+
+QASP and inspection clauses are the *contract mechanics* of quality. Above them sits a body of quality management theory the exam tests on its own terms.
+
+### Quality assurance vs. quality control
+
+This distinction gets tested directly and is worth reading twice.
+
+| | **Quality Assurance (QA)** | **Quality Control (QC)** |
+|---|---|---|
+| **Orientation** | **Process** | **Product** |
+| **Goal** | **Prevent** defects | **Detect** defects |
+| **Question** | Is the process capable of producing conforming output? | Does *this* output conform? |
+| **Timing** | Throughout — build quality in | At the end — inspect quality in |
+| **Typical activities** | Process design, audits, training, procedures, capability studies | Inspection, testing, sampling, measurement |
+
+**QA builds it in. QC catches what got out.** If a scenario describes a supplier improving its production process so defects stop occurring, that is **assurance**. If it describes a supplier inspecting finished units and pulling the bad ones, that is **control**. Both are legitimate; only one of them is cheap.
+
+### ISO 9001
+
+ISO 9001 is a **quality management system (QMS) standard**. It certifies that an organization has a documented, followed, and continually improved **process** — customer focus, leadership commitment, process approach, evidence-based decisions, continual improvement.
+
+What it does **not** do:
+
+- It does **not** certify the **product**. It certifies the **system**.
+- A certified supplier can — and does — deliver a **nonconforming item**. Certification says the process is defined and followed, not that every unit meets your spec.
+- Certification **never relieves the contractual conformance obligation.** The contract's inspection and acceptance terms bind regardless. "The supplier is ISO 9001 certified, so incoming inspection is unnecessary" is wrong on the exam and expensive in life.
+
+Certification is *evidence supporting confidence in the process* — a legitimate input to responsibility determinations and source selection. It is not a substitute for acceptance.
+
+### The improvement frameworks
+
+- **TQM (Total Quality Management)** — an organization-wide philosophy: customer focus, continuous improvement, and **everyone owns quality**, not just a quality department. Its central claim is cultural, and its named failure mode is a TQM program owned by the quality office and ignored by everyone else.
+- **Six Sigma** — a **data-driven defect-reduction** methodology, aimed at reducing process **variation**. Its improvement cycle is **DMAIC**: **Define, Measure, Analyze, Improve, Control.** The Control phase is the one candidates forget, and it's the one that makes the gain permanent rather than temporary.
+- **PDCA (Plan-Do-Check-Act)**, the Deming/Shewhart cycle — the general continuous-improvement loop. **Plan** the change, **Do** it on a small scale, **Check** the result against what you expected, **Act** to standardize it (or discard it and re-plan). It is a **cycle**, not a project: the output of Act is the input to the next Plan. That iterative property is the tested feature.
+
+### Cost of quality
+
+Four categories, two families. This is the economics that makes the whole argument.
+
+| Family | Category | What it buys |
+|---|---|---|
+| **Cost of conformance** | **Prevention** | Stopping defects from being created — training, process design, supplier development, robust design |
+| | **Appraisal** | Finding defects before they ship — inspection, testing, audits |
+| **Cost of nonconformance** | **Internal failure** | Defects caught **before** the customer sees them — scrap, rework, re-test, downtime |
+| | **External failure** | Defects that **reach the customer** — warranty claims, returns, recalls, corrective action, liability, lost past-performance rating, lost future business |
+
+The cost escalates by roughly an order of magnitude at each step, and the ranking is the tested fact: **prevention is cheapest; external failure is by far the most expensive.** An external failure doesn't just cost you the part — it costs you the rework, the shipping, the investigation, the customer's downtime, the CPARS rating that follows you into every future competition, and the business you never learn you didn't win.
+
+**That economics is the entire argument for QA over QC.** Inspection (appraisal) finds the defect after you've already paid to build it. Prevention stops you from building it. An organization that responds to a quality problem by *adding more inspectors* has chosen to pay more to find the same defects — it has invested in appraisal instead of prevention, and its cost of quality goes up, not down.
+
+**⚠ Trap.** The instinctive answer to a rising defect rate is **"increase inspection."** That is the wrong answer, and the exam knows it's your first instinct. More inspection is more **appraisal cost** — it detects defects that are still being produced, and it does nothing to stop them being produced. The credited answer investigates and corrects the **process** (prevention — root cause analysis, process capability, supplier corrective action). Inspection is how you find out you have a problem. It is not how you fix it.
+
+---
+
+
 # 4B. Financing, Payment & Contract Mechanics
 
 *The bank tests these heavily now; this is the teaching layer for them.*
@@ -921,6 +1042,82 @@ relationship while still addressing the problem directly.
 
 ---
 
+## Effective listening
+
+Listening is a named CMBOK technique, not a courtesy. The operational form is **paraphrasing until the other side confirms you've got it** — restating their position *and the interest behind it* in your own words, and asking whether you have it right. You do not move on until they say yes.
+
+Two things this buys you, and both are tested:
+
+- It **surfaces the interest under the position.** "We need delivery by March" is a position. Restating it and asking why produces "our fiscal year closes in March and unobligated funds expire" — which is an interest, and interests are negotiable in ways positions aren't. You cannot trade against a position; you can trade against an interest.
+- It **de-escalates.** People argue hardest when they feel unheard. A stakeholder who repeats the same objection at rising volume across three meetings is usually not being stubborn — they're being ignored, and repetition is what being ignored sounds like. Demonstrated understanding, offered before disagreement, is what stops the loop.
+
+Note the sequence: **understanding is not agreement.** You can paraphrase someone's position accurately, confirm you've got it, and then decline it. That is the professional move. Skipping the paraphrase to get to the decline faster is what turns a decision into a grievance.
+
+## Customer relationship management
+
+The contract manager's job is to understand the customer's **near-term and long-term requirements** and to **manage expectations** actively — which means telling the customer what they can and cannot have, early, rather than discovering it together at the delivery date.
+
+The tested tension is the line between **serving** the customer and being **captured** by them:
+
+- Serving the customer means understanding the requirement behind the request, finding the compliant path to it, and saying so plainly when there isn't one.
+- Being captured means saying yes to everything — accepting scope that isn't funded, agreeing to dates that can't be met, letting a technical lead direct work outside the contract because pushing back feels unhelpful.
+
+**The contract manager who says yes to everything protects no one.** Not the customer, who learns too late that the commitment was never real; not the company, which absorbs the cost; not the relationship, which survives an early "no" far better than it survives a late failure. A reputation for accurate commitments is worth more than a reputation for agreeableness, and it is the only reputation that compounds.
+
+Managing expectations is therefore not a communications task appended to the work. It is the work.
+
+## Networking and communities of practice
+
+Your organization sees **one slice** of the discipline — its own contracts, its own agency or market, its own habits, and its own accumulated workarounds, which it experiences as "how things are done." A **community of practice** aggregates hundreds of those slices.
+
+That is the entire mechanism, and it is why the CMBOK names it: **a community of practice is the fastest available correction for institutional blind spots.** An organization cannot see its own idiosyncrasies from the inside, because from the inside they look like the field. Practitioner networks — NCMA chapters, working groups, professional forums, cross-agency exchanges — are how you find out that the thing your organization has always done is neither required nor common.
+
+Practical form: participation is reciprocal. A network you only draw from is a directory. The CMBOK treats **contribution back to the profession** — presenting, mentoring, writing, serving — as part of the competency itself, not as a bonus.
+
+## Succession planning
+
+Identify the **critical roles**, identify who could fill them, and **build the bench before the departure** — not after it.
+
+The framing the exam wants:
+
+> **A critical role with no identified successor is an organizational risk, not a personal one.**
+
+It belongs on the risk register with an owner and a date, exactly like a single-source supplier — which is what it is. The person is not the problem; the **dependency** is. This reframing is what moves succession planning out of the "nice to have when things are calm" category and into the risk-management discipline where it belongs, and it converts the question from "is she planning to leave?" (unanswerable, and awkward) into "what happens if she does?" (answerable, and actionable).
+
+**Tacit knowledge is the hard part.** The explicit knowledge — the files, the procedures, the clause library — transfers by documentation. The tacit knowledge doesn't: which supplier's schedule commitments are real, which stakeholder needs a heads-up before a meeting rather than during it, why the previous approach failed in a way the file never records. That transfers by **pairing on live work over time** and by **warm handoffs of relationships** — the successor introduced, in person, by the incumbent, while the incumbent is still there to vouch for them.
+
+It does **not** transfer in an exit interview or a two-week overlap. A departure plan whose knowledge-transfer step is "documentation and a handover meeting" has captured the part that was already written down and lost the part that mattered.
+
+## Critical thinking and decision-making
+
+The named discipline, and its components:
+
+- **Separate evidence from assumption.** Most bad decisions are made on well-organized assumptions that were never labeled as such. Ask what would have to be true, then ask how you know it is.
+- **Test the premise of the request.** This is the one the exam reaches for. A **sole-source justification that asserts no alternative sources exist** is a **premise to test, not a fact to accept** — the program office believes it, and often sincerely, but "we don't know of an alternative" and "no alternative exists" are different claims, and market research is how you tell them apart. The same applies to an "urgent and compelling" urgency created entirely by the requester's own late planning. The contract manager's professional value lies precisely in asking the question everyone else has stopped asking.
+- **Watch confirmation bias.** You will weigh evidence supporting your existing view more heavily than evidence against it, and you will not notice yourself doing it. The countermeasures are structural, not attitudinal: seek the disconfirming case deliberately, assign someone to argue the other side, run a pre-mortem.
+- **Know the decision mode.** Decide alone when speed matters and you hold the facts and the authority. **Consult** when others hold information or must own the outcome. **Delegate** when the decision develops someone and the stakes are recoverable. Consulting on everything is not inclusive; it's abdication with extra meetings. Deciding everything alone doesn't scale and starves your people of judgment.
+- **An unmade decision has a cost.** It is **usually invisible and always real** — the schedule slips while you gather one more data point, options close, the team stalls, and the choice eventually gets made by default when the last alternative expires. Deferral feels prudent because its costs don't appear in any variance report. It is still a decision, and it is frequently the worst one available.
+
+## Defining team roles and responsibilities
+
+The instrument is a **responsibility assignment matrix**, most commonly **RACI**:
+
+| Letter | Role | Rule |
+|---|---|---|
+| **R — Responsible** | Does the work | Can be several people |
+| **A — Accountable** | Owns the outcome; the decision and the answer stop here | **Exactly one person. Always.** |
+| **C — Consulted** | Provides input before the decision; two-way | Keep the list short — every C is a delay |
+| **I — Informed** | Told after the decision; one-way | Cheap; over-informing costs attention |
+
+The single testable rule: **exactly one person is accountable for any given deliverable.** Not zero, and — the failure mode that actually happens — not two.
+
+**Two accountable people means nobody is.** When two names sit in the A column, each will reasonably assume the other has it, and the deliverable fails in the gap between them; and when it fails, each has a complete and honest account of why it wasn't theirs. Shared accountability is not double coverage. It is a coverage gap with two people standing next to it.
+
+Multiple people can be **Responsible** for doing the work. Exactly one is **Accountable** for whether it got done.
+
+---
+
+
 # 6. Management
 
 *Business, project, and financial management applied to contracts.*
@@ -1042,6 +1239,131 @@ competency.
 
 ---
 
+## Reading financial statements
+
+You will be asked to judge a supplier's health, and the exam expects you to know which statement answers which question.
+
+| Statement | Answers | Time frame |
+|---|---|---|
+| **Balance sheet** | What does the firm **own and owe** right now? Assets = liabilities + equity | A **point in time** — a snapshot |
+| **Income statement** (P&L) | Did the firm make money? Revenue − expenses = net income | A **period** — a movie |
+| **Statement of cash flows** | Where did cash actually come from and go? Operating / investing / financing | A **period** |
+
+The balance sheet is where you assess whether a supplier can **pay its bills next month**. Compare **current assets** (cash, receivables, inventory — convertible to cash within a year) against **current liabilities** (payables, short-term debt — due within a year). That ratio is the **current ratio**, and it is the standard first read on **liquidity**. Below 1.0 means the firm's near-term obligations exceed the resources available to meet them.
+
+**⚠ Trap.** *A firm can be profitable and still go under.* Profit is an accounting result on the income statement; liquidity is a cash question on the balance sheet. A supplier booking record revenue on 120-day payment terms, while payroll runs every two weeks, is profitable and insolvent at the same time — and it is the profitable-but-illiquid supplier that surprises people, because the income statement looks fine right up to the day the firm can't make payroll. When a question hands you strong net income and a current ratio under 1.0, the credited answer is the **liquidity risk**, not the profitability comfort. Profit does not pay vendors. Cash does.
+
+## GAAP and accrual accounting
+
+**GAAP** is the common ruleset that makes one firm's statements comparable to another's. The mechanic it turns on is **accrual accounting**, and the exam tests the definition directly:
+
+- **Revenue is recognized when it is EARNED** — when the performance obligation is satisfied — **not when the cash arrives.**
+- **Expenses are matched to the period** in which they helped generate that revenue (the **matching principle**), not to the period the check cleared.
+- **Depreciation** allocates the cost of a long-lived asset across its **useful life**. It is a **cost allocation**, not a valuation of the asset and not a fund set aside to replace it.
+
+The contrast is **cash-basis** accounting, which records only when money moves. Accrual gives the truer picture of performance; cash-basis gives the truer picture of the bank balance. That's exactly why you read both statements.
+
+**⚠ Trap.** Depreciation questions are written to catch two wrong instincts: that depreciation tells you what the asset is *worth* (it doesn't — book value is not market value), and that depreciation is *money being saved* toward replacement (it isn't — no cash moves; it is a non-cash expense). Depreciation spreads a cost you already incurred. Nothing more.
+
+## Principles of budgeting
+
+- **Baseline** — the approved plan of record, against which everything is measured. A budget with no baseline cannot produce a variance, and therefore cannot be managed.
+- **Variance** — actual minus baseline. The number is the beginning of the analysis, not the end: an unfavorable variance driven by an approved scope increase is not the same problem as one driven by overruns, and treating them identically is how organizations "manage" a budget while learning nothing.
+- **Incremental budgeting** — start from last year's number and adjust. Fast, cheap, politically easy, and it **carries forward every embedded inefficiency** because nothing is ever re-justified.
+- **Zero-based budgeting** — every line starts at zero and must be justified from scratch each cycle. Rigorous, and expensive in effort — which is why organizations say they do it and mostly don't.
+
+The tradeoff is the tested point: incremental is efficient and perpetuates waste; zero-based surfaces waste and consumes real management capacity. Neither is universally correct.
+
+## Economics you actually need
+
+**Supply and demand.** Price is where the two curves meet. Demand rises as price falls; supply rises as price rises. Anything that shifts a curve — a new entrant, a tariff, a raw-material shock, a surge in Government demand — moves the equilibrium price. When your own agency's buy is large enough to shift the demand curve, you are a price-maker, and consolidating requirements is how you use that.
+
+**Price elasticity of demand** is the concept the question bank actually reaches for. Elasticity measures how much quantity demanded moves when price moves.
+
+| | **Elastic demand** | **Inelastic demand** |
+|---|---|---|
+| **Quantity response to a price increase** | Large — buyers walk | Small — buyers stay |
+| **Effect of a price increase on total revenue** | Revenue **falls** | Revenue **rises** |
+| **Typical of** | Commodities with substitutes | Must-have items with no substitute |
+| **Who holds power** | Buyer | **Seller** |
+
+The chain to hold onto: **inelastic demand means a price increase barely moves quantity, so the seller's total revenue goes up.** That is precisely why the **sole-source supplier of a must-have item holds pricing power** — it faces inelastic demand and knows it. And it is why the buyer's structural answer is not tougher negotiation but **creating substitutes**: qualifying a second source, funding an alternate design, buying the technical data package, breaking out a component. Elasticity is not a fixed property of the item; it is a property of the buyer's *options*. Change the options and you change the elasticity — and only then does the price move.
+
+## Marketing and capture
+
+Sellers on the exam are tested on whether they understand the difference between **talking about themselves** and **talking about the customer**.
+
+- A **value proposition** is the specific set of benefits **this customer** values, delivered by **you**, **differentiated from competitors**, and stated in the customer's terms. Three components: the benefit, the customer's valuation of it, and the differentiator.
+- A **capabilities recitation** — years in business, headcount, certifications, past clients — is not a value proposition. It's a résumé. Every competitor has one, and it tells the customer nothing about why this particular need is better met by you.
+- **Capture strategy** is the pre-RFP work: understanding the customer's real requirement and hot buttons, shaping the requirement where legitimate, positioning the team, selecting partners, and building the win themes *before* the solicitation drops. Capture happens in the pre-award phase; proposal writing is downstream of it. A capture effort that begins when the RFP is released has already lost.
+- The **bid/no-bid decision** is a disciplined gate, weighing probability of win, strategic fit, capability match, incumbent strength, competitive landscape, resources required, and the cost of bidding against the value of winning. **No-bid is a legitimate, often correct answer** — proposal costs are real, B&P money is finite, and bidding everything is how a firm wins nothing well.
+
+**⚠ Trap.** The credited answer on capture questions is almost never "emphasize our extensive experience and qualifications." It is the option that **ties a specific benefit to the customer's stated need and shows why the competitor can't match it.** Experience is table stakes; differentiation is the proposition.
+
+## Financial decision tools
+
+These get computed and compared. Know the formula *and* know what each tool ignores.
+
+**Break-even.**
+
+```
+Break-even (units) = Fixed Costs ÷ Contribution Margin per Unit
+where Contribution Margin per Unit = Price per Unit − Variable Cost per Unit
+```
+
+*Worked.* Fixed costs $200,000. Price $50/unit. Variable cost $30/unit. Contribution margin = $20. Break-even = 200,000 ÷ 20 = **10,000 units.** Below that you lose money; above it, every unit contributes $20 of profit. The common error is dividing fixed costs by *price* instead of by *contribution margin* — that ignores the variable cost of making each unit and gives you a break-even that is far too optimistic.
+
+**Return on investment.**
+
+```
+ROI = Net Gain ÷ Cost of Investment
+where Net Gain = Total Return − Cost
+```
+
+Spend $100,000, receive $130,000 back. Net gain is **$30,000**, so ROI is 30% — **not** 130%. ROI is computed on the **net** gain, not the **gross** return. That specific miscalculation is a written distractor.
+
+**NPV vs. payback period.**
+
+| | **Net Present Value** | **Simple payback period** |
+|---|---|---|
+| **Asks** | What are all future cash flows worth in today's dollars, net of the investment? | How long until I recover my initial outlay? |
+| **Discounts for time value of money?** | **Yes** | **No** |
+| **Looks at cash flows after recovery?** | **Yes — the full life** | **No — ignores everything after payback** |
+| **Decision rule** | Positive NPV = accept | Shorter payback = better |
+| **Strength** | Rigorous, full-life, comparable | Simple, fast, a rough liquidity/risk read |
+
+Payback is a screening heuristic. It systematically favors the option that returns cash fastest and is **blind to everything that happens after the recovery point** — which means it will happily reject a project that pays back in year 4 and then generates value for fifteen years, in favor of one that pays back in year 2 and then dies. When a question puts NPV against payback, **NPV is the more complete analysis**, because it discounts all cash flows across the full life.
+
+**Sunk cost.** Money already spent and unrecoverable. It is **irrelevant to the go-forward decision** — the only question that matters is whether the *remaining* cost is justified by the *remaining* benefit. "We've already invested $2 million, we can't stop now" is the **sunk cost fallacy**, and it is precisely how a failing program consumes its third million. The $2 million is gone in both branches of the decision; it cannot distinguish between them, so it must not enter the comparison.
+
+**Life-cycle cost / total ownership cost.** The full cost of an asset across acquisition, operation, maintenance, support, and **disposal** — not the sticker price. Acquisition price is routinely a minority of total ownership cost, which is why **the cheapest bid is regularly the most expensive thing you can buy.** A low-priced system with proprietary consumables, high energy draw, an aggressive maintenance schedule, and an expensive disposal profile beats its competitors on Day 1 and loses to them by year three.
+
+**⚠ Trap.** Two of these are the exam's favorite pair, and they point in opposite directions. **Sunk cost says: ignore what you've already spent.** **Life-cycle cost says: count what you haven't spent yet.** Backward-looking money is irrelevant; forward-looking money is decisive. Candidates who compress these into "consider all costs" get both questions wrong.
+
+## Types of audits
+
+An audit is an **independent examination of records** to verify accuracy and compliance. In federal contracting the DoD's auditor is **DCAA**, and the audit family is testable by name and purpose.
+
+| Audit | What it examines | Why it matters |
+|---|---|---|
+| **Preaward / forward-pricing proposal audit** | A *proposed* cost estimate before negotiation | Gives the CO an independent read on proposed rates, hours, and factors. Advisory — the CO, not the auditor, decides. |
+| **Incurred-cost audit** | *Actual* costs claimed after the fact | **Settles final indirect cost rates.** The chronic closeout bottleneck. |
+| **Defective pricing audit** | Whether certified cost or pricing data was accurate, complete, and current at the date of agreement | Supports a Government **price reduction** claim. Only possible where certification was required. |
+| **Floor check** | **Labor timekeeping** — unannounced, on-site, verifying employees are where the charges say they are | Labor is the biggest cost element and the easiest to mischarge. |
+| **CAS compliance / adequacy audit** | Whether the disclosed practices comply with Cost Accounting Standards, and whether the disclosure statement is adequate | Consistency, not the labels themselves. |
+| **Accounting system audit** | Whether the contractor's accounting system can properly segregate, accumulate, and report costs | **A precondition to award of cost-reimbursement work.** No adequate system, no cost-type contract. |
+
+Two facts to hold:
+
+**The accounting-system adequacy determination is a gate, not a formality.** You cannot pay a contractor its actual costs if its books can't tell you what its actual costs were. This is why "the contractor's accounting system has not been determined adequate" is a *disqualifying* fact in a cost-reimbursement scenario — and irrelevant in an FFP one, where the Government pays a price regardless of the contractor's costs.
+
+**Audit ≠ surveillance.** An **audit** is an independent examination of **records** — books, timecards, rate structures — performed by an independent auditor. **Contract surveillance / quality assurance** verifies **delivered performance** against the contract's requirements — inspection, QASP monitoring, acceptance. One looks at the accounting; the other looks at the work. When a scenario describes a Government representative verifying that a service met the standards in the PWS, that is **surveillance**, not an audit — and when it describes an examination of the contractor's indirect rate pools, it is an **audit**, not surveillance.
+
+**⚠ Trap.** *The auditor does not decide.* DCAA issues findings and questions costs; the **contracting officer** determines allowability and negotiates the settlement. An audit report is a recommendation with expert weight, not an adjudication. Answer choices in which "the auditor disallows the cost" or "the auditor's determination is final" are structurally wrong for the same reason the COR can't change the contract — **the authority runs through the CO.**
+
+---
+
+
 # 7. Learn
 
 *Up to 10 questions. The competency people skip — and the easiest points on the exam,
@@ -1119,6 +1441,61 @@ volume as success, treating RCA as a disciplinary tool, and confusing contract-l
 with function-level measurement.
 
 ---
+
+## Career planning and development
+
+The instrument is an **individual development plan (IDP)**, and the exam tests whether you know how it is *built*:
+
+1. **Assess yourself against a competency standard.** Not against your peers, not against your last performance review — against a defined model of what the profession requires. **The CMBOK is exactly that standard**, which is why the credential and the development plan share a spine.
+2. **Identify the gaps** between where you are and what the standard requires — for your **current role** *and* the **role you're targeting next**. Both, deliberately. A plan built only for the current job produces someone excellent and stuck.
+3. **Target development at the gaps that matter.** Not at every gap — at the ones that are load-bearing for those two roles.
+4. **Make it measurable, and review it.** Development goals are goals: SMART, dated, and revisited, or they're aspirations.
+
+**⚠ Trap.** A development plan assembled from **the training catalog's popular courses** is **training by coincidence** — activity selected by availability rather than by need. It will show excellent completion statistics and close no gaps, because nothing in its construction ever asked what the gaps were. The same defect appears one level up as **generic organizational training bought after a skills-gap analysis identified specific gaps** — measuring the gap and then buying the off-the-shelf course anyway defeats the purpose of measuring. **The gap analysis must drive the development spend.** If it doesn't, you have a document, not a plan.
+
+## SWOT analysis
+
+Four quadrants, and the **only** thing the exam tests is whether you can put things in the right ones.
+
+| | **Helpful** | **Harmful** |
+|---|---|---|
+| **INTERNAL** (you control it) | **Strengths** | **Weaknesses** |
+| **EXTERNAL** (you don't) | **Opportunities** | **Threats** |
+
+The axis is the answer. **Strengths and weaknesses are INTERNAL** — your capabilities, your people, your past performance, your processes, your cost structure, your relationships. **Opportunities and threats are EXTERNAL** — the market, the competition, the budget environment, regulatory change, technology shifts, an incumbent's stumble.
+
+**⚠ Trap.** **Strong supplier relationships are an internal STRENGTH, not an opportunity.** They are a capability you own and control. The mislabeling happens because the relationships are *with outside parties*, and the word "external" attaches to the counterparty rather than to the asset — but the asset is yours. Same logic in the other direction: a new agency initiative that creates demand for what you do is an **opportunity**, not a strength — you don't control it, and it can vanish without you doing anything wrong.
+
+Ask one question of every item: **is this something I have, or something that is happening to me?** Have it → internal (S/W). Happening to me → external (O/T). Get the inside/outside axis right and these questions answer themselves.
+
+## Life balance
+
+This is a **named CMBOK Learn content area**. Treat it as tested content, not as a soft aside appended to the real material — the CMBOK puts it in the body of knowledge deliberately, and questions on it have credited answers like everything else.
+
+The substance:
+
+- **Sustainable workload and boundaries** are conditions of continued performance, not rewards for having achieved it. A workload that can only be met by permanently working beyond capacity is not a workload; it's a deficit being funded with someone's reserves.
+- **Burnout is an organizational risk**, and it is tested as one. It degrades **judgment, decision quality, and retention** — which in contract management is not an abstraction: it is missed notice deadlines, unreviewed clauses, unchallenged assumptions, and the institutional knowledge that walks out the door with the person who finally quits. The cost lands on the organization.
+- Burnout is **not a personal failing**, and the CMBOK's framing is deliberate on this. Treating it as one — as a resilience problem belonging to the individual — misdiagnoses the cause and guarantees the recurrence, because the next person into the role inherits the same conditions and produces the same result.
+
+**⚠ Trap.** The credited answer to chronic team overload is never the individual-level fix: resilience training, time-management coaching, a wellness program, or "encourage staff to take their leave." Those responses accept the workload as fixed and ask people to absorb it better. **Chronic overload is a capability problem** — a mismatch between demand and capacity — and the organizational answers are the credited ones: rebalance the workload, re-scope or re-sequence the demand, add capacity, fix the process generating the churn. If three successive people have burned out in the same role, the role is the finding.
+
+## Innovation
+
+Innovation, in the CMBOK's treatment, is not a flash of individual brilliance. It is **the conditions under which better approaches surface** — which means it is a leadership and organizational-design problem, and that framing is what gets tested.
+
+The conditions:
+
+- **Psychological safety.** People will not propose an unproven approach in an environment where being wrong is punished. Ideas don't fail to exist in those organizations; they fail to get said out loud. Everything else on this list is downstream of this one.
+- **Small pilots.** Test the new approach at a scale where failure is affordable and informative. A pilot is how you buy information about an idea without betting the program on it.
+- **Tolerance for intelligent failure.** Not tolerance for *carelessness* — the distinction is the point. An **intelligent failure** is a well-reasoned attempt at a genuine unknown, bounded in scale, from which you learned something you couldn't have learned otherwise. That is a successful experiment with a negative result, and an organization that punishes it will never run another one.
+
+**Innovation vs. novelty.** Genuine innovation is **a better way to achieve the outcome** — measurably faster, cheaper, lower-risk, or higher-performing against a need that actually exists. Novelty is new for its own sake: the new tool, the new framework, the pilot that generates a briefing and no change in results. The discriminator is always the **outcome**, not the newness. Ask what got better, and by how much.
+
+**The standing barrier is structural, and name it correctly:** **risk-averse process that makes trying anything new more expensive than tolerating the status quo.** When every deviation from the standard approach requires layers of justification, review, and personal exposure — while doing exactly what was done last time requires none — the organization has priced innovation out of existence without ever deciding to. Nobody chose this. It is the emergent result of a process that treats an unfamiliar failure as a scandal and a familiar one as a cost of doing business. The rational individual response is to stop proposing things, and people are rational.
+
+**⚠ Trap.** The wrong answer to "why doesn't this organization innovate" is a *people* answer — the staff are risk-averse, resistant to change, or lack creativity. The credited answer is a *systems* answer: the process penalizes trying. This is the same move as **root cause analysis** — look at the system that produced the behavior, not the character of the people in it. If the incentives punish experimentation, you will observe an organization full of people who don't experiment, and you will have learned nothing about the people.
+
 
 # Cross-cutting: Federal Statutes
 
