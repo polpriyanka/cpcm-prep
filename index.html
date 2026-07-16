@@ -4601,7 +4601,9 @@
     current: null,     // lesson id currently loaded
     utter: null,
     playing: false,
-    voices: []
+    voices: [],
+    queue: [],         // sentence-sized chunks of the current lesson
+    qi: 0              // index of the chunk being spoken
   };
   var K_AUDIO = "cpcm:audio-progress";
   state.audioDone = state.audioDone || {};
@@ -4670,38 +4672,89 @@
     });
   }
 
+  /* Web Speech silently fails on long utterances (Chrome/Edge cut off around
+     15 seconds / a few hundred chars). Split each lesson into sentence-sized
+     chunks and speak them in sequence so playback is continuous and reliable. */
+  function chunkScript(text){
+    var MAX = 200;
+    var sentences = text.replace(/\s+/g, " ").match(/[^.!?]+[.!?]+|\S[^.!?]*$/g) || [text];
+    // break any sentence longer than MAX at clause boundaries (— , ; :), then on spaces
+    var units = [];
+    sentences.forEach(function(s){
+      s = s.trim();
+      if(!s) return;
+      if(s.length <= MAX){ units.push(s); return; }
+      var parts = s.split(/(?<=[—,;:])\s+/);
+      parts.forEach(function(p){
+        while(p.length > MAX){
+          var cut = p.lastIndexOf(" ", MAX);
+          if(cut <= 0) cut = MAX;
+          units.push(p.slice(0, cut));
+          p = p.slice(cut).trim();
+        }
+        if(p) units.push(p);
+      });
+    });
+    var chunks = [], buf = "";
+    units.forEach(function(u){
+      if(buf && (buf.length + 1 + u.length) > MAX){ chunks.push(buf); buf = u; }
+      else { buf = buf ? buf + " " + u : u; }
+    });
+    if(buf) chunks.push(buf);
+    return chunks;
+  }
+
+  function speakNextChunk(){
+    if(!speech.playing) return;
+    if(speech.qi >= speech.queue.length){          // whole lesson finished
+      speech.playing = false;
+      if(speech.current) state.audioDone[speech.current] = true;
+      saveAudioProgress();
+      var done = LESSONS.filter(function(l){ return l.id===speech.current; })[0];
+      document.getElementById("a-status").textContent = (done ? done.title : "Lesson") + " — finished";
+      document.getElementById("a-fill").style.width = "100%";
+      renderAudio(); renderMast();
+      return;
+    }
+    var u = new SpeechSynthesisUtterance(speech.queue[speech.qi]);
+    u.rate = parseFloat(document.getElementById("a-rate").value) || 1;
+    var vIdx = document.getElementById("a-voice").value;
+    if(speech.voices[vIdx]) u.voice = speech.voices[vIdx];
+    u.onend = function(){
+      speech.qi++;
+      document.getElementById("a-fill").style.width = Math.round(speech.qi / speech.queue.length * 100) + "%";
+      speakNextChunk();
+    };
+    u.onerror = function(e){
+      if(e && e.error === "interrupted") return;   // expected on stop/restart
+      speech.playing = false;
+      document.getElementById("a-status").textContent = "Stopped";
+    };
+    speech.utter = u;
+    window.speechSynthesis.speak(u);
+  }
+
   function playLesson(id){
     if(!speech.supported) return;
     var lesson = LESSONS.filter(function(l){ return l.id===id; })[0];
     if(!lesson) return;
     window.speechSynthesis.cancel();
-    var u = new SpeechSynthesisUtterance(lesson.script);
-    var rate = parseFloat(document.getElementById("a-rate").value) || 1;
-    u.rate = rate;
-    var vIdx = document.getElementById("a-voice").value;
-    if(speech.voices[vIdx]) u.voice = speech.voices[vIdx];
-    u.onend = function(){
-      speech.playing = false;
-      state.audioDone[id] = true;
-      saveAudioProgress();
-      document.getElementById("a-status").textContent = lesson.title + " — finished";
-      document.getElementById("a-fill").style.width = "100%";
-      renderAudio(); renderMast();
-    };
-    u.onerror = function(){ speech.playing = false; document.getElementById("a-status").textContent = "Stopped"; };
-    u.onboundary = function(e){
-      if(e.charIndex){
-        var pct = Math.min(100, Math.round(e.charIndex / lesson.script.length * 100));
-        document.getElementById("a-fill").style.width = pct + "%";
-      }
-    };
-    speech.utter = u;
+    speech.queue = chunkScript(lesson.script);
+    speech.qi = 0;
     speech.current = id;
     speech.playing = true;
     document.getElementById("a-status").textContent = "Playing: " + lesson.title;
-    window.speechSynthesis.speak(u);
+    document.getElementById("a-fill").style.width = "0%";
+    speakNextChunk();
     renderAudio();
   }
+
+  /* Chrome pauses synthesis after ~15s of a queued run; nudge it awake while playing. */
+  setInterval(function(){
+    if(speech.supported && speech.playing && window.speechSynthesis.speaking && !window.speechSynthesis.paused){
+      window.speechSynthesis.pause(); window.speechSynthesis.resume();
+    }
+  }, 10000);
 
   document.getElementById("a-play").onclick = function(){
     if(!speech.supported) return;
@@ -4717,9 +4770,11 @@
   };
   document.getElementById("a-stop").onclick = function(){
     if(!speech.supported) return;
-    window.speechSynthesis.cancel();
     speech.playing = false;
+    speech.queue = [];
+    speech.qi = 0;
     speech.current = null;
+    window.speechSynthesis.cancel();
     document.getElementById("a-status").textContent = "Nothing playing";
     document.getElementById("a-fill").style.width = "0%";
     renderAudio();
