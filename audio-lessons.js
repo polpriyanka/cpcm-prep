@@ -437,5 +437,67 @@ Briefly now, legal entity structures. A sole proprietorship has no liability shi
 Finally, electronic contracting. Registration in the Government's central registration system is a precondition to award — no active registration, no contract. The exclusions list is where suspension and debarment actually bite, because that's what you check before awarding to anyone. Electronic signatures are not invalid merely because they are electronic. And contract writing and lifecycle management systems speed the work, but they never replace the contracting officer's judgment or the written contract itself. The system of record is evidence, not authority.
 
 To close, carry three things out of this lesson. First: Section L is how to propose, Section M is how you'll be evaluated, a mismatch between them is a sustained protest — and neither survives into the awarded contract. Second: an adequate accounting system is the price of admission to cost-reimbursement work, and the incurred-cost audit is why those contracts sit open in closeout. And third: assurance prevents, control detects, ISO certifies the system and not the product — and prevention is cheap while external failure is ruinous. That last one is the whole argument for building quality in rather than inspecting it in later.`
+},
+  {
+  id: "round10",
+  title: "Warranties, Specialized Areas & Award Mechanics",
+  minutes: 6,
+  script: `This lesson covers the final round of material — implied warranties, the personal-services and inherently-governmental pair, cybersecurity requirements, the quantitative pre-award tools, and a set of award mechanics that make for easy exam points.
+
+Start with the two implied warranties in the U-C-C, because telling them apart is exactly what gets tested. The implied warranty of merchantability arises when a merchant — someone who deals in goods of that kind — sells those goods. It promises the goods are fit for their ordinary purpose. Bread that's edible. A ladder that holds a person. Two elements to remember: merchant seller, ordinary purpose.
+
+The implied warranty of fitness for a particular purpose is different. It arises when the seller knows the buyer's particular purpose, and knows the buyer is relying on the seller's skill or judgment to select the goods. Any seller can give this one — merchant status doesn't matter. Tell a supplier the coating must survive continuous salt-water immersion, ask them to recommend one, and rely on their pick — that coating must survive salt water. If it performs fine in ordinary outdoor use but fails in the sea, merchantability is satisfied and fitness is breached. That exact contrast — goods fine for ordinary use, unfit for the known special use — is the scenario the exam builds.
+
+Disclaimers: merchantability can only be disclaimed with conspicuous language that mentions merchantability, or a conspicuous 'as is.' And 'as is' kills the implied warranties, but never the express warranties actually made, and never fraud.
+
+One more formation rule while we're in the U-C-C: a merchant's firm offer. At common law, an offer can be revoked any time before acceptance unless you paid for an option. Under the U-C-C, a merchant's signed written assurance to hold an offer open is irrevocable for the time stated, up to three months — no consideration needed.
+
+Now the personal-services and inherently-governmental pair. A personal services contract is one where contractor employees end up under continuous Government supervision — the Government directing individuals day to day, like employees. That's generally prohibited unless specifically authorized, because it circumvents civil-service hiring. And the test is supervision in fact, not what the contract calls itself.
+
+Inherently governmental functions are the flip side: exercising sovereign discretion — awarding contracts, deciding policy, adjudicating claims — must be done by Government personnel and cannot be contracted out. Contractors may analyze, model, and recommend. They may not decide, sign, or obligate. In any scenario, the tell is a contractor employee's signature or decision sitting where the Government's should be.
+
+Cybersecurity, quickly, because it's increasingly tested. Contracts carrying controlled unclassified information — C-U-I — require implementing specified security controls, flowing the requirement down to subcontractors, and rapidly reporting cyber incidents. Two points matter: safeguarding is a compliance obligation priced into performance, and failing to maintain the controls is a contract performance failure, not just an I-T problem. And on a fixed price, underestimating what compliance costs is the contractor's risk — there's no informal waiver.
+
+Next, the quantitative tools. The learning curve: unit cost declines by a fixed percentage every time cumulative quantity doubles. On an eighty percent curve, if unit one takes a thousand hours, unit two takes eight hundred, and unit four takes six hundred forty. The pricing implication: a follow-on lot priced at the same unit cost as the first lot ignores learning the Government should share.
+
+Economic order quantity balances two costs that move in opposite directions — ordering costs fall as orders get bigger, holding costs rise. E-O-Q is the size that minimizes the sum. Lease versus purchase is a life-cycle comparison over the full period of need — short or uncertain need and fast obsolescence favor leasing; long stable need favors buying. And a prompt-payment discount like two-ten net thirty annualizes to roughly thirty-six percent — which is why the default answer is take the discount if cash allows.
+
+Completing the incentive family: an award-term incentive rewards excellent performance with additional contract term — the prize is future business, not present fee. Multiple-incentive contracts combine cost, performance, and schedule incentives, and the design discipline is balance — if the contractor can profitably max one incentive while wrecking another, the structure failed, not the contractor. And a cost-sharing contract reimburses only a portion of costs with no fee — used when the contractor expects real commercial benefit and is effectively co-investing.
+
+Finally, award mechanics. Unbalanced pricing means line items are significantly overstated and understated even though the total looks fair — front-loaded early payments, lowballed options. It has to be analyzed when detected, and it can make an offer unacceptable; a fair total alone doesn't clear it. Buying in — bidding below cost to win — is not itself illegal; the danger is recovering the loss through change orders and follow-ons, and the Government's defense is anticipating exactly that.
+
+Before negotiating, the Government documents pre-negotiation objectives — minimum, target, maximum, and the analysis behind them — and afterward records the outcome in a price negotiation memorandum. Prepared positions, documented movement. And when a solicitation reserves the right to award without discussions, initial proposals stand as submitted — which is why offerors are warned to lead with their best terms, and why a proposal taking exception to a material term can't be accepted without discussions to remove it.
+
+Last one. Acceptance is conclusive — except latent defects, fraud, and gross mistakes amounting to fraud. A latent defect is one reasonable inspection couldn't have found, and it reopens what acceptance closed. A patent defect — one you could have caught — dies at acceptance. And at closeout, the release of claims means what it says: anything not expressly excepted on its face is gone. Scrub for unbilled costs before you sign, not after.`
+},
+  {
+  id: "round10b",
+  title: "EVMS, Foundations & Specialized Areas",
+  minutes: 6,
+  script: `This lesson covers the second half of the final material — the earned value system concepts, the framework chapter's organizational ideas, and the specialized contracting areas.
+
+Start with a distinction that sounds pedantic and isn't: E-V-M versus E-V-M-S. E-V-M is the arithmetic — cost variance, schedule variance, the indexes. An Earned Value Management System is the formal, disciplined system around that arithmetic: work organized through a work breakdown structure, budgets assigned to control accounts, accomplishment measured objectively, and — critically — changes to the performance measurement baseline controlled formally. Industry guidelines define what a compliant system does, and major acquisitions require contractors to maintain a validated E-V-M-S. So when a question says the contractor must maintain a validated system, it's asking about governance and baseline discipline, not about computing a variance.
+
+The performance measurement baseline — the P-M-B — is the time-phased budget plan you measure against. If the baseline moves informally, every variance loses meaning. Formal rebaselining exists for legitimate replans; silent baseline creep is the sin the whole system is built to prevent.
+
+The S-curve is how all of this gets visualized: cumulative planned value, earned value, and actual cost plotted over time — slow start, steep middle, flattening finish. The vertical gap between earned value and actual cost is your cost variance. Between earned value and planned value, your schedule variance. When a program review shows a plan curve and an actuals curve, you're reading an S-curve.
+
+And a basis of estimate — a B-O-E — is what turns a number into an argument. It documents the estimating method — parametric, analogy, or engineering build-up — the data sources, and the assumptions behind each element. An estimate without its basis is an assertion; with it, it can be evaluated, challenged, and negotiated element by element.
+
+Now the framework chapter's organizational ideas — easy Foundations points. Most contract managers work in a matrix organization: a functional home in the contracts organization for standards and career, plus assignment to a program for the actual work. Two chains, one person — the structure's strength is expertise deployed across programs, and its friction is serving two masters.
+
+Two input categories the exam likes to test as a sorting exercise. Organizational process assets are the things your organization owns: templates, playbooks, policies, lessons-learned repositories. Enterprise environmental factors are the conditions you operate in but don't control: the regulatory climate, market conditions, organizational culture. Assets are your tools; factors are your weather.
+
+Metrics operate at three levels: individual — is this person performing; contract — is this deal performing; and function — is the contract management organization itself performing, measured by things like cycle time, protest rate, and closeout backlog. Matching the metric to its level is the usual question format.
+
+And RACI: Responsible does the work, Accountable owns the outcome, Consulted gives input before, Informed hears after. The cardinal rule — exactly one Accountable per task. Shared accountability is diluted accountability.
+
+On to specialized areas. For research and development, the instrument follows the purpose. If the Government's principal purpose is acquisition — getting something for its own direct benefit — use a contract. If the purpose is assistance — stimulating or supporting research — use a grant or a cooperative agreement. And the Broad Agency Announcement is R&D's competitive technique: the Government publishes areas of interest and evaluation criteria, and each proposal is judged on its own scientific merit through peer review, rather than compared head to head against other proposals. That structural difference — competing against the standard, not each other — is the tested point.
+
+Information technology contracting has its own pressure points. A software license defines rights to use — seats, sites, versions — and a perpetual license is not the same as a subscription: perpetual rights survive, subscription rights end when payment stops, and maintenance rides separately. In cloud contracts, the terms that matter most sit at the exit: data ownership and transition rights — can you extract your data in usable form and migrate? If not, the incumbent owns your switching costs. And rapid obsolescence argues for shorter base periods with options rather than long firm commitments to aging technology.
+
+Three quick mechanics. Quick-closeout lets you settle final indirect rates early for low-value or low-remaining-balance contracts, instead of waiting years for the year's rates — small precision traded for enormous time. Payment withholding is a remedial lever, not a punishment: money held pending correction of a deficiency, released when it's cured. And interim billing rates are provisional — cost-type billings run on them all year, then true up when final rates settle after audit.
+
+And finally, the recognition-level items — worth one question each, and easy if you've simply heard them once. The labor statutes pair by contract category: Service Contract Act for services, Davis-Bacon for construction, Walsh-Healey for supplies. The trafficking clause is mandatory, flows down, and violations are ground for termination. The gratuities clause lets the Government terminate when a contractor gave gratuities to officials to win the award or favorable treatment. And electronic signatures are as effective as ink where the parties agreed to transact electronically — 'it wasn't signed in ink' is not a defense.`
 }
 ];

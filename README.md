@@ -11,7 +11,7 @@ Question bank current as of 2026-07-13 (399 questions); run the audit checklist 
 | File | What it is |
 |---|---|
 | `index.html` | Interactive study hub — question bank, mock exam, deficiency log, CPE ledger. Open in a browser or serve as the site. |
-| `audio-lessons.js` | Twelve spoken-narration lessons for the Audio Lessons tab (Web Speech API). |
+| `audio-lessons.js` | Fourteen spoken-narration lessons for the Audio Lessons tab (Web Speech API). |
 | `study-guide.js` | The study guide rendered for the in-app **Study Guide** tab. Auto-generated from `STUDY-GUIDE.md` by `gen-guide.py` — re-run after editing the guide. |
 | `STUDY-GUIDE.md` | The written curriculum. All CMBOK competencies, framework/foundations, protests and financing mechanics, plus the federal statutes cross-cut. |
 | `CNAME` | GitHub Pages custom domain config — points the repo at `contractmanagementncma.com`. |
@@ -54,7 +54,7 @@ Open `index.html` in any browser. No build step, no dependencies. Progress saves
 - **Mock Exam** — blueprint-weighted draws (20 up to full-length 180), real-exam pacing timer, scenario markers, per-question pacing report
 - **Deficiency Log** — every question you've missed, held open until you get it right, with miss-reason tagging (knowledge / misread / second-guessed)
 - **Study Guide** — the full written curriculum rendered in-app, with a jump-to-section table of contents and section filter
-- **Audio Lessons** — twelve spoken lessons (~92 min) via the device's text-to-speech
+- **Audio Lessons** — fourteen spoken lessons (~110 min) via the device's text-to-speech
 - **CPE Ledger** — tracks progress toward the 120 hours required to apply
 - **Exam Facts** — fees, thresholds, the official exam blueprint, sequence to certification
 
