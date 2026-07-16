@@ -4759,8 +4759,11 @@
   document.getElementById("a-play").onclick = function(){
     if(!speech.supported) return;
     if(window.speechSynthesis.paused){ window.speechSynthesis.resume(); speech.playing = true; renderAudio(); return; }
-    if(speech.current){ playLesson(speech.current); }
-    else if(LESSONS.length){ playLesson(LESSONS[0].id); }
+    if(speech.current){ playLesson(speech.current); return; }   // resume/replay the active lesson
+    // no lesson chosen yet — don't auto-play the intro; point to the list instead
+    document.getElementById("a-status").textContent = "Pick a lesson below and press its ▶ Play this lesson";
+    var first = document.querySelector("#audio-list .play-lesson");
+    if(first) first.scrollIntoView({behavior:"smooth", block:"center"});
   };
   document.getElementById("a-pause").onclick = function(){
     if(!speech.supported) return;
