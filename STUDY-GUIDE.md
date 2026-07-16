@@ -84,6 +84,14 @@ The Foundations questions test NCMA's own machinery, not contracting law:
 
 ---
 
+## Organizational influences and performance metrics (CMBOK Ch. 1)
+
+The framework chapter treats the **environment around the contract** as part of the discipline: organizational structure (functional / **matrix** / projectized — contract managers usually operate in a **matrix**, serving a program while reporting functionally), organizational **process assets** (templates, lessons learned, policies — the tools you *own*) and **enterprise environmental factors** (regulation, market, culture — the conditions you operate *in* but don't control) as inputs to every phase, and **metrics** at three levels — individual, contract, and function/organization. The Ch. 1 point the exam likes: contract management outcomes are shaped by the *organization's* maturity and structure, not just the CM's skill — the same insight the maturity model (CMMM) formalizes.
+
+**RACI.** Responsible (does the work), Accountable (owns the outcome — exactly **one** per task), Consulted (input before), Informed (told after). The tested rule: one and only one Accountable — shared accountability is diluted accountability.
+
+---
+
 # 1. Guiding Principles
 
 *The foundation. Everything else is applied on top of this.*
@@ -260,6 +268,30 @@ the correct next move, not a lawsuit.
 Certain contracts must be **in writing** to be enforceable — most exam-relevantly:
 sale of goods **$500 or more** (UCC), contracts not performable within one year, and
 suretyship promises. Full performance can take a contract out of it.
+
+---
+
+## Implied warranties — merchantability and fitness
+
+Two implied warranties ride along in UCC goods sales unless properly disclaimed:
+
+- **Merchantability** (seller is a *merchant* in goods of that kind): the goods are fit for their **ordinary purpose** — bread that's edible, a ladder that holds a person.
+- **Fitness for a particular purpose** (any seller): arises when the seller **knows the buyer's particular purpose** and knows the buyer is **relying on the seller's skill or judgment** to select the goods. Buy "a pump" after telling the seller it must move slurry uphill 300 feet, and the pump must do *that*.
+
+Disclaimers: merchantability can be disclaimed only by **conspicuous** language that mentions merchantability (or "as is"); fitness requires a conspicuous writing. **⚠ Tested distinction:** merchantability needs a *merchant seller* and covers *ordinary* use; fitness needs *known particular purpose plus reliance*. An "as is" sale disclaims the implied warranties but never the express warranties actually made, and never fraud. An **express warranty** arises from any affirmation of fact, promise, description, or sample that becomes part of the basis of the bargain — the word "warranty" is not required; "delivers 40 gallons per minute" warrants, "terrific pump" is puffery.
+
+## Personal services and inherently governmental functions
+
+- A **personal services contract** creates what looks like an **employer-employee relationship** between the Government and contractor personnel — continuous Government **supervision and control** of individuals is the tell. These are generally **prohibited** unless specifically authorized, because they circumvent civil service hiring. The test is supervision *in fact*, not the contract's label.
+- **Inherently governmental functions** — exercising sovereign discretion: awarding contracts, determining agency policy, commanding forces, adjudicating claims — **must be performed by Government personnel** and may not be contracted out. Contractors may *support* (analysis, recommendations) but not *decide*. **Scenario tell:** a contractor employee signing modifications or making the source selection decision.
+
+## Cybersecurity and CUI
+
+Contracts increasingly carry **safeguarding requirements for Controlled Unclassified Information (CUI)** — implementing specified security controls (NIST SP 800-171 family in federal practice), **flowing the requirement down** to subcontractors, and **rapidly reporting cyber incidents**. Two exam-relevant points: safeguarding is a *compliance obligation priced into performance*, and failure to maintain required controls is a **performance failure** — not merely an IT department problem. Emerging regimes phase in third-party **certification** of contractor cybersecurity maturity.
+
+## Labor-standards overlay (recognition level)
+
+A family of statutes rides on federal contracts by category: **Service Contract Act** (service employees — prevailing wages/fringes), **Davis-Bacon** (construction laborers), **Walsh-Healey** (supply contracts — wage/hour standards), plus conduct-of-business clauses: **equal opportunity/affirmative action**, **drug-free workplace**, and **combating trafficking in persons** (mandatory clause; violations are ground for termination). **Exam expectation:** recognize which statute attaches to which contract category — services / construction / supplies — not administer them.
 
 ---
 
@@ -531,6 +563,23 @@ ACAT detail is more CFCM/CDCM territory; the CPCM tests the concept.)
 
 ---
 
+## Specialized contracting areas
+
+**Information technology.** IT contracting's distinctive issues: **license scope** (seats, sites, enterprise; perpetual vs. subscription), **cloud/SaaS terms** (data ownership, exit/transition rights, service-level agreements with remedies), **maintenance and support** as separately priced streams, and rapid obsolescence favoring shorter terms with options over long firm commitments. A **perpetual** license grants indefinite rights to *that version* with maintenance priced separately; a **subscription** ends when payment stops. The recurring trap: treating a software license like a goods purchase — you're buying defined *rights to use*, and the license terms, not delivery, define what you got. **⚠ Cloud lock-in lives at the exit:** if the contract doesn't guarantee data extraction in usable form and reasonable transition support, the incumbent owns your switching costs and your next "competition" is theater.
+
+**Research & development.** R&D contracting selects instruments by **technical uncertainty** and by **purpose**: grants and cooperative agreements when the principal purpose is *assistance* (stimulating/supporting research), not *acquisition* for the Government's direct benefit; **Broad Agency Announcements (BAAs)** to solicit proposals for basic and applied research — a competitive technique where proposals are peer/scientific-reviewed against published criteria rather than compared head-to-head against each other; and cost-type contracts predominate because the outcome genuinely can't be priced. Data rights and publication rights loom larger than in production buying.
+
+**Architect-engineer and construction** are covered above; the cross-cutting point: specialized areas keep the same lifecycle and principles — what changes is the risk profile and the statutory overlay.
+
+## Quantitative pre-award tools
+
+- **Lease vs. purchase**: compare total costs over the **full period of need** — purchase price, maintenance, disposal/residual value vs. lease payments and end-of-term terms. Short/uncertain need and high obsolescence favor **leasing**; long stable need favors **purchase**. It's a life-cycle-cost comparison, not a first-year cash comparison.
+- **Learning curve**: unit cost/labor **declines by a predictable percentage each time cumulative quantity doubles** (an "80% curve": unit 2 costs 80% of unit 1; unit 4 costs 80% of unit 2). Used in pricing production quantities and challenging follow-on prices — a follow-on priced at the *same* unit cost as the first lot ignores learning the Government should share.
+- **Economic order quantity (EOQ)**: the order size minimizing the sum of **ordering costs** (fall with bigger orders) and **holding costs** (rise with bigger orders). The concept tested: the tradeoff, not the formula.
+- **Prompt payment discounts** (e.g., "2/10 net 30"): a seller-offered discount for early payment; take it when the implied annualized return exceeds the cost of funds — 2/10 net 30 implies roughly a 36% effective annual rate, which is why the default answer is "take the discount if cash permits."
+
+---
+
 # 2B. Solicitation Structure & Contract Format
 
 *The Uniform Contract Format is free points. It is pure recall, it is tested directly, and candidates lose it because it looks too clerical to study.*
@@ -671,6 +720,22 @@ Two different questions, policing opposite directions:
   Government pays actuals — a lowball proposal is a hidden cost, not a bargain. The
   evaluator adjusts to a **most probable cost** for evaluation, so unrealistic
   proposals get evaluated **up**, not rewarded.
+
+---
+
+## Completing the incentive family
+
+- **Award-term incentive**: superior performance is rewarded with **additional contract term** (extensions) rather than additional fee — the incentive is future business. Poor performance shortens the horizon. Distinguish from award *fee*, which pays money against subjective criteria period by period.
+- **Multiple-incentive contracts** combine incentives (cost + performance + schedule). The discipline: incentives must be **balanced so improving one target can't profitably wreck another** — a schedule bonus that outweighs the cost-overrun share buys you an expensive early delivery. Structuring the tradeoff is the tested concept; a contractor gaming one lever is the *structure's* failure, not the contractor's.
+- **Cost-sharing contracts**: the contractor is reimbursed only an agreed **portion** of costs and receives **no fee** — used when the contractor expects substantial commercial benefit from the work (it's co-investing, not just performing).
+
+## Award mechanics worth knowing cold
+
+- **Unbalanced pricing** — line items significantly over- and understated relative to cost, even when the total is fair. The risks: front-loaded payments (inflated early CLINs), lowballed options that distort the evaluated price, and buy-in positioning. Analysis of unbalancing is required when detected, and a materially unbalanced offer can be rejected — **total-price reasonableness alone does not clear it.**
+- **Buying in** — offering below cost to win is *not itself prohibited*; the danger is recovery through change orders or sole-source follow-ons. The Government's defense is anticipation: tight change control, priced options, skepticism toward post-award growth.
+- **Pre-negotiation objectives** — before negotiating, document minimum/target/maximum positions and their analytical basis; afterward, the **post-negotiation memorandum (price negotiation memorandum)** records where the deal landed and why movement from objectives was justified. Together they make the negotiation auditable.
+- **Award without discussions** — when the solicitation reserves this right, initial proposals must stand as submitted (hence the standard warning: submit your best terms up front). A proposal **taking exception to a material term cannot be accepted** without discussions to remove the exception.
+- **Price realism on FFP** — where the solicitation allows it, an unrealistically low fixed price informs *risk and responsibility* judgments; unlike cost realism on cost-type work, it does **not** let you adjust the evaluated price upward. A too-good price is a flag to investigate, not free money and not automatic disqualification.
 
 ---
 
@@ -991,6 +1056,21 @@ The cost escalates by roughly an order of magnitude at each step, and the rankin
 
 ---
 
+
+## Quick-closeout and withholds
+
+- **Quick-closeout** permits settling final indirect rates for a **low-value or low-remaining-balance** contract *before* final rates are negotiated for the year — trading a bit of precision for years of waiting. It's the designed answer to the "closeout stalls on rate settlement" problem for small residual amounts.
+- **Payment withholding/retainage**: amounts held back pending corrective action or completion (e.g., inadequate business systems, incomplete work) — a **performance lever**, released when the condition is cured. Remedial, not punitive.
+
+## Acceptance finality, rates, and the release
+
+- **Latent defects after acceptance.** Acceptance is conclusive **except** for latent defects, fraud, and gross mistakes amounting to fraud — plus any express warranty rights. A latent defect (not discoverable by reasonable inspection) reopens what acceptance closed; a **patent defect dies at acceptance**. The remedy angle: the Government can revoke acceptance / require correction for the latent defect it could not have found.
+- **Interim (provisional) vs. final indirect rates.** Cost-type billing runs all year on provisional rates; final rates settle after audit/negotiation and prior billings **true up** in either direction. This true-up is the mechanical reason closeout waits on rate settlement — and the problem quick-closeout exists to bypass for small residual balances.
+- **Release of claims at closeout.** The release means what it says: claims not expressly excepted on its face are extinguished. The professional discipline is scrubbing for unbilled costs and open items *before* signing, and listing genuine exceptions in the release itself. "We found it after we signed" is usually a dead claim.
+- **Change-of-name vs. novation.** A **change-of-name agreement** recognizes the *same legal entity* under a new name — no transfer of obligations. A **novation** substitutes a *successor entity* with Government consent, transfer of assets, and assumption of obligations. Same entity → administrative; different entity → novation.
+- **Post-award orientation (kickoff)** aligns both teams on the contract *as written* — roles, authorities, reporting, invoicing — before problems take root. It is explicitly **not** a forum to change the deal; understandings that contradict the contract belong in a modification or nowhere.
+
+---
 
 # 4B. Financing, Payment & Contract Mechanics
 
@@ -1328,6 +1408,18 @@ Driven by: **core competency**, capacity, risk, IP position, long-term supply se
 The correct instinct when a disruption threatens a milestone: **notify the buyer promptly and evaluate options jointly.**
 
 **⚠ Trap.** Silent absorption — "we'll fix it before anyone notices" — is the common and damaging instinct. By the time it surfaces, the buyer has lost the chance to help and has reason to doubt everything else you report. Prompt notice preserves options, preserves entitlement, and preserves credibility.
+
+---
+
+## EVMS as a system, and the S-curve
+
+**EVM math is not EVMS.** An **Earned Value Management System** is the formal, disciplined system — organizing work through a WBS, assigning budgets to control accounts, scheduling, measuring accomplishment objectively, controlling changes to the **performance measurement baseline (PMB)**, and forecasting. Industry guidelines (the **EIA-748** family) define what a compliant system does; on major acquisitions, contractors must maintain a **validated EVMS**. So a question about "EVMS requirements" is about the *system's* discipline, not about CPI arithmetic. The **PMB** is the time-phased budget you measure against; if it moves informally, every variance loses meaning — controlled **rebaselining** exists for legitimate replans, and silent baseline creep is the sin the system prevents.
+
+**The S-curve** is cumulative cost/value plotted over time — slow start, steep middle, flattening finish. Plotting **PV, EV, and AC as three cumulative curves** turns variances into geometry: the vertical gap between EV and AC is cost variance; between EV and PV, schedule variance. When someone shows a "spend curve" against a "plan curve," they're showing you an S-curve comparison.
+
+**WBS and Gantt.** The **WBS** decomposes the full scope into hierarchical elements against which cost, schedule, and responsibility attach — the backbone that makes EVM possible. A **Gantt chart** displays activities as horizontal bars against a calendar — the standard schedule visualization, showing duration, overlap, and progress (but not, by itself, the critical-path logic; **network diagrams** carry the dependencies).
+
+**Basis of estimate (BOE)** turns a number into an argument: it records the method (parametric, analogy, engineering build-up), data sources, and assumptions behind each element, making the estimate auditable and negotiable. A number without its BOE is an assertion.
 
 ---
 

@@ -16,6 +16,9 @@ Question bank current as of 2026-07-13 (399 questions); run the audit checklist 
 | `STUDY-GUIDE.md` | The written curriculum. All CMBOK competencies, framework/foundations, protests and financing mechanics, plus the federal statutes cross-cut. |
 | `CNAME` | GitHub Pages custom domain config — points the repo at `contractmanagementncma.com`. |
 
+
+> **Editing the study guide:** `STUDY-GUIDE.md` is the source of truth, but the in-app **Study Guide** reader tab renders `study-guide.js`, which is *generated* from it by `gen-guide.py`. After ANY edit to `STUDY-GUIDE.md`, run `python3 gen-guide.py` to regenerate the embedded reader — otherwise the in-app tab shows stale content. Verify by opening the Study Guide tab and confirming the new sections appear.
+
 ## Deploying to contractmanagementncma.com
 
 The domain's future scope isn't decided yet — could stay just the study hub, could grow into a publishing site later (publishing articles on contract management counts toward CPE, which is directly relevant here). Deploying at the **root domain** now keeps both options open: expanding later just means adding paths, not restructuring.
