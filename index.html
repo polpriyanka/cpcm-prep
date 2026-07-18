@@ -517,9 +517,10 @@
           <p>Try Safari or Chrome on desktop or iOS — both support built-in text-to-speech.</p>
         </div>
         <div id="audio-controls" class="btnrow" style="margin-bottom:16px">
-          <button class="btn" id="a-play">▶ Play</button>
+          <button class="btn ghost" id="a-play">Resume</button>
           <button class="btn ghost" id="a-pause">Pause</button>
           <button class="btn ghost" id="a-stop">Stop</button>
+          <span class="status" style="margin-left:4px">&larr; use each lesson's own <b>Play this lesson</b> button to start</span>
           <select id="a-rate" style="width:auto">
             <option value="0.8">0.8× — slower</option>
             <option value="1" selected>1.0× — normal</option>
@@ -4726,11 +4727,13 @@
       speakNextChunk();
     };
     u.onerror = function(e){
-      if(e && e.error === "interrupted") return;   // expected on stop/restart
+      var err = e && e.error;
+      if(err === "interrupted" || err === "canceled") return;   // expected on stop/restart
       speech.playing = false;
-      document.getElementById("a-status").textContent = "Stopped";
+      document.getElementById("a-status").textContent = "Audio error: " + (err || "unknown") + " — try a different voice";
     };
     speech.utter = u;
+    try { window.speechSynthesis.resume(); } catch(_){}   // clear any stuck paused state
     window.speechSynthesis.speak(u);
   }
 
@@ -4745,16 +4748,10 @@
     speech.playing = true;
     document.getElementById("a-status").textContent = "Playing: " + lesson.title;
     document.getElementById("a-fill").style.width = "0%";
-    speakNextChunk();
     renderAudio();
+    /* small delay: Chrome mishandles speak() called immediately after cancel() */
+    setTimeout(speakNextChunk, 90);
   }
-
-  /* Chrome pauses synthesis after ~15s of a queued run; nudge it awake while playing. */
-  setInterval(function(){
-    if(speech.supported && speech.playing && window.speechSynthesis.speaking && !window.speechSynthesis.paused){
-      window.speechSynthesis.pause(); window.speechSynthesis.resume();
-    }
-  }, 10000);
 
   document.getElementById("a-play").onclick = function(){
     if(!speech.supported) return;
